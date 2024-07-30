@@ -1,0 +1,58 @@
+{{ .EnableAllLanguages }}
+{{/* Get remote data. */}}
+{{ $data := dict }}
+{{ $sessionizeId := .Site.Params.themes.conference.sessionizeId }}
+{{ if not $sessionizeId }}
+  {{ errorf "No Sessionized ID found! Did you set it in the site parameters?" }}
+{{ end }}
+{{ $url := printf "https://sessionize.com/api/v2/%s/view/all" $sessionizeId }}
+{{ with resources.GetRemote $url }}
+  {{ with .Err }}
+    {{ errorf "Unable to get remote resource %s: %s" $url . }}
+  {{ else }}
+    {{ $data = . | transform.Unmarshal }}
+  {{ end }}
+{{ else }}
+  {{ errorf "Unable to get remote resource %s" $url }}
+{{ end }}
+
+{{/* Add pages and page resources. */}}
+{{ range $data.speakers }}
+
+  {{/* Add page. */}}
+  {{ $content := dict "mediaType" "text/markdown" "value" .bio }}
+  {{ $sessionIds := apply .sessions "cast.ToString" "." }}
+  {{ $sessions := where $data.sessions "id" "in" $sessionIds }}
+  {{ $params := dict "links" .links "tagLine" .tagLine "sessions" $sessions "isTopSpeaker" .isTopSpeaker }}
+  {{ $page := dict
+    "content" $content
+    "kind" "page"
+    "params" $params
+    "path" .fullName
+    "title" .fullName
+  }}
+  {{ $.AddPage $page }}
+
+  {{/* Add page resource. */}}
+  {{ $item := . }}
+  {{ with $url := $item.profilePicture }}
+    {{ with resources.GetRemote $url }}
+      {{ with .Err }}
+        {{ errorf "Unable to get remote resource %s: %s" $url . }}
+      {{ else }}
+        {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
+        {{ $params := dict "alt" $item.fullName }}
+        {{ $resource := dict
+          "content" $content
+          "params" $params
+          "path" (printf "%s/avatar.%s" $item.fullName .MediaType.SubType)
+        }}
+        {{ $.AddResource $resource }}
+      {{ end }}
+    {{ else }}
+      {{ errorf "Unable to get remote resource %s" $url }}
+    {{ end }}
+  {{ end }}
+
+{{ end }}
+

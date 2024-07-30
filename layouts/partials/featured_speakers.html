@@ -1,0 +1,22 @@
+<ul>
+{{- range where .Site.Pages "Section" "speakers" }}
+    {{- if .Params.isTopSpeaker }}
+        <li>
+            <a href="{{- .RelPermalink }}">{{- .Title }}</a>
+
+            <p>
+            {{- with .Resources.GetMatch "avatar.*" }}
+            <img
+                src="{{- .RelPermalink }}"
+                width="100"
+                height="100"
+                alt="{{- .Params.alt }}"
+            />
+            {{- end }}
+            </p>
+
+            <p><small>{{- .Params.tagLine }}</small></p>
+        </li>
+    {{- end }}
+{{- end }}
+</ul>

@@ -1,4 +1,10 @@
 {{ define "main" }}
-This theme only supports generated content. You can add your own content by
-creating a new layout file in your site's layouts directory. 
+
+<article>
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+  <section>{{ .Content }}</section>
+</article>
+
 {{ end }}

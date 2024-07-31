@@ -29,7 +29,7 @@
     "content" $content
     "kind" "page"
     "params" $params
-    "path" .title
+    "path" (printf "%s %s" .title .id)
     "title" .title
   }}
   {{ $.AddPage $page }}

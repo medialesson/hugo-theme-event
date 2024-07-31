@@ -24,11 +24,12 @@
   {{ $sessionIds := apply .sessions "cast.ToString" "." }}
   {{ $sessions := where $data.sessions "id" "in" $sessionIds }}
   {{ $params := dict "links" .links "tagLine" .tagLine "sessions" $sessions "isTopSpeaker" .isTopSpeaker }}
+  {{ $path := (printf "%s %s" .fullName .id) }}
   {{ $page := dict
     "content" $content
     "kind" "page"
     "params" $params
-    "path" .fullName
+    "path" $path
     "title" .fullName
   }}
   {{ $.AddPage $page }}
@@ -45,7 +46,7 @@
         {{ $resource := dict
           "content" $content
           "params" $params
-          "path" (printf "%s/avatar.%s" $item.fullName .MediaType.SubType)
+          "path" (printf "%s/avatar.%s" $path .MediaType.SubType)
         }}
         {{ $.AddResource $resource }}
       {{ end }}

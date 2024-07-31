@@ -21,5 +21,17 @@
       </ul>
     </nav>
     {{ block "main" . }} {{ end }}
+
+    <footer>
+      <small>
+        <nav>
+          {{- range site.Menus.footer }}
+          <a href="{{ .URL }}">
+            {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
+          </a>
+          {{- end }}
+        </nav>
+      </small>
+    </footer>
   </body>
 </html>

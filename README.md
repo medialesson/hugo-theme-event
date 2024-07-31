@@ -40,3 +40,19 @@ Create a website for your [Sessionize](https://sessionize.com/) conference withi
     hugo server
     ```
 7. View you conference website on http://localhost:1313/.
+
+### Configuration
+
+#### Add custom pages to the footer menu
+
+In the `content/` folder of your Hugo project create a Markdown file for the
+designated language (e.g., `privacy-policy.en.md`). In the front matter, set the
+menu entry to `footer`. For more configuration options, please refer to
+[the official Hugo documentation](https://gohugo.io/content-management/menus/#define-in-front-matter).
+
+```yaml
+---
+title: Privacy Policy
+menu: footer
+---
+```

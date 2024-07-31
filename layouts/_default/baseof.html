@@ -7,8 +7,7 @@
   </head>
   <body>
     <nav>
-      <a href="{{ site.Home.Permalink }}">{{ or (T "menu_home") "Home" | safeHTML }}</a>
-      ⋄ {{- range site.Menus.main }}
+      {{- range site.Menus.main }}
       <a href="{{ .URL }}">
         {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
       </a>
@@ -16,7 +15,7 @@
 
       <ul>
         {{ range $.Site.Home.AllTranslations }}
-        <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+        <li><a href="{{ .RelPermalink }}">{{ .Language }}</a></li>
         {{ end }}
       </ul>
     </nav>

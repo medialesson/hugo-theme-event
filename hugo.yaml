@@ -1,0 +1,45 @@
+languages:
+  en:
+    menus:
+      main:
+        - identifier: home
+          pageRef: /
+          weight: 10
+        - identifier: sessions
+          pageRef: /sessions
+          weight: 20
+        - identifier: speakers
+          pageRef: /speakers
+          weight: 30
+        - identifier: code_of_conduct
+          pageRef: /code-of-conduct
+          weight: 40
+  de:
+    menus:
+      main:
+        - identifier: home
+          pageRef: /
+          weight: 10
+        - identifier: sessions
+          pageRef: /sessions
+          weight: 20
+        - identifier: speakers
+          pageRef: /speakers
+          weight: 30
+        - identifier: code_of_conduct
+          pageRef: /code-of-conduct
+          weight: 40
+menus:
+  main:
+    - identifier: home
+      pageRef: /
+      weight: 10
+    - identifier: sessions
+      pageRef: /sessions
+      weight: 20
+    - identifier: speakers
+      pageRef: /speakers
+      weight: 30
+    - identifier: code_of_conduct
+      pageRef: /code-of-conduct
+      weight: 40

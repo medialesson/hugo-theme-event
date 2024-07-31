@@ -29,7 +29,6 @@ Create a website for your [Sessionize](https://sessionize.com/) conference withi
 the following sample:
     ```yaml
     theme: conference
-    sectionPagesMenu: main
     params:
         themes:
             conference:

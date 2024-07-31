@@ -3,7 +3,7 @@
 {{ $data := dict }}
 {{ $sessionizeId := .Site.Params.themes.conference.sessionizeId }}
 {{ if not $sessionizeId }}
-  {{ errorf "No Sessionized ID found! Did you set it in the site parameters?" }}
+  {{ errorf "No Sessionize ID found! Did you set it in the site parameters?" }}
 {{ end }}
 {{ $url := printf "https://sessionize.com/api/v2/%s/view/all" $sessionizeId }}
 {{ with resources.GetRemote $url }}

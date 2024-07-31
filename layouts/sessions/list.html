@@ -1,7 +1,7 @@
 {{ define "main" }}
-{{ range .Pages.GroupByParam "date" }}
+{{ range .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
   <h2>{{ .Key | time.Format ":date_short" }}</h2>
-    {{ range .Pages.GroupByParam "startsAt" }}
+    {{ range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
       <h3>{{ .Key | time.Format ":time_short" }}</h3>
       <ul>
       {{ range .Pages }}

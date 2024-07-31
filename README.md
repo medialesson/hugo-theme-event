@@ -24,9 +24,12 @@ Create a website for your [Sessionize](https://sessionize.com/) conference withi
     ```shell
     git clone https://github.com/medialesson/hugo-theme-conference.git themes/conference
     ```
-5. Set the theme and the Sessionize endpoint ID of your [Hugo configuration](https://gohugo.io/getting-started/configuration/) like in the following sample:
+5. Set the `theme`, `sectionPagesMenu` and the Sessionize endpoint ID of your
+[Hugo configuration](https://gohugo.io/getting-started/configuration/) like in
+the following sample:
     ```yaml
     theme: conference
+    sectionPagesMenu: main
     params:
         themes:
             conference:

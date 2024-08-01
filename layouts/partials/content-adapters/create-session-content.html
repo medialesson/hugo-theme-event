@@ -1,0 +1,23 @@
+{{ $input := . }}
+{{ $pages := slice }}
+{{ $resources := slice }}
+
+{{ range $input.sessions }}
+  {{ $startsAt := .startsAt | time.AsTime }}
+  {{ $date := $startsAt | time.Format "2006-01-02" | time.AsTime }}
+  {{ $room := index (where $input.rooms "id" "eq" .roomId) 0 }}
+    
+  {{/* Add page. */}}
+  {{ $content := dict "mediaType" "text/markdown" "value" .description }}
+  {{ $params := dict "date" $date "startsAt" $startsAt "room" $room "isServiceSession" .isServiceSession }}
+  {{ $page := dict
+    "content" $content
+    "kind" "page"
+    "params" $params
+    "path" (printf "%s %s" .title .id)
+    "title" .title
+  }}
+  {{ $pages = $pages | append $page }}
+{{ end }}
+
+{{ return dict "pages" $pages "resources" $resources }}

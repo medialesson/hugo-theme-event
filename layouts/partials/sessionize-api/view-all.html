@@ -1,0 +1,17 @@
+{{/* Get remote data. */}}
+{{ $data := dict }}
+{{ if not .sessionizeId }}
+  {{ errorf "No Sessionize ID found! Did you set it in the site parameters?" }}
+{{ end }}
+{{ $url := printf "https://sessionize.com/api/v2/%s/view/all" .sessionizeId }}
+{{ with resources.GetRemote $url }}
+  {{ with .Err }}
+    {{ errorf "Unable to get remote resource %s: %s" $url . }}
+  {{ else }}
+    {{ $data = . | transform.Unmarshal }}
+  {{ end }}
+{{ else }}
+  {{ errorf "Unable to get remote resource %s" $url }}
+{{ end }}
+
+{{ return $data }}

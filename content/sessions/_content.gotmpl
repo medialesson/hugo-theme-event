@@ -1,37 +1,15 @@
 {{ .EnableAllLanguages }}
-{{/* Get remote data. */}}
-{{ $data := dict }}
-{{ $sessionizeId := .Site.Params.themes.conference.sessionizeId }}
-{{ if not $sessionizeId }}
-  {{ errorf "No Sessionize ID found! Did you set it in the site parameters?" }}
-{{ end }}
-{{ $url := printf "https://sessionize.com/api/v2/%s/view/all" $sessionizeId }}
-{{ with resources.GetRemote $url }}
-  {{ with .Err }}
-    {{ errorf "Unable to get remote resource %s: %s" $url . }}
-  {{ else }}
-    {{ $data = . | transform.Unmarshal }}
+
+{{ if .Site.Params.themes.conference.enableSessionPages }}
+  {{ $context := dict "sessionizeId" .Site.Params.themes.conference.sessionizeId }}
+  {{ with partialCached "sessionize-api/view-all.html" $context }}
+    {{ with partial "content-adapters/create-session-content.html" . }}
+      {{ range .pages }}
+        {{ $.AddPage . }}
+      {{ end }}
+      {{ range .resources }}
+        {{ $.AddResource . }}
+      {{ end }}
+    {{ end }}
   {{ end }}
-{{ else }}
-  {{ errorf "Unable to get remote resource %s" $url }}
-{{ end }}
-
-{{/* Add pages and page resources. */}}
-{{ range $data.sessions }}
-  {{ $startsAt := .startsAt | time.AsTime }}
-  {{ $date := $startsAt | time.Format "2006-01-02" | time.AsTime }}
-  {{ $room := index (where $data.rooms "id" "eq" .roomId) 0 }}
-    
-  {{/* Add page. */}}
-  {{ $content := dict "mediaType" "text/markdown" "value" .description }}
-  {{ $params := dict "date" $date "startsAt" $startsAt "room" $room "isServiceSession" .isServiceSession }}
-  {{ $page := dict
-    "content" $content
-    "kind" "page"
-    "params" $params
-    "path" (printf "%s %s" .title .id)
-    "title" .title
-  }}
-  {{ $.AddPage $page }}
-
-{{ end }}
+{{ end}}

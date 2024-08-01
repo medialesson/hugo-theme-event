@@ -1,45 +1,17 @@
 languages:
   en:
-    menus:
-      main:
-        - identifier: home
-          pageRef: /
-          weight: 10
-        - identifier: sessions
-          pageRef: /sessions
-          weight: 20
-        - identifier: speakers
-          pageRef: /speakers
-          weight: 30
-        - identifier: code_of_conduct
-          pageRef: /code-of-conduct
-          weight: 40
+    disabled: false
   de:
-    menus:
-      main:
-        - identifier: home
-          pageRef: /
-          weight: 10
-        - identifier: sessions
-          pageRef: /sessions
-          weight: 20
-        - identifier: speakers
-          pageRef: /speakers
-          weight: 30
-        - identifier: code_of_conduct
-          pageRef: /code-of-conduct
-          weight: 40
-menus:
-  main:
-    - identifier: home
-      pageRef: /
-      weight: 10
-    - identifier: sessions
-      pageRef: /sessions
-      weight: 20
-    - identifier: speakers
-      pageRef: /speakers
-      weight: 30
-    - identifier: code_of_conduct
-      pageRef: /code-of-conduct
-      weight: 40
+    disabled: false
+
+params:
+  themes:
+    conference:
+      conferenceName: Lukas' Conference 2025
+      # 👇 Fetch the ID of your conference's API endpoint from
+      # 👇 https://sessionize.com/app/organizer/schedule/api/0
+      # 👇 and enter it here.
+      sessionizeId:
+      favicon: "favicon.ico"
+      enableSpeakerPages: true
+      enableSessionPages: true

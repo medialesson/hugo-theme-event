@@ -1,0 +1,42 @@
+{{ $input := . }}
+{{ $pages := slice }}
+{{ $resources := slice }}
+
+{{ range $input.speakers }}
+  {{ $content := dict "mediaType" "text/markdown" "value" .bio }}
+  {{ $sessionIds := apply .sessions "cast.ToString" "." }}
+  {{ $sessions := where $input.sessions "id" "in" $sessionIds }}
+  {{ $params := dict "links" .links "tagLine" .tagLine "sessions" $sessions "isTopSpeaker" .isTopSpeaker }}
+  {{ $path := (printf "%s %s" .fullName .id) }}
+  {{ $page := dict
+    "content" $content
+    "kind" "page"
+    "params" $params
+    "path" $path
+    "title" .fullName
+  }}
+  {{ $pages = $pages | append $page }}
+
+  {{/* Add page resource. */}}
+  {{ $item := . }}
+  {{ with $url := $item.profilePicture }}
+    {{ with resources.GetRemote $url }}
+      {{ with .Err }}
+        {{ errorf "Unable to get remote resource %s: %s" $url . }}
+      {{ else }}
+        {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
+        {{ $params := dict "alt" $item.fullName }}
+        {{ $resource := dict
+          "content" $content
+          "params" $params
+          "path" (printf "%s/avatar.%s" $path .MediaType.SubType)
+        }}
+        {{ $resources = $resources | append $resource }}
+      {{ end }}
+    {{ else }}
+      {{ errorf "Unable to get remote resource %s" $url }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return dict "pages" $pages "resources" $resources }}

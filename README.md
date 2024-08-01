@@ -1,6 +1,8 @@
 # Hugo Conference Theme
 
-Create a website for your [Sessionize](https://sessionize.com/) conference within seconds. 
+This theme turns your conference planned with
+[Sessionize](https://sessionize.com/) into a Hugo website. It automatically
+creates various contents like a start page, a schedule and speaker pages.
 
 ## Getting started
 
@@ -24,14 +26,16 @@ Create a website for your [Sessionize](https://sessionize.com/) conference withi
     ```shell
     git clone https://github.com/medialesson/hugo-theme-conference.git themes/conference
     ```
-5. Set the `theme`, `sectionPagesMenu` and the Sessionize endpoint ID of your
-[Hugo configuration](https://gohugo.io/getting-started/configuration/) like in
-the following sample:
+5. Add and adapt the following minimal settings to your [Hugo
+configuration](https://gohugo.io/getting-started/configuration/):
     ```yaml
     theme: conference
+    sectionPagesMenu: main
     params:
         themes:
             conference:
+                # 👇 Set the name of your conference.
+                conferenceName: My Conference
                 # 👇 Fetch the ID of your conference's API endpoint from
                 # 👇 https://sessionize.com/app/organizer/schedule/api/0
                 # 👇 and enter it here.
@@ -43,18 +47,87 @@ the following sample:
     ```
 7. View you conference website on http://localhost:1313/.
 
-### Configuration
 
-#### Add custom pages to the footer menu
+## Content creation
 
-In the `content/` folder of your Hugo project create a Markdown file for the
-designated language (e.g., `privacy-policy.en.md`). In the front matter, set the
-menu entry to `footer`. For more configuration options, please refer to
-[the official Hugo documentation](https://gohugo.io/content-management/menus/#define-in-front-matter).
+This theme creates various contents during build. You can control the visibility
+of this content with your menu configuration (see below). Simply add menu
+entries for every content you want to use.
+
+| Identifier | Slug (`pageRef`) | Description |
+| --- | --- | ---|
+| `sessions` | `/sessions` | A schedule of the conference's sessions. |
+| `speakers` | `/speakers` | A list of speakers. |
+| `code_of_conduct` | `/code-of-conduct` | A page with the Berlin Code of Conduct. |
+
+## Customization
+
+This theme tries to allow customization and configuration with Hugo standards
+wherever possible. 
+
+### Overwrite theme settings
+
+Open the theme's configuration `themes/conference/hugo.yaml` to see all options
+and their defaults.  You can overwrite all settings on demand in your project's
+Hugo configuration.
+
+### Overwrite translations
+
+The ships with translations for German and English. Checkout the folder
+`themes/conference/i18n/` to see what translations this theme uses. You can
+overwrite them in the `i18n/` folder of your project. 
+
+### Configure menus
+
+Hugo offers various ways how you can create multilingual menus. In the initial
+setup above we used `sectionPagesMenu: main` to make Hugo create menu entries
+automatically for each section. This option is very limited and gives you no
+control about the order of the menu entries.
+
+Another option is to configure menus in front matter. This option spreads the
+menu configuration over multiple files. Therefore, we recommend to configure
+menus in the Hugo configuration of your project. That way, you have everything
+in one place.
+
+This theme offers a `main` menu and a `footer` menu. You can create menu entries
+for contents created by this theme (see above) and your custom contents (e.g. an
+imprint). When the menus get rendered, this theme tries to translate each menu
+entry by its identifier (`menu_` + identifier). If no translation is available,
+the name of the menu entry will be used.
+
+The following sample demonstrates how to create menu entries with standard Hugo
+configuration.
 
 ```yaml
----
-title: Privacy Policy
-menu: footer
----
+defaultContentLanguage: de
+languages:
+  en:
+    menus:
+      main:
+        - identifier: sessions
+          pageRef: /sessions
+          weight: 10
+        - identifier: code_of_conduct
+          pageRef: /code-of-conduct
+          weight: 20
+      footer:
+        - identifier: imprint
+          pageRef: /imprint
+          weight: 10
+  de:
+    disabled: false
+
+# Menu of our default content language (de)
+menus:
+  main:
+    - identifier: sessions
+      pageRef: /sessions
+      weight: 10
+    - identifier: code_of_conduct
+      pageRef: /code-of-conduct
+      weight: 20
+  footer:
+    - identifier: imprint
+      pageRef: /imprint
+      weight: 10
 ```

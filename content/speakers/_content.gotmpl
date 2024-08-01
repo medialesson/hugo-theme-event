@@ -1,59 +1,15 @@
 {{ .EnableAllLanguages }}
-{{/* Get remote data. */}}
-{{ $data := dict }}
-{{ $sessionizeId := .Site.Params.themes.conference.sessionizeId }}
-{{ if not $sessionizeId }}
-  {{ errorf "No Sessionize ID found! Did you set it in the site parameters?" }}
-{{ end }}
-{{ $url := printf "https://sessionize.com/api/v2/%s/view/all" $sessionizeId }}
-{{ with resources.GetRemote $url }}
-  {{ with .Err }}
-    {{ errorf "Unable to get remote resource %s: %s" $url . }}
-  {{ else }}
-    {{ $data = . | transform.Unmarshal }}
-  {{ end }}
-{{ else }}
-  {{ errorf "Unable to get remote resource %s" $url }}
-{{ end }}
 
-{{/* Add pages and page resources. */}}
-{{ range $data.speakers }}
-
-  {{/* Add page. */}}
-  {{ $content := dict "mediaType" "text/markdown" "value" .bio }}
-  {{ $sessionIds := apply .sessions "cast.ToString" "." }}
-  {{ $sessions := where $data.sessions "id" "in" $sessionIds }}
-  {{ $params := dict "links" .links "tagLine" .tagLine "sessions" $sessions "isTopSpeaker" .isTopSpeaker }}
-  {{ $path := (printf "%s %s" .fullName .id) }}
-  {{ $page := dict
-    "content" $content
-    "kind" "page"
-    "params" $params
-    "path" $path
-    "title" .fullName
-  }}
-  {{ $.AddPage $page }}
-
-  {{/* Add page resource. */}}
-  {{ $item := . }}
-  {{ with $url := $item.profilePicture }}
-    {{ with resources.GetRemote $url }}
-      {{ with .Err }}
-        {{ errorf "Unable to get remote resource %s: %s" $url . }}
-      {{ else }}
-        {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
-        {{ $params := dict "alt" $item.fullName }}
-        {{ $resource := dict
-          "content" $content
-          "params" $params
-          "path" (printf "%s/avatar.%s" $path .MediaType.SubType)
-        }}
-        {{ $.AddResource $resource }}
+{{ if .Site.Params.themes.conference.enableSpeakerPages }}
+  {{ $context := dict "sessionizeId" .Site.Params.themes.conference.sessionizeId }}
+  {{ with partialCached "sessionize-api/view-all.html" $context }}
+    {{ with partial "content-adapters/create-speaker-content.html" . }}
+      {{ range .pages }}
+        {{ $.AddPage . }}
       {{ end }}
-    {{ else }}
-      {{ errorf "Unable to get remote resource %s" $url }}
+      {{ range .resources }}
+        {{ $.AddResource . }}
+      {{ end }}
     {{ end }}
   {{ end }}
-
-{{ end }}
-
+{{ end}}

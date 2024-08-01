@@ -3,11 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Title }}</title>
+    <link
+      rel="shortcut icon"
+      href="{{ .Site.Params.themes.conference.favicon | absURL }}"
+    />
+    <title>
+      {{- if .Title -}}
+      {{ .Title }} -
+      {{ end }}
+      {{ .Site.Params.themes.conference.conferenceName }}
+    </title>
   </head>
   <body>
     <nav>
-      {{- range site.Menus.main }}
+      <a href="{{ site.Home.Permalink }}">{{ or (T "menu_home") "Home" | safeHTML }}</a>
+      ⋄ {{- range site.Menus.main }}
       <a href="{{ .URL }}">
         {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
       </a>

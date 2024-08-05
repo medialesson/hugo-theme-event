@@ -7,11 +7,20 @@ languages:
 params:
   themes:
     event:
-      eventName: Lukas' Conference 2025
       # 👇 Fetch the ID of your event's API endpoint from
       # 👇 https://sessionize.com/app/organizer/schedule/api/0
       # 👇 and enter it here.
       sessionizeId:
+      title: Demo Event
+      slogan: A Hugo Theme for Events
+      startDate: 2095-06-01
+      endDate: 2095-06-03
+      location: City, Country
+      address:
+        row1: Building
+        row2: Street
+        row3: City
+        row4: Country
       map:
         # 👇 Get an embeddable map URL from OpenStreetMap
         # 👇 https://wiki.openstreetmap.org/wiki/Export#Embeddable_HTML
@@ -21,5 +30,6 @@ params:
         embeddableMapUrl:
         # 👇 Enter an URL of a larger map representation (not required for Google Maps).
         viewLargerMapUrl:
+      favicon: favicon.ico
       enableSpeakerPages: true
       enableSessionPages: true

@@ -1,8 +1,23 @@
 {{ define "main" }}
 
+<h1>{{ .Site.Params.themes.event.title }}</h1>
+<i>{{ .Site.Params.themes.event.slogan }}</i>
+<p>
+  {{ .Site.Params.themes.event.startDate | time.AsTime | time.Format
+  ":date_long" }}
+</p>
+
 <h2>{{ T "header_featured_speakers" }}</h2>
 {{ partial "featured-speakers.html" . }}
 
+<h2>Location</h2>
+
+<address>
+  {{ .Site.Params.themes.event.address.row1 }} <br />
+  {{ .Site.Params.themes.event.address.row2 }} <br />
+  {{ .Site.Params.themes.event.address.row3 }} <br />
+  {{ .Site.Params.themes.event.address.row4 }}
+</address>
 
 {{- if .Site.Params.themes.event.map.embeddableMapUrl -}} {{ partial
 "map-embedding.html" . }} {{ end }} {{- end -}}

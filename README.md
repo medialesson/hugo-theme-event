@@ -39,7 +39,7 @@ configuration](https://gohugo.io/getting-started/configuration/):
         themes:
             event:
                 # 👇 Set the name of your event.
-                eventName: My Event
+                title: My Event
                 # 👇 Fetch the ID of your event's API endpoint from
                 # 👇 https://sessionize.com/app/organizer/schedule/api/0
                 # 👇 and enter it here.

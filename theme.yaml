@@ -1,9 +1,9 @@
-name: Conference
+name: Event
 license: AGPL-3.0-or-later
-licenselink: https://github.com/medialesson/hugo-theme-conference/blob/main/LICENSE
-description: Create a website for your Sessionize conference within seconds.
-homepage: https://github.com/medialesson/hugo-theme-conference
-demosite: https://medialesson.github.io/hugo-theme-conference-demo/
+licenselink: https://github.com/medialesson/hugo-theme-event/blob/main/LICENSE
+description: Create a website for your Sessionize event within seconds.
+homepage: https://github.com/medialesson/hugo-theme-event
+demosite: https://medialesson.github.io/hugo-theme-event-demo/
 module:
   hugoVersion:
     min: 0.126.0

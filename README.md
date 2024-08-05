@@ -1,6 +1,6 @@
-# Hugo Conference Theme
+# Hugo Event Theme
 
-This theme turns your conference planned with
+This theme turns your event planned with
 [Sessionize](https://sessionize.com/) into a Hugo website. It automatically
 creates various contents like a start page, a schedule and speaker pages.
 
@@ -9,7 +9,7 @@ creates various contents like a start page, a schedule and speaker pages.
 ### Prerequisites
 
 1. [Hugo](https://gohugo.io/installation/) is installed on your machine.
-2. You've at least one conference planned on [Sessionize](https://sessionize.com/) (can be a test conference). 
+2. You've at least one event planned on [Sessionize](https://sessionize.com/) (can be a test event). 
 
 ### Installation
 
@@ -22,21 +22,25 @@ creates various contents like a start page, a schedule and speaker pages.
     ```shell
     cd [path]
     ```
-4. Clone this repository into the `themes/` directory:
+4. Clone this repository into the `themes/` directory or add it as submodule:
     ```shell
-    git clone https://github.com/medialesson/hugo-theme-conference.git themes/conference
+    git clone https://github.com/medialesson/hugo-theme-event.git themes/event
+    ```
+    or
+    ```
+    git submodule add https://github.com/medialesson/hugo-theme-event.git themes/event
     ```
 5. Add and adapt the following minimal settings to your [Hugo
 configuration](https://gohugo.io/getting-started/configuration/):
     ```yaml
-    theme: conference
+    theme: event
     sectionPagesMenu: main
     params:
         themes:
-            conference:
-                # 👇 Set the name of your conference.
-                conferenceName: My Conference
-                # 👇 Fetch the ID of your conference's API endpoint from
+            event:
+                # 👇 Set the name of your event.
+                eventName: My Event
+                # 👇 Fetch the ID of your event's API endpoint from
                 # 👇 https://sessionize.com/app/organizer/schedule/api/0
                 # 👇 and enter it here.
                 sessionizeId: 123acb56
@@ -45,7 +49,7 @@ configuration](https://gohugo.io/getting-started/configuration/):
     ```shell
     hugo server
     ```
-7. View you conference website on http://localhost:1313/.
+7. View your event website on http://localhost:1313/.
 
 
 ## Content creation
@@ -56,7 +60,7 @@ entries for every content you want to use.
 
 | Identifier | Slug (`pageRef`) | Description |
 | --- | --- | ---|
-| `sessions` | `/sessions` | A schedule of the conference's sessions. |
+| `sessions` | `/sessions` | A schedule of the event's sessions. |
 | `speakers` | `/speakers` | A list of speakers. |
 | `code_of_conduct` | `/code-of-conduct` | A page with the Berlin Code of Conduct. |
 
@@ -67,14 +71,14 @@ wherever possible.
 
 ### Overwrite theme settings
 
-Open the theme's configuration `themes/conference/hugo.yaml` to see all options
+Open the theme's configuration `themes/event/hugo.yaml` to see all options
 and their defaults.  You can overwrite all settings on demand in your project's
 Hugo configuration.
 
 ### Overwrite translations
 
 The ships with translations for German and English. Checkout the folder
-`themes/conference/i18n/` to see what translations this theme uses. You can
+`themes/event/i18n/` to see what translations this theme uses. You can
 overwrite them in the `i18n/` folder of your project. 
 
 ### Configure menus

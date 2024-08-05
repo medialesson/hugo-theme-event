@@ -1,7 +1,7 @@
 {{ .EnableAllLanguages }}
 
-{{ if .Site.Params.themes.conference.enableSpeakerPages }}
-  {{ $context := dict "sessionizeId" .Site.Params.themes.conference.sessionizeId }}
+{{ if .Site.Params.themes.event.enableSpeakerPages }}
+  {{ $context := dict "sessionizeId" .Site.Params.themes.event.sessionizeId }}
   {{ with partialCached "sessionize-api/view-all.html" $context }}
     {{ with partial "content-adapters/create-speaker-content.html" . }}
       {{ range .pages }}

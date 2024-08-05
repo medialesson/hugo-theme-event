@@ -6,9 +6,9 @@ languages:
 
 params:
   themes:
-    conference:
-      conferenceName: Lukas' Conference 2025
-      # 👇 Fetch the ID of your conference's API endpoint from
+    event:
+      eventName: Lukas' Conference 2025
+      # 👇 Fetch the ID of your event's API endpoint from
       # 👇 https://sessionize.com/app/organizer/schedule/api/0
       # 👇 and enter it here.
       sessionizeId:

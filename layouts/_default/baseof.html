@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="{{ .Site.Params.themes.conference.favicon | absURL }}"
+      href="{{ .Site.Params.themes.event.favicon | absURL }}"
     />
     <title>
-      {{- if .Title -}}
-      {{ .Title }} -
-      {{ end }}
-      {{ .Site.Params.themes.conference.conferenceName }}
+      {{- if .Title -}} {{ .Title }} - {{ end }} {{
+      .Site.Params.themes.event.eventName }}
     </title>
   </head>
   <body>
     <nav>
-      <a href="{{ site.Home.Permalink }}">{{ or (T "menu_home") "Home" | safeHTML }}</a>
+      <a href="{{ site.Home.Permalink }}"
+        >{{ or (T "menu_home") "Home" | safeHTML }}</a
+      >
       ⋄ {{- range site.Menus.main }}
       <a href="{{ .URL }}">
         {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}

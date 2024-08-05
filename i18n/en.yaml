@@ -3,3 +3,7 @@ menu_home: Home
 menu_speakers: Speakers
 menu_sessions: Schedule
 menu_code_of_conduct: Code of Conduct
+counter_days: Days
+counter_hours: Hours
+counter_minutes: Minutes
+counter_seconds: Seconds

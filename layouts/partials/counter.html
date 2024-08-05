@@ -33,7 +33,12 @@
       (distance % MINUTE_IN_MILLISECONDS) / SECOND_IN_MILLISECONDS
     );
 
-    const counterText = `${days} days ${hours} hrs ${minutes} mins ${seconds} secs`;
+    const counterText = `
+      ${days} {{ T "counter_days" }}
+      ${hours} {{ T "counter_hours" }}
+      ${minutes} {{ T "counter_minutes" }}
+      ${seconds} {{ T "counter_seconds" }}
+    `;
     countdownElement.innerHTML = counterText;
   }
 

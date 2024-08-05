@@ -6,7 +6,7 @@
   {{ $startsAt := .startsAt | time.AsTime }}
   {{ $date := $startsAt | time.Format "2006-01-02" | time.AsTime }}
   {{ $room := index (where $input.rooms "id" "eq" .roomId) 0 }}
-    
+
   {{/* Add page. */}}
   {{ $content := dict "mediaType" "text/markdown" "value" .description }}
   {{ $params := dict "date" $date "startsAt" $startsAt "room" $room "isServiceSession" .isServiceSession }}

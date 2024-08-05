@@ -1,33 +1,39 @@
 {{ define "main" }}
-<h2>{{ .Title }}</h2>
+  <h2>{{ .Title }}</h2>
 
-{{ with .Resources.GetMatch "avatar.*" }}
-<img src="{{ .RelPermalink }}" width="200" height="200" alt="{{ .Params.alt }}">
-{{ end }}
-
-
-<div>{{ .Content }}</div>
-
-{{ range .Params.links  }}
-  <li>
-    <a href="{{ .url }}">
-      {{ .title }}
-    </a>
-  </li>
-{{ end }}
-
-
-<h2>Sessions</h2>
-{{ range .Params.sessions  }}
-<h3>
-  {{ .title }} 
-  {{ if .startsAt }}
-  <small>@ {{ .startsAt | time.AsTime | time.Format ":time_short" }}</small>
+  {{ with .Resources.GetMatch "avatar.*" }}
+    <img
+      src="{{ .RelPermalink }}"
+      width="200"
+      height="200"
+      alt="{{ .Params.alt }}"
+    />
   {{ end }}
-</h3>
-{{ .description }}
-<p><code>{{ .startsAt }}</code></p>
-{{ end }}
 
+
+  <div>{{ .Content }}</div>
+
+  {{ range .Params.links }}
+    <li>
+      <a href="{{ .url }}">
+        {{ .title }}
+      </a>
+    </li>
+  {{ end }}
+
+
+  <h2>Sessions</h2>
+  {{ range .Params.sessions }}
+    <h3>
+      {{ .title }}
+      {{ if .startsAt }}
+        <small
+          >@ {{ .startsAt | time.AsTime | time.Format ":time_short" }}</small
+        >
+      {{ end }}
+    </h3>
+    {{ .description }}
+    <p><code>{{ .startsAt }}</code></p>
+  {{ end }}
 
 {{ end }}

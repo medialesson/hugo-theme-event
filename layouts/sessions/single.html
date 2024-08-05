@@ -1,13 +1,14 @@
 {{ define "main" }}
-<h2>
-  {{ .Title }}
-  {{- if .Params.startsAt -}} 
-  <span> @ {{ .Params.startsAt | time.Format ":time_short" }}</span>
-  {{- end -}}
-</h2>
+  <h2>
+    {{ .Title }}
+    {{- if .Params.startsAt -}}
+      <span> @ {{ .Params.startsAt | time.Format ":time_short" }}</span>
+    {{- end -}}
+  </h2>
 
-Room: {{ .Params.room.name }}
+  Room:
+  {{ .Params.room.name }}
 
-<div>{{ .Content }}</div>
 
+  <div>{{ .Content }}</div>
 {{ end }}

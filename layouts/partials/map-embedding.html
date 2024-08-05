@@ -6,15 +6,10 @@
   marginheight="0"
   marginwidth="0"
   allowfullscreen
-  src="{{ .Site.Params.themes.event.map.embeddableMapUrl }}"
+  src="{{ .embeddableMapUrl }}"
 ></iframe>
-{{- if .Site.Params.themes.event.map.viewLargerMapUrl -}}
-<div>
-  <a
-    href="{{ .Site.Params.themes.event.map.viewLargerMapUrl }}"
-    target="_blank"
-  >
-    View larger map
-  </a>
-</div>
+{{- if .viewLargerMapUrl -}}
+  <div>
+    <a href="{{ .viewLargerMapUrl }}" target="_blank"> View larger map </a>
+  </div>
 {{- end -}}

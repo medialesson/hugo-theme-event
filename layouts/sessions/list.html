@@ -1,17 +1,20 @@
 {{ define "main" }}
-{{ range .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
-  <h2>{{ .Key | time.Format ":date_short" }}</h2>
+  {{ range .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
+    <h2>{{ .Key | time.Format ":date_short" }}</h2>
     {{ range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
       <h3>{{ .Key | time.Format ":time_short" }}</h3>
       <ul>
-      {{ range .Pages }}
-        {{- if .Params.isServiceSession -}}
-        <p>{{ .Title }}</p>
-        {{- else -}}
-        <li>{{ .Params.room.name }}: <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-        {{- end -}}
-      {{ end }}
+        {{ range .Pages }}
+          {{- if .Params.isServiceSession -}}
+            <p>{{ .Title }}</p>
+          {{- else -}}
+            <li>
+              {{ .Params.room.name }}:
+              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </li>
+          {{- end -}}
+        {{ end }}
       </ul>
     {{ end }}
-{{ end }}
+  {{ end }}
 {{ end }}

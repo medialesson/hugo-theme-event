@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -8,8 +8,8 @@
       href="{{ .Site.Params.themes.event.favicon | absURL }}"
     />
     <title>
-      {{- if .Title -}} {{ .Title }} - {{ end }} {{
-      .Site.Params.themes.event.title }}
+      {{- if .Title -}}{{ .Title }} -{{ end }}
+      {{ .Site.Params.themes.event.title }}
     </title>
   </head>
   <body>
@@ -17,27 +17,31 @@
       <a href="{{ site.Home.Permalink }}"
         >{{ or (T "menu_home") "Home" | safeHTML }}</a
       >
-      ⋄ {{- range site.Menus.main }}
-      <a href="{{ .URL }}">
-        {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
-      </a>
-      ⋄ {{- end }}
+      ⋄
+      {{- range site.Menus.main }}
+        <a href="{{ .URL }}">
+          {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
+        </a>
+        ⋄
+      {{- end }}
+
 
       <ul>
         {{ range $.Site.Home.AllTranslations }}
-        <li><a href="{{ .RelPermalink }}">{{ .Language }}</a></li>
+          <li><a href="{{ .RelPermalink }}">{{ .Language }}</a></li>
         {{ end }}
       </ul>
     </nav>
-    {{ block "main" . }} {{ end }}
+    {{ block "main" . }}{{ end }}
+
 
     <footer>
       <small>
         <nav>
           {{- range site.Menus.footer }}
-          <a href="{{ .URL }}">
-            {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
-          </a>
+            <a href="{{ .URL }}">
+              {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
+            </a>
           {{- end }}
         </nav>
       </small>

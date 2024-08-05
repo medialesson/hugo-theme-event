@@ -1,0 +1,20 @@
+<iframe
+  width="50%"
+  height="300"
+  frameborder="0"
+  scrolling="no"
+  marginheight="0"
+  marginwidth="0"
+  allowfullscreen
+  src="{{ .Site.Params.themes.event.map.embeddableMapUrl }}"
+></iframe>
+{{- if .Site.Params.themes.event.map.viewLargerMapUrl -}}
+<div>
+  <a
+    href="{{ .Site.Params.themes.event.map.viewLargerMapUrl }}"
+    target="_blank"
+  >
+    View larger map
+  </a>
+</div>
+{{- end -}}

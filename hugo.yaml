@@ -12,6 +12,14 @@ params:
       # 👇 https://sessionize.com/app/organizer/schedule/api/0
       # 👇 and enter it here.
       sessionizeId:
-      favicon: "favicon.ico"
+      map:
+        # 👇 Get an embeddable map URL from OpenStreetMap
+        # 👇 https://wiki.openstreetmap.org/wiki/Export#Embeddable_HTML
+        # 👇 or Google Maps
+        # 👇 https://developers.google.com/maps/documentation/embed/embedding-map
+        # 👇 and enter it here.
+        embeddableMapUrl:
+        # 👇 Enter an URL of a larger map representation (not required for Google Maps).
+        viewLargerMapUrl:
       enableSpeakerPages: true
       enableSessionPages: true

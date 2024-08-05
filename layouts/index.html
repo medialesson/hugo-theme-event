@@ -3,4 +3,6 @@
 <h2>{{ T "header_featured_speakers" }}</h2>
 {{ partial "featured-speakers.html" . }}
 
-{{ end }}
+
+{{- if .Site.Params.themes.event.map.embeddableMapUrl -}} {{ partial
+"map-embedding.html" . }} {{ end }} {{- end -}}

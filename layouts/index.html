@@ -1,11 +1,7 @@
 {{ define "main" }}
-
-<h1>{{ .Site.Params.themes.event.title }}</h1>
-<i>{{ .Site.Params.themes.event.slogan }}</i>
-<p>
-  {{ .Site.Params.themes.event.startDate | time.AsTime | time.Format
-  ":date_long" }}
-</p>
+  {{- if .Site.Params.themes.event.startDate -}}
+    {{ partial "counter.html" (dict "targetDate" .Site.Params.themes.event.startDate) }}
+  {{- end -}}
 
 <h2>{{ T "header_featured_speakers" }}</h2>
 {{ partial "featured-speakers.html" . }}

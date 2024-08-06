@@ -74,55 +74,57 @@
     </main>
 
     <footer>
-      <div id="footer-start">
-        <select name="language" onchange="location = this.value;">
-          {{ range $.Site.Home.AllTranslations }}
-            <option
-              value="{{ .RelPermalink }}"
-              {{ if eq .Language $.Language }}
-                selected
-              {{ end }}
-            >
-              {{ .Language }}
-            </option>
+      <div class="content">
+        <div id="footer-start">
+          <select name="language" onchange="location = this.value;">
+            {{ range $.Site.Home.AllTranslations }}
+              <option
+                value="{{ .RelPermalink }}"
+                {{ if eq .Language $.Language }}
+                  selected
+                {{ end }}
+              >
+                {{ .Language }}
+              </option>
+            {{ end }}
+          </select>
+
+          {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
+        </div>
+
+        <nav>
+          <menu>
+            {{- range site.Menus.footer }}
+              <li>
+                <a href="{{ .URL }}">
+                  {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
+                </a>
+              </li>
+            {{- end }}
+          </menu>
+        </nav>
+
+        <a id="made-by" href="https://medialesson.de">
+          Made with
+          {{- with resources.Get "logos/medialesson-heart.svg" }}
+            <img
+              src="{{ .RelPermalink }}"
+              width="9.96"
+              height="9.96"
+              alt="heart"
+            />
           {{ end }}
-        </select>
-
-        {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
+          by
+          {{- with resources.Get "logos/medialesson.svg" }}
+            <img
+              src="{{ .RelPermalink }}"
+              width="130.6px"
+              height="17.94px"
+              alt="Medialsson"
+            />
+          {{ end }}
+        </a>
       </div>
-
-      <nav>
-        <menu>
-          {{- range site.Menus.footer }}
-            <li>
-              <a href="{{ .URL }}">
-                {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
-              </a>
-            </li>
-          {{- end }}
-        </menu>
-      </nav>
-
-      <a id="made-by" href="https://medialesson.de">
-        Made with
-        {{- with resources.Get "logos/medialesson-heart.svg" }}
-          <img
-            src="{{ .RelPermalink }}"
-            width="9.96"
-            height="9.96"
-            alt="heart"
-          />
-        {{ end }}
-        by
-        {{- with resources.Get "logos/medialesson.svg" }}
-          <img
-            src="{{ .RelPermalink }}"
-            width="130.6px"
-            height="17.94px"
-            alt="Medialsson"
-          />
-        {{ end }}
-      </a>
     </footer>
   </body>
 </html>

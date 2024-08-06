@@ -1,9 +1,9 @@
 {{ define "main" }}
   <h2>
     {{ .Title }}
-    {{- if .Params.startsAt -}}
+    {{- if .Params.startsAt }}
       <span> @ {{ .Params.startsAt | time.Format ":time_short" }}</span>
-    {{- end -}}
+    {{- end }}
   </h2>
 
   Room:

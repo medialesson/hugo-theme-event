@@ -7,8 +7,8 @@
       rel="shortcut icon"
       href="{{ .Site.Params.themes.event.favicon | absURL }}"
     />
-    {{- with resources.Get "styles/index.css" -}}
-      {{- $secureCss := . | fingerprint -}}
+    {{- with resources.Get "styles/index.css" }}
+      {{- $secureCss := . | fingerprint }}
       <link
         rel="stylesheet"
         href="{{ $secureCss.RelPermalink }}"
@@ -16,9 +16,9 @@
         media="screen"
         integrity="{{ $secureCss.Data.Integrity }}"
       />
-    {{- end -}}
+    {{- end }}
     <title>
-      {{- if .Title -}}{{ .Title }} -{{ end }}
+      {{- if .Title }}{{ .Title }} -{{ end }}
       {{ .Site.Params.themes.event.title }}
     </title>
   </head>
@@ -42,11 +42,11 @@
             <li>
               <a
                 href="{{ .URL }}"
-                {{- if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) -}}
+                {{- if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}
                   class="active"
-                {{- end -}}
+                {{- end }}
               >
-                {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
+                {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
               </a>
             </li>
           {{- end }}
@@ -69,7 +69,7 @@
         <nav>
           {{- range site.Menus.footer }}
             <a href="{{ .URL }}">
-              {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
+              {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
             </a>
           {{- end }}
         </nav>

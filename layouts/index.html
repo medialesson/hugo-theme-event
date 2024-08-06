@@ -1,4 +1,4 @@
-{{- define "main" -}}
+{{- define "main" }}
   <h1>{{ .Site.Params.themes.event.title }}</h1>
   <i>{{ .Site.Params.themes.event.slogan }}</i>
   <p>
@@ -13,17 +13,17 @@
     }}
   </p>
 
-  {{- if .Site.Params.themes.event.startDate -}}
+  {{- if .Site.Params.themes.event.startDate }}
     {{ partial "counter.html" (dict "targetDate" .Site.Params.themes.event.startDate) }}
-  {{- end -}}
+  {{- end }}
 
   {{ $eventbriteId := .Site.Params.themes.event.callToAction.eventbrite.eventId }}
   {{ $ctaUrl := .Site.Params.themes.event.callToAction.other.url }}
-  {{- if $eventbriteId -}}
+  {{- if $eventbriteId }}
     {{ partial "cta/eventbrite.html" (dict "eventId" $eventbriteId) }}
-  {{- else if $ctaUrl -}}
+  {{- else if $ctaUrl }}
     {{ partial "cta/link.html" (dict "url" $ctaUrl) }}
-  {{- end -}}
+  {{- end }}
 
 
   <h2>{{ T "header_featured_speakers" }}</h2>
@@ -39,8 +39,8 @@
     {{ .Site.Params.themes.event.address.row4 }}
   </address>
 
-  {{- if .Site.Params.themes.event.map.embeddableMapUrl -}}
+  {{- if .Site.Params.themes.event.map.embeddableMapUrl }}
     {{ partial "map-embedding.html" (dict "embeddableMapUrl" .Site.Params.themes.event.map.embeddableMapUrl "viewLargerMapUrl" .Site.Params.themes.event.map.viewLargerMapUrl) }}
-  {{- end -}}
+  {{- end }}
 
-{{- end -}}
+{{- end }}

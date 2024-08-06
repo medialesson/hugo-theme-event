@@ -5,14 +5,14 @@
       <h3>{{ .Key | time.Format ":time_short" }}</h3>
       <ul>
         {{ range .Pages }}
-          {{- if .Params.isServiceSession -}}
+          {{- if .Params.isServiceSession }}
             <p>{{ .Title }}</p>
-          {{- else -}}
+          {{- else }}
             <li>
               {{ .Params.room.name }}:
               <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             </li>
-          {{- end -}}
+          {{- end }}
         {{ end }}
       </ul>
     {{ end }}

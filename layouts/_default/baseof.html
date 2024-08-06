@@ -87,14 +87,25 @@
             </option>
           {{ end }}
         </select>
+
+        {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
+      </div>
+
+      <nav>
+        <menu>
           {{- range site.Menus.footer }}
-            <a href="{{ .URL }}">
-              {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
-            </a>
+            <li>
+              <a href="{{ .URL }}">
+                {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
+              </a>
+            </li>
           {{- end }}
+        </menu>
+      </nav>
+
       <a id="made-by" href="https://medialesson.de">
         Made with
-        {{ with resources.Get "logos/medialesson-heart.svg" }}
+        {{- with resources.Get "logos/medialesson-heart.svg" }}
           <img
             src="{{ .RelPermalink }}"
             width="9.96"
@@ -103,7 +114,7 @@
           />
         {{ end }}
         by
-        {{ with resources.Get "logos/medialesson.svg" }}
+        {{- with resources.Get "logos/medialesson.svg" }}
           <img
             src="{{ .RelPermalink }}"
             width="130.6px"

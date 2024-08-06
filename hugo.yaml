@@ -38,6 +38,10 @@ params:
         other:
           # 👇 Enter the URL of your ticket shop here.
           url:
+      socialLinks:
+        twitterUrl:
+        facebookUrl:
+        linkedinUrl:
       favicon: favicon.ico
       enableSpeakerPages: true
       enableSessionPages: true

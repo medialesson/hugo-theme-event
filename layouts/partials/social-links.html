@@ -1,0 +1,42 @@
+{{ $input := . }}
+<menu class="social-links">
+  {{- if $input.linkedinUrl }}
+    {{- with resources.Get "logos/linkedin.svg" }}
+      <li>
+        <a href="{{- $input.linkedinUrl }}" target="_blank">
+          <img
+            src="{{ .RelPermalink }}"
+            width="38"
+            height="38"
+            alt="LinkedIn"
+          />
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+
+  {{- if $input.xUrl }}
+    {{- with resources.Get "logos/x.svg" }}
+      <li>
+        <a href="{{- $input.xUrl }}" target="_blank">
+          <img src="{{ .RelPermalink }}" width="28" height="28" alt="X" />
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+
+  {{- if $input.facebookUrl }}
+    {{- with resources.Get "logos/facebook.svg" }}
+      <li>
+        <a href="{{- $input.facebookUrl }}" target="_blank">
+          <img
+            src="{{ .RelPermalink }}"
+            width="28"
+            height="28"
+            alt="Facebook"
+          />
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+</menu>

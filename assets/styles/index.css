@@ -1,5 +1,7 @@
 @import url("fonts.css");
 @import url("properties.css");
 @import url("root.css");
+@import url("body.css");
 @import url("select.css");
 @import url("header.css");
+@import url("footer.css");

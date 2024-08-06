@@ -1,0 +1,11 @@
+@property --nav-item-active {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #111928;
+}
+
+@property --nav-item-inactive {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #637381;
+}

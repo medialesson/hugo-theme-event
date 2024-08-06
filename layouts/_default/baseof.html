@@ -7,35 +7,64 @@
       rel="shortcut icon"
       href="{{ .Site.Params.themes.event.favicon | absURL }}"
     />
+    {{- with resources.Get "styles/index.css" -}}
+      {{- $secureCss := . | fingerprint -}}
+      <link
+        rel="stylesheet"
+        href="{{ $secureCss.RelPermalink }}"
+        type="text/css"
+        media="screen"
+        integrity="{{ $secureCss.Data.Integrity }}"
+      />
+    {{- end -}}
     <title>
       {{- if .Title -}}{{ .Title }} -{{ end }}
       {{ .Site.Params.themes.event.title }}
     </title>
   </head>
   <body>
-    <nav>
-      <a href="{{ site.Home.Permalink }}"
-        >{{ or (T "menu_home") "Home" | safeHTML }}</a
-      >
-      ⋄
-      {{- range site.Menus.main }}
-        <a href="{{ .URL }}">
-          {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
-        </a>
-        ⋄
-      {{- end }}
+    <header>
+      <nav>
+        <menu>
+          <li>
+            <a
+              {{- if .IsHome }}
+                class="active"
+              {{- end }}
+              href="{{ site.Home.Permalink }}"
+            >
+              {{ or (T "menu_home") "Home" | safeHTML }}
+            </a>
+          </li>
 
+          {{- $currentNode := . }}
+          {{- range site.Menus.main }}
+            <li>
+              <a
+                href="{{ .URL }}"
+                {{- if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) -}}
+                  class="active"
+                {{- end -}}
+              >
+                {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML -}}
+              </a>
+            </li>
+          {{- end }}
 
-      <ul>
+        </menu>
+      </nav>
+    </header>
+
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+      <menu>
         {{ range $.Site.Home.AllTranslations }}
           <li><a href="{{ .RelPermalink }}">{{ .Language }}</a></li>
         {{ end }}
-      </ul>
-    </nav>
-    {{ block "main" . }}{{ end }}
-
-
-    <footer>
+      </menu>
       <small>
         <nav>
           {{- range site.Menus.footer }}

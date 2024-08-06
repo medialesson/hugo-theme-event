@@ -1,0 +1,47 @@
+@import url("inter.css");
+@import url("properties.css");
+
+:root {
+  font-family: "Inter";
+}
+
+html,
+body {
+  font-size: 16px;
+  margin: 0;
+}
+
+header {
+  height: 6.25rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header nav menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  width: 400px;
+}
+
+header nav menu li {
+  flex-grow: 1;
+}
+
+header nav menu a {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+
+  color: var(--nav-item-inactive);
+
+  &.active {
+    color: var(--nav-item-active);
+  }
+  &:hover {
+    color: var(--nav-item-active);
+  }
+}

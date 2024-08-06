@@ -1,0 +1,11 @@
+select {
+  width: Fixed (146px) px;
+  height: Fixed (46px) px;
+  padding: 12px 20px 12px 20px;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid #dfe4ea;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}

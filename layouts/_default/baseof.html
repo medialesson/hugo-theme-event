@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="{{- .Site.Language.Lang -}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,6 +21,20 @@
       {{- if .Title }}{{ .Title }} -{{ end }}
       {{ .Site.Params.themes.event.title }}
     </title>
+    {{ if .IsTranslated }}
+      {{ range .Translations }}
+        <link
+          rel="alternate"
+          hreflang="{{ .Language.Lang }}"
+          href="{{ .Permalink }}"
+        />
+      {{ end }}
+      <link
+        rel="alternate"
+        hreflang="{{ .Language.Lang }}"
+        href="{{ .Permalink }}"
+      />
+    {{ end }}
   </head>
   <body>
     <header>
@@ -60,13 +74,19 @@
     </main>
 
     <footer>
-      <menu>
-        {{ range $.Site.Home.AllTranslations }}
-          <li><a href="{{ .RelPermalink }}">{{ .Language }}</a></li>
-        {{ end }}
-      </menu>
-      <small>
-        <nav>
+      <div id="footer-start">
+        <select name="language" onchange="location = this.value;">
+          {{ range $.Site.Home.AllTranslations }}
+            <option
+              value="{{ .RelPermalink }}"
+              {{ if eq .Language $.Language }}
+                selected
+              {{ end }}
+            >
+              {{ .Language }}
+            </option>
+          {{ end }}
+        </select>
           {{- range site.Menus.footer }}
             <a href="{{ .URL }}">
               {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}

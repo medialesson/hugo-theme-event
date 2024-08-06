@@ -30,6 +30,14 @@ params:
         embeddableMapUrl:
         # 👇 Enter an URL of a larger map representation (not required for Google Maps).
         viewLargerMapUrl:
+      callToAction:
+        eventbrite:
+          # 👇 Get your Eventbrite event ID from the URL of your event page
+          # 👇 and enter it here.
+          eventId:
+        other:
+          # 👇 Enter the URL of your ticket shop here.
+          url:
       favicon: favicon.ico
       enableSpeakerPages: true
       enableSessionPages: true

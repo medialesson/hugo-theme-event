@@ -17,6 +17,14 @@
     {{ partial "counter.html" (dict "targetDate" .Site.Params.themes.event.startDate) }}
   {{- end -}}
 
+  {{ $eventbriteId := .Site.Params.themes.event.callToAction.eventbrite.eventId }}
+  {{ $ctaUrl := .Site.Params.themes.event.callToAction.other.url }}
+  {{- if $eventbriteId -}}
+    {{ partial "cta/eventbrite.html" (dict "eventId" $eventbriteId) }}
+  {{- else if $ctaUrl -}}
+    {{ partial "cta/link.html" (dict "url" $ctaUrl) }}
+  {{- end -}}
+
 
   <h2>{{ T "header_featured_speakers" }}</h2>
   {{ partial "featured-speakers.html" . }}

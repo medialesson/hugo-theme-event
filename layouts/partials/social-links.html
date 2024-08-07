@@ -1,4 +1,8 @@
 {{ $input := . }}
+
+{{- partial "css.html" (dict "cssFile" "styles/partials/social-links.css") }}
+
+
 <menu class="social-links">
   {{- if $input.linkedinUrl }}
     {{- with resources.Get "logos/linkedin.svg" }}

@@ -7,16 +7,10 @@
       rel="shortcut icon"
       href="{{ .Site.Params.themes.event.favicon | absURL }}"
     />
-    {{- with resources.Get "styles/index.css" }}
-      {{- $secureCss := . | fingerprint }}
-      <link
-        rel="stylesheet"
-        href="{{ $secureCss.RelPermalink }}"
-        type="text/css"
-        media="screen"
-        integrity="{{ $secureCss.Data.Integrity }}"
-      />
-    {{- end }}
+
+    {{- partial "css.html" (dict "cssFile" "styles/index.css") }}
+
+
     <title>
       {{- if .Title }}{{ .Title }} -{{ end }}
       {{ .Site.Params.themes.event.title }}

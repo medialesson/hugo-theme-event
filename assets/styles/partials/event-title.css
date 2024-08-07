@@ -1,0 +1,29 @@
+section.event-title {
+  background-image: var(--event-title-background-url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 33.5rem;
+  height: 5.8125rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section.event-title h1 {
+  font-size: 3.75rem;
+  color: white;
+  font-weight: 800;
+  line-height: 4.538125rem;
+  text-shadow: 0px 4px 4px #00000040;
+}
+
+section.event-title h2 {
+  font-size: 2rem;
+  color: white;
+  font-weight: 800;
+  line-height: 1.815625rem;
+  text-shadow: 0px 4px 4px #00000040;
+}

@@ -1,0 +1,12 @@
+{{ $input := . }}
+
+{{- with resources.Get $input.cssFile }}
+  {{- $secureCss := . | fingerprint }}
+  <link
+    rel="stylesheet"
+    href="{{ $secureCss.RelPermalink }}"
+    type="text/css"
+    media="screen"
+    integrity="{{ $secureCss.Data.Integrity }}"
+  />
+{{- end }}

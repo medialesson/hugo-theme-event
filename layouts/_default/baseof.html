@@ -79,17 +79,8 @@
           {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
         </div>
 
-        <nav>
-          <menu>
-            {{- range site.Menus.footer }}
-              <li>
-                <a href="{{ .URL }}">
-                  {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
-                </a>
-              </li>
-            {{- end }}
-          </menu>
-        </nav>
+        {{- partial "nav/footer.html" . }}
+
 
         <a id="made-by" href="https://medialesson.de">
           Made with

@@ -1,0 +1,11 @@
+<nav>
+  <menu>
+    {{- range site.Menus.footer }}
+      <li>
+        <a href="{{ .URL }}">
+          {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
+        </a>
+      </li>
+    {{- end }}
+  </menu>
+</nav>

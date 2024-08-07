@@ -1,0 +1,70 @@
+{{ $input := . }}
+
+
+<style>
+  nav.main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav.main menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  nav.main menu li {
+    flex-grow: 1;
+  }
+
+  nav.main menu a {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-wrap: nowrap;
+
+    color: var(--nav-item-inactive);
+
+    &.active {
+      color: var(--nav-item-active);
+    }
+    &:hover {
+      color: var(--nav-item-active);
+    }
+  }
+</style>
+
+<nav class="main">
+  <menu>
+    <li>
+      <a
+        {{- if $input.context.IsHome }}
+          class="active"
+        {{- end }}
+        href="{{ site.Home.Permalink }}"
+      >
+        {{ $input.homeLabel | default "Home" }}
+      </a>
+    </li>
+
+    {{- $currentNode := $input.context }}
+    {{- range $input.menu }}
+      <li>
+        <a
+          href="{{ .URL }}"
+          {{- if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}
+            class="active"
+          {{- end }}
+        >
+          {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
+        </a>
+      </li>
+    {{- end }}
+
+  </menu>
+
+  {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl) }}
+</nav>

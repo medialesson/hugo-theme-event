@@ -43,35 +43,17 @@
       {{- partial "cta/banner.html" }}
     {{ end }}
     <header>
-      <nav>
-        <menu>
-          <li>
-            <a
-              {{- if .IsHome }}
-                class="active"
-              {{- end }}
-              href="{{ site.Home.Permalink }}"
-            >
-              {{ or (T "menu_home") "Home" | safeHTML }}
-            </a>
-          </li>
-
-          {{- $currentNode := . }}
-          {{- range site.Menus.main }}
-            <li>
-              <a
-                href="{{ .URL }}"
-                {{- if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}
-                  class="active"
-                {{- end }}
-              >
-                {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
-              </a>
-            </li>
-          {{- end }}
-
-        </menu>
-      </nav>
+      <div class="content">
+        {{- partial "nav/main.html" (
+          dict
+          "menu" .Site.Menus.main
+          "context" .
+          "homeLabel" (or (T "menu_home") "Home" | safeHTML)
+          "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+          "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+          )
+        }}
+      </div>
     </header>
 
     <main>

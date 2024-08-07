@@ -30,10 +30,6 @@
       {{ partial "countdown.html" (dict "targetDate" $input.startDate) }}
     {{- end }}
 
-    {{- if $input.eventbriteId }}
-      {{ partial "cta/eventbrite.html" (dict "eventId" $input.eventbriteId) }}
-    {{- else if $input.ctaUrl }}
-      {{ partial "cta/link.html" (dict "url" $input.ctaUrl) }}
-    {{- end }}
+    {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl) }}
   </div>
 </section>

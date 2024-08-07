@@ -1,29 +1,14 @@
 {{- define "main" }}
-  <h1>{{ .Site.Params.themes.event.title }}</h1>
-  <i>{{ .Site.Params.themes.event.slogan }}</i>
-  <p>
-    {{ .Site.Params.themes.event.startDate |
-      time.AsTime |
-      time.Format ":date_long"
-    }}
-    -
-    {{ .Site.Params.themes.event.endDate |
-      time.AsTime |
-      time.Format ":date_long"
-    }}
-  </p>
-
-  {{- if .Site.Params.themes.event.startDate }}
-    {{ partial "counter.html" (dict "targetDate" .Site.Params.themes.event.startDate) }}
-  {{- end }}
-
-  {{ $eventbriteId := .Site.Params.themes.event.callToAction.eventbrite.eventId }}
-  {{ $ctaUrl := .Site.Params.themes.event.callToAction.other.url }}
-  {{- if $eventbriteId }}
-    {{ partial "cta/eventbrite.html" (dict "eventId" $eventbriteId) }}
-  {{- else if $ctaUrl }}
-    {{ partial "cta/link.html" (dict "url" $ctaUrl) }}
-  {{- end }}
+  {{- partial "sections/event-title.html"
+    (dict
+    "title" .Site.Params.themes.event.title
+    "location" .Site.Params.themes.event.location
+    "startDate" .Site.Params.themes.event.startDate
+    "backgroundImage" .Site.Params.themes.event.images.eventTitleBackground
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
 
 
   <h2>{{ T "header_featured_speakers" }}</h2>

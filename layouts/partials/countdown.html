@@ -1,0 +1,70 @@
+{{ $input := . }}
+
+{{- partial "css.html" (dict "cssFile" "styles/partials/countdown.css") }}
+
+
+<time class="counter" datetime="{{ $input.targetDate }}">
+  <div class="countdown-segment">
+    <span class="countdown-value" id="countdown-days"></span>
+    <span class="countdown-label">{{ T "counter_days" }}</span>
+  </div>
+  <div class="countdown-segment">
+    <span class="countdown-value" id="countdown-hours"></span>
+    <span class="countdown-label">{{ T "counter_hours" }}</span>
+  </div>
+  <div class="countdown-segment">
+    <span class="countdown-value" id="countdown-minutes"></span>
+    <span class="countdown-label">{{ T "counter_minutes" }}</span>
+  </div>
+  <div class="countdown-segment">
+    <span class="countdown-value" id="countdown-seconds"></span>
+    <span class="countdown-label">{{ T "counter_seconds" }}</span>
+  </div>
+</time>
+
+<script>
+  const SECOND_IN_MILLISECONDS = 1000;
+  const MINUTE_IN_MILLISECONDS = SECOND_IN_MILLISECONDS * 60;
+  const HOUR_IN_MILLISECONDS = MINUTE_IN_MILLISECONDS * 60;
+  const DAY_IN_MILLISECONDS = HOUR_IN_MILLISECONDS * 24;
+
+  const daysElement = document.getElementById("countdown-days");
+  const hoursElement = document.getElementById("countdown-hours");
+  const minutesElement = document.getElementById("countdown-minutes");
+  const secondsElement = document.getElementById("countdown-seconds");
+
+  if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
+    throw Error("Countdown elements not found.");
+  }
+
+  const end = new Date("{{ $input.targetDate }}");
+  let timer;
+
+  function renderCounter() {
+    const now = new Date();
+    let distance = end - now;
+    if (distance < 0) {
+      distance = 0;
+      clearInterval(timer);
+    }
+
+    const days = Math.floor(distance / DAY_IN_MILLISECONDS);
+    const hours = Math.floor(
+      (distance % DAY_IN_MILLISECONDS) / HOUR_IN_MILLISECONDS
+    );
+    const minutes = Math.floor(
+      (distance % HOUR_IN_MILLISECONDS) / MINUTE_IN_MILLISECONDS
+    );
+    const seconds = Math.floor(
+      (distance % MINUTE_IN_MILLISECONDS) / SECOND_IN_MILLISECONDS
+    );
+
+    daysElement.innerHTML = days;
+    hoursElement.innerHTML = hours;
+    minutesElement.innerHTML = minutes;
+    secondsElement.innerHTML = seconds;
+  }
+
+  renderCounter();
+  timer = setInterval(renderCounter, 1000);
+</script>

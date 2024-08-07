@@ -1,5 +1,6 @@
 section.event-title {
-  background-image: var(--event-title-background-url);
+  background: var(--event-title-background-url) #00000059;
+  background-blend-mode: overlay;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,12 +8,26 @@ section.event-title {
   height: 5.8125rem;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
 
+section.event-title > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+section.event-title > div.cta {
+  gap: 1.5625rem;
+}
+
 section.event-title h1 {
+  height: 5rem;
+  margin: 0;
   font-size: 3.75rem;
   color: white;
   font-weight: 800;
@@ -21,7 +36,9 @@ section.event-title h1 {
 }
 
 section.event-title h2 {
-  font-size: 2rem;
+  height: 3.1875rem;
+  margin: 0;
+  font-size: 1.5rem;
   color: white;
   font-weight: 800;
   line-height: 1.815625rem;

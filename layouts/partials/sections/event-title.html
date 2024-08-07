@@ -1,0 +1,39 @@
+{{ $input := . }}
+
+{{- with resources.Get $input.backgroundImage }}
+<style>
+  :root {
+    --event-title-background-url: url("{{ .Permalink }}");
+  }
+</style>
+{{ end }}
+
+{{- partial "css.html" (dict "cssFile" "styles/partials/event-title.css") }}
+
+
+<section class="event-title">
+  <div class="title">
+    <h1>
+      {{- $input.title }}
+    </h1>
+    <h2>
+      {{- $input.startDate |
+        time.AsTime |
+        time.Format ":date_long"
+      }},
+      {{ $input.location }}
+    </h2>
+  </div>
+
+  <div class="cta">
+    {{- if $input.startDate }}
+      {{ partial "countdown.html" (dict "targetDate" $input.startDate) }}
+    {{- end }}
+
+    {{- if $input.eventbriteId }}
+      {{ partial "cta/eventbrite.html" (dict "eventId" $input.eventbriteId) }}
+    {{- else if $input.ctaUrl }}
+      {{ partial "cta/link.html" (dict "url" $input.ctaUrl) }}
+    {{- end }}
+  </div>
+</section>

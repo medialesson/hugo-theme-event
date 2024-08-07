@@ -38,6 +38,7 @@ params:
         other:
           # 👇 Enter the URL of your ticket shop here.
           url:
+        enableBanner: true
       socialLinks:
         twitterUrl:
         facebookUrl:

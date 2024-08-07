@@ -39,6 +39,9 @@
   </style>
 
   <body>
+    {{- if .Site.Params.themes.event.callToAction.enableBanner }}
+      {{- partial "cta/banner.html" }}
+    {{ end }}
     <header>
       <nav>
         <menu>

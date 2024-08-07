@@ -45,3 +45,6 @@ params:
       favicon: favicon.ico
       enableSpeakerPages: true
       enableSessionPages: true
+      colors:
+        primary: "#afe10a"
+        primaryDarker: "#015a57"

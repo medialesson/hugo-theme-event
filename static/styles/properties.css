@@ -1,3 +1,15 @@
+@property --color-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #afe10a;
+}
+
+@property --color-primary-darker {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #015a57;
+}
+
 @property --nav-item-active {
   syntax: "<color>";
   inherits: true;

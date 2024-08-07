@@ -30,6 +30,14 @@
       />
     {{ end }}
   </head>
+
+  <style>
+    :root {
+      --color-primary: "{{- .Site.Params.themes.event.colors.primary }}";
+      --color-primary-darker: "{{- .Site.Params.themes.event.colors.primaryDarker }}";
+    }
+  </style>
+
   <body>
     <header>
       <nav>

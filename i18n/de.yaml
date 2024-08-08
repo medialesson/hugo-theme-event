@@ -14,6 +14,6 @@ menu_code_of_conduct: Verhaltenskodex
 menu_home: Start
 menu_sessions: Programm
 menu_speakers: Sprecher
-section_home_title: Featured Speakers
-section_home_subtitle: Triff die Experten
-section_home_button: Alle Sprecher auf einen Blick
+section_home_featured_speakers_title: Featured Speakers
+section_home_featured_speakers_subtitle: Triff die Experten
+section_home_featured_speakers_button: Alle Sprecher auf einen Blick

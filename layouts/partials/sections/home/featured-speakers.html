@@ -26,8 +26,12 @@
 
 <section class="theme-section-home featured-speakers">
   <article class="theme-content featured-speakers">
-    <h1 class="theme-section-home">{{ T "section_home_title" }}</h1>
-    <h2 class="theme-section-home">{{ T "section_home_subtitle" }}</h2>
+    <h1 class="theme-section-home">
+      {{ T "section_home_featured_speakers_title" }}
+    </h1>
+    <h2 class="theme-section-home">
+      {{ T "section_home_featured_speakers_subtitle" }}
+    </h2>
     <menu>
       {{- range where .Site.Pages "Section" "speakers" }}
         {{- if .Params.isTopSpeaker }}
@@ -50,7 +54,7 @@
 
     {{- with .Site.GetPage "speakers" }}
       <a href="{{ .RelPermalink }}" class="button secondary">
-        {{ T "section_home_button" }}
+        {{ T "section_home_featured_speakers_button" }}
       </a>
     {{- end }}
   </article>

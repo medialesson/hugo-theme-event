@@ -15,6 +15,6 @@ menu_home: Home
 menu_sessions: Schedule
 menu_speakers: Speakers
 menu_code_of_conduct: Code of Conduct
-section_home_title: Featured Speakers
-section_home_subtitle: Meet the Experts
-section_home_button: All speakers at a glance
+section_home_featured_speakers_title: Featured Speakers
+section_home_featured_speakers_subtitle: Meet the Experts
+section_home_featured_speakers_button: All speakers at a glance

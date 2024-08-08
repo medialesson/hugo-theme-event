@@ -50,3 +50,6 @@ params:
       colors:
         primary: "#afe10a"
         primaryDarker: "#015a57"
+        primaryDarkest: "#111928"
+        secondary: "#f7f8fa"
+        secondaryDarker: "#637381"

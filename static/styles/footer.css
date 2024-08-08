@@ -25,7 +25,7 @@ footer nav menu li {
 
 footer nav menu a {
   font-weight: 500;
-  color: #637381;
+  color: var(--color-secondary-darker);
   text-decoration: none;
   font-size: 1rem;
   line-height: 1.5rem;

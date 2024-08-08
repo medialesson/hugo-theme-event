@@ -10,13 +10,19 @@
   initial-value: #015a57;
 }
 
-@property --nav-item-active {
+@property --color-primary-darkest {
   syntax: "<color>";
   inherits: true;
   initial-value: #111928;
 }
 
-@property --nav-item-inactive {
+@property --color-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f7f8fa;
+}
+
+@property --color-secondary-darker {
   syntax: "<color>";
   inherits: true;
   initial-value: #637381;

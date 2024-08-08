@@ -6,7 +6,18 @@
   {{ $content := dict "mediaType" "text/markdown" "value" .bio }}
   {{ $sessionIds := apply .sessions "cast.ToString" "." }}
   {{ $sessions := where $input.sessions "id" "in" $sessionIds }}
-  {{ $params := dict "links" .links "tagLine" .tagLine "sessions" $sessions "isTopSpeaker" .isTopSpeaker }}
+  {{ $xUrl := (index (where .links "linkType" "eq" "Twitter") 0).url }}
+  {{ $linkedinUrl := (index (where .links "linkType" "eq" "LinkedIn") 0).url }}
+  {{ $companyUrl := (index (where .links "linkType" "eq" "Company_Website") 0).url }}
+  {{ $params :=
+    dict
+    "tagLine" .tagLine
+    "sessions" $sessions
+    "isTopSpeaker" .isTopSpeaker
+    "xUrl" $xUrl
+    "linkedinUrl" $linkedinUrl
+    "companyUrl" $companyUrl
+  }}
   {{ $path := (printf "%s %s" .fullName .id) }}
   {{ $page := dict
     "content" $content

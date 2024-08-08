@@ -5,6 +5,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 3.75rem;
     }
 
     section.speaker-list menu {
@@ -16,8 +17,10 @@
       gap: 1.875rem;
     }
   </style>
+
   <section class="speaker-list">
     <div class="content">
+      <h1>{{ T "header_list_speakers" }}</h1>
       <menu class="speaker-list-menu">
         {{ range .Pages.ByPublishDate.Reverse }}
           <li>

@@ -10,3 +10,8 @@ counter_minutes: Mins
 counter_seconds: Secs
 cta_get_ticket: Register now!
 cta_banner_message: Get your ticket now!
+cta_section_title: Have you discovered something exciting?
+cta_section_subtitle: Register today!
+cta_section_message: |
+  Don't miss the chance to learn from leading experts and make valuable
+  contacts!

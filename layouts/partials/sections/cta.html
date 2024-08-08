@@ -1,0 +1,53 @@
+{{ $input := . }}
+
+
+<style>
+  section.cta {
+    height: 29.375rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  section.cta > h1 {
+    width: 56.3125rem;
+    font-size: 2.375rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    text-align: center;
+  }
+
+  section.cta > h2 {
+    width: 56.3125rem;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    text-align: center;
+  }
+
+  section.cta > p {
+    color: white;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    width: 32.1875rem;
+    text-align: center;
+    margin: 0.625rem 0 1.5625rem 0;
+  }
+</style>
+
+<section class="cta">
+  <h1>{{ T "cta_section_title" }}</h1>
+
+  <h2>{{ T "cta_section_subtitle" }}</h2>
+
+  <p>{{ T "cta_section_message" }}</p>
+
+  {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl) }}
+</section>

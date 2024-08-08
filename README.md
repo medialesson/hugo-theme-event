@@ -120,19 +120,16 @@ languages:
           pageRef: /imprint
           weight: 10
   de:
-    disabled: false
-
-# Menu of our default content language (de)
-menus:
-  main:
-    - identifier: sessions
-      pageRef: /sessions
-      weight: 10
-    - identifier: code_of_conduct
-      pageRef: /code-of-conduct
-      weight: 20
-  footer:
-    - identifier: imprint
-      pageRef: /imprint
-      weight: 10
+    menus:
+      main:
+        - identifier: sessions
+          pageRef: /sessions
+          weight: 10
+        - identifier: code_of_conduct
+          pageRef: /code-of-conduct
+          weight: 20
+      footer:
+        - identifier: imprint
+          pageRef: /imprint
+          weight: 10
 ```

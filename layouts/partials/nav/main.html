@@ -55,7 +55,7 @@
       <li>
         <a
           href="{{ .URL }}"
-          {{- if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}
+          {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
             class="active"
           {{- end }}
         >

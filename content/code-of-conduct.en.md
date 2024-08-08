@@ -2,7 +2,7 @@
 
 ## Purpose
 
----
+
 
 A primary goal of all the conferences and user groups that refer to this Code of Conduct is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status and religion (or lack thereof).
 
@@ -12,7 +12,7 @@ We invite all those who participate in our events to help us create safe and pos
 
 ## Open [Source/Culture/Tech] Citizenship
 
----
+
 
 A supplemental goal of this Code of Conduct is to increase open [source/culture/tech] citizenship by encouraging participants to recognize and strengthen the relationships between our actions and their effects on our community.
 
@@ -22,7 +22,7 @@ If you see someone who is making an extra effort to ensure our community is welc
 
 ## Expected Behavior
 
----
+
 
 Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.  
 Exercise consideration and respect in your speech and actions.  
@@ -32,7 +32,7 @@ Be mindful of your surroundings and of your fellow participants. Alert community
 
 ## Unacceptable Behavior
 
----
+
 
 Unacceptable behaviors include: intimidating, harassing, abusive, discriminatory, derogatory or demeaning speech or actions by any participant in our community online, at all related events and in one-on-one communications carried out in the context of community business. Community event venues may be shared with members of the public; please be respectful to all patrons of these locations.
 
@@ -40,7 +40,7 @@ Harassment includes: harmful or prejudicial verbal or written comments related t
 
 ## Consequences of Unacceptable Behavior
 
----
+
 
 Unacceptable behavior from any community member, including sponsors and those with decision-making authority, will not be tolerated.
 Anyone asked to stop unacceptable behavior is expected to comply immediately.
@@ -49,7 +49,7 @@ If a community member engages in unacceptable behavior, the community organizers
 
 ## If You Witness or Are Subject to Unacceptable Behavior
 
----
+
 
 If you are subject to or witness unacceptable behavior,
 or have any other concerns, please notify a community organizer as soon as
@@ -59,18 +59,18 @@ community organizers are available to help community members engage with local l
 
 ## Addressing Grievances
 
----
+
 
 If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify one of the event organizers with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies.
 
 ## Scope
 
----
+
 
 We expect all community participants (contributors, paid or otherwise; sponsors; and other guests) to abide by this Code of Conduct in all community venues—online and in-person—as well as in all one-on-one communications pertaining to community business.
 
 ## License and attribution
 
----
+
 
 Berlin Code of Conduct is distributed under a [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) license. It is based on the [pdx.rb Code of Conduct](https://pdxruby.org/CONDUCT).

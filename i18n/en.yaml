@@ -1,17 +1,17 @@
-header_featured_speakers: Featured Speakers
-header_list_speakers: Speakers
-menu_home: Home
-menu_speakers: Speakers
-menu_sessions: Schedule
-menu_code_of_conduct: Code of Conduct
-counter_days: Days
-counter_hours: Hrs
-counter_minutes: Mins
-counter_seconds: Secs
-cta_get_ticket: Register now!
+countdown_days: Days
+countdown_hours: Hrs
+countdown_minutes: Mins
+countdown_seconds: Secs
 cta_banner_message: Get your ticket now!
+cta_button_get_ticket: Register now!
 cta_section_title: Have you discovered something exciting?
 cta_section_subtitle: Register today!
 cta_section_message: |
   Don't miss the chance to learn from leading experts and make valuable
   contacts!
+header_featured_speakers: Featured Speakers
+list_speakers_title: Speakers
+menu_home: Home
+menu_sessions: Schedule
+menu_speakers: Speakers
+menu_code_of_conduct: Code of Conduct

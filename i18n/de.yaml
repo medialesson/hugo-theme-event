@@ -1,17 +1,16 @@
-header_featured_speakers: Featured Sprecher:innen
-header_list_speakers: Sprecher:innen
-menu_home: Start
-menu_speakers: Sprecher
-menu_sessions: Programm
-menu_code_of_conduct: Verhaltenskodex
-counter_days: Tage
-counter_hours: Stunden
-counter_minutes: Minuten
-counter_seconds: Sekunden
-cta_get_ticket: Jetzt registrieren!
+countdown_days: Tage
+countdown_hours: Stunden
+countdown_minutes: Minuten
+countdown_seconds: Sekunden
 cta_banner_message: Sichern Sie sich jetzt Ihr Ticket!
+cta_button_get_ticket: Jetzt registrieren!
 cta_section_title: Etwas spannendes entdeckt?
 cta_section_subtitle: Registriere dich noch heute!
 cta_section_message: |
   Verpasse nicht die Chance, von führenden Expertinnen und Experten zu lernen
   und wertvolle Kontakte zu knüpfen!
+list_speakers_title: Sprecher
+menu_code_of_conduct: Verhaltenskodex
+menu_home: Start
+menu_sessions: Programm
+menu_speakers: Sprecher

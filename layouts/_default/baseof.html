@@ -39,6 +39,22 @@
       --color-secondary: "{{- .Site.Params.themes.event.colors.secondary }}";
       --color-secondary-darker: "{{- .Site.Params.themes.event.colors.secondaryDarker }}";
     }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: stretch;
+      min-height: 100vh;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: stretch;
+      flex-grow: 1;
+    }
   </style>
 
   <body>

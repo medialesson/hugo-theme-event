@@ -1,19 +1,36 @@
 {{ $input := . }}
 
-{{- partial "css.html" (dict "cssFile" "styles/partials/social-links.css") }}
 
+<style>
+  menu.social-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    opacity: 0.2;
+    gap: 1.375rem;
+  }
+
+  menu.social-links li {
+    flex-grow: 1;
+  }
+
+  menu.social-links img.linkedin {
+    height: 2.375em;
+  }
+
+  menu.social-links img.x,
+  menu.social-links img.facebook {
+    height: 1.75em;
+  }
+</style>
 
 <menu class="social-links">
   {{- if $input.linkedinUrl }}
     {{- with resources.Get "logos/linkedin.svg" }}
       <li>
         <a href="{{- $input.linkedinUrl }}" target="_blank">
-          <img
-            src="{{ .RelPermalink }}"
-            width="38"
-            height="38"
-            alt="LinkedIn"
-          />
+          <img class="linkedin" src="{{ .RelPermalink }}" alt="LinkedIn" />
         </a>
       </li>
     {{ end }}
@@ -23,7 +40,7 @@
     {{- with resources.Get "logos/x.svg" }}
       <li>
         <a href="{{- $input.xUrl }}" target="_blank">
-          <img src="{{ .RelPermalink }}" width="28" height="28" alt="X" />
+          <img class="x" src="{{ .RelPermalink }}" alt="X" />
         </a>
       </li>
     {{ end }}
@@ -33,12 +50,17 @@
     {{- with resources.Get "logos/facebook.svg" }}
       <li>
         <a href="{{- $input.facebookUrl }}" target="_blank">
-          <img
-            src="{{ .RelPermalink }}"
-            width="28"
-            height="28"
-            alt="Facebook"
-          />
+          <img class="facebook" src="{{ .RelPermalink }}" alt="Facebook" />
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+
+  {{- if $input.companyUrl }}
+    {{- with resources.Get "logos/company.svg" }}
+      <li>
+        <a href="{{- $input.companyUrl }}" target="_blank">
+          <img class="facebook" src="{{ .RelPermalink }}" alt="Company" />
         </a>
       </li>
     {{ end }}

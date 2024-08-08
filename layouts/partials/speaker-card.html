@@ -1,0 +1,77 @@
+{{ $input := . }}
+
+
+<style>
+  div.speaker-card {
+    width: 16.875rem;
+    height: 19.9375rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid var(--color-primary);
+    box-shadow: 0 0.0625rem 0.1875rem 0 #a6afc366;
+  }
+
+  div.speaker-card a.speaker-card-link {
+    all: unset;
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1.5625rem;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  div.speaker-card img.speaker-card-avatar {
+    border-radius: 50%;
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  div.speaker-card span.speaker-card-name {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  div.speaker-card span.speaker-card-description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-secondary-darker);
+  }
+
+  div.speaker-card div.speaker-card-social-links {
+    font-size: 0.55rem;
+    flex-shrink: 1;
+    margin-bottom: 0.9375rem;
+    justify-self: baseline;
+  }
+</style>
+
+<div class="speaker-card">
+  <a class="speaker-card-link" href="{{ $input.profileUrl }}">
+    {{ with $input.avatarResource }}
+      <img
+        class="speaker-card-avatar"
+        src="{{ .RelPermalink }}"
+        alt="{{ $input.name }}"
+      />
+    {{ end }}
+    <span class="speaker-card-name">{{ $input.name }}</span>
+    <span class="speaker-card-description">{{ $input.description }}</span>
+  </a>
+  <div class="speaker-card-social-links">
+    {{- partial "social-links.html" (
+      dict
+      "linkedinUrl" $input.linkedinUrl
+      "xUrl" $input.xUrl
+      "companyUrl" $input.companyUrl
+      )
+    }}
+  </div>
+</div>

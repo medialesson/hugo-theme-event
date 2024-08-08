@@ -1,22 +1,40 @@
 {{ define "main" }}
-  <ul>
-    {{ range .Pages.ByPublishDate.Reverse }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <style>
+    section.speaker-list {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        <p>
-          {{ with .Resources.GetMatch "avatar.*" }}
-            <img
-              src="{{ .RelPermalink }}"
-              width="100"
-              height="100"
-              alt="{{ .Params.alt }}"
-            />
-          {{ end }}
-        </p>
-
-        <p><small>{{ .Params.tagLine }}</small></p>
-      </li>
-    {{ end }}
-  </ul>
+    section.speaker-list menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      gap: 1.875rem;
+    }
+  </style>
+  <section class="speaker-list">
+    <div class="content">
+      <menu class="speaker-list-menu">
+        {{ range .Pages.ByPublishDate.Reverse }}
+          <li>
+            {{- partial "speaker-card.html" (
+              dict
+              "profileUrl" .Permalink
+              "avatarResource" (.Resources.GetMatch "avatar.*")
+              "name" .Title
+              "description" .Params.tagLine
+              "linkedinUrl" .Params.linkedinUrl
+              "xUrl" .Params.xUrl
+              "companyUrl" .Params.company
+              )
+            }}
+          </li>
+        {{ end }}
+      </menu>
+    </div>
+  </section>
 {{ end }}

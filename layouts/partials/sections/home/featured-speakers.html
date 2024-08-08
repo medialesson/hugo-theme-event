@@ -1,0 +1,57 @@
+<style>
+  section.featured-speakers {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  article.featured-speakers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  article.featured-speakers > menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 1.875rem;
+    margin: 3.75rem 0;
+  }
+</style>
+
+<section class="theme-section-home featured-speakers">
+  <article class="theme-content featured-speakers">
+    <h1 class="theme-section-home">{{ T "section_home_title" }}</h1>
+    <h2 class="theme-section-home">{{ T "section_home_subtitle" }}</h2>
+    <menu>
+      {{- range where .Site.Pages "Section" "speakers" }}
+        {{- if .Params.isTopSpeaker }}
+          <li>
+            {{- partial "speaker-card.html" (
+              dict
+              "profileUrl" .Permalink
+              "avatarResource" (.Resources.GetMatch "avatar.*")
+              "name" .Title
+              "description" .Params.tagLine
+              "linkedinUrl" .Params.linkedinUrl
+              "xUrl" .Params.xUrl
+              "companyUrl" .Params.company
+              )
+            }}
+          </li>
+        {{- end }}
+      {{- end }}
+    </menu>
+
+    {{- with .Site.GetPage "speakers" }}
+      <a href="{{ .RelPermalink }}" class="button secondary">
+        {{ T "section_home_button" }}
+      </a>
+    {{- end }}
+  </article>
+</section>

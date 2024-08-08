@@ -1,0 +1,87 @@
+@property --color-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #afe10a;
+}
+
+@property --color-primary-darker {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #015a57;
+}
+
+@property --color-primary-darkest {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #111928;
+}
+
+@property --color-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f7f8fa;
+}
+
+@property --color-secondary-darker {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #637381;
+}
+
+:root {
+  font-family: "Inter";
+  color: var(--color-primary-darkest);
+}
+
+body {
+  margin: 0;
+}
+
+body > header {
+  height: 6.25rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body > footer {
+  height: 5.8125rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body > footer .theme-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body > footer #footer-start {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+body > footer #made-by {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;
+  text-decoration: none;
+}
+
+.theme-content {
+  width: 100%;
+  margin: 0 2rem;
+}
+
+@media only screen and (min-width: 1200px) {
+  .theme-content {
+    width: 1171px;
+  }
+}

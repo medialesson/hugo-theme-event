@@ -1,4 +1,25 @@
-<nav>
+<style>
+  nav.footer > menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 2.5rem;
+  }
+
+  nav.footer > menu li {
+    flex-grow: 1;
+  }
+
+  nav.footer > menu a {
+    font-weight: 500;
+    color: var(--color-secondary-darker);
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+</style>
+
+<nav class="footer">
   <menu>
     {{- range site.Menus.footer }}
       <li>

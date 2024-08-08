@@ -8,7 +8,7 @@
       href="{{ .Site.Params.themes.event.favicon | absURL }}"
     />
 
-    {{- partial "css.html" (dict "cssFile" "styles/index.css") }}
+    {{- partial "css.html" (dict "cssFile" "styles/_index.css") }}
 
 
     <title>
@@ -62,7 +62,7 @@
       {{- partial "cta/banner.html" }}
     {{ end }}
     <header>
-      <div class="content">
+      <div class="theme-content">
         {{- partial "nav/main.html" (
           dict
           "menu" .Site.Menus.main
@@ -80,7 +80,7 @@
     </main>
 
     <footer>
-      <div class="content">
+      <div class="theme-content">
         <div id="footer-start">
           <select name="language" onchange="location = this.value;">
             {{ range $.Site.Home.AllTranslations }}

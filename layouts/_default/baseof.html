@@ -33,11 +33,11 @@
 
   <style>
     :root {
-      --color-primary: "{{- .Site.Params.themes.event.colors.primary }}";
-      --color-primary-darker: "{{- .Site.Params.themes.event.colors.primaryDarker }}";
-      --color-primary-darkest: "{{- .Site.Params.themes.event.colors.primaryDarkest }}";
-      --color-secondary: "{{- .Site.Params.themes.event.colors.secondary }}";
-      --color-secondary-darker: "{{- .Site.Params.themes.event.colors.secondaryDarker }}";
+      --color-primary: {{- .Site.Params.themes.event.colors.primary }};
+      --color-primary-darker: {{- .Site.Params.themes.event.colors.primaryDarker }};
+      --color-primary-darkest: {{- .Site.Params.themes.event.colors.primaryDarkest }};
+      --color-secondary: {{- .Site.Params.themes.event.colors.secondary }};
+      --color-secondary-darker: {{- .Site.Params.themes.event.colors.secondaryDarker }};
     }
 
     body {

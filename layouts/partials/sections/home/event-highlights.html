@@ -1,0 +1,52 @@
+{{ $input := . }}
+
+
+<style>
+  section.event-highlights {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div.event-highlights-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5.625rem;
+  }
+
+  img.event-highlights-logo {
+    width: 16.375rem;
+  }
+
+  article.event-highlights {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  article.event-highlights > h1,
+  article.event-highlights > h2 {
+    text-align: left;
+  }
+</style>
+
+<section class="theme-section-home event-highlights">
+  <div class="theme-content event-highlights-content">
+    {{- with resources.Get $input.logo }}
+      <img class="event-highlights-logo" src="{{ .RelPermalink }}" />
+    {{ end }}
+    <article class="theme-content event-highlights">
+      <h1 class="theme-section-home">
+        {{ $input.title }}
+      </h1>
+      <h2 class="theme-section-home">
+        {{ $input.subtitle }}
+      </h2>
+
+      <p>{{ $input.description | markdownify }}</p>
+    </article>
+  </div>
+</section>

@@ -1,8 +1,23 @@
 languages:
   en:
-    disabled: false
+    params:
+      themes:
+        event:
+          slogan: A Hugo Theme for Conferences
+          description: |
+            This is a placeholder for your event description. You can customize it,
+            together with all other settings, in your Hugo configuration file.
+            We hope you enjoy using this theme! 🎉
   de:
-    disabled: false
+    params:
+      themes:
+        event:
+          slogan: Ein Hugo-Theme für Konferenzen
+          description: |
+            Dies ist ein Platzhalter für die Beschreibung Ihrer Veranstaltung.
+            Sie können ihn zusammen mit allen anderen Einstellungen in Ihrer
+            Hugo-Konfigurationsdatei anpassen. Wir wünschen Ihnen viel Spaß mit
+            diesem Theme! 🎉
 
 params:
   themes:
@@ -11,7 +26,8 @@ params:
       # 👇 https://sessionize.com/app/organizer/schedule/api/0
       # 👇 and enter it here.
       sessionizeId:
-      title: Demo Event
+      title: Your Event Title
+      logo: logos/medialesson-rgb.svg
       startDate: 2095-06-01
       endDate: 2095-06-03
       location: City, Country

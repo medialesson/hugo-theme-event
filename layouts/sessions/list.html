@@ -1,20 +1,76 @@
-{{ define "main" }}
-  {{ range .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
-    <h2>{{ .Key | time.Format ":date_short" }}</h2>
-    {{ range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
-      <h3>{{ .Key | time.Format ":time_short" }}</h3>
-      <ul>
-        {{ range .Pages }}
-          {{- if .Params.isServiceSession }}
-            <p>{{ .Title }}</p>
-          {{- else }}
-            <li>
-              {{ .Params.room.name }}:
-              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-            </li>
-          {{- end }}
-        {{ end }}
-      </ul>
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{- define "main" }}
+  <style>
+    header.session-list,
+    section.session-list {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3.75rem;
+    }
+
+    section.session-list {
+      background-color: var(--color-secondary);
+      padding: 3.75rem 0;
+    }
+
+    section.session-list > article > h1 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    section.session-list > article > h2 {
+      font-size: 1.625rem;
+      font-weight: 700;
+    }
+    section.session-list > article > h3 {
+      font-size: 1.625rem;
+      font-weight: 700;
+    }
+    section.session-list > article > menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  </style>
+
+  <header class="session-list">
+    <article class="theme-content">
+      <h1>{{ T "list_sessions_title" }}</h1>
+    </article>
+  </header>
+
+  <section class="session-list">
+    <article class="theme-content">
+      {{- range $index, $element := .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
+        <h1>{{ T "list_sessions_day" (add $index 1) }}</h1>
+        <h2>{{ .Key | time.Format ":date_long" }}</h2>
+        {{- range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
+          <h3>{{ .Key | time.Format ":time_short" }}</h3>
+          <menu>
+            {{- range .Pages }}
+              <li>
+                {{- $transformedSpeakers := slice }}
+                {{- range .Params.speakers }}
+                  {{- $transformedSpeakers = $transformedSpeakers | append (dict "name" .fullName) }}
+                  {{- $transformedSpeakers = $transformedSpeakers | append (dict "avatar" .profilePicture) }}
+                {{- end }}
+                {{- partial "event-row.html" (
+                  dict
+                  "track" "TRACK1LONGTITLE"
+                  "title" .Title
+                  "link" .RelPermalink
+                  "speakers" $transformedSpeakers
+                  "isServiceSession" .Params.isServiceSession
+                  "room" .Params.room.name
+                  )
+                }}
+              </li>
+            {{- end }}
+          </menu>
+        {{- end }}
+      {{- end }}
+    </article>
+  </section>
+{{- end }}

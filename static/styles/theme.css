@@ -28,6 +28,12 @@
   initial-value: #637381;
 }
 
+@property --color-track {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #15b8ca;
+}
+
 :root {
   font-family: "Inter";
   color: var(--color-primary-darkest);

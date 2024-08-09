@@ -11,6 +11,8 @@ cta_section_message: |
   contacts!
 header_featured_speakers: Featured Speakers
 list_speakers_title: Speakers
+list_sessions_title: Schedule
+list_sessions_day: Day {{ . }}
 menu_home: Home
 menu_sessions: Schedule
 menu_speakers: Speakers

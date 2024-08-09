@@ -1,0 +1,73 @@
+{{ $input := . }}
+<style>
+  article.event-row {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    border: 0.125rem solid var(--color-primary);
+  }
+
+  article.event-row > a {
+    all: unset;
+    width: 100%;
+    padding: 1.25rem;
+    cursor: pointer;
+    display: flex;
+  }
+
+  article.event-row > a > h1 {
+    width: 14.1875rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-track);
+  }
+
+  article.event-row > a > div {
+    flex-grow: 1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  article.event-row > a > div > h2 {
+    all: unset;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  article.event-row > a > div > h3 {
+    all: unset;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-secondary-darker);
+  }
+</style>
+
+<article class="event-row">
+  <a href="{{- $input.link }}">
+    <h1>#{{- $input.track }}</h1>
+    <div>
+      <h2>{{- $input.title }} @ {{ $input.room }}</h2>
+      <h3>
+        {{- range $input.speakers }}
+          {{- .name }}
+        {{- end }}
+      </h3>
+    </div>
+    <article>
+      <ul>
+        {{- range $input.speakers }}
+          {{- with resources.Get .avatar }}
+            <li>
+              <img src="{{ .RelPermalink }}" alt="{{ .name }}" />
+            </li>
+          {{ end }}
+        {{- end }}
+      </ul>
+    </article>
+  </a>
+</article>

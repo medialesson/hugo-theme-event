@@ -10,14 +10,19 @@
     )
   }}
 
+  {{ $eventStartDate := .Site.Params.themes.event.startDate | time }}
+  {{ $eventEndDate := .Site.Params.themes.event.endDate | time }}
+  {{ $dayInSeconds := 86400 }}
   {{ partial "sections/home/event-highlights.html" (
     dict
     "title" .Site.Params.themes.event.title
     "subtitle" .Site.Params.themes.event.slogan
     "description" .Site.Params.themes.event.description
     "logo" .Site.Params.themes.event.logo
-    )
+    "numberOfSpeakers" ((where .Site.RegularPages "Section" "speakers") | len)
+    "numberOfSessions" ((where .Site.RegularPages "Section" "sessions") | len)
+    "numberOfDays" (div (sub (add $eventEndDate.Unix $dayInSeconds) $eventStartDate.Unix) $dayInSeconds)
+    "location" .Site.Params.themes.event.location )
   }}
-
   {{ partial "sections/home/featured-speakers.html" . }}
 {{- end }}

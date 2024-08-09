@@ -9,7 +9,7 @@
     justify-content: center;
   }
 
-  div.event-highlights-content {
+  header.event-highlights-description {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,33 +20,76 @@
     width: 16.375rem;
   }
 
-  article.event-highlights {
+  article.event-highlights-description {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
 
-  article.event-highlights > h1,
-  article.event-highlights > h2 {
+  article.event-highlights-description > h1,
+  article.event-highlights-description > h2 {
     text-align: left;
+  }
+
+  article.event-highlights-figures {
+    margin-top: 5.625rem;
+    display: flex;
+    gap: 1.875rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 </style>
 
 <section class="theme-section-home event-highlights">
-  <div class="theme-content event-highlights-content">
-    {{- with resources.Get $input.logo }}
-      <img class="event-highlights-logo" src="{{ .RelPermalink }}" />
-    {{ end }}
-    <article class="theme-content event-highlights">
-      <h1 class="theme-section-home">
-        {{ $input.title }}
-      </h1>
-      <h2 class="theme-section-home">
-        {{ $input.subtitle }}
-      </h2>
+  <div class="theme-content">
+    <header class="event-highlights-description">
+      {{- with resources.Get $input.logo }}
+        <img class="event-highlights-logo" src="{{ .RelPermalink }}" />
+      {{ end }}
+      <article class="event-highlights-description">
+        <h1 class="theme-section-home">
+          {{ $input.title }}
+        </h1>
+        <h2 class="theme-section-home">
+          {{ $input.subtitle }}
+        </h2>
 
-      <p>{{ $input.description | markdownify }}</p>
+        <p>{{ $input.description | markdownify }}</p>
+      </article>
+    </header>
+
+    <article class="event-highlights-figures">
+      {{- if $input.numberOfSpeakers }}
+        {{ partial "highlight-figure.html" (
+          dict
+          "icon" "icons/speaker.svg"
+          "caption" (T "section_home_event_highlights_figures_speaker" $input.numberOfSpeakers)
+          )
+        }}
+      {{- end }}
+      {{- if $input.numberOfSessions }}
+        {{- partial "highlight-figure.html" (
+          dict "icon" "icons/session.svg"
+          "caption" (T "section_home_event_highlights_figures_session" $input.numberOfSessions)
+          )
+        }}
+      {{- end }}
+      {{- if $input.numberOfDays }}
+        {{- partial "highlight-figure.html" (
+          dict "icon" "icons/calendar.svg"
+          "caption" (T "section_home_event_highlights_figures_day" $input.numberOfDays)
+          )
+        }}
+      {{- end }}
+      {{- if $input.location }}
+        {{- partial "highlight-figure.html" (
+          dict "icon" "icons/location.svg"
+          "caption" $input.location
+          )
+        }}
+      {{- end }}
     </article>
   </div>
 </section>

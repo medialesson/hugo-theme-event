@@ -96,7 +96,7 @@
                   selected
                 {{ end }}
               >
-                {{ .Language }}
+                {{ or .Language.LanguageName .Language.Lang | upper }}
               </option>
             {{ end }}
           </select>

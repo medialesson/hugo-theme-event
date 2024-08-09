@@ -51,6 +51,7 @@ body > footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-secondary-darker);
 }
 
 body > footer .theme-content {

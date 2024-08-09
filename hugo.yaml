@@ -1,5 +1,6 @@
 languages:
   en:
+    languageName: English
     params:
       themes:
         event:
@@ -9,6 +10,7 @@ languages:
             together with all other settings, in your Hugo configuration file.
             We hope you enjoy using this theme! 🎉
   de:
+    languageName: Deutsch
     params:
       themes:
         event:

@@ -17,6 +17,10 @@
     display: flex;
   }
 
+  article.event-row > a.service-session {
+    cursor: unset;
+  }
+
   article.event-row > a > h1 {
     width: 14.1875rem;
     font-size: 1.125rem;
@@ -26,7 +30,6 @@
 
   article.event-row > a > div {
     flex-grow: 1;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -48,26 +51,35 @@
 </style>
 
 <article class="event-row">
-  <a href="{{- $input.link }}">
-    <h1>#{{- $input.track }}</h1>
-    <div>
-      <h2>{{- $input.title }} @ {{ $input.room }}</h2>
-      <h3>
-        {{- range $input.speakers }}
-          {{- .name }}
-        {{- end }}
-      </h3>
-    </div>
-    <article>
-      <ul>
-        {{- range $input.speakers }}
-          {{- with resources.Get .avatar }}
-            <li>
-              <img src="{{ .RelPermalink }}" alt="{{ .name }}" />
-            </li>
-          {{ end }}
-        {{- end }}
-      </ul>
-    </article>
-  </a>
+  {{- if $input.isServiceSession }}
+    <a class="service-session">
+      <h1></h1>
+      <div>
+        <h2>{{- $input.title }}</h2>
+      </div>
+    </a>
+  {{- else }}
+    <a href="{{- $input.link }}">
+      <h1>#{{- $input.track }}</h1>
+      <div>
+        <h2>{{- $input.title }} @ {{ $input.room }}</h2>
+        <h3>
+          {{- range $input.speakers }}
+            {{- .name }}
+          {{- end }}
+        </h3>
+      </div>
+      <article>
+        <ul>
+          {{- range $input.speakers }}
+            {{- with resources.Get .avatar }}
+              <li>
+                <img src="{{ .RelPermalink }}" alt="{{ .name }}" />
+              </li>
+            {{ end }}
+          {{- end }}
+        </ul>
+      </article>
+    </a>
+  {{- end }}
 </article>

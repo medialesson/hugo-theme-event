@@ -28,7 +28,7 @@
   }}
   {{ $pages = $pages | append $page }}
 
-  {{/* Add page resource. */}}
+  {{/* Store the speaker's profile picture. */}}
   {{ $item := . }}
   {{ with $url := $item.profilePicture }}
     {{ with resources.GetRemote $url }}

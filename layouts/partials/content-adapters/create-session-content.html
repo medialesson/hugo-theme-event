@@ -15,14 +15,38 @@
     "isServiceSession" .isServiceSession
     "speakers" $speakers
   }}
+  {{ $path := (printf "%s %s" .title .id) }}
   {{ $page := dict
     "content" $content
     "kind" "page"
     "params" $params
-    "path" (printf "%s %s" .title .id)
+    "path" $path
     "title" .title
   }}
   {{ $pages = $pages | append $page }}
+
+  {{ range $speakers }}
+    {{/* Store profile pictures of speakers. */}}
+    {{ $speaker := . }}
+    {{ with $url := $speaker.profilePicture }}
+      {{ with resources.GetRemote $url }}
+        {{ with .Err }}
+          {{ errorf "Unable to get remote resource %s: %s" $url . }}
+        {{ else }}
+          {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
+          {{ $params := dict "alt" $speaker.fullName }}
+          {{ $resource := dict
+            "content" $content
+            "params" $params
+            "path" (printf "%s/avatar %s.%s" $path $speaker.id .MediaType.SubType)
+          }}
+          {{ $resources = $resources | append $resource }}
+        {{ end }}
+      {{ else }}
+        {{ errorf "Unable to get remote resource %s" $url }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{ return dict "pages" $pages "resources" $resources }}

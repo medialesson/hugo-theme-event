@@ -50,11 +50,13 @@
           <h3>{{ .Key | time.Format ":time_short" }}</h3>
           <menu>
             {{- range .Pages }}
+              {{- $page := . }}
               <li>
                 {{- $transformedSpeakers := slice }}
                 {{- range .Params.speakers }}
+                  {{- $speakerAvatarResource := ($page.Resources.GetMatch (printf "avatar-%s.*" .id)) }}
                   {{- $transformedSpeakers = $transformedSpeakers | append (dict "name" .fullName) }}
-                  {{- $transformedSpeakers = $transformedSpeakers | append (dict "avatar" .profilePicture) }}
+                  {{- $transformedSpeakers = $transformedSpeakers | append (dict "avatarResource" $speakerAvatarResource) }}
                 {{- end }}
                 {{- partial "event-row.html" (
                   dict

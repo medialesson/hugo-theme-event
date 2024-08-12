@@ -6,12 +6,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
+    }
+
+    header.session-list {
       margin-bottom: 3.75rem;
     }
 
     section.session-list {
       background-color: var(--color-secondary);
       padding: 3.75rem 0;
+    }
+
+    section.session-list > article {
+      margin-bottom: 3.75rem;
     }
 
     section.session-list > article > h1 {
@@ -33,7 +41,43 @@
       flex-direction: column;
       gap: 1rem;
     }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    header
+      > input[value="day-0"]:checked
+      ~ section
+      > article.session-list-day:not([data-day="0"]),
+    [value="day-1"]:checked ~ article.session-list-day:not([data-day="1"]),
+    [value="day-2"]:checked ~ article.session-list-day:not([data-day="2"]) {
+      display: none;
+      animation: fadeOut 0.25s;
+    }
+
+    [value="day-0"]:not(:checked) ~ article.session-list-day[data-day="0"],
+    [value="day-1"]:not(:checked) ~ article.session-list-day[data-day="1"],
+    [value="day-2"]:not(:checked) ~ article.session-list-day[data-day="2"] {
+      animation: fadeIn 0.25s;
+    }
   </style>
+
+  {{- $sessionsGroupedByDay := .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
+
 
   <header class="session-list">
     <article class="theme-content">
@@ -42,8 +86,24 @@
   </header>
 
   <section class="session-list">
-    <article class="theme-content">
-      {{- range $index, $element := .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
+    {{- if ($sessionsGroupedByDay | len) }}
+      {{- range $index, $element := $sessionsGroupedByDay }}
+        <label for="filter-day-{{ $index }}">
+          {{ T "list_sessions_day" (add $index 1) }}
+        </label>
+        <input
+          name="filter-day"
+          type="radio"
+          value="day-{{ $index }}"
+          id="filter-day-{{ $index }}"
+          {{- if eq $index 0 }}
+            checked
+          {{- end }}
+        />
+      {{- end }}
+    {{- end }}
+    {{- range $index, $element := $sessionsGroupedByDay }}
+      <article class="theme-content session-list-day" data-day="{{- $index }}">
         <h1>{{ T "list_sessions_day" (add $index 1) }}</h1>
         <h2>{{ .Key | time.Format ":date_long" }}</h2>
         {{- range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
@@ -72,7 +132,14 @@
             {{- end }}
           </menu>
         {{- end }}
-      {{- end }}
-    </article>
+      </article>
+    {{- end }}
   </section>
+
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
 {{- end }}

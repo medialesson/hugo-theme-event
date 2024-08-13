@@ -1,0 +1,41 @@
+{{ $input := . }}
+
+<style>
+  div.sponsor-card {
+    width: 16.875rem;
+    height: 16.875rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically and horizontally */
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid var(--color-primary);
+    box-shadow: 0 0.0625rem 0.1875rem 0 #a6afc366;
+  }
+
+  div.sponsor-card a.sponsor-card-link {
+    all: unset;
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  div.sponsor-card a.sponsor-card-link img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Scale image to fit within its container */
+  }
+</style>
+
+<div class="sponsor-card">
+  <a class="sponsor-card-link" href="{{ $input.companyUrl }}">
+    {{ with resources.Get $input.logoResource }}
+    <img src="{{ .RelPermalink }}"
+         alt="{{ $input.name }}">
+    {{ end }}
+  </a>
+</div>

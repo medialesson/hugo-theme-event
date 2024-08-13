@@ -6,13 +6,69 @@
       align-items: center;
       justify-content: center;
     }
+
+    section.sponsors ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    section.sponsors ul li {
+      flex: 0 0 calc(25% - 1.4rem);
+      margin-right: 1.4rem;
+      margin-bottom: 1.875rem;
+      box-sizing: border-box;
+    }
   </style>
 
   <section class="sponsors">
     <div class="theme-content">
-      <h1>{{- T "miscellaneous_sponsors_title_sponsors" }}</h1>
 
+      {{ if .Site.Params.themes.event.sponsors }}
+      <h1>{{- T "miscellaneous_sponsors_title_sponsors" }}</h1>
+      <ul>
+        {{ range .Site.Params.themes.event.sponsors }}
+        <li>
+          {{- partial "sponsor-card.html" (
+          dict
+          "companyUrl" .url
+          "logoResource" .logo
+          "name" .name
+          )
+          }}
+        </li>
+        {{- end }}
+      </ul>
+      {{ end }}
+
+      {{ if .Site.Params.themes.event.partners }}
       <h1>{{- T "miscellaneous_sponsors_title_partners" }}</h1>
+      <ul>
+        {{ range .Site.Params.themes.event.partners }}
+        <li>
+          {{- partial "sponsor-card.html" (
+          dict
+          "profileUrl" .url
+          "logoResource" .logo
+          "name" .name
+          )
+          }}
+        </li>
+        {{- end }}
+      </ul>
+      {{ end }}
+
     </div>
   </section>
+
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
 {{ end }}

@@ -45,7 +45,7 @@ params:
         # 👇 https://developers.google.com/maps/documentation/embed/embedding-map
         # 👇 and enter it here.
         embeddableMapUrl:
-        # 👇 Enter an URL of a larger map representation (not required for Google Maps).
+        # 👇 Enter a URL of a larger map representation (not required for Google Maps).
         viewLargerMapUrl:
       callToAction:
         eventbrite:
@@ -65,6 +65,16 @@ params:
       enableSessionPages: true
       images:
         eventTitleBackground: images/pexels-scottwebb-1048039.jpg
+      sponsors:
+        - logo: logos/medialesson-logo.svg
+          url: https://www.media-lesson.com/
+          # 👇 This name is used as the alt text for the logo
+          name: "Medialesson GmbH"
+      partners:
+        - logo: logos/medialesson-logo.svg
+          url: https://www.media-lesson.com/
+          # 👇 This name is used as the alt text for the logo
+          name: "Medialesson GmbH"
       colors:
         primary: "#afe10a"
         primaryDarker: "#015a57"

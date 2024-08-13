@@ -76,9 +76,12 @@ params:
           # 👇 This name is used as the alt text for the logo
           name: "Medialesson GmbH"
       colors:
-        primary: "#afe10a"
+        primaryLighter: "#d7fb4d"
+        primary: "#c6eb4d"
         primaryDarker: "#015a57"
         primaryDarkest: "#111928"
         secondary: "#f7f8fa"
         secondaryDarker: "#637381"
-        track: "#15B8CA"
+        track: "#015a57"
+      # 👇 Name of the category in Sessionize that is used to group sessions.
+      trackCategoryTitle: Track

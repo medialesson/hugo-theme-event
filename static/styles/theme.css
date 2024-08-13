@@ -1,7 +1,13 @@
+@property --color-primary-lighter {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d7fb4d;
+}
+
 @property --color-primary {
   syntax: "<color>";
   inherits: true;
-  initial-value: #afe10a;
+  initial-value: #c6eb4d;
 }
 
 @property --color-primary-darker {
@@ -31,7 +37,7 @@
 @property --color-track {
   syntax: "<color>";
   inherits: true;
-  initial-value: #15b8ca;
+  initial-value: #015a57;
 }
 
 :root {

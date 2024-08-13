@@ -42,6 +42,13 @@
       gap: 1rem;
     }
 
+    article.session-list-filters {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     article.session-list-filter {
       display: flex;
       flex-direction: column;
@@ -70,14 +77,18 @@
       color: var(--color-primary);
       font-size: 1rem;
       font-weight: 500;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
-    input[type="radio"].day-filter {
+    input.day-filter,
+    input.track-filter {
       display: none;
     }
   </style>
 
   {{- $sessionsGroupedByDay := .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
+  {{- $sessionsGroupedByTrack := .Pages.GroupByParam "track" }}
 
   {{- range $index, $element := $sessionsGroupedByDay }}
     <style>
@@ -103,24 +114,63 @@
     />
   {{- end }}
 
+  {{- range $sessionsGroupedByTrack }}
+    <style>
+      /* Hide sessions of not selected tracks. */
+      [value="track-{{ .Key }}"].track-filter:not(:checked) ~ section li[data-track="{{ .Key }}"] {
+        display: none;
+      }
+      /* Highlight label of selected track filter. */
+      [value="track-{{ .Key }}"].track-filter:checked ~ header [for="filter-track-{{ .Key }}"] {
+        background-color: var(--color-primary-lighter);
+        color: white;
+      }
+    </style>
+    <input
+      name="filter-track"
+      type="checkbox"
+      class="track-filter"
+      value="track-{{ .Key }}"
+      id="filter-track-{{ .Key }}"
+      checked
+    />
+  {{- end }}
+
 
   <header class="session-list">
     <div class="theme-content">
       <h1>{{ T "list_sessions_title" }}</h1>
-      {{- if ($sessionsGroupedByDay | len) }}
-        <article class="session-list-filter">
-          <h2>{{ T "list_sessions_title_day_filter" }}</h2>
-          <menu>
-            {{- range $index, $element := $sessionsGroupedByDay }}
-              <li>
-                <label for="filter-day-{{ $index }}">
-                  {{ T "list_sessions_day" (add $index 1) }}
-                </label>
-              </li>
-            {{- end }}
-          </menu>
-        </article>
-      {{- end }}
+      <article class="session-list-filters">
+        {{- if ($sessionsGroupedByDay | len) }}
+          <article class="session-list-filter">
+            <h2>{{ T "list_sessions_title_day_filter" }}</h2>
+            <menu>
+              {{- range $index, $element := $sessionsGroupedByDay }}
+                <li>
+                  <label for="filter-day-{{ $index }}">
+                    {{ T "list_sessions_day" (add $index 1) }}
+                  </label>
+                </li>
+              {{- end }}
+            </menu>
+          </article>
+        {{- end }}
+
+        {{- if ($sessionsGroupedByTrack | len) }}
+          <article class="session-list-filter">
+            <h2>{{ T "list_sessions_title_track_filter" }}</h2>
+            <menu>
+              {{- range $sessionsGroupedByTrack }}
+                <li>
+                  <label for="filter-track-{{ .Key }}">
+                    {{ .Key }}
+                  </label>
+                </li>
+              {{- end }}
+            </menu>
+          </article>
+        {{- end }}
+      </article>
     </div>
   </header>
 
@@ -134,7 +184,7 @@
           <menu>
             {{- range .Pages }}
               {{- $page := . }}
-              <li>
+              <li data-track="{{- .Params.track }}">
                 {{- $transformedSpeakers := slice }}
                 {{- range .Params.speakers }}
                   {{- $speakerAvatarResource := ($page.Resources.GetMatch (printf "avatar-%s.*" .id)) }}
@@ -143,7 +193,7 @@
                 {{- end }}
                 {{- partial "event-row.html" (
                   dict
-                  "track" "TRACK1LONGTITLE"
+                  "track" .Params.track
                   "title" .Title
                   "link" .RelPermalink
                   "speakers" $transformedSpeakers

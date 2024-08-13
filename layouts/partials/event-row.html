@@ -74,7 +74,11 @@
     </a>
   {{- else }}
     <a href="{{- $input.link }}">
-      <h1>#{{- $input.track }}</h1>
+      <h1>
+        {{- if $input.track }}
+          #{{- $input.track }}
+        {{- end }}
+      </h1>
       <div>
         <h2>{{- $input.title }} @ {{ $input.room }}</h2>
         <h3>

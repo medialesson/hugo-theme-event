@@ -2,18 +2,23 @@
 {{ $pages := slice }}
 {{ $resources := slice }}
 
-{{ range $input.sessions }}
+{{ $trackCategory := index (where $input.sessionize.categories "title" $input.trackCategoryTitle) 0 }}
+{{ $trackItems := or $trackCategory.items (slice) }}
+
+{{ range $input.sessionize.sessions }}
   {{ $startsAt := .startsAt | time.AsTime }}
   {{ $date := $startsAt | time.Format "2006-01-02" | time.AsTime }}
-  {{ $room := index (where $input.rooms "id" "eq" .roomId) 0 }}
+  {{ $room := index (where $input.sessionize.rooms "id" .roomId) 0 }}
   {{ $content := dict "mediaType" "text/markdown" "value" .description }}
-  {{ $speakers := where $input.speakers "id" "in" .speakers }}
+  {{ $speakers := where $input.sessionize.speakers "id" "in" .speakers }}
+  {{ $track := index (where $trackItems "id" "in" .categoryItems) 0 }}
   {{ $params := dict
     "date" $date
     "startsAt" $startsAt
     "room" $room
     "isServiceSession" .isServiceSession
     "speakers" $speakers
+    "track" $track.name
   }}
   {{ $path := (printf "%s %s" .title .id) }}
   {{ $page := dict

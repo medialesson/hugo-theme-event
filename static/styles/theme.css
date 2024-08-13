@@ -1,7 +1,13 @@
+@property --color-primary-lighter {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d7fb4d;
+}
+
 @property --color-primary {
   syntax: "<color>";
   inherits: true;
-  initial-value: #afe10a;
+  initial-value: #c6eb4d;
 }
 
 @property --color-primary-darker {

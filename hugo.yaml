@@ -66,7 +66,8 @@ params:
       images:
         eventTitleBackground: images/pexels-scottwebb-1048039.jpg
       colors:
-        primary: "#afe10a"
+        primaryLighter: "#d7fb4d"
+        primary: "#c6eb4d"
         primaryDarker: "#015a57"
         primaryDarkest: "#111928"
         secondary: "#f7f8fa"

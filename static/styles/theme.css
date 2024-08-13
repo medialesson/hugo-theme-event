@@ -31,7 +31,7 @@
 @property --color-track {
   syntax: "<color>";
   inherits: true;
-  initial-value: #15b8ca;
+  initial-value: #015a57;
 }
 
 :root {

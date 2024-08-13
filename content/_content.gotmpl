@@ -1,0 +1,15 @@
+{{ .EnableAllLanguages }}
+
+{{/* Create empty sponsors page (template: `layouts/miscellaneous/sponsors`). */}}
+{{ $content := dict
+  "mediaType" "text/markdown"
+}}
+{{ $page := dict
+  "content" $content
+  "kind" "page"
+  "path" "sponsors"
+  "title" "The Hunchback of Notre Dame"
+  "type" "miscellaneous"
+  "layout" "sponsors"
+}}
+{{ .AddPage $page }}

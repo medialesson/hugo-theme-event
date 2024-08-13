@@ -24,5 +24,20 @@
     "numberOfDays" (div (sub (add $eventEndDate.Unix $dayInSeconds) $eventStartDate.Unix) $dayInSeconds)
     "location" .Site.Params.themes.event.location )
   }}
+
+  {{- $tracks := slice }}
+  {{- range (.Site.RegularPages.GroupByParam "track") }}
+    {{- $tracks = $tracks | append (.Key) }}
+  {{- end }}
+
+  {{- if $tracks }}
+    {{- partial "sections/home/conference-tracks.html" (
+      dict
+      "tracks" $tracks
+      "sessionsUrl" (.Site.GetPage "sessions").RelPermalink
+      )
+    }}
+  {{- end }}
+
   {{ partial "sections/home/featured-speakers.html" . }}
 {{- end }}

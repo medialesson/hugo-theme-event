@@ -1,5 +1,6 @@
 {{ $input := . }}
 
+
 <style>
   div.sponsor-card {
     width: 16.875rem;
@@ -11,7 +12,7 @@
     justify-content: center; /* Center content vertically and horizontally */
     border-radius: 0.3125rem;
     border: 0.0625rem solid var(--color-primary);
-    box-shadow: 0 0.0625rem 0.1875rem 0 #a6afc366;
+    box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
   }
 
   div.sponsor-card a.sponsor-card-link {
@@ -34,8 +35,7 @@
 <div class="sponsor-card">
   <a class="sponsor-card-link" href="{{ $input.companyUrl }}">
     {{ with resources.Get $input.logoResource }}
-    <img src="{{ .RelPermalink }}"
-         alt="{{ $input.name }}">
+      <img src="{{ .RelPermalink }}" alt="{{ $input.name }}" />
     {{ end }}
   </a>
 </div>

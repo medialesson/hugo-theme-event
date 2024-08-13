@@ -83,5 +83,6 @@ params:
         secondary: "#f7f8fa"
         secondaryDarker: "#637381"
         track: "#015a57"
+        shadow: "#a6afc366"
       # 👇 Name of the category in Sessionize that is used to group sessions.
       trackCategoryTitle: Track

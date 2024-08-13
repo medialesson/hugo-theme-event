@@ -1,0 +1,73 @@
+{{ $input := . }}
+
+
+<style>
+  section.conference-tracks {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-secondary);
+  }
+
+  article.conference-tracks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  article.conference-tracks > ol {
+    all: unset;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    gap: 1.875rem;
+    margin: 3.75rem 0;
+  }
+
+  article.conference-tracks > ol > li {
+    all: unset;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.125rem;
+    box-sizing: border-box;
+    padding: 1.25rem 1.75rem;
+    border-radius: 0.3125rem;
+    background-color: white;
+    box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-primary-darkest);
+  }
+</style>
+
+<section class="theme-section-home conference-tracks">
+  <article class="theme-content conference-tracks">
+    <h1 class="theme-section-home">
+      {{ T "section_home_conference_tracks_title" }}
+    </h1>
+    <h2 class="theme-section-home">
+      {{ T "section_home_conference_tracks_subtitle" }}
+    </h2>
+    <ol>
+      {{- range $input.tracks }}
+        <li>
+          #{{ . | upper }}
+        </li>
+      {{- end }}
+    </ol>
+
+    {{- with $input.sessionsUrl }}
+      <a href="{{ . }}" class="button secondary">
+        {{ T "section_home_conference_tracks_button" }}
+      </a>
+    {{- end }}
+  </article>
+</section>

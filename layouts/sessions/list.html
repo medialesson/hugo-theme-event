@@ -163,7 +163,7 @@
               {{- range $sessionsGroupedByTrack }}
                 <li>
                   <label for="filter-track-{{ .Key }}">
-                    {{ .Key }}
+                    #{{ .Key | upper }}
                   </label>
                 </li>
               {{- end }}
@@ -188,8 +188,12 @@
                 {{- $transformedSpeakers := slice }}
                 {{- range .Params.speakers }}
                   {{- $speakerAvatarResource := ($page.Resources.GetMatch (printf "avatar-%s.*" .id)) }}
-                  {{- $transformedSpeakers = $transformedSpeakers | append (dict "name" .fullName) }}
-                  {{- $transformedSpeakers = $transformedSpeakers | append (dict "avatarResource" $speakerAvatarResource) }}
+                  {{- $transformedSpeakers = $transformedSpeakers | append (
+                    dict
+                    "name" .fullName
+                    "avatarResource" $speakerAvatarResource
+                    )
+                  }}
                 {{- end }}
                 {{- partial "event-row.html" (
                   dict

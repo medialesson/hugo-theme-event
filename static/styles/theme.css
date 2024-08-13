@@ -40,6 +40,12 @@
   initial-value: #015a57;
 }
 
+@property --color-shadow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a6afc366;
+}
+
 :root {
   font-family: "Inter";
   color: var(--color-primary-darkest);
@@ -100,7 +106,7 @@ body > footer #made-by {
 }
 
 section.theme-section-home {
-  margin: 5rem 0;
+  padding: 5rem 0;
 }
 
 h1.theme-section-home,

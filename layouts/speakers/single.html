@@ -4,6 +4,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 2.375rem 0;
     }
 
     div.single-speaker-content {
@@ -43,4 +44,32 @@
       </div>
     </div>
   </div>
+
+  {{- $speakerSessions := slice }}
+  {{ range where .Site.RegularPages "Section" "sessions" }}
+    {{ if in .Params.speakerIds page.Params.speakerId }}
+      {{- $speakerSessions = $speakerSessions | append (
+        dict
+        "title" .Title
+        "track" .Params.track
+        "startsAt" .Params.startsAt
+        "room" .Params.room.name
+        "sessionUrl" .Permalink
+        )
+      }}
+    {{ end }}
+  {{ end }}
+  {{- partial "speaker-sessions.html" (
+    dict
+    "speakerName" page.Title
+    "speakerSessions" $speakerSessions
+    )
+  }}
+
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
 {{ end }}

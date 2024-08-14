@@ -1,0 +1,99 @@
+{{ $input := . }}
+
+
+<style>
+  article.speaker-sessions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-secondary);
+    padding: 2.25rem 0;
+  }
+
+  article.speaker-sessions h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  article.speaker-sessions h1 > span {
+    font-weight: 900;
+  }
+
+  menu.speaker-sessions {
+    all: unset;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 1.875rem;
+    margin-top: 5rem;
+  }
+
+  menu.speaker-sessions a {
+    all: unset;
+    width: 16.25rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+    gap: 2rem;
+  }
+
+  menu.speaker-sessions h1 {
+    all: unset;
+    font-weight: 800;
+    font-size: 1.5rem;
+    flex-grow: 1;
+  }
+
+  menu.speaker-sessions time {
+    all: unset;
+    display: block;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  menu.speaker-sessions div.track {
+    all: unset;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-track);
+  }
+</style>
+
+<article class="speaker-sessions">
+  <div class="theme-content">
+    <h1>
+      {{ T "speaker_sessions_sessions_of" | upper }}
+      <span>
+        #{{ (replaceRE "[^a-zA-Z0-9]" "" $input.speakerName) | upper }}
+      </span>
+    </h1>
+    <menu class="speaker-sessions">
+      {{ range $input.speakerSessions }}
+        {{- $startsAtMachineReadable := .startsAt | dateFormat "2023-10-15T14:20:28-07:00" }}
+        {{- $startsAtHumanReadable :=
+          printf
+          "%s, %s"
+          (.startsAt | dateFormat ":date_medium")
+          (.startsAt | dateFormat ":time_short")
+        }}
+        <li>
+          <a href="{{- .sessionUrl }}">
+            <h1>{{- .title }}</h1>
+            <div>
+              <time datetime="{{- $startsAtMachineReadable }}">
+                {{- $startsAtHumanReadable }}
+              </time>
+              <div class="track">#{{- .track | upper }}</div>
+            </div>
+            {{- partial "graphics/vector.html" -}}
+          </a>
+        </li>
+      {{ end }}
+    </menu>
+  </div>
+</article>

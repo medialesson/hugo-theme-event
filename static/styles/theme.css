@@ -81,6 +81,7 @@ body > footer .theme-content {
 body > footer #footer-start {
   display: flex;
   align-items: center;
+  font-size: 1.75rem;
   gap: 2.5rem;
 }
 

@@ -41,8 +41,7 @@
         (dict
         "locationImg" $event.images.locationImage
         "locationImgAlt" .Site.Params.themes.event.location
-        "public" $event.directions.publicTransportation
-        "car" $event.directions.car
+        "directions" $event.directions
         ) }}
       </div>
       {{- end }}

@@ -11,6 +11,7 @@
   {{ $companyUrl := (index (where .links "linkType" "eq" "Company_Website") 0).url }}
   {{ $params :=
     dict
+    "speakerId" .id
     "tagLine" .tagLine
     "sessions" $sessions
     "isTopSpeaker" .isTopSpeaker

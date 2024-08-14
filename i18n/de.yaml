@@ -38,3 +38,4 @@ section_home_event_highlights_figures_session:
 section_home_event_highlights_figures_day:
   one: "{{ . }} Tag"
   other: "{{ . }} Tage"
+speaker_sessions_sessions_of: Sessions von

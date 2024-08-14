@@ -1,39 +1,46 @@
 {{ define "main" }}
-  <h2>{{ .Title }}</h2>
+  <style>
+    div.single-speaker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  {{ with .Resources.GetMatch "avatar.*" }}
-    <img
-      src="{{ .RelPermalink }}"
-      width="200"
-      height="200"
-      alt="{{ .Params.alt }}"
-    />
-  {{ end }}
+    div.single-speaker-content {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 2.625rem;
+    }
 
+    div.single-speaker-biography {
+      flex-grow: 1;
+    }
+  </style>
 
-  <div>{{ .Content }}</div>
+  <div class="single-speaker">
+    <div class="theme-content single-speaker-content">
+      <div class="single-speaker-avatar">
+        {{- partial "speaker-avatar.html" (
+          dict
+          "avatarResource" (.Resources.GetMatch "avatar.*")
+          "avatarAlt" page.Title
+          "linkedinUrl" page.Params.linkedinUrl
+          "xUrl" page.Params.xUrl
+          "companyUrl" page.Params.company
+          )
+        }}
+      </div>
 
-  {{ range .Params.links }}
-    <li>
-      <a href="{{ .url }}">
-        {{ .title }}
-      </a>
-    </li>
-  {{ end }}
-
-
-  <h2>Sessions</h2>
-  {{ range .Params.sessions }}
-    <h3>
-      {{ .title }}
-      {{ if .startsAt }}
-        <small
-          >@ {{ .startsAt | time.AsTime | time.Format ":time_short" }}</small
-        >
-      {{ end }}
-    </h3>
-    {{ .description }}
-    <p><code>{{ .startsAt }}</code></p>
-  {{ end }}
-
+      <div class="single-speaker-biography">
+        {{- partial "speaker-biography.html" (
+          dict
+          "speakerName" page.Title
+          "speakerSlogan" page.Params.tagLine
+          "speakerBiography" page.RawContent
+          )
+        }}
+      </div>
+    </div>
+  </div>
 {{ end }}

@@ -141,7 +141,7 @@
     <div class="theme-content">
       <h1>{{ T "list_sessions_title" }}</h1>
       <article class="session-list-filters">
-        {{- if ($sessionsGroupedByDay | len) }}
+        {{- if lt ($sessionsGroupedByDay | len) 1 }}
           <article class="session-list-filter">
             <h2>{{ T "list_sessions_title_day_filter" }}</h2>
             <menu>
@@ -156,7 +156,7 @@
           </article>
         {{- end }}
 
-        {{- if ($sessionsGroupedByTrack | len) }}
+        {{- if lt ($sessionsGroupedByTrack | len) 1 }}
           <article class="session-list-filter">
             <h2>{{ T "list_sessions_title_track_filter" }}</h2>
             <menu>

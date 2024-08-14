@@ -13,3 +13,17 @@
   "layout" "sponsors"
 }}
 {{ .AddPage $page }}
+
+{{/* Create empty sponsors page (template: `layouts/miscellaneous/location`). */}}
+{{ $content := dict
+  "mediaType" "text/markdown"
+}}
+{{ $page := dict
+  "content" $content
+  "kind" "page"
+  "path" "location"
+  "title" "The Hunchback of Notre Dame"
+  "type" "miscellaneous"
+  "layout" "location"
+}}
+{{ .AddPage $page }}

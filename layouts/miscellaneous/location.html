@@ -1,0 +1,48 @@
+{{ define "main" }}
+  <style>
+    section.location {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    div.address-details p.address-line {
+      all: unset;
+      font-size: 1rem;
+      height: 2.75rem;
+      line-height: 1.5rem;
+      font-weight: 400;
+      text-align: left;
+      color: var(--color-secondary-darker);
+      display: block;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      overflow: hidden;
+    }
+  </style>
+
+  <section class="location">
+    <div class="theme-content">
+      <h1>{{- T "miscellaneous_location_title" }}</h1>
+
+      {{ if .Site.Params.themes.event.address }}
+      <div class="address-details">
+        {{ range .Site.Params.themes.event.address }}
+        <p class="address-line">{{ . }}</p>
+        {{ end }}
+      </div>
+      {{- end }}
+
+      {{ if .Site.Params.themes.event.directions }}
+      {{- end }}
+    </div>
+  </section>
+
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
+{{ end }}

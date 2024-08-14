@@ -60,9 +60,10 @@ of this content with your menu configuration (see below). Simply add menu
 entries for every content you want to use.
 
 | Identifier        | Slug (`pageRef`)   | Description                              |
-| ----------------- | ------------------ | ---------------------------------------- |
+|-------------------| ------------------ |------------------------------------------|
 | `sessions`        | `/sessions`        | A schedule of the event's sessions.      |
 | `speakers`        | `/speakers`        | A list of speakers.                      |
+| `location`        | `/location`        | A location of the event.                 |
 | `sponsors`        | `/sponsors`        | A page displaying sponsors and partners. |
 | `code_of_conduct` | `/code-of-conduct` | A page with the Berlin Code of Conduct.  |
 

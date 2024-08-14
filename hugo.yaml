@@ -75,6 +75,15 @@ params:
           url: https://www.media-lesson.com/
           # 👇 This name is used as the alt text for the logo
           name: "Medialesson GmbH"
+      directions:
+        - publicTransportation:
+            description: |
+              This is a placeholder for your public transportation directions 🚌. You can
+              customize it in your Hugo configuration file or remove it if not needed.
+        - car:
+            description: |
+              This is a placeholder for your car directions 🚗. You can customize it in
+              your Hugo configuration file or remove it if not needed.
       colors:
         primaryLighter: "#d7fb4d"
         primary: "#c6eb4d"

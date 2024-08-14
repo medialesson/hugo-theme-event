@@ -30,7 +30,7 @@
     {{- $tracks = $tracks | append (.Key) }}
   {{- end }}
 
-  {{- if $tracks }}
+  {{- if gt ($tracks | len) 1 }}
     {{- partial "sections/home/conference-tracks.html" (
       dict
       "tracks" $tracks
@@ -39,5 +39,28 @@
     }}
   {{- end }}
 
-  {{ partial "sections/home/featured-speakers.html" . }}
+  {{- $topSpeakers := slice }}
+  {{- range (where .Site.Pages "Section" "speakers") }}
+    {{- if .Params.isTopSpeaker }}
+      {{- $topSpeakers = $topSpeakers | append ( dict
+        "profileUrl" .Permalink
+        "avatarResource" (.Resources.GetMatch "avatar.*")
+        "name" .Title
+        "description" .Params.tagLine
+        "linkedinUrl" .Params.linkedinUrl
+        "xUrl" .Params.xUrl
+        "companyUrl" .Params.company
+        )
+      }}
+    {{- end }}
+  {{- end }}
+
+  {{- if gt ($topSpeakers | len) 1 }}
+    {{ partial "sections/home/featured-speakers.html" (
+      dict
+      "speakers" $topSpeakers
+      "speakersUrl" (.Site.GetPage "speakers").RelPermalink
+      )
+    }}
+  {{- end }}
 {{- end }}

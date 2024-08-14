@@ -1,3 +1,6 @@
+{{ $input := . }}
+
+
 <style>
   section.featured-speakers {
     width: 100%;
@@ -33,27 +36,25 @@
       {{ T "section_home_featured_speakers_subtitle" }}
     </h2>
     <menu>
-      {{- range where .Site.Pages "Section" "speakers" }}
-        {{- if .Params.isTopSpeaker }}
-          <li>
-            {{- partial "speaker-card.html" (
-              dict
-              "profileUrl" .Permalink
-              "avatarResource" (.Resources.GetMatch "avatar.*")
-              "name" .Title
-              "description" .Params.tagLine
-              "linkedinUrl" .Params.linkedinUrl
-              "xUrl" .Params.xUrl
-              "companyUrl" .Params.company
-              )
-            }}
-          </li>
-        {{- end }}
+      {{- range $input.speakers }}
+        <li>
+          {{- partial "speaker-card.html" (
+            dict
+            "profileUrl" .profileUrl
+            "avatarResource" .avatarResource
+            "name" .name
+            "description" .description
+            "linkedinUrl" .linkedinUrl
+            "xUrl" .xUrl
+            "companyUrl" .companyUrl
+            )
+          }}
+        </li>
       {{- end }}
     </menu>
 
-    {{- with .Site.GetPage "speakers" }}
-      <a href="{{ .RelPermalink }}" class="button secondary">
+    {{- with $input.speakersUrl }}
+      <a href="{{ . }}" class="button secondary">
         {{ T "section_home_featured_speakers_button" }}
       </a>
     {{- end }}

@@ -65,6 +65,8 @@ params:
       enableSessionPages: true
       images:
         eventTitleBackground: images/pexels-scottwebb-1048039.jpg
+        # 👇 Image showcasing the building or venue where the event will take place.
+        locationImage:
       sponsors:
         - logo: logos/medialesson-logo.svg
           url: https://www.media-lesson.com/
@@ -76,12 +78,12 @@ params:
           # 👇 This name is used as the alt text for the logo
           name: "Medialesson GmbH"
       directions:
-        - publicTransportation:
-            description: |
+        publicTransportation:
+          description: |
               This is a placeholder for your public transportation directions 🚌. You can
               customize it in your Hugo configuration file or remove it if not needed.
-        - car:
-            description: |
+        car:
+          description: |
               This is a placeholder for your car directions 🚗. You can customize it in
               your Hugo configuration file or remove it if not needed.
       colors:

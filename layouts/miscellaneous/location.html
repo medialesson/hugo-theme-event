@@ -34,7 +34,17 @@
       </div>
       {{- end }}
 
-      {{ if .Site.Params.themes.event.directions }}
+      {{ $event := .Site.Params.themes.event }}
+      <div class="directions-details">
+        {{ if $event.directions }}
+        {{- partial "directions-card.html"
+        (dict
+        "locationImg" $event.images.locationImage
+        "locationImgAlt" .Site.Params.themes.event.location
+        "public" $event.directions.publicTransportation
+        "car" $event.directions.car
+        ) }}
+      </div>
       {{- end }}
     </div>
   </section>

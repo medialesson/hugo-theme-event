@@ -2,25 +2,29 @@
 
 
 <style>
-  article.event-row {
+  a.event-row {
+    all: unset;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
     gap: 1rem;
     border-radius: 0.75rem;
     border: 0.125rem solid var(--color-primary);
-  }
 
-  article.event-row > a {
-    all: unset;
     width: 100%;
     padding: 1.25rem;
     cursor: pointer;
     display: flex;
   }
 
-  article.event-row > a.service-session {
+  a.event-row.service-session {
     cursor: unset;
+  }
+
+  .service-session .event-row-room,
+  .service-session .event-row-speakers,
+  .service-session .event-row-avatars {
+    display: none;
   }
 
   h1.event-row-track {
@@ -55,7 +59,7 @@
     content: ", ";
   }
 
-  article.event-row ul.speaker-avatars {
+  .event-row ul.event-row-avatars {
     all: unset;
     list-style: none;
     display: flex;
@@ -63,48 +67,46 @@
     gap: 1.75rem;
   }
 
-  article.event-row ul.speaker-avatars img {
+  .event-row ul.event-row-avatars img {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
   }
 </style>
 
-<article class="event-row">
+<a
   {{- if $input.isServiceSession }}
-    <a class="service-session">
-      <h1></h1>
-      <div>
-        <h2>{{- $input.title }}</h2>
-      </div>
-    </a>
+    class="event-row service-session"
   {{- else }}
-    <a href="{{- $input.link }}">
-      <h1 class="event-row-track">
-        {{- if $input.track }}
-          #{{- $input.track | upper }}
-        {{- end }}
-      </h1>
-      <div class="event-row-center">
-        <h2 class="event-row-title">{{- $input.title }} @ {{ $input.room }}</h2>
-        <h3 class="event-row-speakers">
-          {{- range $input.speakers }}
-            <span>{{- .name }}</span>
-          {{- end }}
-        </h3>
-      </div>
-      <article>
-        <ul class="speaker-avatars">
-          {{- range $input.speakers }}
-            {{- $speaker := . }}
-            {{- with $speaker.avatarResource }}
-              <li>
-                <img src="{{ .RelPermalink }}" alt="{{ $speaker.name }}" />
-              </li>
-            {{ end }}
-          {{- end }}
-        </ul>
-      </article>
-    </a>
+    class="event-row" href="{{- $input.link }}"
   {{- end }}
-</article>
+>
+  <h1 class="event-row-track">
+    {{- if $input.track }}
+      #{{- $input.track | upper }}
+    {{- end }}
+  </h1>
+  <div class="event-row-center">
+    <h2 class="event-row-title">
+      {{- $input.title }}
+      <span class="event-row-room">@ {{ $input.room }}</span>
+    </h2>
+    <h3 class="event-row-speakers">
+      {{- range $input.speakers }}
+        <span>{{- .name }}</span>
+      {{- end }}
+    </h3>
+  </div>
+  <article>
+    <ul class="event-row-avatars">
+      {{- range $input.speakers }}
+        {{- $speaker := . }}
+        {{- with $speaker.avatarResource }}
+          <li>
+            <img src="{{ .RelPermalink }}" alt="{{ $speaker.name }}" />
+          </li>
+        {{ end }}
+      {{- end }}
+    </ul>
+  </article>
+</a>

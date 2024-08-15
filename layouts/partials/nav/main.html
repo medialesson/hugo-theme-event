@@ -2,6 +2,14 @@
 
 
 <style>
+  #menuToggle {
+    display: none;
+  }
+
+  #menuToggle:checked ~ aside.sidebar {
+    display: block;
+  }
+
   nav.main {
     width: 100%;
     display: flex;
@@ -9,14 +17,20 @@
     justify-content: space-between;
   }
 
+  nav.main[data-menu-mode="header"] > label {
+    display: none;
+  }
+
   nav.main menu {
     display: flex;
     gap: 2.5rem;
+    line-height: 1.5rem;
     list-style: none;
+    overflow-x: hidden;
   }
 
-  nav.main menu li {
-    flex-grow: 1;
+  nav.main[data-menu-mode="sidebar"] menu {
+    display: none;
   }
 
   nav.main menu a {
@@ -37,8 +51,13 @@
   }
 </style>
 
-<nav class="main">
-  <menu>
+<input type="checkbox" id="menuToggle" />
+
+<nav id="mainNavigation" class="main" data-menu-mode="header">
+  <label for="menuToggle">
+    {{- partial "elements/hamburger-menu.html" }}
+  </label>
+  <menu id="mainMenuHeader">
     <li>
       <a
         {{- if $input.context.IsHome }}
@@ -63,8 +82,62 @@
         </a>
       </li>
     {{- end }}
-
   </menu>
 
   {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl) }}
+
 </nav>
+
+<style>
+  aside.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 100%;
+  }
+
+  aside.sidebar a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+  }
+</style>
+
+<aside class="sidebar">
+  <label for="menuToggle">
+    {{- partial "elements/close-menu.html" }}
+  </label>
+  <nav>
+    <menu>
+      {{- $currentNode := $input.context }}
+      {{- range $input.menu }}
+        <li>
+          <a
+            href="{{ .URL }}"
+            {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
+              class="active"
+            {{- end }}
+          >
+            {{- or (T (printf "menu_%s" .Identifier)) .Name }}
+          </a>
+        </li>
+      {{- end }}
+    </menu>
+  </nav>
+</aside>
+
+<script>
+  function checkWhichMenuToUse() {
+    mainNavigation.setAttribute("data-menu-mode", "header");
+    if (mainMenuHeader.scrollWidth > mainMenuHeader.clientWidth) {
+      mainNavigation.setAttribute("data-menu-mode", "sidebar");
+    }
+  }
+
+  const bodyElement = document.querySelector("body");
+  new ResizeObserver(checkWhichMenuToUse).observe(bodyElement);
+</script>

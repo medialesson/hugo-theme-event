@@ -24,7 +24,7 @@
     {{- range site.Menus.footer }}
       <li>
         <a href="{{ .URL }}">
-          {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
+          {{- or (T (printf "menu_%s" .Identifier)) .Name }}
         </a>
       </li>
     {{- end }}

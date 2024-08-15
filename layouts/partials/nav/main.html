@@ -59,7 +59,7 @@
             class="active"
           {{- end }}
         >
-          {{- or (T (printf "menu_%s" .Identifier)) .Name | safeHTML }}
+          {{- or (T (printf "menu_%s" .Identifier)) .Name }}
         </a>
       </li>
     {{- end }}

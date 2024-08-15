@@ -64,7 +64,6 @@ body > header {
 }
 
 body > footer {
-  height: 5.8125rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -76,6 +75,16 @@ body > footer .theme-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.625rem;
+  padding: 1.5rem 0;
+}
+
+@media (max-width: 58rem) {
+  body > footer .theme-content {
+    flex-direction: column;
+    padding: 2.5rem 0;
+    gap: 2.5rem;
+  }
 }
 
 body > footer #footer-start {

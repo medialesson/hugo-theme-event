@@ -1,7 +1,54 @@
 {{ $input := . }}
 
-{{- partial "css.html" (dict "cssFile" "styles/partials/countdown.css") }}
 
+<style>
+  time.counter {
+    display: flex;
+    background-color: #00000096;
+    padding: 1.25rem 0;
+    border-radius: 1rem;
+    border: 0.125rem solid var(--color-primary);
+  }
+
+  time.counter .countdown-segment {
+    display: flex;
+    width: 8rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  time.counter .countdown-segment:not(:first-child) {
+    border-left: #fff 0.125rem solid;
+  }
+
+  time.counter .countdown-segment .countdown-value {
+    font-size: 3.125rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  time.counter .countdown-segment .countdown-label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  /* Four segments have by default a width if 8rem. */
+  @media (max-width: 32rem) {
+    time.counter .countdown-segment {
+      width: 6rem;
+    }
+
+    time.counter .countdown-segment .countdown-value {
+      font-size: 2.125rem;
+    }
+
+    time.counter .countdown-segment .countdown-label {
+      font-size: 0.75rem;
+    }
+  }
+</style>
 
 <time class="counter" datetime="{{ $input.targetDate }}">
   <div class="countdown-segment">

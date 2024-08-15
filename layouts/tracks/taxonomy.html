@@ -1,0 +1,12 @@
+{{ define "main" }}
+  lalala
+
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Data.Terms.Alphabetical }}
+    <h2>
+      <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+      ({{ .Count }})
+    </h2>
+  {{ end }}
+{{ end }}

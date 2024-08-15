@@ -20,6 +20,7 @@
     "speakers" $speakers
     "speakerIds" .speakers
     "track" $track.name
+    "tracks" (slice $track.name)
   }}
   {{ $path := (printf "%s %s" .title .id) }}
   {{ $page := dict

@@ -21,6 +21,9 @@ languages:
             Hugo-Konfigurationsdatei anpassen. Wir wünschen Ihnen viel Spaß mit
             diesem Theme! 🎉
 
+taxonomies:
+  track: tracks
+
 params:
   themes:
     event:

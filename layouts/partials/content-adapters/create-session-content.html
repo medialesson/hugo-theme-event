@@ -13,6 +13,7 @@
   {{ $speakers := where $input.sessionize.speakers "id" "in" .speakers }}
   {{ $track := index (where $trackItems "id" "in" .categoryItems) 0 }}
   {{ $params := dict
+    "sessionId" .id
     "date" $date
     "startsAt" $startsAt
     "room" $room

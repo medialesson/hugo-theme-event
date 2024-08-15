@@ -1,0 +1,62 @@
+{{ $input := . }}
+
+
+<style>
+  menu.sessions-menu {
+    all: unset;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 1.875rem;
+  }
+
+  menu.sessions-menu a {
+    all: unset;
+    width: 16.25rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+    gap: 2rem;
+  }
+
+  menu.sessions-menu h1 {
+    all: unset;
+    font-weight: 800;
+    font-size: 1.5rem;
+    flex-grow: 1;
+  }
+
+  menu.sessions-menu time {
+    all: unset;
+    display: block;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  menu.sessions-menu div.track {
+    all: unset;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-track);
+  }
+</style>
+
+<menu class="sessions-menu">
+  {{ range $input.sessions }}
+    <li>
+      <a href="{{- .sessionUrl }}">
+        <h1>{{- .title }}</h1>
+        <div>
+          {{- partial "elements/date-and-time.html" (dict "date" .startsAt) }}
+          <div class="track">
+            {{- partial "elements/hashtag.html" (dict "hashtag" .track) }}
+          </div>
+        </div>
+        {{- partial "graphics/vector.html" -}}
+      </a>
+    </li>
+  {{ end }}
+</menu>

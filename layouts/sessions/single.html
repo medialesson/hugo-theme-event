@@ -1,14 +1,118 @@
 {{ define "main" }}
-  <h2>
-    {{ .Title }}
-    {{- if .Params.startsAt }}
-      <span> @ {{ .Params.startsAt | time.Format ":time_short" }}</span>
-    {{- end }}
-  </h2>
+  <style>
+    div.single-session,
+    div.same-track-sessions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.375rem 0;
+    }
 
-  Room:
-  {{ .Params.room.name }}
+    div.same-track-sessions {
+      background-color: var(--color-secondary);
+    }
+
+    section.single-session,
+    section.same-track-sessions {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 2.625rem;
+    }
+
+    section.same-track-sessions h1 {
+      all: unset;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    section.same-track-sessions h1 > span {
+      font-weight: 900;
+    }
+
+    section.single-session div.single-session-metadata {
+      display: flex;
+    }
+
+    section.single-session > h1 {
+      all: unset;
+      font-weight: 700;
+      font-size: 2.25rem;
+    }
+
+    section.single-session > h1 span,
+    section.single-session > h1 time {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    section.single-session > h1 span {
+      border-right: 1px solid var(--color-primary);
+      padding-right: 12px;
+      margin-right: 12px;
+    }
+  </style>
+
+  <div class="single-session">
+    <section class="theme-content single-session">
+      <h1>
+        <div class="single-session-metadata">
+          {{- if page.Params.track }}
+            <span>
+              {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+            </span>
+          {{- end }}
+          {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
+        </div>
+        {{- page.Title -}}
+      </h1>
+      <p>{{- page.RawContent }}</p>
+    </section>
+  </div>
+
+  {{- $sameTrackSessions := slice }}
+  {{ range where .Site.RegularPages "Section" "sessions" }}
+    {{ if and (eq .Params.track page.Params.track) (ne .Params.sessionId page.Params.sessionId) }}
+      {{- $sameTrackSessions = $sameTrackSessions | append (
+        dict
+        "title" .Title
+        "startsAt" .Params.startsAt
+        "room" .Params.room.name
+        "sessionUrl" .Permalink
+        )
+      }}
+    {{ end }}
+  {{ end }}
 
 
-  <div>{{ .Content }}</div>
+  <div class="same-track-sessions">
+    <section class="theme-content same-track-sessions">
+      <h1>
+        {{- if page.Params.track }}
+          {{- T "single_session_further_sessions_from" }}
+          <span>
+            {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+          </span>
+        {{- else }}
+          {{- T "single_session_further_sessions" }}
+        {{- end }}
+      </h1>
+
+      {{- partial "sessions-menu.html" (
+        dict
+        "title" page.Params.track
+        "sessions" (first 4 $sameTrackSessions)
+        )
+      }}
+    </section>
+  </div>
+
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
 {{ end }}

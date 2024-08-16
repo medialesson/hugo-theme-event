@@ -16,7 +16,6 @@ list_sessions_day: Day {{ . }}
 list_sessions_title_day_filter: Date
 list_sessions_title_track_filter: Track
 menu_code_of_conduct: Code of Conduct
-menu_home: Home
 menu_sessions: Schedule
 menu_speakers: Speakers
 menu_location: Location

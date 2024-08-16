@@ -15,7 +15,6 @@ list_sessions_title_day_filter: Datum
 list_sessions_title_track_filter: Track
 list_sessions_day: Tag {{ . }}
 menu_code_of_conduct: Verhaltenskodex
-menu_home: Start
 menu_sessions: Programm
 menu_speakers: Sprecher
 menu_location: Location

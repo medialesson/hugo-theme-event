@@ -28,18 +28,27 @@
     padding: 12px 28px;
   }
 
+  nav.main > label {
+    padding-right: 1.6875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
   nav.main[data-menu-mode="header"] > label {
     display: none;
   }
 
   nav.main menu {
     display: flex;
+    flex-grow: 1;
     gap: 2.5rem;
     list-style: none;
     overflow-x: hidden;
   }
 
-  nav.main[data-menu-mode="sidebar"] menu {
+  nav.main[data-menu-mode="sidebar"] menu > li:not(.home-page-link) {
     display: none;
   }
 
@@ -58,6 +67,10 @@
       color: var(--color-primary-darkest);
     }
   }
+
+  nav.main[data-menu-mode="sidebar"] menu a {
+    color: var(--color-primary-darkest);
+  }
 </style>
 
 <input type="checkbox" id="menuToggle" />
@@ -67,7 +80,7 @@
     {{- partial "elements/hamburger-menu.html" }}
   </label>
   <menu id="mainMenuHeader">
-    <li>
+    <li class="home-page-link">
       <a
         {{- if $input.context.IsHome }}
           class="active"

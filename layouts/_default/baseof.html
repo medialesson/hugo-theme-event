@@ -63,7 +63,7 @@
           dict
           "menu" .Site.Menus.main
           "context" .
-          "homeLabel" (or (T "menu_home") "Home")
+          "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
           "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
           "ctaUrl" .Site.Params.themes.event.callToAction.other.url
           )

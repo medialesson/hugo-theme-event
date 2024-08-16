@@ -26,7 +26,7 @@ section.event-title > div.cta {
 }
 
 section.event-title h1 {
-  height: 5rem;
+  min-height: 5rem;
   margin: 0;
   font-size: 3.75rem;
   color: white;

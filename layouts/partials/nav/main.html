@@ -7,7 +7,7 @@
   }
 
   #menuToggle:checked ~ aside.sidebar {
-    display: block;
+    left: 0;
   }
 
   nav.main {
@@ -107,27 +107,82 @@
 
 <style>
   aside.sidebar {
-    display: none;
     position: fixed;
     top: 0;
-    left: 0;
-    background-color: var(--color-primary);
-    width: 100%;
+    left: -390px;
+    width: 390px;
+    box-sizing: border-box;
     height: 100%;
+    background-color: var(--color-primary);
+    transition: left 300ms;
+    display: flex;
+    flex-direction: column;
+    padding: 1.625rem;
+    gap: 1rem;
+  }
+
+  aside.sidebar header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  aside.sidebar header a {
+    all: unset;
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+  }
+
+  aside.sidebar header label {
+    cursor: pointer;
+  }
+
+  aside.sidebar menu {
+    all: unset;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  aside.sidebar li {
+    all: unset;
+  }
+
+  aside.sidebar li:not(:last-child) {
+    border-bottom: 1px solid white;
   }
 
   aside.sidebar a {
+    all: unset;
     display: block;
-    padding: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+    cursor: pointer;
     color: white;
     text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
   }
 </style>
 
 <aside class="sidebar">
-  <label for="menuToggle">
-    {{- partial "elements/close-menu.html" }}
-  </label>
+  <header>
+    <a href="{{ site.Home.Permalink }}">
+      {{ $input.homeLabel | default "Home" }}
+    </a>
+    <label for="menuToggle">
+      {{- partial "elements/close-menu.html" }}
+    </label>
+  </header>
+
+  {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl) }}
+
+
   <nav>
     <menu>
       {{- $currentNode := $input.context }}

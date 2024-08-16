@@ -15,6 +15,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1.625rem 0;
+  }
+
+  nav.main[data-menu-mode="sidebar"] {
+    padding: 1.365rem 0;
+  }
+
+  nav.main[data-menu-mode="sidebar"] > button {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 12px 28px;
   }
 
   nav.main[data-menu-mode="header"] > label {
@@ -24,7 +35,6 @@
   nav.main menu {
     display: flex;
     gap: 2.5rem;
-    line-height: 1.5rem;
     list-style: none;
     overflow-x: hidden;
   }
@@ -36,7 +46,6 @@
   nav.main menu a {
     font-weight: 600;
     font-size: 1rem;
-    line-height: 1.5rem;
     text-decoration: none;
     text-wrap: nowrap;
 

@@ -1,5 +1,19 @@
 {{ .EnableAllLanguages }}
 
+{{/* Create empty about us page (template: `layouts/miscellaneous/about`). */}}
+{{ $content := dict
+  "mediaType" "text/markdown"
+}}
+{{ $page := dict
+  "content" $content
+  "kind" "page"
+  "path" "about"
+  "title" "About Us"
+  "type" "miscellaneous"
+  "layout" "about"
+}}
+{{ .AddPage $page }}
+
 {{/* Create empty sponsors page (template: `layouts/miscellaneous/sponsors`). */}}
 {{ $content := dict
   "mediaType" "text/markdown"

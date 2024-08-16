@@ -15,6 +15,7 @@ list_sessions_title_day_filter: Datum
 list_sessions_title_track_filter: Track
 list_sessions_day: Tag {{ . }}
 menu_code_of_conduct: Verhaltenskodex
+menu_about: Über uns
 menu_sessions: Programm
 menu_speakers: Sprecher
 menu_location: Location
@@ -23,6 +24,7 @@ miscellaneous_location_title: Unsere Location
 miscellaneous_location_directions_title: Anfahrt
 miscellaneous_sponsors_title_sponsors: Sponsoren
 miscellaneous_sponsors_title_partners: Partner
+miscellaneous_about_title: Über uns
 section_home_conference_tracks_title: Conference Tracks
 section_home_conference_tracks_subtitle: Entdecke unsere Hauptthemen
 section_home_conference_tracks_button: Zum Programm

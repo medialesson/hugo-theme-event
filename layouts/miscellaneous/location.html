@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $event := .Site.Params.themes.event }}
 
 <style>
     section.location {
@@ -35,7 +36,6 @@
       </div>
       {{- end }}
 
-      {{ $event := .Site.Params.themes.event }}
       <div class="directions-details">
         {{ if $event.directions }}
         {{- partial "directions-card.html"

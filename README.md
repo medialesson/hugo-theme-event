@@ -60,7 +60,8 @@ of this content with your menu configuration (see below). Simply add menu
 entries for every content you want to use.
 
 | Identifier        | Slug (`pageRef`)   | Description                              |
-|-------------------| ------------------ |------------------------------------------|
+|-------------------|--------------------|------------------------------------------|
+| `about`           | `/about`           | Information about the event organizers.  |
 | `sessions`        | `/sessions`        | A schedule of the event's sessions.      |
 | `speakers`        | `/speakers`        | A list of speakers.                      |
 | `location`        | `/location`        | A location of the event.                 |

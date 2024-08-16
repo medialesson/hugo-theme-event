@@ -16,6 +16,7 @@ list_sessions_day: Day {{ . }}
 list_sessions_title_day_filter: Date
 list_sessions_title_track_filter: Track
 menu_code_of_conduct: Code of Conduct
+menu_about: About Us
 menu_sessions: Schedule
 menu_speakers: Speakers
 menu_location: Location
@@ -24,6 +25,7 @@ miscellaneous_location_title: Our Location
 miscellaneous_location_directions_title: Directions
 miscellaneous_sponsors_title_sponsors: Sponsors
 miscellaneous_sponsors_title_partners: Partners
+miscellaneous_about_title: About Us
 section_home_conference_tracks_title: Conference Tracks
 section_home_conference_tracks_subtitle: Discover our Topics
 section_home_conference_tracks_button: Open schedule

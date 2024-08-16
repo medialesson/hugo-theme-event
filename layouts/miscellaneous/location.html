@@ -1,5 +1,6 @@
 {{ define "main" }}
-  <style>
+
+<style>
     section.location {
       width: 100%;
       display: flex;
@@ -47,6 +48,14 @@
       {{- end }}
     </div>
   </section>
+
+
+  {{- partial "partials/map-embedding.html" (
+    dict
+    "embeddableMapUrl" .Site.Params.themes.event.map.embeddableMapUrl
+    "viewLargerMapUrl" .Site.Params.themes.event.map.viewLargerMapUrl
+  )
+  }}
 
   {{- partial "sections/cta.html" (
     dict

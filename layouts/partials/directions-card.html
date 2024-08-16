@@ -1,4 +1,5 @@
 {{ $input := . }}
+{{ $image := resources.Get $input.locationImg }}
 
 <style>
     div.directions-card {
@@ -51,7 +52,6 @@
 </style>
 
 <div class="directions-card">
-    {{ $image := resources.Get $input.locationImg }}
     <div>
         {{- partial "shaped-image.html" (
         dict

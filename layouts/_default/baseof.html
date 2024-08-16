@@ -57,7 +57,7 @@
     {{- if .Site.Params.themes.event.callToAction.enableBanner }}
       {{- partial "cta/banner.html" }}
     {{ end }}
-    <header>
+    <header id="pageHeader">
       <div class="theme-content">
         {{- partial "nav/main.html" (
           dict
@@ -70,6 +70,19 @@
         }}
       </div>
     </header>
+    <script>
+      const header = document.getElementById("pageHeader");
+      const intercept = document.createElement("div");
+
+      intercept.setAttribute("data-observer-intercept", "");
+      header.before(intercept);
+
+      const observer = new IntersectionObserver(([entry]) => {
+        header.classList.toggle("scrolled", !entry.isIntersecting);
+      });
+
+      observer.observe(intercept);
+    </script>
 
     <main>
       {{ block "main" . }}{{ end }}

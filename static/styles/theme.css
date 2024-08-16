@@ -72,11 +72,16 @@ body > header {
   position: sticky;
   top: 0;
   background-color: white;
-  height: 6.25rem;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  transition: box-shadow 400ms 100ms;
+}
+
+header.scrolled {
+  box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
 }
 
 body > footer {

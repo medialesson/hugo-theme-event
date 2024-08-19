@@ -73,10 +73,6 @@ main {
   margin: 0 2rem;
 }
 
-.theme-content-desktop > * {
-  margin: 0 2rem;
-}
-
 @media only screen and (min-width: 1200px) {
   .theme-content {
     width: 1171px;

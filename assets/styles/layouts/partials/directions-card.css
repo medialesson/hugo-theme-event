@@ -1,0 +1,47 @@
+.directions-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2.625rem;
+    padding: 1.5rem 0;
+}
+
+.directions-card__image {
+    flex-basis: 33.33%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.directions-card__description {
+    flex-basis: 66.66%;
+    box-sizing: border-box;
+}
+
+.directions-card h2 {
+    font-size: 1.875rem;
+}
+
+.directions-card h3 {
+    font-size: 1.375rem;
+}
+
+.directions-card p {
+    font-weight: 400;
+    font-size: 1.375rem;
+    line-height: 2.5rem;
+}
+
+.directions-card ul {
+    list-style-type: disc;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.directions-card li {
+    font-weight: 400;
+    font-size: 1.375rem;
+    line-height: 2.5rem;
+    margin-bottom: 0.5rem;
+}

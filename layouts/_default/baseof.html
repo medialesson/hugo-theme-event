@@ -60,14 +60,17 @@
   <body>
     <input type="checkbox" id="sidebarToggle" />
 
-    <aside class="sidebar">
-      <nav class="sidebar__navigation">
-        <header class="sidebar__header">
-          <a class="sidebar__heading-link" href="{{ site.Home.Permalink }}">
+    <aside class="page-sidebar">
+      <nav class="page-sidebar__navigation">
+        <header class="page-sidebar__header">
+          <a
+            class="page-sidebar__heading-link"
+            href="{{ site.Home.Permalink }}"
+          >
             {{ strings.FirstUpper .Site.Params.themes.event.title }}
           </a>
 
-          <label class="sidebar__close-label" for="sidebarToggle">
+          <label class="page-sidebar__close-label" for="sidebarToggle">
             {{- partial "graphics/close.html" }}
           </label>
         </header>
@@ -97,17 +100,17 @@
     {{ end }}
 
 
-    <header class="header" id="pageHeader">
-      <div class="theme-content header__content" id="pageHeaderContent">
-        <nav id="mainNavigation" class="header__navigation">
-          <label class="header__toggle-sidebar-label" for="sidebarToggle">
+    <header class="page-header" id="pageHeader">
+      <div class="theme-content page-header__content" id="pageHeaderContent">
+        <nav id="mainNavigation" class="page-header__navigation">
+          <label class="page-header__toggle-sidebar-label" for="sidebarToggle">
             {{- partial "graphics/hamburger-menu.html" }}
           </label>
-          <a class="header__title-link" href="{{ site.Home.Permalink }}">
+          <a class="page-header__title-link" href="{{ site.Home.Permalink }}">
             {{ (strings.FirstUpper .Site.Params.themes.event.title) }}
           </a>
 
-          <div class="header__menu-container">
+          <div class="page-header__menu-container">
             {{- partial "menus/header.html" (
               dict
               "menu" .Site.Menus.main
@@ -135,7 +138,7 @@
       header.before(intercept);
 
       const observer = new IntersectionObserver(([entry]) => {
-        header.classList.toggle("header--scrolled", !entry.isIntersecting);
+        header.classList.toggle("page-header--scrolled", !entry.isIntersecting);
       });
 
       observer.observe(intercept);

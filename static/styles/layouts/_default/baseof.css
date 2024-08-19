@@ -2,11 +2,11 @@
   display: none;
 }
 
-#sidebarToggle:checked ~ .sidebar {
+#sidebarToggle:checked ~ .page-sidebar {
   left: 0;
 }
 
-.sidebar {
+.page-sidebar {
   display: flex;
   position: fixed;
   transition: left 300ms;
@@ -17,12 +17,12 @@
   z-index: 1;
 }
 
-.sidebar > label {
+.page-sidebar > label {
   flex-grow: 1;
   overflow: hidden;
 }
 
-.sidebar__navigation {
+.page-sidebar__navigation {
   width: 390px;
   box-sizing: border-box;
   height: 100%;
@@ -36,19 +36,20 @@
 
 /** Span sidebar over full screen on mobile devices. */
 @media (max-width: 500px) {
-  .sidebar__navigation {
+  .page-sidebar__navigation {
     width: 100vw;
   }
 }
 
-.sidebar__header {
+.page-sidebar__header {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 2.5rem;
+  z-index: 1;
 }
 
-.sidebar__heading-link {
+.page-sidebar__heading-link {
   all: unset;
   display: block;
   cursor: pointer;
@@ -58,11 +59,11 @@
   text-decoration: none;
 }
 
-.sidebar__close-label {
+.page-sidebar__close-label {
   cursor: pointer;
 }
 
-.header {
+.page-header {
   position: sticky;
   top: 0;
   background-color: white;
@@ -73,15 +74,15 @@
   transition: box-shadow 400ms 100ms;
 }
 
-.header--scrolled {
+.page-header--scrolled {
   box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
 }
 
-.header__content {
+.page-header__content {
   overflow-x: hidden;
 }
 
-.header__navigation {
+.page-header__navigation {
   width: 100%;
   display: flex;
   align-items: center;
@@ -90,18 +91,18 @@
   gap: 1.6875rem;
 }
 
-[data-menu-mode="sidebar"] .header__navigation {
+[data-menu-mode="sidebar"] .page-header__navigation {
   padding: 1.25rem 0;
 }
 
-.header__toggle-sidebar-label {
+.page-header__toggle-sidebar-label {
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-.header__title-link {
+.page-header__title-link {
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
@@ -110,12 +111,12 @@
   flex-grow: 1;
 }
 
-[data-menu-mode="header"] .header__toggle-sidebar-label,
-[data-menu-mode="header"] .header__title-link {
+[data-menu-mode="header"] .page-header__toggle-sidebar-label,
+[data-menu-mode="header"] .page-header__title-link {
   display: none;
 }
 
-[data-menu-mode="sidebar"] .header__menu-container {
+[data-menu-mode="sidebar"] .page-header__menu-container {
   display: none;
 }
 

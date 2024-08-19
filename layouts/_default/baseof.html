@@ -71,41 +71,6 @@
   <body>
     <input type="checkbox" id="sidebarToggle" />
 
-    <aside class="page-sidebar">
-      <nav class="page-sidebar__navigation">
-        <header class="page-sidebar__header">
-          <a
-            class="page-sidebar__heading-link"
-            href="{{ site.Home.Permalink }}"
-          >
-            {{ strings.FirstUpper .Site.Params.themes.event.title }}
-          </a>
-
-          <label class="page-sidebar__close-label" for="sidebarToggle">
-            {{- partial "graphics/close.html" }}
-          </label>
-        </header>
-
-        {{- partial "cta/button.html" (
-          dict
-          "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-          "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-          )
-        }}
-
-        {{- partial "menus/sidebar.html" (
-          dict
-          "menu" .Site.Menus.main
-          "context" .
-          )
-        }}
-      </nav>
-
-      <label class="page-sidebar__empty-space" for="sidebarToggle">
-        <!-- Closes the sidebar if users click beside the sidebar. -->
-      </label>
-    </aside>
-
     {{- if .Site.Params.themes.event.callToAction.enableBanner }}
       {{- partial "cta/banner.html" }}
     {{ end }}
@@ -140,6 +105,41 @@
         </nav>
       </div>
     </header>
+
+    <aside class="page-sidebar">
+      <nav class="page-sidebar__navigation">
+        <header class="page-sidebar__header">
+          <a
+            class="page-sidebar__heading-link"
+            href="{{ site.Home.Permalink }}"
+          >
+            {{ strings.FirstUpper .Site.Params.themes.event.title }}
+          </a>
+
+          <label class="page-sidebar__close-label" for="sidebarToggle">
+            {{- partial "graphics/close.html" }}
+          </label>
+        </header>
+
+        {{- partial "cta/button.html" (
+          dict
+          "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+          "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+          )
+        }}
+
+        {{- partial "menus/sidebar.html" (
+          dict
+          "menu" .Site.Menus.main
+          "context" .
+          )
+        }}
+      </nav>
+
+      <label class="page-sidebar__empty-space" for="sidebarToggle">
+        <!-- Closes the sidebar if users click beside the sidebar. -->
+      </label>
+    </aside>
 
     <script>
       const header = document.getElementById("pageHeader");

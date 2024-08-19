@@ -42,20 +42,31 @@
 
     {{ template "_internal/opengraph.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
-  </head>
 
-  <style>
-    :root {
-      --color-primary-lighter: {{- .Site.Params.themes.event.colors.primaryLighter }};
-      --color-primary: {{- .Site.Params.themes.event.colors.primary }};
-      --color-primary-darker: {{- .Site.Params.themes.event.colors.primaryDarker }};
-      --color-primary-darkest: {{- .Site.Params.themes.event.colors.primaryDarkest }};
-      --color-secondary: {{- .Site.Params.themes.event.colors.secondary }};
-      --color-secondary-darker: {{- .Site.Params.themes.event.colors.secondaryDarker }};
-      --color-track: {{- .Site.Params.themes.event.colors.track }};
-      --color-shadow: {{- .Site.Params.themes.event.colors.shadow }};
-    }
-  </style>
+    {{ range resources.Match "**/*.css" }}
+      {{- $secureCss := . | fingerprint }}
+      <link
+        rel="stylesheet"
+        href="{{ $secureCss.RelPermalink }}"
+        type="text/css"
+        media="screen"
+        integrity="{{ $secureCss.Data.Integrity }}"
+      />
+    {{ end }}
+
+    <style>
+      :root {
+        --color-primary-lighter: {{- .Site.Params.themes.event.colors.primaryLighter }};
+        --color-primary: {{- .Site.Params.themes.event.colors.primary }};
+        --color-primary-darker: {{- .Site.Params.themes.event.colors.primaryDarker }};
+        --color-primary-darkest: {{- .Site.Params.themes.event.colors.primaryDarkest }};
+        --color-secondary: {{- .Site.Params.themes.event.colors.secondary }};
+        --color-secondary-darker: {{- .Site.Params.themes.event.colors.secondaryDarker }};
+        --color-track: {{- .Site.Params.themes.event.colors.track }};
+        --color-shadow: {{- .Site.Params.themes.event.colors.shadow }};
+      }
+    </style>
+  </head>
 
   <body>
     <input type="checkbox" id="sidebarToggle" />
@@ -90,7 +101,7 @@
         }}
       </nav>
 
-      <label for="sidebarToggle">
+      <label class="page-sidebar__empty-space" for="sidebarToggle">
         <!-- Closes the sidebar if users click beside the sidebar. -->
       </label>
     </aside>

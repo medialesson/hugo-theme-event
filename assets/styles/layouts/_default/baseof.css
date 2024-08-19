@@ -1,9 +1,33 @@
-#sidebarToggle {
+/* Hide the sidebar toggle (it get's triggered via labels). */
+.sidebar-toggle {
   display: none;
 }
 
-#sidebarToggle:checked ~ .page-sidebar {
+/* Show the sidebar when the toggle is checked. */
+.sidebar-toggle:checked ~ .page-sidebar {
   left: 0;
+}
+
+/* Don't scroll the page when the sidebar is open. */
+.page-body:has(.sidebar-toggle:checked) {
+  overflow: hidden;
+}
+
+.page-body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  min-height: 100vh;
+}
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-grow: 1;
 }
 
 .page-sidebar {
@@ -34,7 +58,7 @@
   overflow: auto;
 }
 
-/** Span sidebar over full screen on mobile devices. */
+/* Span sidebar over full screen on mobile devices. */
 @media (max-width: 500px) {
   .page-sidebar__navigation {
     width: 100vw;
@@ -119,10 +143,6 @@
 
 [data-menu-mode="sidebar"] .page-header__menu-container {
   display: none;
-}
-
-body:has(input:checked) {
-  overflow: hidden;
 }
 
 .page-footer {

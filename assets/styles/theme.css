@@ -51,23 +51,6 @@
   color: var(--color-primary-darkest);
 }
 
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
-  min-height: 100vh;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
-  flex-grow: 1;
-}
-
 .theme-content {
   width: 100%;
   margin: 0 2rem;

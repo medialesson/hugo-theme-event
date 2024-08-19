@@ -68,8 +68,8 @@
     </style>
   </head>
 
-  <body>
-    <input type="checkbox" id="sidebarToggle" />
+  <body class="page-body">
+    <input type="checkbox" class="sidebar-toggle" id="sidebarToggle" />
 
     {{- if .Site.Params.themes.event.callToAction.enableBanner }}
       {{- partial "cta/banner.html" }}
@@ -166,7 +166,7 @@
       new ResizeObserver(checkWhichMenuToUse).observe(document.body);
     </script>
 
-    <main>
+    <main class="page-main">
       {{ block "main" . }}{{ end }}
     </main>
 

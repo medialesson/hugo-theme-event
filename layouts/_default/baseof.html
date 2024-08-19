@@ -156,9 +156,9 @@
       {{ block "main" . }}{{ end }}
     </main>
 
-    <footer>
-      <div class="theme-content">
-        <div id="footer-start">
+    <footer class="page-footer">
+      <div class="theme-content page-footer__content">
+        <div class="page-footer__start">
           <select name="language" onchange="location = this.value;">
             {{ range $.Site.Home.AllTranslations }}
               <option
@@ -178,26 +178,9 @@
         {{- partial "menus/footer.html" . }}
 
 
-        <a id="made-by" href="https://medialesson.de">
-          Made with
-          {{- with resources.Get "logos/medialesson-heart.svg" }}
-            <img
-              src="{{ .RelPermalink }}"
-              width="9.96"
-              height="9.96"
-              alt="heart"
-            />
-          {{ end }}
-          by
-          {{- with resources.Get "logos/medialesson.svg" }}
-            <img
-              src="{{ .RelPermalink }}"
-              width="130.6px"
-              height="17.94px"
-              alt="Medialsson"
-            />
-          {{ end }}
-        </a>
+        <div class="page-footer__end">
+          {{- partial "elements/made-by-medialesson.html" }}
+        </div>
       </div>
     </footer>
   </body>

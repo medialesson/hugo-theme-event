@@ -6,6 +6,7 @@
 
 @import url("layouts/_default/baseof.css");
 @import url("layouts/_default/partials/cta/banner.css");
+@import url("layouts/_default/partials/elements/made-by-medialesson.css");
 @import url("layouts/_default/partials/sections/home/event-title.css");
 
 @import url("fonts.css");

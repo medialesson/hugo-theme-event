@@ -98,7 +98,7 @@
 
 
     <header class="header" id="pageHeader">
-      <div class="theme-content">
+      <div class="theme-content header__content" id="pageHeaderContent">
         <nav id="mainNavigation" class="header__navigation">
           <label class="header__toggle-sidebar-label" for="sidebarToggle">
             {{- partial "graphics/hamburger-menu.html" }}
@@ -107,7 +107,7 @@
             {{ (strings.FirstUpper .Site.Params.themes.event.title) }}
           </a>
 
-          <div class="header__menu-container" id="headerMenuContainer">
+          <div class="header__menu-container">
             {{- partial "menus/header.html" (
               dict
               "menu" .Site.Menus.main
@@ -123,7 +123,6 @@
             "ctaUrl" .Site.Params.themes.event.callToAction.other.url
             )
           }}
-
         </nav>
       </div>
     </header>
@@ -145,7 +144,7 @@
     <script>
       function checkWhichMenuToUse() {
         document.body.setAttribute("data-menu-mode", "header");
-        if (headerMenuContainer.scrollWidth > headerMenuContainer.clientWidth) {
+        if (pageHeaderContent.scrollWidth > pageHeaderContent.clientWidth) {
           document.body.setAttribute("data-menu-mode", "sidebar");
         }
       }

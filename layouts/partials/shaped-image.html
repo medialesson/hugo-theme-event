@@ -1,40 +1,11 @@
 {{ $input := . }}
 
-
-<style>
-  article.shaped-image {
-    position: relative;
-    width: 21.8125rem;
-    height: 28.6875rem;
-  }
-
-  article.shaped-image > figure {
-    all: unset;
-    width: 4.75rem;
-    height: 4.75rem;
-  }
-
-  article.shaped-image > figure > svg {
-    fill: var(--color-primary);
-  }
-
-  article.shaped-image > img {
-    position: absolute;
-    top: 2.4375rem;
-    left: 2.4375rem;
-    width: 19.375rem;
-    height: 26.25rem;
-    border-radius: 0 3.125rem;
-    object-fit: cover;
-  }
-</style>
-
 <article class="shaped-image">
-  <figure>
+    <figure class="shaped-image__figure">
     {{- partial "graphics/dotted-square.html" }}
   </figure>
 
-  <img
+  <img  class="shaped-image__image"
     {{- with $input.imageResource }}
       src="{{ .RelPermalink }}"
     {{- else }}

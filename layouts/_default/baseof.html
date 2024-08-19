@@ -173,7 +173,11 @@
     <footer class="page-footer">
       <div class="theme-content page-footer__content">
         <div class="page-footer__start">
-          <select name="language" onchange="location = this.value;">
+          <select
+            class="select"
+            name="language"
+            onchange="location = this.value;"
+          >
             {{ range $.Site.Home.AllTranslations }}
               <option
                 value="{{ .RelPermalink }}"

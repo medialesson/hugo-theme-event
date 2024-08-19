@@ -1,20 +1,30 @@
 {{ $icon := resources.Get "icons/fullscreen.svg" }}
 
+
 <div class="map-container">
   <iframe
-          width="100%"
-          height="300"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-          allowfullscreen
-          src="{{ .embeddableMapUrl }}"
+    width="100%"
+    height="300"
+    frameborder="0"
+    scrolling="no"
+    marginheight="0"
+    marginwidth="0"
+    allowfullscreen
+    src="{{ .embeddableMapUrl }}"
   ></iframe>
 
   {{- if .viewLargerMapUrl }}
-  <a href="{{ .viewLargerMapUrl }}" target="_blank" class="map-container__button">
-    <img src="{{ $icon.Permalink }}" alt="Location Icon" width="18" height="18">
-  </a>
+    <a
+      href="{{ .viewLargerMapUrl }}"
+      rel="external"
+      class="map-container__button"
+    >
+      <img
+        src="{{ $icon.Permalink }}"
+        alt="Location Icon"
+        width="18"
+        height="18"
+      />
+    </a>
   {{- end }}
 </div>

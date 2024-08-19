@@ -15,6 +15,7 @@ automatically integrates all `*.css` files from the `assets/` directory.
 - Follow the [BEM](https://getbem.com) naming convention for selectors.
 - For every partial, put a style file with the same folder structure under
 `assets/styles/partials/`.
+- Never use type selectors and avoid ID selectors.
 
  
  ## References

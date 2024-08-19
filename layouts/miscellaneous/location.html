@@ -1,34 +1,37 @@
 {{ define "main" }}
-{{ $event := .Site.Params.themes.event }}
+  {{ $event := .Site.Params.themes.event }}
 
-<section class="location">
-  <div class="theme-content">
-    <h1>{{- T "miscellaneous_location_title" }}</h1>
 
-    {{ if $event.address }}
-      {{ range $event.address }}
-        <p class="location__address-line">{{ . }}</p>
-      {{- end }}
-    {{ end }}
+  <section class="location">
+    <div class="theme-content">
+      <h1 class="h1">{{- T "miscellaneous_location_title" }}</h1>
 
-    <div>
-      {{ if $event.directions }}
-      {{- partial "directions-card.html"
-      (dict
-      "locationImg" $event.images.locationImage
-      "locationImgAlt" $event.location
-      "directions" $event.directions
-      ) }}
-      {{- end }}
+      {{ if $event.address }}
+        {{ range $event.address }}
+          <p class="location__address-line">{{ . }}</p>
+        {{- end }}
+      {{ end }}
+
+
+      <div>
+        {{ if $event.directions }}
+          {{- partial "directions-card.html"
+            (dict
+            "locationImg" $event.images.locationImage
+            "locationImgAlt" $event.location
+            "directions" $event.directions
+            )
+          }}
+        {{- end }}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   {{- partial "partials/map-embedding.html" (
     dict
     "embeddableMapUrl" $event.map.embeddableMapUrl
     "viewLargerMapUrl" $event.map.viewLargerMapUrl
-  )
+    )
   }}
 
   {{- partial "sections/cta.html" (

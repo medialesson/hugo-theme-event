@@ -48,7 +48,7 @@
   {{ range $input.sessions }}
     <li>
       <a href="{{- .sessionUrl }}">
-        <h1>{{- .title }}</h1>
+        <h1 class="h1">{{- .title }}</h1>
         <div>
           {{- partial "elements/date-and-time.html" (dict "date" .startsAt) }}
           <div class="track">

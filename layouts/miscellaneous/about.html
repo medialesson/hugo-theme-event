@@ -1,16 +1,17 @@
 {{ define "main" }}
-{{ $event := .Site.Params.themes.event }}
+  {{ $event := .Site.Params.themes.event }}
 
-<section class="about">
-  <div class="theme-content">
-    <h1>{{- T "miscellaneous_about_title" }}</h1>
-    {{ with $event.aboutUs }}
-    <article class="about__article">
-      <p class="about__paragraph">{{ . | markdownify }}</p>
-    </article>
-    {{ end }}
-  </div>
-</section>
+
+  <section class="about">
+    <div class="theme-content">
+      <h1 class="h1">{{- T "miscellaneous_about_title" }}</h1>
+      {{ with $event.aboutUs }}
+        <article class="about__article">
+          <p class="about__paragraph">{{ . | markdownify }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
 
   {{- partial "sections/cta.html" (
     dict

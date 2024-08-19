@@ -2,13 +2,17 @@
   <a
     href="https://www.eventbrite.com/e/{{ .eventId }}"
     rel="noopener noreferrer"
-    target="_blank"
+    rel="external"
   >
     {{ T "cta_button_get_ticket" }}
   </a>
 </noscript>
 
-<button id="eventbrite-widget-modal-trigger" type="button" class="secondary">
+<button
+  id="eventbrite-widget-modal-trigger"
+  type="button"
+  class="button button--outlined"
+>
   {{ T "cta_button_get_ticket" }}
 </button>
 

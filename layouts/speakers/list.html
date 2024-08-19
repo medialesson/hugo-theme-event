@@ -20,7 +20,7 @@
 
   <section class="speaker-list">
     <div class="theme-content">
-      <h1>{{ T "list_speakers_title" }}</h1>
+      <h1 class="h1">{{ T "list_speakers_title" }}</h1>
       <menu class="speaker-list-menu">
         {{ range .Pages.ByPublishDate.Reverse }}
           <li>
@@ -41,10 +41,12 @@
     </div>
   </section>
 
-  {{- partial "sections/cta.html" (
-    dict
-    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-    )
-  }}
+  <div class="section-container section-container--cta">
+    {{- partial "sections/cta.html" (
+      dict
+      "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+      "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+      )
+    }}
+  </div>
 {{ end }}

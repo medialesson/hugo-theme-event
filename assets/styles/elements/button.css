@@ -1,4 +1,4 @@
-button {
+.button {
   padding: 0.75rem 1.75rem;
   border-radius: 0.375rem;
   border: 0.0625rem;
@@ -9,9 +9,10 @@ button {
   color: white;
   cursor: pointer;
   text-wrap: nowrap;
+  text-decoration: none;
 }
 
-button.secondary {
+.button--outlined {
   background: #ffffff;
   border: 0.0625rem solid var(--color-primary);
   color: var(--color-primary);

@@ -8,8 +8,12 @@
       href="{{ .Site.Params.themes.event.favicon | absURL }}"
     />
 
-    {{- partial "css.html" (dict "cssFile" "styles/_index.css") }}
-
+    <link
+      rel="stylesheet"
+      href="/styles/_index.css"
+      type="text/css"
+      media="screen"
+    />
 
     <title>
       {{- if .Title }}{{ .Title }} -{{ end }}

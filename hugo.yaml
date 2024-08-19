@@ -9,6 +9,14 @@ languages:
             This is a placeholder for your event description. You can customize it,
             together with all other settings, in your Hugo configuration file.
             We hope you enjoy using this theme! 🎉
+          directions: |
+            Directions for getting to the location using public transportation. 
+            Customize this placeholder text in your Hugo configuration file or remove it if not needed.
+          # 👇 This field provides an introduction or overview about the event or organization.
+          # You can customize it to describe the event, highlight key aspects, or leave any important message.
+          # Markdown formatting is supported, allowing you to add links, bold text, and more.
+          aboutUs: |
+              More information about the event will be added soon. Stay tuned! 🎉
   de:
     languageName: Deutsch
     params:
@@ -20,6 +28,15 @@ languages:
             Sie können ihn zusammen mit allen anderen Einstellungen in Ihrer
             Hugo-Konfigurationsdatei anpassen. Wir wünschen Ihnen viel Spaß mit
             diesem Theme! 🎉
+          directions: |
+            Wegbeschreibung zum Veranstaltungsort mit öffentlichen Verkehrsmitteln.
+            Passen Sie diesen Platzhaltertext in Ihrer Hugo-Konfigurationsdatei an oder entfernen Sie ihn,
+            wenn er nicht benötigt wird.
+          # 👇 This field provides an introduction or overview about the event or organization.
+          # You can customize it to describe the event, highlight key aspects, or leave any important message.
+          # Markdown formatting is supported, allowing you to add links, bold text, and more.
+          aboutUs: |
+            Weitere Informationen über die Veranstaltung werden bald hinzugefügt. Bleiben Sie dran! 🎉
 
 params:
   themes:
@@ -77,14 +94,6 @@ params:
           url: https://www.media-lesson.com/
           # 👇 This name is used as the alt text for the logo
           name: "Medialesson GmbH"
-      directions: |
-        Directions for getting to the location using public transportation. 
-        Customize this placeholder text in your Hugo configuration file or remove it if not needed.
-      # 👇 This field provides an introduction or overview about the event or organization.
-      # You can customize it to describe the event, highlight key aspects, or leave any important message.
-      # Markdown formatting is supported, allowing you to add links, bold text, and more.
-      aboutUs: |
-        More information about the event will be added soon. Stay tuned! 🎉
       colors:
         primaryLighter: "#d7fb4d"
         primary: "#c6eb4d"

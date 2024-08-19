@@ -1,0 +1,124 @@
+#sidebarToggle {
+  display: none;
+}
+
+#sidebarToggle:checked ~ .sidebar {
+  left: 0;
+}
+
+.sidebar {
+  display: flex;
+  position: fixed;
+  transition: left 300ms;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.sidebar > label {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.sidebar__navigation {
+  width: 390px;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  padding: 1.625rem;
+  gap: 1rem;
+  overflow: auto;
+}
+
+/** Span sidebar over full screen on mobile devices. */
+@media (max-width: 500px) {
+  .sidebar__navigation {
+    width: 100vw;
+  }
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.sidebar__heading-link {
+  all: unset;
+  display: block;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar__close-label {
+  cursor: pointer;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 400ms 100ms;
+}
+
+.header--scrolled {
+  box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
+}
+
+.header__navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.625rem 0;
+}
+
+[data-menu-mode="sidebar"] .header__navigation {
+  padding: 1.25rem 0;
+}
+
+.header__toggle-sidebar-label {
+  padding-right: 1.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header__title-link {
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-wrap: wrap;
+  color: var(--color-primary-darkest);
+  flex-grow: 1;
+}
+
+[data-menu-mode="header"] .header__toggle-sidebar-label,
+[data-menu-mode="header"] .header__title-link {
+  display: none;
+}
+
+.header__menu-container {
+  overflow-x: hidden;
+}
+
+[data-menu-mode="sidebar"] .header__menu-container {
+  display: none;
+}
+
+body:has(input:checked) {
+  overflow: hidden;
+}

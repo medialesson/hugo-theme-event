@@ -1,0 +1,50 @@
+{{ $input := . }}
+
+
+<style>
+  .sidebar-menu {
+    all: unset;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-menu-item {
+    all: unset;
+  }
+
+  .sidebar-menu-item:not(:last-child) {
+    border-bottom: 1px solid white;
+  }
+
+  .sidebar-menu-link,
+  .sidebar-menu-link--active {
+    all: unset;
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+</style>
+
+<menu class="sidebar-menu">
+  {{- $currentNode := $input.context }}
+  {{- range $input.menu }}
+    <li class="sidebar-menu-item">
+      <a
+        href="{{ .URL }}"
+        {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
+          class="sidebar-menu-link--active"
+        {{- else }}
+          class="sidebar-menu-link"
+        {{- end }}
+      >
+        {{- or (T (printf "menu_%s" .Identifier)) .Name }}
+      </a>
+    </li>
+  {{- end }}
+</menu>

@@ -58,22 +58,76 @@
   </style>
 
   <body>
-    {{- if .Site.Params.themes.event.callToAction.enableBanner }}
-      {{- partial "cta/banner.html" }}
-    {{ end }}
-    <header id="pageHeader">
-      <div class="theme-content">
-        {{- partial "nav/main.html" (
+    <input type="checkbox" id="sidebarToggle" />
+
+    <aside class="sidebar">
+      <nav class="sidebar__navigation">
+        <header class="sidebar__header">
+          <a class="sidebar__heading-link" href="{{ site.Home.Permalink }}">
+            {{ strings.FirstUpper .Site.Params.themes.event.title }}
+          </a>
+
+          <label class="sidebar__close-label" for="sidebarToggle">
+            {{- partial "graphics/close.html" }}
+          </label>
+        </header>
+
+        {{- partial "cta/button.html" (
           dict
-          "menu" .Site.Menus.main
-          "context" .
-          "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
           "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
           "ctaUrl" .Site.Params.themes.event.callToAction.other.url
           )
         }}
+
+        {{- partial "menus/sidebar.html" (
+          dict
+          "menu" .Site.Menus.main
+          "context" .
+          )
+        }}
+      </nav>
+
+      <label for="sidebarToggle">
+        <!-- Closes the sidebar if users click beside the sidebar. -->
+      </label>
+    </aside>
+
+    {{- if .Site.Params.themes.event.callToAction.enableBanner }}
+      {{- partial "cta/banner.html" }}
+    {{ end }}
+
+
+    <header class="header" id="pageHeader">
+      <div class="theme-content">
+        <nav id="mainNavigation" class="header__navigation">
+          <label class="header__toggle-sidebar-label" for="sidebarToggle">
+            {{- partial "graphics/hamburger-menu.html" }}
+          </label>
+          <a class="header__title-link" href="{{ site.Home.Permalink }}">
+            {{ (strings.FirstUpper .Site.Params.themes.event.title) }}
+          </a>
+
+          <div class="header__menu-container" id="headerMenuContainer">
+            {{- partial "menus/header.html" (
+              dict
+              "menu" .Site.Menus.main
+              "context" .
+              "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
+              )
+            }}
+          </div>
+
+          {{- partial "cta/button.html" (
+            dict
+            "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+            "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+            )
+          }}
+
+        </nav>
       </div>
     </header>
+
     <script>
       const header = document.getElementById("pageHeader");
       const intercept = document.createElement("div");
@@ -82,10 +136,21 @@
       header.before(intercept);
 
       const observer = new IntersectionObserver(([entry]) => {
-        header.classList.toggle("scrolled", !entry.isIntersecting);
+        header.classList.toggle("header--scrolled", !entry.isIntersecting);
       });
 
       observer.observe(intercept);
+    </script>
+
+    <script>
+      function checkWhichMenuToUse() {
+        document.body.setAttribute("data-menu-mode", "header");
+        if (headerMenuContainer.scrollWidth > headerMenuContainer.clientWidth) {
+          document.body.setAttribute("data-menu-mode", "sidebar");
+        }
+      }
+
+      new ResizeObserver(checkWhichMenuToUse).observe(document.body);
     </script>
 
     <main>
@@ -111,7 +176,7 @@
           {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
         </div>
 
-        {{- partial "nav/footer.html" . }}
+        {{- partial "menus/footer.html" . }}
 
 
         <a id="made-by" href="https://medialesson.de">

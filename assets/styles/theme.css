@@ -51,6 +51,18 @@
   color: var(--color-primary-darkest);
 }
 
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-container--cta {
+  background-color: var(--color-primary);
+  color: white;
+}
+
 .theme-content {
   width: 100%;
   padding-left: 2rem;

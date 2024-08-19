@@ -1,0 +1,43 @@
+.about {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about__paragraph {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.about__article {
+    width: 100%;
+    padding: 1rem;
+}
+
+.about__article h2 {
+    font-size: 1.875rem;
+}
+
+.about__article h3 {
+    font-size: 1.375rem;
+}
+
+.about__article p {
+    font-weight: 400;
+    font-size: 1.375rem;
+    line-height: 2.5rem;
+}
+
+.about__article ul {
+    list-style-type: disc;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.about__article li {
+    font-weight: 400;
+    font-size: 1.375rem;
+    line-height: 2.5rem;
+    margin-bottom: 0.5rem;
+}

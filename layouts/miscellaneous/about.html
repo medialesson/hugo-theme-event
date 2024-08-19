@@ -1,50 +1,10 @@
 {{ define "main" }}
-
-<style>
-  section.about {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .about__paragraph {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .about__article h2 {
-    font-size: 1.875rem;
-  }
-
-  .about__article h3 {
-    font-size: 1.375rem;
-  }
-
-  .about__article p {
-    font-weight: 400;
-    font-size: 1.375rem;
-    line-height: 2.5rem;
-  }
-
-  .about__article ul {
-    list-style-type: disc;
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-  }
-
-  .about__article li {
-    font-weight: 400;
-    font-size: 1.375rem;
-    line-height: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-</style>
+{{ $event := .Site.Params.themes.event }}
 
 <section class="about">
   <div class="theme-content">
     <h1>{{- T "miscellaneous_about_title" }}</h1>
-    {{ with .Site.Params.themes.event.aboutUs }}
+    {{ with $event.aboutUs }}
     <article class="about__article">
       <p class="about__paragraph">{{ . | markdownify }}</p>
     </article>
@@ -54,8 +14,8 @@
 
   {{- partial "sections/cta.html" (
     dict
-    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    "eventbriteId" $event.callToAction.eventbrite.eventId
+    "ctaUrl" $event.callToAction.other.url
     )
   }}
 {{ end }}

@@ -1,28 +1,5 @@
 {{ $icon := resources.Get "icons/fullscreen.svg" }}
 
-<style>
-  .map-container {
-    position: relative;
-    width: 100%;
-  }
-
-  .map-container__button {
-    position: absolute;
-    top: 0.625rem;
-    right: 0.625rem;
-    display: flex;
-    background-color: #fff;
-    border: 0.125rem solid rgba(0, 0, 0, 0.2);
-    border-radius: 0.1875rem;
-    background-clip: padding-box;
-    padding: 0.25rem 0.375rem;
-  }
-
-  .map-container__button:hover {
-    background-color: #f4f4f4;
-  }
-</style>
-
 <div class="map-container">
   <iframe
           width="100%"

@@ -1,0 +1,9 @@
+.speaker-avatar-container {
+    width: 21.8125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6875rem;
+    font-size: 1.125rem;
+}

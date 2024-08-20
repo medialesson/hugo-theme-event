@@ -1,19 +1,6 @@
 {{ $input := . }}
 
-
-<style>
-  article.speaker-avatar {
-    width: 21.8125rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.6875rem;
-    font-size: 1.125rem;
-  }
-</style>
-
-<article class="speaker-avatar">
+<article class="speaker-avatar-container">
   {{- partial "shaped-image.html" (
     dict
     "imageResource" $input.avatarResource

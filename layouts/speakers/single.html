@@ -1,50 +1,8 @@
 {{ define "main" }}
-  <style>
-    div.single-speaker,
-    div.speaker-sessions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.375rem 0;
-    }
-
-    div.speaker-sessions {
-      background-color: var(--color-secondary);
-    }
-
-    div.single-speaker-content {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 2.625rem;
-    }
-
-    div.single-speaker-biography {
-      flex-grow: 1;
-    }
-
-    section.speaker-sessions {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      gap: 2.625rem;
-    }
-
-    section.speaker-sessions h1 {
-      all: unset;
-      font-size: 2.25rem;
-      font-weight: 700;
-      color: var(--color-primary);
-    }
-
-    section.speaker-sessions h1 > span {
-      font-weight: 900;
-    }
-  </style>
 
   <div class="single-speaker">
-    <div class="theme-content single-speaker-content">
-      <div class="single-speaker-avatar">
+    <div class="theme-content single-speaker__content">
+      <div>
         {{- partial "speaker-avatar.html" (
           dict
           "avatarResource" (.Resources.GetMatch "avatar.*")
@@ -56,7 +14,7 @@
         }}
       </div>
 
-      <div class="single-speaker-biography">
+      <div class="single-speaker__biography">
         {{- partial "speaker-biography.html" (
           dict
           "speakerName" page.Title
@@ -85,7 +43,7 @@
 
 
   <div class="speaker-sessions">
-    <section class="theme-content speaker-sessions">
+    <section class="theme-content speaker-sessions__content">
       <h1 class="h1">
         {{- T "single_speaker_sessions_by" }}
         <span>

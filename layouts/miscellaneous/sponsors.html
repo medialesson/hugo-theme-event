@@ -3,7 +3,7 @@
 
 
   <section class="sponsors">
-    <div class="theme-content">
+    <div class="section">
       {{ if $event.sponsors }}
         <h1 class="h1">{{- T "miscellaneous_sponsors_title_sponsors" }}</h1>
         <ul class="sponsors__list">
@@ -41,12 +41,10 @@
     </div>
   </section>
 
-  <div class="section-container section-container--highlighted">
-    {{- partial "sections/cta.html" (
-      dict
-      "eventbriteId" $event.callToAction.eventbrite.eventId
-      "ctaUrl" $event.callToAction.other.url
-      )
-    }}
-  </div>
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" $event.callToAction.eventbrite.eventId
+    "ctaUrl" $event.callToAction.other.url
+    )
+  }}
 {{ end }}

@@ -1,41 +1,15 @@
 {{ $input := . }}
 
 
-<style>
-  section.featured-speakers {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  article.featured-speakers {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  article.featured-speakers > menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    gap: 1.875rem;
-    margin: 3.75rem 0;
-  }
-</style>
-
-<section class="theme-section-home featured-speakers">
-  <article class="theme-content featured-speakers">
+<div class="section-container">
+  <section class="section section--long featured-speakers">
     <h1 class="theme-section-home">
       {{ T "section_home_featured_speakers_title" }}
     </h1>
     <h2 class="theme-section-home">
       {{ T "section_home_featured_speakers_subtitle" }}
     </h2>
-    <menu>
+    <menu class="featured-speakers__menu">
       {{- range $input.speakers }}
         <li>
           {{- partial "speaker-card.html" (
@@ -58,5 +32,5 @@
         {{ T "section_home_featured_speakers_button" }}
       </a>
     {{- end }}
-  </article>
-</section>
+  </section>
+</div>

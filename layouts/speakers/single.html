@@ -1,8 +1,7 @@
 {{ define "main" }}
-
-  <div class="single-speaker">
-    <div class="theme-content single-speaker__content">
-      <div>
+  <div class="section-container">
+    <section class="section single-speaker-section">
+      <div class="single-speaker-avatar">
         {{- partial "speaker-avatar.html" (
           dict
           "avatarResource" (.Resources.GetMatch "avatar.*")
@@ -14,7 +13,7 @@
         }}
       </div>
 
-      <div class="single-speaker__biography">
+      <div class="single-speaker-section__biography">
         {{- partial "speaker-biography.html" (
           dict
           "speakerName" page.Title
@@ -23,49 +22,46 @@
           )
         }}
       </div>
-    </div>
-  </div>
-
-  {{- $speakerSessions := slice }}
-  {{ range where .Site.RegularPages "Section" "sessions" }}
-    {{ if in .Params.speakerIds page.Params.speakerId }}
-      {{- $speakerSessions = $speakerSessions | append (
-        dict
-        "title" .Title
-        "track" .Params.track
-        "startsAt" .Params.startsAt
-        "room" .Params.room.name
-        "sessionUrl" .Permalink
-        )
-      }}
-    {{ end }}
-  {{ end }}
-
-
-  <div class="speaker-sessions">
-    <section class="theme-content speaker-sessions__content">
-      <h1 class="h1">
-        {{- T "single_speaker_sessions_by" }}
-        <span>
-          {{- partial "elements/hashtag.html" (dict "hashtag" page.Title) }}
-        </span>
-      </h1>
-      {{- partial "sessions-menu.html" (
-        dict
-        "title" page.Title
-        "sessions" $speakerSessions
-        )
-      }}
     </section>
-  </div>
 
-  <div class="section-container section-container--highlighted">
+    {{- $speakerSessions := slice }}
+    {{ range where .Site.RegularPages "Section" "sessions" }}
+      {{ if in .Params.speakerIds page.Params.speakerId }}
+        {{- $speakerSessions = $speakerSessions | append (
+          dict
+          "title" .Title
+          "track" .Params.track
+          "startsAt" .Params.startsAt
+          "room" .Params.room.name
+          "sessionUrl" .Permalink
+          )
+        }}
+      {{ end }}
+    {{ end }}
+
+
+    <div class="section-container section-container--dimmed">
+      <section class="section speaker-sessions-section">
+        <h1 class="h1 speaker-sessions-section__heading">
+          {{- T "single_speaker_sessions_by" | upper }}
+          <span class="speaker-sessions-section__hashtag">
+            {{- partial "elements/hashtag.html" (dict "hashtag" page.Title) }}
+          </span>
+        </h1>
+        {{- partial "sessions-menu.html" (
+          dict
+          "title" page.Title
+          "sessions" $speakerSessions
+          )
+        }}
+      </section>
+    </div>
+
     {{- partial "sections/cta.html" (
       dict
       "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
       "ctaUrl" .Site.Params.themes.event.callToAction.other.url
       )
     }}
-    <div></div>
   </div>
 {{ end }}

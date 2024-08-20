@@ -76,8 +76,11 @@
     {{ end }}
 
 
-    <header class="page-header" id="pageHeader">
-      <div class="theme-content page-header__content" id="pageHeaderContent">
+    <header class="section-container page-header" id="pageHeader">
+      <div
+        class="section section--short page-header__content"
+        id="pageHeaderContent"
+      >
         <nav id="mainNavigation" class="page-header__navigation">
           <label class="page-header__toggle-sidebar-label" for="sidebarToggle">
             {{- partial "graphics/hamburger-menu.html" }}
@@ -170,9 +173,9 @@
       {{ block "main" . }}{{ end }}
     </main>
 
-    <footer class="page-footer">
-      <div class="theme-content page-footer__content">
-        <div class="page-footer__start">
+    <footer class="section-container">
+      <section class="section section--short page-footer-section">
+        <div class="page-footer-section__start">
           <select
             class="select"
             name="language"
@@ -196,10 +199,10 @@
         {{- partial "menus/footer.html" (dict "menu" site.Menus.footer) }}
 
 
-        <div class="page-footer__end">
+        <div class="page-footer-section__end">
           {{- partial "elements/made-by-medialesson.html" }}
         </div>
-      </div>
+      </section>
     </footer>
   </body>
 </html>

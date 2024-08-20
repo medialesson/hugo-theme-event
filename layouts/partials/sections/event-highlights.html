@@ -1,61 +1,17 @@
 {{ $input := . }}
 
 
-<style>
-  section.event-highlights {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  header.event-highlights-description {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5.625rem;
-  }
-
-  img.event-highlights-logo {
-    width: 16.375rem;
-  }
-
-  article.event-highlights-description {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-basis: 16.375rem;
-    flex-grow: 1;
-  }
-
-  article.event-highlights-description > h1,
-  article.event-highlights-description > h2 {
-    text-align: left;
-  }
-
-  article.event-highlights-figures {
-    margin-top: 5.625rem;
-    display: flex;
-    gap: 1.875rem;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-</style>
-
-<section class="theme-section-home event-highlights">
-  <div class="theme-content">
-    <header class="event-highlights-description">
+<div class="section-container">
+  <section class="section section--long event-highlights-section">
+    <header class="event-highlights-section__header">
       {{- with resources.Get $input.logo }}
-        <img class="event-highlights-logo" src="{{ .RelPermalink }}" />
+        <img class="event-highlights-section__logo" src="{{ .RelPermalink }}" />
       {{ end }}
-      <article class="event-highlights-description">
-        <h1 class="theme-section-home">
+      <article class="event-highlights-section__description">
+        <h1 class="theme-section-home event-highlights-section__heading">
           {{ $input.title }}
         </h1>
-        <h2 class="theme-section-home">
+        <h2 class="theme-section-home event-highlights-section__heading">
           {{ $input.subtitle }}
         </h2>
 
@@ -63,7 +19,7 @@
       </article>
     </header>
 
-    <article class="event-highlights-figures">
+    <article class="event-highlights-section__figures">
       {{- if $input.numberOfSpeakers }}
         {{ partial "highlight-figure.html" (
           dict
@@ -94,5 +50,5 @@
         }}
       {{- end }}
     </article>
-  </div>
-</section>
+  </section>
+</div>

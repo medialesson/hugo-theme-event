@@ -56,7 +56,7 @@
   </style>
 
   <div class="single-session">
-    <section class="theme-content single-session">
+    <section class="section single-session">
       <h1 class="h1">
         <div class="single-session-metadata">
           {{- if page.Params.track }}
@@ -88,7 +88,7 @@
 
 
   <div class="same-track-sessions">
-    <section class="theme-content same-track-sessions">
+    <section class="section same-track-sessions">
       <h1 class="h1">
         {{- if page.Params.track }}
           {{- T "single_session_further_sessions_from" }}
@@ -109,12 +109,10 @@
     </section>
   </div>
 
-  <div class="section-container section-container--highlighted">
-    {{- partial "sections/cta.html" (
-      dict
-      "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-      "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-      )
-    }}
-  </div>
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
 {{ end }}

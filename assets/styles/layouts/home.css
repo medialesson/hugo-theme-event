@@ -1,0 +1,23 @@
+section.theme-section-home {
+}
+
+h1.theme-section-home,
+h2.theme-section-home {
+  all: unset;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+h1.theme-section-home {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-primary);
+}
+
+h2.theme-section-home {
+  font-weight: 700;
+  font-size: 2.25rem;
+  width: 100%;
+}

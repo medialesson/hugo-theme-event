@@ -1,0 +1,26 @@
+{{ $input := . }}
+
+
+<div class="section-container section-container--dimmed">
+  <section class="section section--long conference-tracks-section">
+    <h1 class="theme-section-home">
+      {{ T "section_home_conference_tracks_title" }}
+    </h1>
+    <h2 class="theme-section-home">
+      {{ T "section_home_conference_tracks_subtitle" }}
+    </h2>
+    <ol class="conference-tracks-section__list">
+      {{- range $input.tracks }}
+        <li class="conference-tracks-section__list-item">
+          #{{ . | upper }}
+        </li>
+      {{- end }}
+    </ol>
+
+    {{- with $input.sessionsUrl }}
+      <a href="{{ . }}" class="button button--outlined">
+        {{ T "section_home_conference_tracks_button" }}
+      </a>
+    {{- end }}
+  </section>
+</div>

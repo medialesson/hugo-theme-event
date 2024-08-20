@@ -1,5 +1,5 @@
 {{- define "main" }}
-  {{- partial "sections/home/event-title.html"
+  {{- partial "sections/event-title.html"
     (dict
     "title" .Site.Params.themes.event.title
     "location" .Site.Params.themes.event.location
@@ -13,7 +13,7 @@
   {{ $eventStartDate := .Site.Params.themes.event.startDate | time }}
   {{ $eventEndDate := .Site.Params.themes.event.endDate | time }}
   {{ $dayInSeconds := 86400 }}
-  {{ partial "sections/home/event-highlights.html" (
+  {{ partial "sections/event-highlights.html" (
     dict
     "title" .Site.Params.themes.event.title
     "subtitle" .Site.Params.themes.event.slogan
@@ -31,7 +31,7 @@
   {{- end }}
 
   {{- if gt ($tracks | len) 1 }}
-    {{- partial "sections/home/conference-tracks.html" (
+    {{- partial "sections/conference-tracks.html" (
       dict
       "tracks" $tracks
       "sessionsUrl" (.Site.GetPage "sessions").RelPermalink
@@ -56,7 +56,7 @@
   {{- end }}
 
   {{- if gt ($topSpeakers | len) 1 }}
-    {{ partial "sections/home/featured-speakers.html" (
+    {{ partial "sections/featured-speakers.html" (
       dict
       "speakers" $topSpeakers
       "speakersUrl" (.Site.GetPage "speakers").RelPermalink

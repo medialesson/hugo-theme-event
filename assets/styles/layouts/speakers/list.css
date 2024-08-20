@@ -1,21 +1,22 @@
 .speaker-list {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 3.75rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3.75rem;
 }
 
 .speaker-list__menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    gap: 1.875rem;
+  all: unset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  gap: 1.875rem;
 }
 
 .speaker-list__item {
-    width: 100%;
-    max-width: 16.875rem; /* Matches the width of the speaker card */
+  width: 100%;
+  max-width: 16.875rem; /* Matches the width of the speaker card */
 }

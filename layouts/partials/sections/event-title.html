@@ -1,20 +1,17 @@
 {{ $input := . }}
 
-{{- with resources.Get $input.backgroundImage }}
-<style>
-  :root {
-    --event-title-background-url: url("{{ .Permalink }}");
-  }
-</style>
-{{ end }}
 
-
-<section class="event-title">
-  <div class="title">
-    <h1 class="h1">
+<section
+  class="event-title-section"
+  {{- with resources.Get $input.backgroundImage }}
+    style="background-image: url('{{ .Permalink }}');"
+  {{ end }}
+>
+  <div class="event-title-section__header">
+    <h1 class="event-title-section__heading">
       {{- $input.title }}
     </h1>
-    <h2>
+    <h2 class="event-title-section__subheading">
       {{- $input.startDate |
         time.AsTime |
         time.Format ":date_long"
@@ -23,7 +20,7 @@
     </h2>
   </div>
 
-  <div class="cta">
+  <div class="event-title-section__footer">
     {{- if $input.startDate }}
       {{ partial "countdown.html" (dict "targetDate" $input.startDate) }}
     {{- end }}

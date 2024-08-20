@@ -1,0 +1,36 @@
+.conference-tracks-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.conference-tracks-section__list {
+  all: unset;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  gap: 1.875rem;
+  margin: 3.75rem 0;
+}
+
+.conference-tracks-section__list-item {
+  all: unset;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.125rem;
+  box-sizing: border-box;
+  padding: 1.25rem 1.75rem;
+  border-radius: 0.3125rem;
+  background-color: white;
+  box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-primary-darkest);
+}

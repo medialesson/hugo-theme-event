@@ -36,6 +36,7 @@
       font-weight: 700;
     }
     section.session-list > article > menu {
+      all: unset;
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -138,7 +139,7 @@
 
 
   <header class="session-list">
-    <div class="theme-content">
+    <div class="section">
       <h1 class="h1">{{ T "list_sessions_title" }}</h1>
       <article class="session-list-filters">
         {{- if gt ($sessionsGroupedByDay | len) 1 }}
@@ -176,7 +177,7 @@
 
   <section class="session-list">
     {{- range $index, $element := $sessionsGroupedByDay }}
-      <article class="theme-content session-list-day" data-day="{{- $index }}">
+      <article class="section session-list-day" data-day="{{- $index }}">
         <h1 class="h1">{{ T "list_sessions_day" (add $index 1) }}</h1>
         <h2>{{ .Key | time.Format ":date_long" }}</h2>
         {{- range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
@@ -213,12 +214,10 @@
     {{- end }}
   </section>
 
-  <div class="section-container section-container--highlighted">
-    {{- partial "sections/cta.html" (
-      dict
-      "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-      "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-      )
-    }}
-  </div>
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+    )
+  }}
 {{- end }}

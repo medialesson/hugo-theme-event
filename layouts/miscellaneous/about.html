@@ -2,23 +2,21 @@
   {{ $event := .Site.Params.themes.event }}
 
 
-  <section class="about">
-    <div class="theme-content">
+  <div class="section-container">
+    <section class="section about">
       <h1 class="h1">{{- T "miscellaneous_about_title" }}</h1>
       {{ with $event.aboutUs }}
-        <article class="about__article">
-          <p class="about__paragraph">{{ . | markdownify }}</p>
-        </article>
+        <div class="about__text">
+          {{ . | markdownify }}
+        </div>
       {{ end }}
-    </div>
-  </section>
-
-  <div class="section-container section-container--highlighted">
-    {{- partial "sections/cta.html" (
-      dict
-      "eventbriteId" $event.callToAction.eventbrite.eventId
-      "ctaUrl" $event.callToAction.other.url
-      )
-    }}
+    </section>
   </div>
+
+  {{- partial "sections/cta.html" (
+    dict
+    "eventbriteId" $event.callToAction.eventbrite.eventId
+    "ctaUrl" $event.callToAction.other.url
+    )
+  }}
 {{ end }}

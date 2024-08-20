@@ -1,0 +1,40 @@
+.sessions-menu {
+  all: unset;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 1.875rem;
+}
+
+.sessions-menu__link {
+  all: unset;
+  width: 16.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  height: 100%;
+  gap: 2rem;
+}
+
+.sessions-menu__heading {
+  all: unset;
+  font-weight: 800;
+  font-size: 1.5rem;
+  flex-grow: 1;
+}
+
+.sessions-menu__time {
+  all: unset;
+  display: block;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.sessions-menu__track {
+  all: unset;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-track);
+}

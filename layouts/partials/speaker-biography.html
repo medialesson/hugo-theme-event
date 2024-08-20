@@ -1,36 +1,7 @@
 {{ $input := . }}
 
-
-<style>
-  article.speaker-biography {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-  }
-
-  article.speaker-biography > h1 {
-    all: unset;
-    font-weight: 700;
-    font-size: 2.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  article.speaker-biography > h2 {
-    all: unset;
-    font-weight: 400;
-    font-size: 1rem;
-  }
-
-  article.speaker-biography > p {
-    all: unset;
-    font-weight: 400;
-    font-size: 1rem;
-    margin: 2.8125rem 0;
-  }
-</style>
-
 <article class="speaker-biography">
-  <h1 class="h1">{{- $input.speakerName }}</h1>
-  <h2>{{- $input.speakerSlogan }}</h2>
-  <p>{{- $input.speakerBiography }}</p>
+  <h1 class="h1 speaker-biography__name">{{- $input.speakerName }}</h1>
+  <h2 class="speaker-biography__slogan">{{- $input.speakerSlogan }}</h2>
+  <p class="speaker-biography__description">{{- $input.speakerBiography }}</p>
 </article>

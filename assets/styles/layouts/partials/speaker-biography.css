@@ -1,0 +1,23 @@
+.speaker-biography {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.speaker-biography__name {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.speaker-biography__slogan {
+    all: unset;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.speaker-biography__description {
+    all: unset;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 2.8125rem 0;
+}

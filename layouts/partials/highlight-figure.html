@@ -1,35 +1,9 @@
 {{ $input := . }}
 
-
-<style>
-  figure.highlight-figure {
-    all: unset;
-    width: 16.875rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  figure.highlight-figure > figcaption {
-    font-weight: 600;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-
-  figure.highlight-figure > img {
-    width: 6.25rem;
-    height: 6.25rem;
-    box-sizing: border-box;
-    background-color: var(--color-primary);
-    border-radius: 1.25rem;
-    padding: 1.75rem;
-  }
-</style>
-
 <figure class="highlight-figure">
   {{- with resources.Get $input.icon }}
-    <img aria-hidden="true" src="{{ .RelPermalink }}" />
+<!--    alt="" tells screen readers to skip the image, as it's purely decorative -->
+      <img class="highlight-figure__image" aria-hidden="true" src="{{ .RelPermalink }}"  alt=""/>
   {{ end }}
-  <figcaption>{{ $input.caption }}</figcaption>
+  <figcaption class="highlight-figure__caption">{{ $input.caption }}</figcaption>
 </figure>

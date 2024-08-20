@@ -1,9 +1,0 @@
-.menu {
-  all: unset;
-  list-style: none;
-}
-
-.menu--flex {
-  display: flex;
-  align-items: center;
-}

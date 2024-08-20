@@ -1,31 +1,12 @@
-<style>
-  nav.footer > menu {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    gap: 2.5rem;
-  }
+{{ $input := . }}
 
-  nav.footer > menu a {
-    font-weight: 500;
-    color: var(--color-secondary-darker);
-    text-decoration: none;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-</style>
 
-<nav class="footer">
-  <menu>
-    {{- range site.Menus.footer }}
-      <li>
-        <a href="{{ .URL }}">
-          {{- or (T (printf "menu_%s" .Identifier)) .Name }}
-        </a>
-      </li>
-    {{- end }}
-  </menu>
-</nav>
+<menu class="footer-menu">
+  {{- range $input.menu }}
+    <li>
+      <a class="footer-menu__link" href="{{ .URL }}">
+        {{- or (T (printf "menu_%s" .Identifier)) .Name }}
+      </a>
+    </li>
+  {{- end }}
+</menu>

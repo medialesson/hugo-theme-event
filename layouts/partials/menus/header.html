@@ -1,37 +1,11 @@
 {{ $input := . }}
 
 
-<style>
-  .header-menu {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .header-menu__link,
-  .header-menu__link--active {
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    text-wrap: nowrap;
-
-    color: var(--color-secondary-darker);
-  }
-
-  .header-menu__link:hover {
-    color: var(--color-primary-darkest);
-  }
-
-  .header-menu__link--active {
-    color: var(--color-primary-darkest);
-  }
-</style>
-
 <menu class="header-menu">
   <li>
     <a
       {{- if $input.context.IsHome }}
-        class="header-menu__link--active"
+        class="header-menu__link header-menu__link--active"
       {{- else }}
         class="header-menu__link"
       {{- end }}
@@ -47,7 +21,7 @@
       <a
         href="{{ .URL }}"
         {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
-          class="header-menu__link--active"
+          class="header-menu__link header-menu__link--active"
         {{- else }}
           class="header-menu__link"
         {{- end }}

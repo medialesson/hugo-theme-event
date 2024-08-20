@@ -193,7 +193,7 @@
           {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
         </div>
 
-        {{- partial "menus/footer.html" . }}
+        {{- partial "menus/footer.html" (dict "menu" site.Menus.footer) }}
 
 
         <div class="page-footer__end">

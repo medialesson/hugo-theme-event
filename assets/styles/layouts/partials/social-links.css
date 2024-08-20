@@ -1,4 +1,8 @@
 .social-links {
+  all: unset;
+  list-style: none;
+  display: flex;
+  align-items: center;
   opacity: 0.2;
   gap: 1.375rem;
 }

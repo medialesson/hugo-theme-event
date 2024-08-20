@@ -1,7 +1,7 @@
 {{ $input := . }}
 
 
-<menu class="social-links menu menu--flex">
+<menu class="social-links">
   {{- if $input.linkedinUrl }}
     {{- with resources.Get "logos/linkedin.svg" }}
       <li class="social-links__link">

@@ -1,0 +1,17 @@
+.social-links {
+  opacity: 0.2;
+  gap: 1.375rem;
+}
+
+.social-links__link {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.social-links__image-default {
+  height: 1em;
+}
+
+.social-links__image-linkedin {
+  height: 1.3571428571em;
+}

@@ -1,114 +1,35 @@
 {{ $input := . }}
 
-
-<style>
-  a.event-row {
-    all: unset;
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-    gap: 1rem;
-    border-radius: 0.75rem;
-    border: 0.125rem solid var(--color-primary);
-
-    width: 100%;
-    padding: 1.25rem;
-    cursor: pointer;
-    display: flex;
-  }
-
-  a.event-row.service-session {
-    cursor: unset;
-  }
-
-  .service-session .event-row-room,
-  .service-session .event-row-speakers,
-  .service-session .event-row-avatars {
-    display: none;
-  }
-
-  h1.event-row-track {
-    width: 14.1875rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-track);
-    flex-shrink: 0;
-  }
-
-  div.event-row-center {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    text-decoration: none;
-  }
-
-  h2.event-row-title {
-    all: unset;
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
-
-  h2.event-row-title > span.event-row-room {
-    font-weight: 400;
-  }
-
-  h3.event-row-speakers {
-    all: unset;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--color-secondary-darker);
-  }
-
-  h3.event-row-speakers > span:not(:last-child)::after {
-    content: ", ";
-  }
-
-  .event-row ul.event-row-avatars {
-    all: unset;
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-    gap: 1.75rem;
-  }
-
-  .event-row ul.event-row-avatars img {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-  }
-</style>
-
 <a
-  {{- if $input.isServiceSession }}
-    class="event-row service-session"
-  {{- else }}
-    class="event-row" href="{{- $input.link }}"
-  {{- end }}
+        {{- if $input.isServiceSession }}
+        class="event-row event-row--service-session"
+        {{- else }}
+        class="event-row" href="{{- $input.link }}"
+        {{- end }}
 >
-  <h1 class="event-row-track">
+  <h1 class="event-row__track">
     {{- if $input.track }}
       #{{- $input.track | upper }}
     {{- end }}
   </h1>
-  <div class="event-row-center">
-    <h2 class="event-row-title">
+  <div class="event-row__center">
+    <h2 class="event-row__title">
       {{- $input.title }}
-      <span class="event-row-room">@ {{ $input.room }}</span>
+      <span class="event-row__room">@ {{ $input.room }}</span>
     </h2>
-    <h3 class="event-row-speakers">
+    <h3 class="event-row__speakers">
       {{- range $input.speakers }}
         <span>{{- .name }}</span>
       {{- end }}
     </h3>
   </div>
   <article>
-    <ul class="event-row-avatars">
+    <ul class="event-row__avatars">
       {{- range $input.speakers }}
         {{- $speaker := . }}
         {{- with $speaker.avatarResource }}
           <li>
-            <img src="{{ .RelPermalink }}" alt="{{ $speaker.name }}" />
+            <img class="event-row__avatar-img" src="{{ .RelPermalink }}" alt="{{ $speaker.name }}" />
           </li>
         {{ end }}
       {{- end }}

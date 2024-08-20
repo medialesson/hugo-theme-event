@@ -1,0 +1,73 @@
+.event-row {
+    all: unset;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 0.125rem solid var(--color-primary);
+    cursor: pointer;
+}
+
+.event-row--service-session {
+    cursor: unset;
+}
+
+.event-row--service-session .event-row__room,
+.event-row--service-session .event-row__speakers,
+.event-row--service-session .event-row__avatars {
+    display: none;
+}
+
+.event-row__track {
+    width: 14.1875rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-track);
+    flex-shrink: 0;
+}
+
+.event-row__center {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.event-row__title {
+    all: unset;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.event-row__room {
+    font-weight: 400;
+}
+
+.event-row__speakers {
+    all: unset;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-secondary-darker);
+}
+
+.event-row__speakers > span:not(:last-child)::after {
+    content: ", ";
+}
+
+.event-row__avatars {
+    all: unset;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+}
+
+.event-row__avatar-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}

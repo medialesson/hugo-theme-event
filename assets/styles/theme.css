@@ -58,7 +58,7 @@
   justify-content: center;
 }
 
-.section-container--cta {
+.section-container--highlighted {
   background-color: var(--color-primary);
   color: white;
 }

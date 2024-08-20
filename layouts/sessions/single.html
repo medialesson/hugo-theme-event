@@ -1,66 +1,10 @@
 {{ define "main" }}
-  <style>
-    div.single-session,
-    div.same-track-sessions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.375rem 0;
-    }
-
-    div.same-track-sessions {
-      background-color: var(--color-secondary);
-    }
-
-    section.single-session,
-    section.same-track-sessions {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      gap: 2.625rem;
-    }
-
-    section.same-track-sessions h1 {
-      all: unset;
-      font-size: 2.25rem;
-      font-weight: 700;
-      color: var(--color-primary);
-    }
-
-    section.same-track-sessions h1 > span {
-      font-weight: 900;
-    }
-
-    section.single-session div.single-session-metadata {
-      display: flex;
-    }
-
-    section.single-session > h1 {
-      all: unset;
-      font-weight: 700;
-      font-size: 2.25rem;
-    }
-
-    section.single-session > h1 span,
-    section.single-session > h1 time {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--color-primary);
-    }
-
-    section.single-session > h1 span {
-      border-right: 1px solid var(--color-primary);
-      padding-right: 12px;
-      margin-right: 12px;
-    }
-  </style>
-
-  <div class="single-session">
-    <section class="section single-session">
-      <h1 class="h1">
-        <div class="single-session-metadata">
+  <div class="section-container">
+    <section class="section single-session-section">
+      <h1 class="single-session-section__heading">
+        <div class="single-session-section__metadata">
           {{- if page.Params.track }}
-            <span>
+            <span class="single-session-section__hashtag">
               {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
             </span>
           {{- end }}
@@ -68,7 +12,7 @@
         </div>
         {{- page.Title -}}
       </h1>
-      <p>{{- page.RawContent }}</p>
+      <p class="single-session-section__content">{{- page.RawContent }}</p>
     </section>
   </div>
 
@@ -87,16 +31,16 @@
   {{ end }}
 
 
-  <div class="same-track-sessions">
-    <section class="section same-track-sessions">
-      <h1 class="h1">
+  <div class="section-container section-container--dimmed">
+    <section class="section same-track-sessions-section">
+      <h1 class="same-track-sessions-section__heading">
         {{- if page.Params.track }}
-          {{- T "single_session_further_sessions_from" }}
-          <span>
+          {{- T "single_session_further_sessions_from" | upper }}
+          <span class="same-track-sessions-section__hashtag">
             {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
           </span>
         {{- else }}
-          {{- T "single_session_further_sessions" }}
+          {{- T "single_session_further_sessions" | upper }}
         {{- end }}
       </h1>
 

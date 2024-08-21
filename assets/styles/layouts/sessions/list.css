@@ -15,12 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .session-list-filter {
     display: flex;
     flex-direction: column;
-    gap: 1.875rem;
 }
 
 .session-list-filter__heading {
@@ -32,11 +32,13 @@
     all: unset;
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     gap: 1.875rem;
 }
 
 .session-list-filter__label {
     all: unset;
+    display: block;
     cursor: pointer;
     padding: 0.75rem 1.75rem;
     gap: 0.625rem;

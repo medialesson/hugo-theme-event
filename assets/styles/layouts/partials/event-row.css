@@ -4,7 +4,6 @@
     align-items: stretch;
     justify-content: stretch;
     gap: 1rem;
-    width: 100%;
     padding: 1.25rem;
     border-radius: 0.75rem;
     border: 0.125rem solid var(--color-primary);

@@ -1,20 +1,13 @@
-.location {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.location__address-line {
-    all: unset;
-    font-size: 1rem;
-    height: 2.75rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-    text-align: left;
-    color: var(--color-secondary-darker);
-    display: block;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    overflow: hidden;
+.location__address {
+  all: unset;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  text-align: left;
+  color: var(--color-secondary-darker);
+  display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
 }

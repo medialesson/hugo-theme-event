@@ -2,32 +2,31 @@
   {{ $event := .Site.Params.themes.event }}
 
 
-  <section class="location">
-    <div class="section">
+  <div class="section-container">
+    <section class="section">
       <h1 class="heading heading--1">
         {{- T "miscellaneous_location_title" }}
       </h1>
 
-      {{ if $event.address }}
-        {{ range $event.address }}
-          <p class="location__address-line">{{ . }}</p>
-        {{- end }}
+      {{ with $event.address }}
+        <address class="location__address">
+          {{ range $event.address }}
+            {{ . | markdownify }} <br />
+          {{ end }}
+        </address>
       {{ end }}
 
-
-      <div>
-        {{ if $event.directions }}
-          {{- partial "directions-card.html"
-            (dict
-            "locationImg" $event.images.locationImage
-            "locationImgAlt" $event.location
-            "directions" $event.directions
-            )
-          }}
-        {{- end }}
-      </div>
-    </div>
-  </section>
+      {{ if $event.directions }}
+        {{- partial "directions-card.html"
+          (dict
+          "locationImg" $event.images.locationImage
+          "locationImgAlt" $event.location
+          "directions" $event.directions
+          )
+        }}
+      {{- end }}
+    </section>
+  </div>
 
   {{- partial "partials/map-embedding.html" (
     dict

@@ -16,7 +16,7 @@ languages:
           # You can customize it to describe the event, highlight key aspects, or leave any important message.
           # Markdown formatting is supported, allowing you to add links, bold text, and more.
           aboutUs: |
-              More information about the event will be added soon. Stay tuned! 🎉
+            More information about the event will be added soon. Stay tuned! 🎉
   de:
     languageName: Deutsch
     params:
@@ -51,10 +51,10 @@ params:
       endDate: 2095-06-03
       location: City, Country
       address:
-        row1: Building
-        row2: Street
-        row3: City
-        row4: Country
+        - Building
+        - Street
+        - City
+        - Country
       map:
         # 👇 Get an embeddable map URL from OpenStreetMap
         # 👇 https://wiki.openstreetmap.org/wiki/Export#Embeddable_HTML

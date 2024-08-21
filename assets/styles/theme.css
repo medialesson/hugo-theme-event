@@ -73,10 +73,7 @@
 
 .section {
     width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 3.125rem;
-    padding-bottom: 3.125rem;
+    padding: 3.125rem 2rem;
     box-sizing: border-box;
 }
 

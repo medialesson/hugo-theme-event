@@ -9,39 +9,24 @@
 }
 
 .directions-card__image {
-    flex-basis: 33.33%;
+    flex-basis: 30%;
     flex-shrink: 0;
     box-sizing: border-box;
 }
 
-.directions-card__description {
-    flex-basis: 66.66%;
-    box-sizing: border-box;
+@media (max-width: 32rem) {
+    .directions-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .directions-card__image,
+    .directions-card__description {
+        flex-basis: 100%;
+    }
+
+    .directions-card__description {
+        margin-top: 1.5rem;
+    }
 }
 
-.directions-card h2 {
-    font-size: 1.875rem;
-}
-
-.directions-card h3 {
-    font-size: 1.375rem;
-}
-
-.directions-card p {
-    font-weight: 400;
-    font-size: 1.375rem;
-    line-height: 2.5rem;
-}
-
-.directions-card ul {
-    list-style-type: disc;
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-}
-
-.directions-card li {
-    font-weight: 400;
-    font-size: 1.375rem;
-    line-height: 2.5rem;
-    margin-bottom: 0.5rem;
-}

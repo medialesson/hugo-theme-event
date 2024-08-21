@@ -6,7 +6,7 @@
         <section class="section about">
             <h1 class="heading heading--1">{{- T "miscellaneous_about_title" }}</h1>
             {{ with $event.aboutUs }}
-                <div class="about__text">
+                <div class="markdown about__text">
                     {{ . | markdownify }}
                 </div>
             {{ end }}

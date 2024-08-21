@@ -1,12 +1,14 @@
 .single-speaker-section {
     display: flex;
     align-items: start;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2.625rem;
+    flex-wrap: wrap;
 }
 
 .single-speaker-section__biography {
     flex-grow: 1;
+    flex-basis: 16.375rem;
 }
 
 .speaker-sessions-section {

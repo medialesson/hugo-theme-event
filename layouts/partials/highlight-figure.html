@@ -1,9 +1,10 @@
 {{ $input := . }}
 
+
 <figure class="highlight-figure">
-  {{- with resources.Get $input.icon }}
-<!--    alt="" tells screen readers to skip the image, as it's purely decorative -->
-      <img class="highlight-figure__image" aria-hidden="true" src="{{ .RelPermalink }}"  alt=""/>
-  {{ end }}
-  <figcaption class="highlight-figure__caption">{{ $input.caption }}</figcaption>
+    {{- with resources.Get $input.icon }}
+        <!--    alt="" tells screen readers to skip the image, as it's purely decorative -->
+        <img class="highlight-figure__image" aria-hidden="true" src="{{ .RelPermalink }}" alt="" />
+    {{ end }}
+    <figcaption class="highlight-figure__caption">{{ $input.caption }}</figcaption>
 </figure>

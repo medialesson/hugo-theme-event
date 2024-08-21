@@ -55,7 +55,7 @@
 }
 
 .event-row__speakers > span:not(:last-child)::after {
-    content: ", ";
+    content: ', ';
 }
 
 .event-row__avatars {

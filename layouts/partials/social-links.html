@@ -2,59 +2,43 @@
 
 
 <menu class="social-links">
-  {{- if $input.linkedinUrl }}
-    {{- with resources.Get "logos/linkedin.svg" }}
-      <li class="social-links__link">
-        <a href="{{- $input.linkedinUrl }}" rel="external">
-          <img
-            class="social-links__image-linkedin"
-            src="{{ .RelPermalink }}"
-            alt="LinkedIn"
-          />
-        </a>
-      </li>
+    {{- if $input.linkedinUrl }}
+        {{- with resources.Get "logos/linkedin.svg" }}
+            <li class="social-links__link">
+                <a href="{{- $input.linkedinUrl }}" rel="external">
+                    <img class="social-links__image-linkedin" src="{{ .RelPermalink }}" alt="LinkedIn" />
+                </a>
+            </li>
+        {{ end }}
     {{ end }}
-  {{ end }}
 
-  {{- if $input.xUrl }}
-    {{- with resources.Get "logos/x.svg" }}
-      <li class="social-links__link">
-        <a href="{{- $input.xUrl }}" rel="external">
-          <img
-            class="social-links__image-default"
-            src="{{ .RelPermalink }}"
-            alt="X"
-          />
-        </a>
-      </li>
+    {{- if $input.xUrl }}
+        {{- with resources.Get "logos/x.svg" }}
+            <li class="social-links__link">
+                <a href="{{- $input.xUrl }}" rel="external">
+                    <img class="social-links__image-default" src="{{ .RelPermalink }}" alt="X" />
+                </a>
+            </li>
+        {{ end }}
     {{ end }}
-  {{ end }}
 
-  {{- if $input.facebookUrl }}
-    {{- with resources.Get "logos/facebook.svg" }}
-      <li class="social-links__link">
-        <a href="{{- $input.facebookUrl }}" rel="external">
-          <img
-            class="social-links__image-default"
-            src="{{ .RelPermalink }}"
-            alt="Facebook"
-          />
-        </a>
-      </li>
+    {{- if $input.facebookUrl }}
+        {{- with resources.Get "logos/facebook.svg" }}
+            <li class="social-links__link">
+                <a href="{{- $input.facebookUrl }}" rel="external">
+                    <img class="social-links__image-default" src="{{ .RelPermalink }}" alt="Facebook" />
+                </a>
+            </li>
+        {{ end }}
     {{ end }}
-  {{ end }}
 
-  {{- if $input.companyUrl }}
-    {{- with resources.Get "logos/company.svg" }}
-      <li class="social-links__link">
-        <a href="{{- $input.companyUrl }}" rel="external">
-          <img
-            class="social-links__image-default"
-            src="{{ .RelPermalink }}"
-            alt="Company"
-          />
-        </a>
-      </li>
+    {{- if $input.companyUrl }}
+        {{- with resources.Get "logos/company.svg" }}
+            <li class="social-links__link">
+                <a href="{{- $input.companyUrl }}" rel="external">
+                    <img class="social-links__image-default" src="{{ .RelPermalink }}" alt="Company" />
+                </a>
+            </li>
+        {{ end }}
     {{ end }}
-  {{ end }}
 </menu>

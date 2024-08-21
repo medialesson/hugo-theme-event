@@ -1,54 +1,54 @@
 {{ define "main" }}
-  {{ $event := .Site.Params.themes.event }}
+    {{ $event := .Site.Params.themes.event }}
 
 
-  <section class="sponsors">
-    <div class="section">
-      {{ if $event.sponsors }}
-        <h1 class="heading heading--1">
-          {{- T "miscellaneous_sponsors_title_sponsors" }}
-        </h1>
-        <ul class="sponsors__list">
-          {{ range $event.sponsors }}
-            <li class="sponsors__list-item">
-              {{- partial "sponsor-card.html" (
-                dict
-                "companyUrl" .url
-                "logoResource" .logo
-                "name" .name
-                )
-              }}
-            </li>
-          {{- end }}
-        </ul>
-      {{ end }}
+    <section class="sponsors">
+        <div class="section">
+            {{ if $event.sponsors }}
+                <h1 class="heading heading--1">
+                    {{- T "miscellaneous_sponsors_title_sponsors" }}
+                </h1>
+                <ul class="sponsors__list">
+                    {{ range $event.sponsors }}
+                        <li class="sponsors__list-item">
+                            {{- partial "sponsor-card.html" (
+                                dict
+                                "companyUrl" .url
+                                "logoResource" .logo
+                                "name" .name
+                                )
+                            }}
+                        </li>
+                    {{- end }}
+                </ul>
+            {{ end }}
 
-      {{ if .Site.Params.themes.event.partners }}
-        <h1 class="heading heading--1">
-          {{- T "miscellaneous_sponsors_title_partners" }}
-        </h1>
-        <ul class="sponsors__list">
-          {{ range $event.partners }}
-            <li class="sponsors__list-item">
-              {{- partial "sponsor-card.html" (
-                dict
-                "profileUrl" .url
-                "logoResource" .logo
-                "name" .name
-                )
-              }}
-            </li>
-          {{- end }}
-        </ul>
-      {{ end }}
+            {{ if .Site.Params.themes.event.partners }}
+                <h1 class="heading heading--1">
+                    {{- T "miscellaneous_sponsors_title_partners" }}
+                </h1>
+                <ul class="sponsors__list">
+                    {{ range $event.partners }}
+                        <li class="sponsors__list-item">
+                            {{- partial "sponsor-card.html" (
+                                dict
+                                "profileUrl" .url
+                                "logoResource" .logo
+                                "name" .name
+                                )
+                            }}
+                        </li>
+                    {{- end }}
+                </ul>
+            {{ end }}
 
-    </div>
-  </section>
+        </div>
+    </section>
 
-  {{- partial "sections/cta.html" (
-    dict
-    "eventbriteId" $event.callToAction.eventbrite.eventId
-    "ctaUrl" $event.callToAction.other.url
-    )
-  }}
+    {{- partial "sections/cta.html" (
+        dict
+        "eventbriteId" $event.callToAction.eventbrite.eventId
+        "ctaUrl" $event.callToAction.other.url
+        )
+    }}
 {{ end }}

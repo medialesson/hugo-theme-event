@@ -1,38 +1,38 @@
 {{ $input := . }}
 
+
 <a
-        {{- if $input.isServiceSession }}
+    {{- if $input.isServiceSession }}
         class="event-row event-row--service-session"
-        {{- else }}
+    {{- else }}
         class="event-row" href="{{- $input.link }}"
+    {{- end }}>
+    <h1 class="event-row__track">
+        {{- if $input.track }}
+            #{{- $input.track | upper }}
         {{- end }}
->
-  <h1 class="event-row__track">
-    {{- if $input.track }}
-      #{{- $input.track | upper }}
-    {{- end }}
-  </h1>
-  <div class="event-row__center">
-    <h2 class="event-row__title">
-      {{- $input.title }}
-      <span class="event-row__room">@ {{ $input.room }}</span>
-    </h2>
-    <h3 class="event-row__speakers">
-      {{- range $input.speakers }}
-        <span>{{- .name }}</span>
-      {{- end }}
-    </h3>
-  </div>
-  <article>
-    <ul class="event-row__avatars">
-      {{- range $input.speakers }}
-        {{- $speaker := . }}
-        {{- with $speaker.avatarResource }}
-          <li>
-            <img class="event-row__avatar-img" src="{{ .RelPermalink }}" alt="{{ $speaker.name }}" />
-          </li>
-        {{ end }}
-      {{- end }}
-    </ul>
-  </article>
+    </h1>
+    <div class="event-row__center">
+        <h2 class="event-row__title">
+            {{- $input.title }}
+            <span class="event-row__room">@ {{ $input.room }}</span>
+        </h2>
+        <h3 class="event-row__speakers">
+            {{- range $input.speakers }}
+                <span>{{- .name }}</span>
+            {{- end }}
+        </h3>
+    </div>
+    <article>
+        <ul class="event-row__avatars">
+            {{- range $input.speakers }}
+                {{- $speaker := . }}
+                {{- with $speaker.avatarResource }}
+                    <li>
+                        <img class="event-row__avatar-img" src="{{ .RelPermalink }}" alt="{{ $speaker.name }}" />
+                    </li>
+                {{ end }}
+            {{- end }}
+        </ul>
+    </article>
 </a>

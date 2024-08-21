@@ -1,32 +1,32 @@
 .cta-section {
-  width: 100%;
-  max-width: 56.3125rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+    width: 100%;
+    max-width: 56.3125rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cta-section__heading {
-  font-size: 2.375rem;
-  font-weight: 700;
-  margin: 0;
-  text-align: center;
+    font-size: 2.375rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
 }
 
 .cta-section__subheading {
-  font-size: 2.5rem;
-  font-weight: 400;
-  margin: 0;
-  text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
 }
 
 .cta-section__message {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 400;
-  margin: 0;
-  max-width: 60%;
-  text-align: center;
-  margin: 0.625rem 0 1.5625rem 0;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    max-width: 60%;
+    text-align: center;
+    margin: 0.625rem 0 1.5625rem 0;
 }

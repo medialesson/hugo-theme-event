@@ -11,15 +11,15 @@ main template. They cannot, for example, be placed inside a partial. This is a
 pity, since styles are not tree-shakeable because of this. The theme
 automatically integrates all `*.css` files from the `assets/` directory.
 
-- Place all style files under `assets/styles/`.
-- Follow the [BEM](https://getbem.com) naming convention for selectors.
-- Use the [Two Dashes](https://bem.info/methodology/naming-convention/#two-dashes-style) naming schema.
-- For every partial, put a style file with the same folder structure under
-`assets/styles/partials/`.
-- Never use type selectors and avoid ID selectors.
+-   Place all style files under `assets/styles/`.
+-   Follow the [BEM](https://getbem.com) naming convention for selectors.
+-   Use the [Two Dashes](https://bem.info/methodology/naming-convention/#two-dashes-style) naming schema.
+-   For every partial, put a style file with the same folder structure under
+    `assets/styles/partials/`.
+-   Never use type selectors and avoid ID selectors.
 
- 
- ## References
- 
- [^styleplacement]: According to the [HTML
- specification](https://html.spec.whatwg.org/multipage/semantics.html#the-style-element).
+## References
+
+[^styleplacement]:
+    According to the [HTML
+    specification](https://html.spec.whatwg.org/multipage/semantics.html#the-style-element).

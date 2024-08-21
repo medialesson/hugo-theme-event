@@ -1,21 +1,21 @@
 .social-links {
-  all: unset;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  opacity: 0.2;
-  gap: 1.375rem;
+    all: unset;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    opacity: 0.2;
+    gap: 1.375rem;
 }
 
 .social-links__link {
-  flex-grow: 1;
-  height: 100%;
+    flex-grow: 1;
+    height: 100%;
 }
 
 .social-links__image-default {
-  height: 1em;
+    height: 1em;
 }
 
 .social-links__image-linkedin {
-  height: 1.3571428571em;
+    height: 1.3571428571em;
 }

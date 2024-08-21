@@ -1,23 +1,23 @@
 .header-menu {
-  all: unset;
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
+    all: unset;
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
 }
 
 .header-menu__link {
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  text-wrap: nowrap;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    text-wrap: nowrap;
 
-  color: var(--color-secondary-darker);
+    color: var(--color-secondary-darker);
 }
 
 .header-menu__link:hover {
-  color: var(--color-primary-darkest);
+    color: var(--color-primary-darkest);
 }
 
 .header-menu__link--active {
-  color: var(--color-primary-darkest);
+    color: var(--color-primary-darkest);
 }

@@ -1,97 +1,97 @@
 @property --color-primary-lighter {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #d7fb4d;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #d7fb4d;
 }
 
 @property --color-primary {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #c6eb4d;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #c6eb4d;
 }
 
 @property --color-primary-darker {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #015a57;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #015a57;
 }
 
 @property --color-primary-darkest {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #111928;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #111928;
 }
 
 @property --color-secondary {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #f7f8fa;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #f7f8fa;
 }
 
 @property --color-secondary-darker {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #637381;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #637381;
 }
 
 @property --color-track {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #015a57;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #015a57;
 }
 
 @property --color-shadow {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #a6afc366;
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #a6afc366;
 }
 
 :root {
-  font-family: "Inter";
-  color: var(--color-primary-darkest);
+    font-family: 'Inter';
+    color: var(--color-primary-darkest);
 }
 
 /* A full-width styling container with a centered content area. */
 .section-container {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* An attention-capturing section container. */
 .section-container--highlighted {
-  background-color: var(--color-primary);
-  color: white;
+    background-color: var(--color-primary);
+    color: white;
 }
 
 /* An non-attention-capturing section container. */
 .section-container--dimmed {
-  background-color: var(--color-secondary);
+    background-color: var(--color-secondary);
 }
 
 .section {
-  width: 100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 3.125rem;
-  padding-bottom: 3.125rem;
-  box-sizing: border-box;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+    box-sizing: border-box;
 }
 
 .section--long {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 .section--short {
-  padding-top: 1.625rem;
-  padding-bottom: 1.625rem;
+    padding-top: 1.625rem;
+    padding-bottom: 1.625rem;
 }
 
 @media only screen and (min-width: 1250px) {
-  .section {
-    width: 1250px;
-  }
+    .section {
+        width: 1250px;
+    }
 }

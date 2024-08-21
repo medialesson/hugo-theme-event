@@ -2,29 +2,28 @@
 
 
 <section
-  class="event-title-section"
-  {{- with resources.Get $input.backgroundImage }}
-    style="background-image: url('{{ .Permalink }}');"
-  {{ end }}
->
-  <div class="event-title-section__header">
-    <h1 class="event-title-section__heading">
-      {{- $input.title }}
-    </h1>
-    <h2 class="event-title-section__subheading">
-      {{- $input.startDate |
-        time.AsTime |
-        time.Format ":date_long"
-      }},
-      {{ $input.location }}
-    </h2>
-  </div>
+    class="event-title-section"
+    {{- with resources.Get $input.backgroundImage }}
+        style="background-image: url('{{ .Permalink }}');"
+    {{ end }}>
+    <div class="event-title-section__header">
+        <h1 class="event-title-section__heading">
+            {{- $input.title }}
+        </h1>
+        <h2 class="event-title-section__subheading">
+            {{- $input.startDate |
+                time.AsTime |
+                time.Format ":date_long"
+            }},
+            {{ $input.location }}
+        </h2>
+    </div>
 
-  <div class="event-title-section__footer">
-    {{- if $input.startDate }}
-      {{ partial "countdown.html" (dict "targetDate" $input.startDate) }}
-    {{- end }}
+    <div class="event-title-section__footer">
+        {{- if $input.startDate }}
+            {{ partial "countdown.html" (dict "targetDate" $input.startDate) }}
+        {{- end }}
 
-    {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl) }}
-  </div>
+        {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl) }}
+    </div>
 </section>

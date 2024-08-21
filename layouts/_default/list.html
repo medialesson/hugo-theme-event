@@ -1,17 +1,17 @@
 {{ define "main" }}
-  <article>
-    <header>
-      <h1 class="heading heading--1">{{ .Title }}</h1>
-    </header>
-    <section>
-      {{ range .Pages }}
-        <article>
-          <header>
-            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-          </header>
-          <section>{{ .Summary }}</section>
-        </article>
-      {{ end }}
-    </section>
-  </article>
+    <article>
+        <header>
+            <h1 class="heading heading--1">{{ .Title }}</h1>
+        </header>
+        <section>
+            {{ range .Pages }}
+                <article>
+                    <header>
+                        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                    </header>
+                    <section>{{ .Summary }}</section>
+                </article>
+            {{ end }}
+        </section>
+    </article>
 {{ end }}

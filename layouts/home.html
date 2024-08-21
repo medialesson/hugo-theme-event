@@ -1,66 +1,66 @@
 {{- define "main" }}
-  {{- partial "sections/event-title.html"
-    (dict
-    "title" .Site.Params.themes.event.title
-    "location" .Site.Params.themes.event.location
-    "startDate" .Site.Params.themes.event.startDate
-    "backgroundImage" .Site.Params.themes.event.images.eventTitleBackground
-    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-    )
-  }}
-
-  {{ $eventStartDate := .Site.Params.themes.event.startDate | time }}
-  {{ $eventEndDate := .Site.Params.themes.event.endDate | time }}
-  {{ $dayInSeconds := 86400 }}
-  {{ partial "sections/event-highlights.html" (
-    dict
-    "title" .Site.Params.themes.event.title
-    "subtitle" .Site.Params.themes.event.slogan
-    "description" .Site.Params.themes.event.description
-    "logo" .Site.Params.themes.event.logo
-    "numberOfSpeakers" ((where .Site.RegularPages "Section" "speakers") | len)
-    "numberOfSessions" (where (where .Site.RegularPages "Section" "sessions") "Params.isServiceSession" false | len)
-    "numberOfDays" (div (sub (add $eventEndDate.Unix $dayInSeconds) $eventStartDate.Unix) $dayInSeconds)
-    "location" .Site.Params.themes.event.location )
-  }}
-
-  {{- $tracks := slice }}
-  {{- range (.Site.RegularPages.GroupByParam "track") }}
-    {{- $tracks = $tracks | append (.Key) }}
-  {{- end }}
-
-  {{- if gt ($tracks | len) 1 }}
-    {{- partial "sections/conference-tracks.html" (
-      dict
-      "tracks" $tracks
-      "sessionsUrl" (.Site.GetPage "sessions").RelPermalink
-      )
-    }}
-  {{- end }}
-
-  {{- $topSpeakers := slice }}
-  {{- range (where .Site.Pages "Section" "speakers") }}
-    {{- if .Params.isTopSpeaker }}
-      {{- $topSpeakers = $topSpeakers | append ( dict
-        "profileUrl" .Permalink
-        "avatarResource" (.Resources.GetMatch "avatar.*")
-        "name" .Title
-        "description" .Params.tagLine
-        "linkedinUrl" .Params.linkedinUrl
-        "xUrl" .Params.xUrl
-        "companyUrl" .Params.company
+    {{- partial "sections/event-title.html"
+        (dict
+        "title" .Site.Params.themes.event.title
+        "location" .Site.Params.themes.event.location
+        "startDate" .Site.Params.themes.event.startDate
+        "backgroundImage" .Site.Params.themes.event.images.eventTitleBackground
+        "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+        "ctaUrl" .Site.Params.themes.event.callToAction.other.url
         )
-      }}
-    {{- end }}
-  {{- end }}
-
-  {{- if gt ($topSpeakers | len) 1 }}
-    {{ partial "sections/featured-speakers.html" (
-      dict
-      "speakers" $topSpeakers
-      "speakersUrl" (.Site.GetPage "speakers").RelPermalink
-      )
     }}
-  {{- end }}
+
+    {{ $eventStartDate := .Site.Params.themes.event.startDate | time }}
+    {{ $eventEndDate := .Site.Params.themes.event.endDate | time }}
+    {{ $dayInSeconds := 86400 }}
+    {{ partial "sections/event-highlights.html" (
+        dict
+        "title" .Site.Params.themes.event.title
+        "subtitle" .Site.Params.themes.event.slogan
+        "description" .Site.Params.themes.event.description
+        "logo" .Site.Params.themes.event.logo
+        "numberOfSpeakers" ((where .Site.RegularPages "Section" "speakers") | len)
+        "numberOfSessions" (where (where .Site.RegularPages "Section" "sessions") "Params.isServiceSession" false | len)
+        "numberOfDays" (div (sub (add $eventEndDate.Unix $dayInSeconds) $eventStartDate.Unix) $dayInSeconds)
+        "location" .Site.Params.themes.event.location )
+    }}
+
+    {{- $tracks := slice }}
+    {{- range (.Site.RegularPages.GroupByParam "track") }}
+        {{- $tracks = $tracks | append (.Key) }}
+    {{- end }}
+
+    {{- if gt ($tracks | len) 1 }}
+        {{- partial "sections/conference-tracks.html" (
+            dict
+            "tracks" $tracks
+            "sessionsUrl" (.Site.GetPage "sessions").RelPermalink
+            )
+        }}
+    {{- end }}
+
+    {{- $topSpeakers := slice }}
+    {{- range (where .Site.Pages "Section" "speakers") }}
+        {{- if .Params.isTopSpeaker }}
+            {{- $topSpeakers = $topSpeakers | append ( dict
+                "profileUrl" .Permalink
+                "avatarResource" (.Resources.GetMatch "avatar.*")
+                "name" .Title
+                "description" .Params.tagLine
+                "linkedinUrl" .Params.linkedinUrl
+                "xUrl" .Params.xUrl
+                "companyUrl" .Params.company
+                )
+            }}
+        {{- end }}
+    {{- end }}
+
+    {{- if gt ($topSpeakers | len) 1 }}
+        {{ partial "sections/featured-speakers.html" (
+            dict
+            "speakers" $topSpeakers
+            "speakersUrl" (.Site.GetPage "speakers").RelPermalink
+            )
+        }}
+    {{- end }}
 {{- end }}

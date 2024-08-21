@@ -2,35 +2,35 @@
 
 
 <div class="section-container">
-  <section class="section section--long featured-speakers">
-    <h1 class="heading heading--highlighted heading--centered">
-      {{ T "section_home_featured_speakers_title" }}
-    </h1>
-    <h2 class="heading heading--2 heading--centered">
-      {{ T "section_home_featured_speakers_subtitle" }}
-    </h2>
-    <menu class="featured-speakers__menu">
-      {{- range $input.speakers }}
-        <li>
-          {{- partial "speaker-card.html" (
-            dict
-            "profileUrl" .profileUrl
-            "avatarResource" .avatarResource
-            "name" .name
-            "description" .description
-            "linkedinUrl" .linkedinUrl
-            "xUrl" .xUrl
-            "companyUrl" .companyUrl
-            )
-          }}
-        </li>
-      {{- end }}
-    </menu>
+    <section class="section section--long featured-speakers">
+        <h1 class="heading heading--highlighted heading--centered">
+            {{ T "section_home_featured_speakers_title" }}
+        </h1>
+        <h2 class="heading heading--2 heading--centered">
+            {{ T "section_home_featured_speakers_subtitle" }}
+        </h2>
+        <menu class="featured-speakers__menu">
+            {{- range $input.speakers }}
+                <li>
+                    {{- partial "speaker-card.html" (
+                        dict
+                        "profileUrl" .profileUrl
+                        "avatarResource" .avatarResource
+                        "name" .name
+                        "description" .description
+                        "linkedinUrl" .linkedinUrl
+                        "xUrl" .xUrl
+                        "companyUrl" .companyUrl
+                        )
+                    }}
+                </li>
+            {{- end }}
+        </menu>
 
-    {{- with $input.speakersUrl }}
-      <a href="{{ . }}" class="button button--outlined">
-        {{ T "section_home_featured_speakers_button" }}
-      </a>
-    {{- end }}
-  </section>
+        {{- with $input.speakersUrl }}
+            <a href="{{ . }}" class="button button--outlined">
+                {{ T "section_home_featured_speakers_button" }}
+            </a>
+        {{- end }}
+    </section>
 </div>

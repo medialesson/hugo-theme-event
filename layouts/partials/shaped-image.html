@@ -1,18 +1,19 @@
 {{ $input := . }}
 
+
 <article class="shaped-image">
     <figure class="shaped-image__figure">
-    {{- partial "graphics/dotted-square.html" }}
-  </figure>
+        {{- partial "graphics/dotted-square.html" }}
+    </figure>
 
-  <img  class="shaped-image__image"
-    {{- with $input.imageResource }}
-      src="{{ .RelPermalink }}"
-    {{- else }}
-      {{- with resources.Get "images/shaped-image-fallback.png" }}
-        src="{{ .RelPermalink }}"
-      {{- end }}
-    {{- end }}
-    alt="{{ $input.imageAlt }}"
-  />
+    <img
+        class="shaped-image__image"
+        {{- with $input.imageResource }}
+            src="{{ .RelPermalink }}"
+        {{- else }}
+            {{- with resources.Get "images/shaped-image-fallback.png" }}
+                src="{{ .RelPermalink }}"
+            {{- end }}
+        {{- end }}
+        alt="{{ $input.imageAlt }}" />
 </article>

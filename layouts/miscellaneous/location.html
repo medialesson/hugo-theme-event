@@ -1,44 +1,45 @@
 {{ define "main" }}
-  {{ $event := .Site.Params.themes.event }}
+    {{ $event := .Site.Params.themes.event }}
 
 
-  <div class="section-container">
-    <section class="section">
-      <h1 class="heading heading--1">
-        {{- T "miscellaneous_location_title" }}
-      </h1>
+    <div class="section-container">
+        <section class="section">
+            <h1 class="heading heading--1">
+                {{- T "miscellaneous_location_title" }}
+            </h1>
 
-      {{ with $event.address }}
-        <address class="location__address">
-          {{ range $event.address }}
-            {{ . | markdownify }} <br />
-          {{ end }}
-        </address>
-      {{ end }}
+            {{ with $event.address }}
+                <address class="location__address">
+                    {{ range $event.address }}
+                        {{ . | markdownify }}
+                        <br />
+                    {{ end }}
+                </address>
+            {{ end }}
 
-      {{ if $event.directions }}
-        {{- partial "directions-card.html"
-          (dict
-          "locationImg" $event.images.locationImage
-          "locationImgAlt" $event.location
-          "directions" $event.directions
-          )
-        }}
-      {{- end }}
-    </section>
-  </div>
+            {{ if $event.directions }}
+                {{- partial "directions-card.html"
+                    (dict
+                    "locationImg" $event.images.locationImage
+                    "locationImgAlt" $event.location
+                    "directions" $event.directions
+                    )
+                }}
+            {{- end }}
+        </section>
+    </div>
 
-  {{- partial "partials/map-embedding.html" (
-    dict
-    "embeddableMapUrl" $event.map.embeddableMapUrl
-    "viewLargerMapUrl" $event.map.viewLargerMapUrl
-    )
-  }}
+    {{- partial "partials/map-embedding.html" (
+        dict
+        "embeddableMapUrl" $event.map.embeddableMapUrl
+        "viewLargerMapUrl" $event.map.viewLargerMapUrl
+        )
+    }}
 
-  {{- partial "sections/cta.html" (
-    dict
-    "eventbriteId" $event.callToAction.eventbrite.eventId
-    "ctaUrl" $event.callToAction.other.url
-    )
-  }}
+    {{- partial "sections/cta.html" (
+        dict
+        "eventbriteId" $event.callToAction.eventbrite.eventId
+        "ctaUrl" $event.callToAction.other.url
+        )
+    }}
 {{- end }}

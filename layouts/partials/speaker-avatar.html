@@ -1,18 +1,19 @@
 {{ $input := . }}
 
-<article class="speaker-avatar-container">
-  {{- partial "shaped-image.html" (
-    dict
-    "imageResource" $input.avatarResource
-    "imageAlt" $input.avatarAlt
-    )
-  }}
 
-  {{- partial "social-links.html" (
-    dict
-    "linkedinUrl" $input.linkedinUrl
-    "xUrl" $input.xUrl
-    "companyUrl" $input.companyUrl
-    )
-  }}
+<article class="speaker-avatar-container">
+    {{- partial "shaped-image.html" (
+        dict
+        "imageResource" $input.avatarResource
+        "imageAlt" $input.avatarAlt
+        )
+    }}
+
+    {{- partial "social-links.html" (
+        dict
+        "linkedinUrl" $input.linkedinUrl
+        "xUrl" $input.xUrl
+        "companyUrl" $input.companyUrl
+        )
+    }}
 </article>

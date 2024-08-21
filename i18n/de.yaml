@@ -7,8 +7,8 @@ cta_button_get_ticket: Jetzt registrieren!
 cta_section_title: Etwas spannendes entdeckt?
 cta_section_subtitle: Registriere dich noch heute!
 cta_section_message: |
-  Verpasse nicht die Chance, von führenden Expertinnen und Experten zu lernen
-  und wertvolle Kontakte zu knüpfen!
+    Verpasse nicht die Chance, von führenden Expertinnen und Experten zu lernen
+    und wertvolle Kontakte zu knüpfen!
 list_speakers_title: Sprecher
 list_sessions_title: Programm
 list_sessions_title_day_filter: Datum
@@ -32,13 +32,13 @@ section_home_featured_speakers_title: Featured Speakers
 section_home_featured_speakers_subtitle: Triff die Experten
 section_home_featured_speakers_button: Alle Sprecher auf einen Blick
 section_home_event_highlights_figures_speaker:
-  other: "{{ . }} Sprecher"
+    other: '{{ . }} Sprecher'
 section_home_event_highlights_figures_session:
-  one: "{{ . }} Session"
-  other: "{{ . }} Sessions"
+    one: '{{ . }} Session'
+    other: '{{ . }} Sessions'
 section_home_event_highlights_figures_day:
-  one: "{{ . }} Tag"
-  other: "{{ . }} Tage"
+    one: '{{ . }} Tag'
+    other: '{{ . }} Tage'
 single_speaker_sessions_by: Sessions von
 single_session_further_sessions: Weitere Sessions
 single_session_further_sessions_from: Weitere Sessions aus

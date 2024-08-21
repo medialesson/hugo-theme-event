@@ -1,18 +1,18 @@
 .featured-speakers {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .featured-speakers__menu {
-  all: unset;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  gap: 1.875rem;
-  margin-bottom: 3.75rem;
+    all: unset;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 1.875rem;
+    margin-bottom: 3.75rem;
 }

@@ -2,20 +2,20 @@
 
 
 <menu class="sessions-menu">
-  {{ range $input.sessions }}
-    <li>
-      <a class="sessions-menu__link" href="{{- .sessionUrl }}">
-        <h1 class="sessions-menu__heading">{{- .title }}</h1>
-        <div>
-          <div class="sessions-menu__time">
-            {{- partial "elements/date-and-time.html" (dict "date" .startsAt) }}
-          </div>
-          <div class="sessions-menu__track">
-            {{- partial "elements/hashtag.html" (dict "hashtag" .track) }}
-          </div>
-        </div>
-        {{- partial "graphics/vector.html" -}}
-      </a>
-    </li>
-  {{ end }}
+    {{ range $input.sessions }}
+        <li>
+            <a class="sessions-menu__link" href="{{- .sessionUrl }}">
+                <h1 class="sessions-menu__heading">{{- .title }}</h1>
+                <div>
+                    <div class="sessions-menu__time">
+                        {{- partial "elements/date-and-time.html" (dict "date" .startsAt) }}
+                    </div>
+                    <div class="sessions-menu__track">
+                        {{- partial "elements/hashtag.html" (dict "hashtag" .track) }}
+                    </div>
+                </div>
+                {{- partial "graphics/vector.html" -}}
+            </a>
+        </li>
+    {{ end }}
 </menu>

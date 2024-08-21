@@ -1,5 +1,5 @@
 {{ $input := . }}
 
 {{- if $input.hashtag }}
-  #{{ (replaceRE "[^a-zA-Z0-9]" "" $input.hashtag) | upper }}
+    #{{ (replaceRE "[^a-zA-Z0-9]" "" $input.hashtag) | upper }}
 {{- end }}

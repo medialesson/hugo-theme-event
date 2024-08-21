@@ -2,53 +2,53 @@
 
 
 <div class="section-container">
-  <section class="section section--long event-highlights-section">
-    <header class="event-highlights-section__header">
-      {{- with resources.Get $input.logo }}
-        <img class="event-highlights-section__logo" src="{{ .RelPermalink }}" />
-      {{ end }}
-      <article class="event-highlights-section__description">
-        <h1 class="heading heading--highlighted">
-          {{ $input.title }}
-        </h1>
-        <h2 class="heading heading--2">
-          {{ $input.subtitle }}
-        </h2>
+    <section class="section section--long event-highlights-section">
+        <header class="event-highlights-section__header">
+            {{- with resources.Get $input.logo }}
+                <img class="event-highlights-section__logo" src="{{ .RelPermalink }}" />
+            {{ end }}
+            <article class="event-highlights-section__description">
+                <h1 class="heading heading--highlighted">
+                    {{ $input.title }}
+                </h1>
+                <h2 class="heading heading--2">
+                    {{ $input.subtitle }}
+                </h2>
 
-        <p class="paragraph">{{ $input.description | markdownify }}</p>
-      </article>
-    </header>
+                <p class="paragraph">{{ $input.description | markdownify }}</p>
+            </article>
+        </header>
 
-    <article class="event-highlights-section__figures">
-      {{- if $input.numberOfSpeakers }}
-        {{ partial "highlight-figure.html" (
-          dict
-          "icon" "icons/speaker.svg"
-          "caption" (T "section_home_event_highlights_figures_speaker" $input.numberOfSpeakers)
-          )
-        }}
-      {{- end }}
-      {{- if $input.numberOfSessions }}
-        {{- partial "highlight-figure.html" (
-          dict "icon" "icons/session.svg"
-          "caption" (T "section_home_event_highlights_figures_session" $input.numberOfSessions)
-          )
-        }}
-      {{- end }}
-      {{- if $input.numberOfDays }}
-        {{- partial "highlight-figure.html" (
-          dict "icon" "icons/calendar.svg"
-          "caption" (T "section_home_event_highlights_figures_day" $input.numberOfDays)
-          )
-        }}
-      {{- end }}
-      {{- if $input.location }}
-        {{- partial "highlight-figure.html" (
-          dict "icon" "icons/location.svg"
-          "caption" $input.location
-          )
-        }}
-      {{- end }}
-    </article>
-  </section>
+        <article class="event-highlights-section__figures">
+            {{- if $input.numberOfSpeakers }}
+                {{ partial "highlight-figure.html" (
+                    dict
+                    "icon" "icons/speaker.svg"
+                    "caption" (T "section_home_event_highlights_figures_speaker" $input.numberOfSpeakers)
+                    )
+                }}
+            {{- end }}
+            {{- if $input.numberOfSessions }}
+                {{- partial "highlight-figure.html" (
+                    dict "icon" "icons/session.svg"
+                    "caption" (T "section_home_event_highlights_figures_session" $input.numberOfSessions)
+                    )
+                }}
+            {{- end }}
+            {{- if $input.numberOfDays }}
+                {{- partial "highlight-figure.html" (
+                    dict "icon" "icons/calendar.svg"
+                    "caption" (T "section_home_event_highlights_figures_day" $input.numberOfDays)
+                    )
+                }}
+            {{- end }}
+            {{- if $input.location }}
+                {{- partial "highlight-figure.html" (
+                    dict "icon" "icons/location.svg"
+                    "caption" $input.location
+                    )
+                }}
+            {{- end }}
+        </article>
+    </section>
 </div>

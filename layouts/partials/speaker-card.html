@@ -1,24 +1,21 @@
 {{ $input := . }}
 
+
 <div class="speaker-card">
-  <a class="speaker-card__link" href="{{ $input.profileUrl }}">
-    {{ with $input.avatarResource }}
-    <img
-            class="speaker-card__avatar"
-            src="{{ .RelPermalink }}"
-            alt="{{ $input.name }}"
-    />
-    {{ end }}
-    <span class="speaker-card__name">{{ $input.name }}</span>
-    <p class="speaker-card__description">{{ $input.description }}</p>
-  </a>
-  <div class="speaker-card__social-links">
-    {{- partial "social-links.html" (
-      dict
-      "linkedinUrl" $input.linkedinUrl
-      "xUrl" $input.xUrl
-      "companyUrl" $input.companyUrl
-      )
-    }}
-  </div>
+    <a class="speaker-card__link" href="{{ $input.profileUrl }}">
+        {{ with $input.avatarResource }}
+            <img class="speaker-card__avatar" src="{{ .RelPermalink }}" alt="{{ $input.name }}" />
+        {{ end }}
+        <span class="speaker-card__name">{{ $input.name }}</span>
+        <p class="speaker-card__description">{{ $input.description }}</p>
+    </a>
+    <div class="speaker-card__social-links">
+        {{- partial "social-links.html" (
+            dict
+            "linkedinUrl" $input.linkedinUrl
+            "xUrl" $input.xUrl
+            "companyUrl" $input.companyUrl
+            )
+        }}
+    </div>
 </div>

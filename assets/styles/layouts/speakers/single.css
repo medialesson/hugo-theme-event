@@ -1,28 +1,28 @@
 .single-speaker-section {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 2.625rem;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2.625rem;
 }
 
 .single-speaker-section__biography {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .speaker-sessions-section {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 2.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2.625rem;
 }
 
 .speaker-sessions-section__heading {
-  all: unset;
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--color-primary);
+    all: unset;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
 }
 
 .speaker-sessions-section__hashtag {
-  font-weight: 900;
+    font-weight: 900;
 }

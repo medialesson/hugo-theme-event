@@ -1,51 +1,36 @@
 <!doctype html>
 <html lang="{{- .Site.Language.Lang -}}">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="{{ .Site.Params.themes.event.favicon | absURL }}"
-    />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="{{ .Site.Params.themes.event.favicon | absURL }}" />
 
-    <title>
-      {{- if .Title }}{{ .Title }} -{{ end }}
-      {{ .Site.Params.themes.event.title }}
-    </title>
+        <title>
+            {{- if .Title }}{{ .Title }} -{{ end }}
+            {{ .Site.Params.themes.event.title }}
+        </title>
 
-    <meta
-      name="description"
-      content="{{ .Site.Params.themes.event.description | markdownify | plainify }}"
-    />
+        <meta name="description" content="{{ .Site.Params.themes.event.description | markdownify | plainify }}" />
 
-    {{ if .IsTranslated }}
-      {{ range .Translations }}
-        <link
-          rel="alternate"
-          hreflang="{{ .Language.Lang }}"
-          href="{{ .Permalink }}"
-        />
-      {{ end }}
-      <link
-        rel="alternate"
-        hreflang="{{ .Language.Lang }}"
-        href="{{ .Permalink }}"
-      />
-    {{ end }}
+        {{ if .IsTranslated }}
+            {{ range .Translations }}
+                <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+            {{ end }}
+            <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+        {{ end }}
 
-    {{ template "_internal/opengraph.html" . }}
-    {{ template "_internal/twitter_cards.html" . }}
+        {{ template "_internal/opengraph.html" . }}
+        {{ template "_internal/twitter_cards.html" . }}
 
-    {{ range resources.Match "**/*.css" }}
-      {{- $secureCss := . | fingerprint }}
-      <link
-        rel="stylesheet"
-        href="{{ $secureCss.RelPermalink }}"
-        type="text/css"
-        media="screen"
-        integrity="{{ $secureCss.Data.Integrity }}"
-      />
-    {{ end }}
+        {{ range resources.Match "**/*.css" }}
+            {{- $secureCss := . | fingerprint }}
+            <link
+                rel="stylesheet"
+                href="{{ $secureCss.RelPermalink }}"
+                type="text/css"
+                media="screen"
+                integrity="{{ $secureCss.Data.Integrity }}" />
+        {{ end }}
 
     <style>
       :root {
@@ -59,143 +44,132 @@
         --color-shadow: {{- .Site.Params.themes.event.colors.shadow }};
       }
     </style>
-  </head>
+    </head>
 
-  <body class="page-body">
-    <input type="checkbox" class="sidebar-toggle" id="sidebarToggle" />
+    <body class="page-body">
+        <input type="checkbox" class="sidebar-toggle" id="sidebarToggle" />
 
-    {{- if .Site.Params.themes.event.callToAction.enableBanner }}
-      {{- partial "cta/banner.html" }}
-    {{ end }}
+        {{- if .Site.Params.themes.event.callToAction.enableBanner }}
+            {{- partial "cta/banner.html" }}
+        {{ end }}
 
 
-    <header class="section-container page-header" id="pageHeader">
-      <div
-        class="section section--short page-header__content"
-        id="pageHeaderContent"
-      >
-        <nav id="mainNavigation" class="page-header__navigation">
-          <label class="page-header__toggle-sidebar-label" for="sidebarToggle">
-            {{- partial "graphics/hamburger-menu.html" }}
-          </label>
-          <a class="page-header__title-link" href="{{ site.Home.Permalink }}">
-            {{ (strings.FirstUpper .Site.Params.themes.event.title) }}
-          </a>
+        <header class="section-container page-header" id="pageHeader">
+            <div class="section section--short page-header__content" id="pageHeaderContent">
+                <nav id="mainNavigation" class="page-header__navigation">
+                    <label class="page-header__toggle-sidebar-label" for="sidebarToggle">
+                        {{- partial "graphics/hamburger-menu.html" }}
+                    </label>
+                    <a class="page-header__title-link" href="{{ site.Home.Permalink }}">
+                        {{ (strings.FirstUpper .Site.Params.themes.event.title) }}
+                    </a>
 
-          <div class="page-header__menu-container">
-            {{- partial "menus/header.html" (
-              dict
-              "menu" .Site.Menus.main
-              "context" .
-              "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
-              )
-            }}
-          </div>
+                    <div class="page-header__menu-container">
+                        {{- partial "menus/header.html" (
+                            dict
+                            "menu" .Site.Menus.main
+                            "context" .
+                            "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
+                            )
+                        }}
+                    </div>
 
-          {{- partial "cta/button.html" (
-            dict
-            "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-            "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-            )
-          }}
-        </nav>
-      </div>
-    </header>
-
-    <aside class="page-sidebar">
-      <nav class="page-sidebar__navigation">
-        <header class="page-sidebar__header">
-          <a
-            class="page-sidebar__heading-link"
-            href="{{ site.Home.Permalink }}"
-          >
-            {{ strings.FirstUpper .Site.Params.themes.event.title }}
-          </a>
-
-          <label class="page-sidebar__close-label" for="sidebarToggle">
-            {{- partial "graphics/close.html" }}
-          </label>
+                    {{- partial "cta/button.html" (
+                        dict
+                        "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+                        "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+                        )
+                    }}
+                </nav>
+            </div>
         </header>
 
-        {{- partial "cta/button.html" (
-          dict
-          "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-          "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-          )
-        }}
+        <aside class="page-sidebar">
+            <nav class="page-sidebar__navigation">
+                <header class="page-sidebar__header">
+                    <a class="page-sidebar__heading-link" href="{{ site.Home.Permalink }}">
+                        {{ strings.FirstUpper .Site.Params.themes.event.title }}
+                    </a>
 
-        {{- partial "menus/sidebar.html" (
-          dict
-          "menu" .Site.Menus.main
-          "context" .
-          )
-        }}
-      </nav>
+                    <label class="page-sidebar__close-label" for="sidebarToggle">
+                        {{- partial "graphics/close.html" }}
+                    </label>
+                </header>
 
-      <label class="page-sidebar__empty-space" for="sidebarToggle">
-        <!-- Closes the sidebar if users click beside the sidebar. -->
-      </label>
-    </aside>
+                {{- partial "cta/button.html" (
+                    dict
+                    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+                    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+                    )
+                }}
 
-    <script>
-      const header = document.getElementById("pageHeader");
-      const intercept = document.createElement("div");
+                {{- partial "menus/sidebar.html" (
+                    dict
+                    "menu" .Site.Menus.main
+                    "context" .
+                    )
+                }}
+            </nav>
 
-      intercept.setAttribute("data-observer-intercept", "");
-      header.before(intercept);
+            <label class="page-sidebar__empty-space" for="sidebarToggle">
+                <!-- Closes the sidebar if users click beside the sidebar. -->
+            </label>
+        </aside>
 
-      const observer = new IntersectionObserver(([entry]) => {
-        header.classList.toggle("page-header--scrolled", !entry.isIntersecting);
-      });
+        <script>
+            const header = document.getElementById('pageHeader');
+            const intercept = document.createElement('div');
 
-      observer.observe(intercept);
-    </script>
+            intercept.setAttribute('data-observer-intercept', '');
+            header.before(intercept);
 
-    <script>
-      function checkWhichMenuToUse() {
-        document.body.setAttribute("data-menu-mode", "header");
-        if (pageHeaderContent.scrollWidth > pageHeaderContent.clientWidth) {
-          document.body.setAttribute("data-menu-mode", "sidebar");
-        }
-      }
+            const observer = new IntersectionObserver(([entry]) => {
+                header.classList.toggle('page-header--scrolled', !entry.isIntersecting);
+            });
 
-      new ResizeObserver(checkWhichMenuToUse).observe(document.body);
-    </script>
+            observer.observe(intercept);
+        </script>
 
-    <main class="page-main">
-      {{ block "main" . }}{{ end }}
-    </main>
+        <script>
+            function checkWhichMenuToUse() {
+                document.body.setAttribute('data-menu-mode', 'header');
+                if (pageHeaderContent.scrollWidth > pageHeaderContent.clientWidth) {
+                    document.body.setAttribute('data-menu-mode', 'sidebar');
+                }
+            }
 
-    <footer class="section-container">
-      <section class="section section--short page-footer-section">
-        <div class="page-footer-section__start">
-          <select
-            class="select"
-            name="language"
-            onchange="location = this.value;"
-          >
-            {{ range $.Site.Home.AllTranslations }}
-              <option
-                value="{{ .RelPermalink }}"
-                {{ if eq .Language $.Language }}
-                  selected
-                {{ end }}
-              >
-                {{ or .Language.LanguageName .Language.Lang | upper }}
-              </option>
-            {{ end }}
-          </select>
+            new ResizeObserver(checkWhichMenuToUse).observe(document.body);
+        </script>
 
-          {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
-        </div>
+        <main class="page-main">
+            {{ block "main" . }}{{ end }}
+        </main>
 
-        {{- partial "menus/footer.html" (dict "menu" site.Menus.footer) }}
+        <footer class="section-container">
+            <section class="section section--short page-footer-section">
+                <div class="page-footer-section__start">
+                    <select class="select" name="language" onchange="location = this.value;">
+                        {{ range $.Site.Home.AllTranslations }}
+                            <option
+                                value="{{ .RelPermalink }}"
+                                {{ if eq .Language $.Language }}
+                                    selected
+                                {{ end }}>
+                                {{ or .Language.LanguageName .Language.Lang | upper }}
+                            </option>
+                        {{ end }}
+                    </select>
+
+                    {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
+                </div>
+
+                {{- partial "menus/footer.html" (dict "menu" site.Menus.footer) }}
 
 
-        <div class="page-footer-section__end">
-          {{- partial "elements/made-by-medialesson.html" }}
-        </div>
-      </section>
-    </footer>
-  </body>
+                <div class="page-footer-section__end">
+                    {{- partial "elements/made-by-medialesson.html" }}
+                </div>
+            </section>
+        </footer>
+    </body>
 </html>

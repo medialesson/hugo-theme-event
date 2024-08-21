@@ -15,42 +15,42 @@ creates various contents like a start page, a schedule and speaker pages.
 
 1. Open a shell of your choice.
 2. Create a new Hugo site:
-   ```shell
-   hugo new site [path]
-   ```
+    ```shell
+    hugo new site [path]
+    ```
 3. Switch to the directory of your new site:
-   ```shell
-   cd [path]
-   ```
+    ```shell
+    cd [path]
+    ```
 4. Clone this repository into the `themes/` directory or add it as submodule:
 
-   ```shell
-   git clone https://github.com/medialesson/hugo-theme-event.git themes/event
+    ```shell
+    git clone https://github.com/medialesson/hugo-theme-event.git themes/event
 
-   # or
+    # or
 
-   git submodule add git@github.com:medialesson/hugo-theme-event.git themes/event
-   ```
+    git submodule add git@github.com:medialesson/hugo-theme-event.git themes/event
+    ```
 
 5. Add and adapt the following minimal settings to your [Hugo
    configuration](https://gohugo.io/getting-started/configuration/):
    `yaml
-    theme: event
-    sectionPagesMenu: main
-    params:
-        themes:
-            event:
-                # 👇 Set the name of your event.
-                title: My Event
-                # 👇 Fetch the ID of your event's API endpoint from
-                # 👇 https://sessionize.com/app/organizer/schedule/api/0
-                # 👇 and enter it here.
-                sessionizeId: 123acb56
-    `
+ theme: event
+ sectionPagesMenu: main
+ params:
+     themes:
+         event:
+             # 👇 Set the name of your event.
+             title: My Event
+             # 👇 Fetch the ID of your event's API endpoint from
+             # 👇 https://sessionize.com/app/organizer/schedule/api/0
+             # 👇 and enter it here.
+             sessionizeId: 123acb56
+ `
 6. Run Hugo in development mode:
-   ```shell
-   hugo server
-   ```
+    ```shell
+    hugo server
+    ```
 7. View your event website on http://localhost:1313/.
 
 ## Content creation
@@ -60,7 +60,7 @@ of this content with your menu configuration (see below). Simply add menu
 entries for every content you want to use.
 
 | Identifier        | Slug (`pageRef`)   | Description                              |
-|-------------------|--------------------|------------------------------------------|
+| ----------------- | ------------------ | ---------------------------------------- |
 | `about`           | `/about`           | Information about the event organizers.  |
 | `sessions`        | `/sessions`        | A schedule of the event's sessions.      |
 | `speakers`        | `/speakers`        | A list of speakers.                      |
@@ -109,30 +109,30 @@ configuration.
 ```yaml
 defaultContentLanguage: de
 languages:
-  en:
-    menus:
-      main:
-        - identifier: sessions
-          pageRef: /sessions
-          weight: 10
-        - identifier: code_of_conduct
-          pageRef: /code-of-conduct
-          weight: 20
-      footer:
-        - identifier: imprint
-          pageRef: /imprint
-          weight: 10
-  de:
-    menus:
-      main:
-        - identifier: sessions
-          pageRef: /sessions
-          weight: 10
-        - identifier: code_of_conduct
-          pageRef: /code-of-conduct
-          weight: 20
-      footer:
-        - identifier: imprint
-          pageRef: /imprint
-          weight: 10
+    en:
+        menus:
+            main:
+                - identifier: sessions
+                  pageRef: /sessions
+                  weight: 10
+                - identifier: code_of_conduct
+                  pageRef: /code-of-conduct
+                  weight: 20
+            footer:
+                - identifier: imprint
+                  pageRef: /imprint
+                  weight: 10
+    de:
+        menus:
+            main:
+                - identifier: sessions
+                  pageRef: /sessions
+                  weight: 10
+                - identifier: code_of_conduct
+                  pageRef: /code-of-conduct
+                  weight: 20
+            footer:
+                - identifier: imprint
+                  pageRef: /imprint
+                  weight: 10
 ```

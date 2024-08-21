@@ -1,19 +1,15 @@
 .cta-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  height: 2.8125rem;
-  background: linear-gradient(
-    90deg,
-    var(--color-primary) 0%,
-    var(--color-primary-darker) 100%
-  );
+    height: 2.8125rem;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-darker) 100%);
 }
 
 .cta-banner span {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.375rem;
-  color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.375rem;
+    color: white;
 }

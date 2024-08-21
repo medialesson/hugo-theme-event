@@ -1,13 +1,14 @@
 {{ $input := . }}
 {{ $image := resources.Get $input.locationImg }}
 
+
 <div class="directions-card">
     <div class="directions-card__image">
         {{- partial "shaped-image.html" (
-        dict
-        "imageResource" $image
-        "imageAlt" $input.locationImgAlt
-        )
+            dict
+            "imageResource" $image
+            "imageAlt" $input.locationImgAlt
+            )
         }}
     </div>
     <article class="directions-card__description">

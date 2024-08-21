@@ -6,54 +6,54 @@
 {{ $trackItems := or $trackCategory.items (slice) }}
 
 {{ range $input.sessionize.sessions }}
-  {{ $startsAt := .startsAt | time.AsTime }}
-  {{ $date := $startsAt | time.Format "2006-01-02" | time.AsTime }}
-  {{ $room := index (where $input.sessionize.rooms "id" .roomId) 0 }}
-  {{ $content := dict "mediaType" "text/markdown" "value" .description }}
-  {{ $speakers := where $input.sessionize.speakers "id" "in" .speakers }}
-  {{ $track := index (where $trackItems "id" "in" .categoryItems) 0 }}
-  {{ $params := dict
-    "sessionId" .id
-    "date" $date
-    "startsAt" $startsAt
-    "room" $room
-    "isServiceSession" .isServiceSession
-    "speakers" $speakers
-    "speakerIds" .speakers
-    "track" $track.name
-  }}
-  {{ $path := (printf "%s %s" .title .id) }}
-  {{ $page := dict
-    "content" $content
-    "kind" "page"
-    "params" $params
-    "path" $path
-    "title" .title
-  }}
-  {{ $pages = $pages | append $page }}
+    {{ $startsAt := .startsAt | time.AsTime }}
+    {{ $date := $startsAt | time.Format "2006-01-02" | time.AsTime }}
+    {{ $room := index (where $input.sessionize.rooms "id" .roomId) 0 }}
+    {{ $content := dict "mediaType" "text/markdown" "value" .description }}
+    {{ $speakers := where $input.sessionize.speakers "id" "in" .speakers }}
+    {{ $track := index (where $trackItems "id" "in" .categoryItems) 0 }}
+    {{ $params := dict
+        "sessionId" .id
+        "date" $date
+        "startsAt" $startsAt
+        "room" $room
+        "isServiceSession" .isServiceSession
+        "speakers" $speakers
+        "speakerIds" .speakers
+        "track" $track.name
+    }}
+    {{ $path := (printf "%s %s" .title .id) }}
+    {{ $page := dict
+        "content" $content
+        "kind" "page"
+        "params" $params
+        "path" $path
+        "title" .title
+    }}
+    {{ $pages = $pages | append $page }}
 
-  {{ range $speakers }}
-    {{/* Store profile pictures of speakers. */}}
-    {{ $speaker := . }}
-    {{ with $url := $speaker.profilePicture }}
-      {{ with resources.GetRemote $url }}
-        {{ with .Err }}
-          {{ errorf "Unable to get remote resource %s: %s" $url . }}
-        {{ else }}
-          {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
-          {{ $params := dict "alt" $speaker.fullName }}
-          {{ $resource := dict
-            "content" $content
-            "params" $params
-            "path" (printf "%s/avatar %s.%s" $path $speaker.id .MediaType.SubType)
-          }}
-          {{ $resources = $resources | append $resource }}
+    {{ range $speakers }}
+        {{/* Store profile pictures of speakers. */}}
+        {{ $speaker := . }}
+        {{ with $url := $speaker.profilePicture }}
+            {{ with resources.GetRemote $url }}
+                {{ with .Err }}
+                    {{ errorf "Unable to get remote resource %s: %s" $url . }}
+                {{ else }}
+                    {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
+                    {{ $params := dict "alt" $speaker.fullName }}
+                    {{ $resource := dict
+                        "content" $content
+                        "params" $params
+                        "path" (printf "%s/avatar %s.%s" $path $speaker.id .MediaType.SubType)
+                    }}
+                    {{ $resources = $resources | append $resource }}
+                {{ end }}
+            {{ else }}
+                {{ errorf "Unable to get remote resource %s" $url }}
+            {{ end }}
         {{ end }}
-      {{ else }}
-        {{ errorf "Unable to get remote resource %s" $url }}
-      {{ end }}
     {{ end }}
-  {{ end }}
 {{ end }}
 
 {{ return dict "pages" $pages "resources" $resources }}

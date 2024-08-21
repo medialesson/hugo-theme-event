@@ -1,62 +1,62 @@
 {{ define "main" }}
-  <div class="section-container">
-    <section class="section single-session-section">
-      <h1 class="single-session-section__heading">
-        <div class="single-session-section__metadata">
-          {{- if page.Params.track }}
-            <span class="single-session-section__hashtag">
-              {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
-            </span>
-          {{- end }}
-          {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
-        </div>
-        {{- page.Title -}}
-      </h1>
-      <p class="single-session-section__content">{{- page.RawContent }}</p>
-    </section>
-  </div>
+    <div class="section-container">
+        <section class="section single-session-section">
+            <h1 class="single-session-section__heading">
+                <div class="single-session-section__metadata">
+                    {{- if page.Params.track }}
+                        <span class="single-session-section__hashtag">
+                            {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+                        </span>
+                    {{- end }}
+                    {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
+                </div>
+                {{- page.Title -}}
+            </h1>
+            <p class="single-session-section__content">{{- page.RawContent }}</p>
+        </section>
+    </div>
 
-  {{- $sameTrackSessions := slice }}
-  {{ range where .Site.RegularPages "Section" "sessions" }}
-    {{ if and (eq .Params.track page.Params.track) (ne .Params.sessionId page.Params.sessionId) }}
-      {{- $sameTrackSessions = $sameTrackSessions | append (
-        dict
-        "title" .Title
-        "startsAt" .Params.startsAt
-        "room" .Params.room.name
-        "sessionUrl" .Permalink
-        )
-      }}
+    {{- $sameTrackSessions := slice }}
+    {{ range where .Site.RegularPages "Section" "sessions" }}
+        {{ if and (eq .Params.track page.Params.track) (ne .Params.sessionId page.Params.sessionId) }}
+            {{- $sameTrackSessions = $sameTrackSessions | append (
+                dict
+                "title" .Title
+                "startsAt" .Params.startsAt
+                "room" .Params.room.name
+                "sessionUrl" .Permalink
+                )
+            }}
+        {{ end }}
     {{ end }}
-  {{ end }}
 
 
-  <div class="section-container section-container--dimmed">
-    <section class="section same-track-sessions-section">
-      <h1 class="same-track-sessions-section__heading">
-        {{- if page.Params.track }}
-          {{- T "single_session_further_sessions_from" | upper }}
-          <span class="same-track-sessions-section__hashtag">
-            {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
-          </span>
-        {{- else }}
-          {{- T "single_session_further_sessions" | upper }}
-        {{- end }}
-      </h1>
+    <div class="section-container section-container--dimmed">
+        <section class="section same-track-sessions-section">
+            <h1 class="same-track-sessions-section__heading">
+                {{- if page.Params.track }}
+                    {{- T "single_session_further_sessions_from" | upper }}
+                    <span class="same-track-sessions-section__hashtag">
+                        {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+                    </span>
+                {{- else }}
+                    {{- T "single_session_further_sessions" | upper }}
+                {{- end }}
+            </h1>
 
-      {{- partial "sessions-menu.html" (
+            {{- partial "sessions-menu.html" (
+                dict
+                "title" page.Params.track
+                "sessions" (first 4 $sameTrackSessions)
+                )
+            }}
+        </section>
+    </div>
+
+    {{- partial "sections/cta.html" (
         dict
-        "title" page.Params.track
-        "sessions" (first 4 $sameTrackSessions)
+        "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+        "ctaUrl" .Site.Params.themes.event.callToAction.other.url
         )
-      }}
-    </section>
-  </div>
-
-  {{- partial "sections/cta.html" (
-    dict
-    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-    )
-  }}
+    }}
 {{ end }}

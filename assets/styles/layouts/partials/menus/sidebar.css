@@ -1,26 +1,26 @@
 .sidebar-menu {
-  all: unset;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+    all: unset;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-menu__item {
-  all: unset;
+    all: unset;
 }
 
 .sidebar-menu__item:not(:last-child) {
-  border-bottom: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 .sidebar-menu__link {
-  all: unset;
-  display: block;
-  width: 100%;
-  padding: 1rem 0;
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.125rem;
+    all: unset;
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
 }

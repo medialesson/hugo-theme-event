@@ -2,13 +2,13 @@
 
 {{- $startsAtMachineReadable := $input.date | dateFormat "2023-10-15T14:20:28-07:00" }}
 {{- $startsAtHumanReadable :=
-  printf
-  "%s, %s"
-  ($input.date | dateFormat ":date_medium")
-  ($input.date | dateFormat ":time_short")
+    printf
+    "%s, %s"
+    ($input.date | dateFormat ":date_medium")
+    ($input.date | dateFormat ":time_short")
 }}
 
 
 <time datetime="{{- $startsAtMachineReadable }}">
-  {{- $startsAtHumanReadable }}
+    {{- $startsAtHumanReadable }}
 </time>

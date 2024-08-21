@@ -1,107 +1,107 @@
 languages:
-  en:
-    languageName: English
-    params:
-      themes:
-        event:
-          slogan: A Hugo Theme for Conferences
-          description: |
-            This is a placeholder for your event description. You can customize it,
-            together with all other settings, in your Hugo configuration file.
-            We hope you enjoy using this theme! 🎉
-          directions: |
-            Directions for getting to the location using public transportation. 
-            Customize this placeholder text in your Hugo configuration file or remove it if not needed.
-          # 👇 This field provides an introduction or overview about the event or organization.
-          # You can customize it to describe the event, highlight key aspects, or leave any important message.
-          # Markdown formatting is supported, allowing you to add links, bold text, and more.
-          aboutUs: |
-            More information about the event will be added soon. Stay tuned! 🎉
-  de:
-    languageName: Deutsch
-    params:
-      themes:
-        event:
-          slogan: Ein Hugo-Theme für Konferenzen
-          description: |
-            Dies ist ein Platzhalter für die Beschreibung Ihrer Veranstaltung.
-            Sie können ihn zusammen mit allen anderen Einstellungen in Ihrer
-            Hugo-Konfigurationsdatei anpassen. Wir wünschen Ihnen viel Spaß mit
-            diesem Theme! 🎉
-          directions: |
-            Wegbeschreibung zum Veranstaltungsort mit öffentlichen Verkehrsmitteln.
-            Passen Sie diesen Platzhaltertext in Ihrer Hugo-Konfigurationsdatei an oder entfernen Sie ihn,
-            wenn er nicht benötigt wird.
-          # 👇 This field provides an introduction or overview about the event or organization.
-          # You can customize it to describe the event, highlight key aspects, or leave any important message.
-          # Markdown formatting is supported, allowing you to add links, bold text, and more.
-          aboutUs: |
-            Weitere Informationen über die Veranstaltung werden bald hinzugefügt. Bleiben Sie dran! 🎉
+    en:
+        languageName: English
+        params:
+            themes:
+                event:
+                    slogan: A Hugo Theme for Conferences
+                    description: |
+                        This is a placeholder for your event description. You can customize it,
+                        together with all other settings, in your Hugo configuration file.
+                        We hope you enjoy using this theme! 🎉
+                    directions: |
+                        Directions for getting to the location using public transportation. 
+                        Customize this placeholder text in your Hugo configuration file or remove it if not needed.
+                    # 👇 This field provides an introduction or overview about the event or organization.
+                    # You can customize it to describe the event, highlight key aspects, or leave any important message.
+                    # Markdown formatting is supported, allowing you to add links, bold text, and more.
+                    aboutUs: |
+                        More information about the event will be added soon. Stay tuned! 🎉
+    de:
+        languageName: Deutsch
+        params:
+            themes:
+                event:
+                    slogan: Ein Hugo-Theme für Konferenzen
+                    description: |
+                        Dies ist ein Platzhalter für die Beschreibung Ihrer Veranstaltung.
+                        Sie können ihn zusammen mit allen anderen Einstellungen in Ihrer
+                        Hugo-Konfigurationsdatei anpassen. Wir wünschen Ihnen viel Spaß mit
+                        diesem Theme! 🎉
+                    directions: |
+                        Wegbeschreibung zum Veranstaltungsort mit öffentlichen Verkehrsmitteln.
+                        Passen Sie diesen Platzhaltertext in Ihrer Hugo-Konfigurationsdatei an oder entfernen Sie ihn,
+                        wenn er nicht benötigt wird.
+                    # 👇 This field provides an introduction or overview about the event or organization.
+                    # You can customize it to describe the event, highlight key aspects, or leave any important message.
+                    # Markdown formatting is supported, allowing you to add links, bold text, and more.
+                    aboutUs: |
+                        Weitere Informationen über die Veranstaltung werden bald hinzugefügt. Bleiben Sie dran! 🎉
 
 params:
-  themes:
-    event:
-      # 👇 Fetch the ID of your event's API endpoint from
-      # 👇 https://sessionize.com/app/organizer/schedule/api/0
-      # 👇 and enter it here.
-      sessionizeId:
-      title: Your Event Title
-      logo: logos/medialesson-rgb.svg
-      startDate: 2095-06-01
-      endDate: 2095-06-03
-      location: City, Country
-      address:
-        - Building
-        - Street
-        - City
-        - Country
-      map:
-        # 👇 Get an embeddable map URL from OpenStreetMap
-        # 👇 https://wiki.openstreetmap.org/wiki/Export#Embeddable_HTML
-        # 👇 or Google Maps
-        # 👇 https://developers.google.com/maps/documentation/embed/embedding-map
-        # 👇 and enter it here.
-        embeddableMapUrl:
-        # 👇 Enter a URL of a larger map representation (not required for Google Maps).
-        viewLargerMapUrl:
-      callToAction:
-        eventbrite:
-          # 👇 Get your Eventbrite event ID from the URL of your event page
-          # 👇 and enter it here.
-          eventId:
-        other:
-          # 👇 Enter the URL of your ticket shop here.
-          url:
-        enableBanner: true
-      socialLinks:
-        twitterUrl:
-        facebookUrl:
-        linkedinUrl:
-      favicon: favicon.ico
-      enableSpeakerPages: true
-      enableSessionPages: true
-      images:
-        eventTitleBackground: images/pexels-scottwebb-1048039.jpg
-        # 👇 Image showcasing the building or venue where the event will take place.
-        locationImage:
-      sponsors:
-        - logo: logos/medialesson-logo.svg
-          url: https://www.media-lesson.com/
-          # 👇 This name is used as the alt text for the logo
-          name: "Medialesson GmbH"
-      partners:
-        - logo: logos/medialesson-logo.svg
-          url: https://www.media-lesson.com/
-          # 👇 This name is used as the alt text for the logo
-          name: "Medialesson GmbH"
-      colors:
-        primaryLighter: "#d7fb4d"
-        primary: "#c6eb4d"
-        primaryDarker: "#015a57"
-        primaryDarkest: "#111928"
-        secondary: "#f7f8fa"
-        secondaryDarker: "#637381"
-        track: "#015a57"
-        shadow: "#a6afc366"
-      # 👇 Name of the category in Sessionize that is used to group sessions.
-      trackCategoryTitle: Track
+    themes:
+        event:
+            # 👇 Fetch the ID of your event's API endpoint from
+            # 👇 https://sessionize.com/app/organizer/schedule/api/0
+            # 👇 and enter it here.
+            sessionizeId:
+            title: Your Event Title
+            logo: logos/medialesson-rgb.svg
+            startDate: 2095-06-01
+            endDate: 2095-06-03
+            location: City, Country
+            address:
+                - Building
+                - Street
+                - City
+                - Country
+            map:
+                # 👇 Get an embeddable map URL from OpenStreetMap
+                # 👇 https://wiki.openstreetmap.org/wiki/Export#Embeddable_HTML
+                # 👇 or Google Maps
+                # 👇 https://developers.google.com/maps/documentation/embed/embedding-map
+                # 👇 and enter it here.
+                embeddableMapUrl:
+                # 👇 Enter a URL of a larger map representation (not required for Google Maps).
+                viewLargerMapUrl:
+            callToAction:
+                eventbrite:
+                    # 👇 Get your Eventbrite event ID from the URL of your event page
+                    # 👇 and enter it here.
+                    eventId:
+                other:
+                    # 👇 Enter the URL of your ticket shop here.
+                    url:
+                enableBanner: true
+            socialLinks:
+                twitterUrl:
+                facebookUrl:
+                linkedinUrl:
+            favicon: favicon.ico
+            enableSpeakerPages: true
+            enableSessionPages: true
+            images:
+                eventTitleBackground: images/pexels-scottwebb-1048039.jpg
+                # 👇 Image showcasing the building or venue where the event will take place.
+                locationImage:
+            sponsors:
+                - logo: logos/medialesson-logo.svg
+                  url: https://www.media-lesson.com/
+                  # 👇 This name is used as the alt text for the logo
+                  name: 'Medialesson GmbH'
+            partners:
+                - logo: logos/medialesson-logo.svg
+                  url: https://www.media-lesson.com/
+                  # 👇 This name is used as the alt text for the logo
+                  name: 'Medialesson GmbH'
+            colors:
+                primaryLighter: '#d7fb4d'
+                primary: '#c6eb4d'
+                primaryDarker: '#015a57'
+                primaryDarkest: '#111928'
+                secondary: '#f7f8fa'
+                secondaryDarker: '#637381'
+                track: '#015a57'
+                shadow: '#a6afc366'
+            # 👇 Name of the category in Sessionize that is used to group sessions.
+            trackCategoryTitle: Track

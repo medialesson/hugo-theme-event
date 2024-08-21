@@ -1,11 +1,20 @@
 {
-  "plugins": ["prettier-plugin-go-template"],
-  "overrides": [
-    {
-      "files": ["*.html", "*.gotmpl"],
-      "options": {
-        "parser": "go-template"
-      }
-    }
-  ]
+    "bracketSameLine": true,
+    "htmlWhitespaceSensitivity": "ignore",
+    "singleQuote": true,
+    "useTabs": false,
+    "tabWidth": 4,
+    "semi": true,
+    "bracketSpacing": true,
+    "trailingComma": "all",
+    "printWidth": 130,
+    "plugins": ["prettier-plugin-go-template"],
+    "overrides": [
+        {
+            "files": ["*.html", "*.gotmpl"],
+            "options": {
+                "parser": "go-template"
+            }
+        }
+    ]
 }

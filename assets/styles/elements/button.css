@@ -1,18 +1,18 @@
 .button {
-  padding: 0.75rem 1.75rem;
-  border-radius: 0.375rem;
-  background: var(--color-primary);
-  border: 0.0625rem solid var(--color-primary);
-  font-weight: 500;
-  font-size: 1rem;
-  color: white;
-  cursor: pointer;
-  text-wrap: nowrap;
-  text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.375rem;
+    background: var(--color-primary);
+    border: 0.0625rem solid var(--color-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    text-wrap: nowrap;
+    text-decoration: none;
 }
 
 .button--outlined {
-  background: #ffffff;
-  border: 0.0625rem solid var(--color-primary);
-  color: var(--color-primary);
+    background: #ffffff;
+    border: 0.0625rem solid var(--color-primary);
+    color: var(--color-primary);
 }

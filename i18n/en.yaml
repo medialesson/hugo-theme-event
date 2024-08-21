@@ -7,8 +7,8 @@ cta_button_get_ticket: Register now!
 cta_section_title: Have you discovered something exciting?
 cta_section_subtitle: Register today!
 cta_section_message: |
-  Don't miss the chance to learn from leading experts and make valuable
-  contacts!
+    Don't miss the chance to learn from leading experts and make valuable
+    contacts!
 header_featured_speakers: Featured Speakers
 list_speakers_title: Speakers
 list_sessions_title: Schedule
@@ -33,14 +33,14 @@ section_home_featured_speakers_title: Featured Speakers
 section_home_featured_speakers_subtitle: Meet the Experts
 section_home_featured_speakers_button: All speakers at a glance
 section_home_event_highlights_figures_speaker:
-  one: "{{ . }} Speaker"
-  other: "{{ . }} Speakers"
+    one: '{{ . }} Speaker'
+    other: '{{ . }} Speakers'
 section_home_event_highlights_figures_session:
-  one: "{{ . }} Session"
-  other: "{{ . }} Sessions"
+    one: '{{ . }} Session'
+    other: '{{ . }} Sessions'
 section_home_event_highlights_figures_day:
-  one: "{{ . }} Day"
-  other: "{{ . }} Days"
+    one: '{{ . }} Day'
+    other: '{{ . }} Days'
 single_speaker_sessions_by: Sessions by
 single_session_further_sessions: Further Sessions
 single_session_further_sessions_from: Further Sessions from

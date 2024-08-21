@@ -1,136 +1,127 @@
 {{- define "main" }}
-  {{- $sessionsGroupedByDay := .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
-  {{- $sessionsGroupedByTrack := .Pages.GroupByParam "track" }}
-  {{- $sessionTrackIndices := dict }}
-  {{- range $index, $element := $sessionsGroupedByTrack }}
-    {{- $sessionTrackIndices = $sessionTrackIndices | merge (dict $element.Key $index) }}
-  {{- end }}
-
-  {{- range $index, $element := $sessionsGroupedByDay }}
-    <input
-      name="filter-day"
-      type="radio"
-      class="session-filter-input"
-      value="day-{{ $index }}"
-      id="filter-day-{{ $index }}"
-      {{- if eq $index 0 }}
-        checked
-      {{- end }}
-    />
-  {{- end }}
-
-  {{- range $index, $element := $sessionsGroupedByTrack }}
-    <input
-      name="filter-track"
-      type="checkbox"
-      class="session-filter-input"
-      value="track-{{ $index }}"
-      id="filter-track-{{ $index }}"
-      checked
-    />
-  {{- end }}
-
-
-  <header class="section-container">
-    <div class="section">
-      <h1 class="heading heading--1">{{ T "list_sessions_title" }}</h1>
-      <div class="session-list-filters">
-        {{- if gt ($sessionsGroupedByDay | len) 1 }}
-          <article class="session-list-filter">
-            <h2 class="session-list-filter__heading">
-              {{ T "list_sessions_title_day_filter" }}
-            </h2>
-            <menu class="session-list-filter__menu">
-              {{- range $index, $element := $sessionsGroupedByDay }}
-                <li>
-                  <label
-                    class="session-list-filter__label"
-                    for="filter-day-{{ $index }}"
-                  >
-                    {{ T "list_sessions_day" (add $index 1) }}
-                  </label>
-                </li>
-              {{- end }}
-            </menu>
-          </article>
-        {{- end }}
-
-        {{- if gt ($sessionsGroupedByTrack | len) 1 }}
-          <article class="session-list-filter">
-            <h2 class="session-list-filter__heading">
-              {{- T "list_sessions_title_track_filter" }}
-            </h2>
-            <menu class="session-list-filter__menu">
-              {{- range $index, $element := $sessionsGroupedByTrack }}
-                <li>
-                  <label
-                    class="session-list-filter__label"
-                    for="filter-track-{{ $index }}"
-                  >
-                    #{{- $element.Key | upper }}
-                  </label>
-                </li>
-              {{- end }}
-            </menu>
-          </article>
-        {{- end }}
-      </div>
-    </div>
-  </header>
-
-  <div class="section-container section-container--dimmed">
-    {{- range $index, $element := $sessionsGroupedByDay }}
-      <section class="section session-day-section" data-day="{{ $index }}">
-        <h1 class="heading heading--highlighted">
-          {{ T "list_sessions_day" (add $index 1) }}
-        </h1>
-        <h2 class="heading heading--2">
-          {{ .Key | time.Format ":date_long" }}
-        </h2>
-        {{- range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
-          <h3 class="heading heading--3 session-day-section__hour-heading">
-            {{ .Key | time.Format ":time_short" }}
-          </h3>
-          <menu class="session-day-section__session-menu">
-            {{- range .Pages }}
-              {{- $page := . }}
-              <li
-                {{- if .Params.track }}
-                  data-track="{{ (index $sessionTrackIndices .Params.track) }}"
-                {{- end }}
-              >
-                {{- $transformedSpeakers := slice }}
-                {{- range .Params.speakers }}
-                  {{- $speakerAvatarResource := ($page.Resources.GetMatch (printf "avatar-%s.*" .id)) }}
-                  {{- $transformedSpeakers = $transformedSpeakers | append (
-                    dict
-                    "name" .fullName
-                    "avatarResource" $speakerAvatarResource
-                    )
-                  }}
-                {{- end }}
-                {{- partial "event-row.html" (
-                  dict
-                  "track" .Params.track
-                  "title" .Title
-                  "link" .RelPermalink
-                  "speakers" $transformedSpeakers
-                  "isServiceSession" .Params.isServiceSession
-                  "room" .Params.room.name
-                  )
-                }}
-              </li>
-            {{- end }}
-          </menu>
-        {{- end }}
-      </section>
+    {{- $sessionsGroupedByDay := .Pages.GroupByParamDate "date" "2006-01-02" "asc" }}
+    {{- $sessionsGroupedByTrack := .Pages.GroupByParam "track" }}
+    {{- $sessionTrackIndices := dict }}
+    {{- range $index, $element := $sessionsGroupedByTrack }}
+        {{- $sessionTrackIndices = $sessionTrackIndices | merge (dict $element.Key $index) }}
     {{- end }}
-  </div>
 
-  {{- partial "sections/cta.html" (
-    dict
-    "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
-    "ctaUrl" .Site.Params.themes.event.callToAction.other.url
-    )
-  }}
+    {{- range $index, $element := $sessionsGroupedByDay }}
+        <input
+            name="filter-day"
+            type="radio"
+            class="session-filter-input"
+            value="day-{{ $index }}"
+            id="filter-day-{{ $index }}"
+            {{- if eq $index 0 }}
+                checked
+            {{- end }} />
+    {{- end }}
+
+    {{- range $index, $element := $sessionsGroupedByTrack }}
+        <input
+            name="filter-track"
+            type="checkbox"
+            class="session-filter-input"
+            value="track-{{ $index }}"
+            id="filter-track-{{ $index }}"
+            checked />
+    {{- end }}
+
+
+    <header class="section-container">
+        <div class="section">
+            <h1 class="heading heading--1">{{ T "list_sessions_title" }}</h1>
+            <div class="session-list-filters">
+                {{- if gt ($sessionsGroupedByDay | len) 1 }}
+                    <article class="session-list-filter">
+                        <h2 class="session-list-filter__heading">
+                            {{ T "list_sessions_title_day_filter" }}
+                        </h2>
+                        <menu class="session-list-filter__menu">
+                            {{- range $index, $element := $sessionsGroupedByDay }}
+                                <li>
+                                    <label class="session-list-filter__label" for="filter-day-{{ $index }}">
+                                        {{ T "list_sessions_day" (add $index 1) }}
+                                    </label>
+                                </li>
+                            {{- end }}
+                        </menu>
+                    </article>
+                {{- end }}
+
+                {{- if gt ($sessionsGroupedByTrack | len) 1 }}
+                    <article class="session-list-filter">
+                        <h2 class="session-list-filter__heading">
+                            {{- T "list_sessions_title_track_filter" }}
+                        </h2>
+                        <menu class="session-list-filter__menu">
+                            {{- range $index, $element := $sessionsGroupedByTrack }}
+                                <li>
+                                    <label class="session-list-filter__label" for="filter-track-{{ $index }}">
+                                        #{{- $element.Key | upper }}
+                                    </label>
+                                </li>
+                            {{- end }}
+                        </menu>
+                    </article>
+                {{- end }}
+            </div>
+        </div>
+    </header>
+
+    <div class="section-container section-container--dimmed">
+        {{- range $index, $element := $sessionsGroupedByDay }}
+            <section class="section session-day-section" data-day="{{ $index }}">
+                <h1 class="heading heading--highlighted">
+                    {{ T "list_sessions_day" (add $index 1) }}
+                </h1>
+                <h2 class="heading heading--2">
+                    {{ .Key | time.Format ":date_long" }}
+                </h2>
+                {{- range .Pages.GroupByParamDate "startsAt" "2006-01-02T15:04:00" "asc" }}
+                    <h3 class="heading heading--3 session-day-section__hour-heading">
+                        {{ .Key | time.Format ":time_short" }}
+                    </h3>
+                    <menu class="session-day-section__session-menu">
+                        {{- range .Pages }}
+                            {{- $page := . }}
+                            <li
+                                {{- if .Params.track }}
+                                    data-track="{{ (index $sessionTrackIndices .Params.track) }}"
+                                {{- end }}>
+                                {{- $transformedSpeakers := slice }}
+                                {{- range .Params.speakers }}
+                                    {{- $speakerAvatarResource := ($page.Resources.GetMatch (printf "avatar-%s.*" .id)) }}
+                                    {{- $transformedSpeakers = $transformedSpeakers | append (
+                                        dict
+                                        "name" .fullName
+                                        "avatarResource" $speakerAvatarResource
+                                        )
+                                    }}
+                                {{- end }}
+                                {{- partial "event-row.html" (
+                                    dict
+                                    "track" .Params.track
+                                    "title" .Title
+                                    "link" .RelPermalink
+                                    "speakers" $transformedSpeakers
+                                    "isServiceSession" .Params.isServiceSession
+                                    "room" .Params.room.name
+                                    )
+                                }}
+                            </li>
+                        {{- end }}
+                    </menu>
+                {{- end }}
+            </section>
+        {{- end }}
+    </div>
+
+    {{- partial "sections/cta.html" (
+        dict
+        "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
+        "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+        )
+    }}
 {{- end }}

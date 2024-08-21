@@ -1,20 +1,7 @@
 {{ define "main" }}
-  <style>
-    section.layout-single-default {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    article.layout-single-default {
-      max-width: 48.125rem;
-      margin-bottom: 3.125rem;
-    }
-  </style>
-
-  <section class="layout-single-default">
-    <div class="section">
+  <div class="section-container">
+    <section class="section">
       <article class="layout-single-default">{{ .Content }}</article>
-    </div>
-  </section>
+    </section>
+  </div>
 {{ end }}

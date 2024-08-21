@@ -14,7 +14,7 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 32rem) {
+@media (max-width: 576px) {
     .directions-card {
         flex-direction: column;
         align-items: center;

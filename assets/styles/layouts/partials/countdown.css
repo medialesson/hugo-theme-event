@@ -31,13 +31,27 @@
 }
 
 /* Four segments have by default a width if 8rem. */
-@media (max-width: 32rem) {
+@media (width < 34rem) {
     .counter__segment {
         width: 6rem;
     }
 
     .counter__value {
         font-size: 2.125rem;
+    }
+
+    .counter__label {
+        font-size: 0.75rem;
+    }
+}
+
+@media (width < 26rem) {
+    .counter__segment {
+        width: 5rem;
+    }
+
+    .counter__value {
+        font-size: 1.75rem;
     }
 
     .counter__label {

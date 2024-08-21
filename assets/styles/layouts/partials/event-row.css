@@ -10,18 +10,25 @@
     cursor: pointer;
 }
 
-.event-row--service-session {
-    cursor: unset;
+@media (width <= 576px) {
+    .event-row {
+        flex-direction: column;
+    }
 }
 
-.event-row--service-session .event-row__room,
-.event-row--service-session .event-row__speakers,
-.event-row--service-session .event-row__avatars {
-    display: none;
+.event-row--service-session {
+    cursor: unset;
+
+    .event-row__room,
+    .event-row__speakers,
+    .event-row__avatars {
+        display: none;
+    }
 }
 
 .event-row__track {
-    width: 14.1875rem;
+    margin: 0;
+    width: 25%;
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-track);

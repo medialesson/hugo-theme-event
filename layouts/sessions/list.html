@@ -81,7 +81,7 @@
   <div class="section-container section-container--dimmed">
     {{- range $index, $element := $sessionsGroupedByDay }}
       <section class="section session-day-section" data-day="{{ $index }}">
-        <h1 class="session-day-section__date-heading">
+        <h1 class="heading heading--highlighted">
           {{ T "list_sessions_day" (add $index 1) }}
         </h1>
         <h2 class="heading heading--2">

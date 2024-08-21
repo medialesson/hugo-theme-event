@@ -1,8 +1,7 @@
 {{ define "main" }}
-
   <section class="speaker-list">
     <div class="section">
-      <h1 class="h1">{{ T "list_speakers_title" }}</h1>
+      <h1 class="heading heading--1">{{ T "list_speakers_title" }}</h1>
       <menu class="speaker-list__menu">
         {{ range .Pages.ByPublishDate.Reverse }}
           <li class="speaker-list__item">

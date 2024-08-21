@@ -1,9 +1,3 @@
-.session-day-section__date-heading {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
 .session-day-section__hour-heading {
   margin: 1.875rem 0;
 }

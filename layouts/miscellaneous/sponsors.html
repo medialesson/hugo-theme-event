@@ -5,7 +5,9 @@
   <section class="sponsors">
     <div class="section">
       {{ if $event.sponsors }}
-        <h1 class="h1">{{- T "miscellaneous_sponsors_title_sponsors" }}</h1>
+        <h1 class="heading heading--1">
+          {{- T "miscellaneous_sponsors_title_sponsors" }}
+        </h1>
         <ul class="sponsors__list">
           {{ range $event.sponsors }}
             <li class="sponsors__list-item">
@@ -22,7 +24,9 @@
       {{ end }}
 
       {{ if .Site.Params.themes.event.partners }}
-        <h1 class="h1">{{- T "miscellaneous_sponsors_title_partners" }}</h1>
+        <h1 class="heading heading--1">
+          {{- T "miscellaneous_sponsors_title_partners" }}
+        </h1>
         <ul class="sponsors__list">
           {{ range $event.partners }}
             <li class="sponsors__list-item">

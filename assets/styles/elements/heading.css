@@ -1,11 +1,9 @@
-.h1,
 .heading {
   all: unset;
   display: block;
   font-weight: 700;
 }
 
-.h1, /* TODO: Replace and remove. */
 .heading--1 {
   font-size: 3rem;
   line-height: 3.625rem;
@@ -22,4 +20,17 @@
   font-size: 1.875rem;
   line-height: 2.5rem;
   margin-bottom: 3.125rem;
+}
+
+.heading--highlighted {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+.heading--centered {
+  display: block;
+  width: 100%;
+  text-align: center;
 }

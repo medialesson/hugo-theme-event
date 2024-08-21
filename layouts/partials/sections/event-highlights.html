@@ -8,14 +8,14 @@
         <img class="event-highlights-section__logo" src="{{ .RelPermalink }}" />
       {{ end }}
       <article class="event-highlights-section__description">
-        <h1 class="theme-section-home event-highlights-section__heading">
+        <h1 class="heading heading--highlighted">
           {{ $input.title }}
         </h1>
-        <h2 class="theme-section-home event-highlights-section__heading">
+        <h2 class="heading heading--2">
           {{ $input.subtitle }}
         </h2>
 
-        <p>{{ $input.description | markdownify }}</p>
+        <p class="paragraph">{{ $input.description | markdownify }}</p>
       </article>
     </header>
 

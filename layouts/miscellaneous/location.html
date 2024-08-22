@@ -20,7 +20,7 @@
             {{ if $event.directions }}
                 {{- partial "directions-card.html"
                     (dict
-                    "locationImg" $event.images.locationImage
+                    "locationImg" $event.images.location
                     "locationImgAlt" $event.location
                     "directions" $event.directions
                     )

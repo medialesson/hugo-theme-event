@@ -46,7 +46,6 @@ params:
             # 👇 and enter it here.
             sessionizeId:
             title: Your Event Title
-            logo: logos/medialesson-rgb.svg
             startDate: 2095-06-01
             endDate: 2095-06-03
             location: City, Country
@@ -78,12 +77,11 @@ params:
                 facebookUrl:
                 linkedinUrl:
             favicon: favicon.ico
-            enableSpeakerPages: true
-            enableSessionPages: true
             images:
-                eventTitleBackground: images/pexels-scottwebb-1048039.jpg
+                logo: logos/medialesson-rgb.svg
+                titleBackground: images/pexels-scottwebb-1048039.jpg
                 # 👇 Image showcasing the building or venue where the event will take place.
-                locationImage:
+                location:
             sponsors:
                 - logo:
                   url:
@@ -94,8 +92,7 @@ params:
                   url:
                   # 👇 This name is used as the alt text for the logo
                   name:
-            # 👇 Array of GUIDs representing the organizers
-            # 👇 Each GUID corresponds to a unique speaker
+            # 👇 List of Sessionize speaker IDs that organize the event.
             organizers:
             colors:
                 primaryLighter: '#d7fb4d'

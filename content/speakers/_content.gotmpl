@@ -1,23 +1,21 @@
 {{ .EnableAllLanguages }}
 
-{{ if .Site.Params.themes.event.enableSpeakerPages }}
-    {{ $context := . }}
-    {{ with partialCached "sessionize-api/view-all.html" (
+{{ $context := . }}
+{{ with partialCached "sessionize-api/view-all.html" (
+    dict
+    "sessionizeId" $context.Site.Params.themes.event.sessionizeId
+    )
+}}
+    {{ with partial "content-adapters/create-speaker-content.html" (
         dict
-        "sessionizeId" $context.Site.Params.themes.event.sessionizeId
+        "sessionize" .
         )
     }}
-        {{ with partial "content-adapters/create-speaker-content.html" (
-            dict
-            "sessionize" .
-            )
-        }}
-            {{ range .pages }}
-                {{ $.AddPage . }}
-            {{ end }}
-            {{ range .resources }}
-                {{ $.AddResource . }}
-            {{ end }}
+        {{ range .pages }}
+            {{ $.AddPage . }}
+        {{ end }}
+        {{ range .resources }}
+            {{ $.AddResource . }}
         {{ end }}
     {{ end }}
 {{ end }}

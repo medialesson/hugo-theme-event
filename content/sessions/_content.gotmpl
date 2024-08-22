@@ -1,24 +1,22 @@
 {{ .EnableAllLanguages }}
 
-{{ if .Site.Params.themes.event.enableSessionPages }}
-    {{ $context := . }}
-    {{ with partialCached "sessionize-api/view-all.html" (
+{{ $context := . }}
+{{ with partialCached "sessionize-api/view-all.html" (
+    dict
+    "sessionizeId" $context.Site.Params.themes.event.sessionizeId
+    )
+}}
+    {{ with partial "content-adapters/create-session-content.html" (
         dict
-        "sessionizeId" $context.Site.Params.themes.event.sessionizeId
+        "sessionize" .
+        "trackCategoryTitle" $context.Site.Params.themes.event.trackCategoryTitle
         )
     }}
-        {{ with partial "content-adapters/create-session-content.html" (
-            dict
-            "sessionize" .
-            "trackCategoryTitle" $context.Site.Params.themes.event.trackCategoryTitle
-            )
-        }}
-            {{ range .pages }}
-                {{ $.AddPage . }}
-            {{ end }}
-            {{ range .resources }}
-                {{ $.AddResource . }}
-            {{ end }}
+        {{ range .pages }}
+            {{ $.AddPage . }}
+        {{ end }}
+        {{ range .resources }}
+            {{ $.AddResource . }}
         {{ end }}
     {{ end }}
 {{ end }}

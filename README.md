@@ -4,7 +4,15 @@ This theme turns your event planned with
 [Sessionize](https://sessionize.com/) into a Hugo website. It automatically
 creates various contents like a start page, a schedule and speaker pages.
 
-## Getting started
+## 🖥️ Demo Website
+
+See the Event theme in action on https://medialesson.github.io/hugo-theme-event-demo.
+
+The source code of this demo website is available on
+[GitHub](https://github.com/medialesson/hugo-theme-event-demo). You can check
+out its configuration or fork the repository to start your own project.
+
+## 🧑‍💻 Getting started
 
 ### Prerequisites
 
@@ -53,22 +61,22 @@ creates various contents like a start page, a schedule and speaker pages.
     ```
 7. View your event website on http://localhost:1313/.
 
-## Content creation
+## 🦾 Content creation
 
 This theme creates various contents during build. You can control the visibility
 of this content with your menu configuration (see below). Simply add menu
 entries for every content you want to use.
 
-| Identifier        | Slug (`pageRef`)   | Description                              |
-| ----------------- | ------------------ | ---------------------------------------- |
-| `about`           | `/about`           | Information about the event organizers.  |
-| `sessions`        | `/sessions`        | A schedule of the event's sessions.      |
-| `speakers`        | `/speakers`        | A list of speakers.                      |
-| `location`        | `/location`        | A location of the event.                 |
-| `sponsors`        | `/sponsors`        | A page displaying sponsors and partners. |
-| `code_of_conduct` | `/code-of-conduct` | A page with the Berlin Code of Conduct.  |
+| Identifier        | Slug (`pageRef`)   | Description                                          |
+| ----------------- | ------------------ | ---------------------------------------------------- |
+| `about`           | `/about`           | Information about the event organizers.              |
+| `sessions`        | `/sessions`        | A schedule of the event's sessions.                  |
+| `speakers`        | `/speakers`        | An overview of all speakers.                         |
+| `location`        | `/location`        | A page with the event address, directions and a map. |
+| `sponsors`        | `/sponsors`        | A page displaying sponsors and partners.             |
+| `code_of_conduct` | `/code-of-conduct` | A page with the Berlin Code of Conduct.              |
 
-## Customization
+## 🧑‍🎨 Customization
 
 This theme tries to allow customization and configuration with Hugo standards
 wherever possible.

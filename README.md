@@ -2,9 +2,24 @@
 
 This theme turns your event planned with
 [Sessionize](https://sessionize.com/) into a Hugo website. It automatically
-creates various contents like a start page, a schedule and speaker pages.
+creates various contents and offers the following features.
 
-## 🖥️ Demo Website
+-   Event schedule
+-   Speaker overview
+-   Session pages
+-   Speaker pages
+-   Various CTA elements
+-   Eye-catching home page with:
+    -   Countdown
+    -   Key figures
+    -   Top speakers
+    -   Sponsors
+-   Eventbrite integration
+-   Map integration
+-   Color customization
+-   Plain HTML and CSS (almost no JavaScript)
+-   Responsive design
+
 
 See the Event theme in action on https://medialesson.github.io/hugo-theme-event-demo.
 

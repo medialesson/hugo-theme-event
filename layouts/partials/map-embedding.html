@@ -2,11 +2,11 @@
 
 
 <div class="map-container">
-    <iframe class="map-container__iframe" scrolling="no" allowfullscreen src="{{ .embeddableMapUrl }}"></iframe>
+    <iframe class="map-container__iframe" scrolling="no" allowfullscreen src="{{ .embeddableMapUrl | htmlUnescape }}"></iframe>
 
     {{- if .viewLargerMapUrl }}
         <a href="{{ .viewLargerMapUrl }}" rel="external" class="map-container__button">
-            <img src="{{ $icon.Permalink }}" alt="Location Icon" width="18" height="18" />
+            <img src="{{ $icon.Permalink | htmlUnescape }}" alt="Location Icon" width="18" height="18" />
         </a>
     {{- end }}
 </div>

@@ -94,6 +94,9 @@ params:
                   url:
                   # 👇 This name is used as the alt text for the logo
                   name:
+            # 👇 Array of GUIDs representing the organizers
+            # 👇 Each GUID corresponds to a unique speaker
+            organizers:
             colors:
                 primaryLighter: '#d7fb4d'
                 primary: '#c6eb4d'

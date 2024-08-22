@@ -25,6 +25,7 @@ miscellaneous_location_directions_title: Anfahrt
 miscellaneous_sponsors_title_sponsors: Sponsoren
 miscellaneous_sponsors_title_partners: Partner
 miscellaneous_about_title: Über uns
+miscellaneous_about_organizers_title: 'Das Organisationsteam von {{ . }}'
 section_home_conference_tracks_title: Conference Tracks
 section_home_conference_tracks_subtitle: Entdecke unsere Hauptthemen
 section_home_conference_tracks_button: Zum Programm

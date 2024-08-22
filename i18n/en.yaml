@@ -26,6 +26,7 @@ miscellaneous_location_directions_title: Directions
 miscellaneous_sponsors_title_sponsors: Sponsors
 miscellaneous_sponsors_title_partners: Partners
 miscellaneous_about_title: About Us
+miscellaneous_about_organizers_title: 'The organizing team of {{ . }}'
 section_home_conference_tracks_title: Conference Tracks
 section_home_conference_tracks_subtitle: Discover our Topics
 section_home_conference_tracks_button: Open schedule

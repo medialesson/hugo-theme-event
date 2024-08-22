@@ -1,5 +1,7 @@
 {{ define "main" }}
     {{ $event := .Site.Params.themes.event }}
+    {{- $organizers := slice }}
+    {{- $organizerIds := .Site.Params.themes.event.organizers }}
 
 
     <div class="section-container">
@@ -9,6 +11,44 @@
                 <div class="markdown about__text">
                     {{ . | markdownify }}
                 </div>
+            {{ end }}
+
+            {{- range (where .Site.Pages "Section" "speakers") }}
+                {{- if in $organizerIds .Params.speakerId }} <!-- Check if the speaker ID is in the organizers list -->
+                    {{- $organizers = $organizers | append ( dict
+                    "profileUrl" .Permalink
+                    "avatarResource" (.Resources.GetMatch "avatar.*")
+                    "name" .Title
+                    "speakerId" .Params.speakerId
+                    "description" .Params.tagLine
+                    "linkedinUrl" .Params.linkedinUrl
+                    "xUrl" .Params.xUrl
+                    "companyUrl" .Params.company
+                    )
+                    }}
+                {{- end }}
+            {{- end }}
+
+            {{ if gt (len $organizers) 0 }} <!-- Check if the $organizers array is not empty -->
+            <h2 class="heading heading--2">{{- T "miscellaneous_about_organizers_title" $event.title }}</h2>
+
+            <menu class="about__organizers-menu">
+                {{- range $organizers }}
+                <li>
+                    {{- partial "speaker-card.html" (
+                        dict
+                        "profileUrl" .profileUrl
+                        "avatarResource" .avatarResource
+                        "name" .name
+                        "description" .description
+                        "linkedinUrl" .linkedinUrl
+                        "xUrl" .xUrl
+                        "companyUrl" .companyUrl
+                        )
+                    }}
+                </li>
+                {{- end }}
+            </menu>
             {{ end }}
         </section>
     </div>

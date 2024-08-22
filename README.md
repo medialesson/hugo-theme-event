@@ -34,19 +34,19 @@ creates various contents like a start page, a schedule and speaker pages.
 
 5. Add and adapt the following minimal settings to your [Hugo
    configuration](https://gohugo.io/getting-started/configuration/):
-   `yaml
- theme: event
- sectionPagesMenu: main
- params:
-     themes:
-         event:
-             # 👇 Set the name of your event.
-             title: My Event
-             # 👇 Fetch the ID of your event's API endpoint from
-             # 👇 https://sessionize.com/app/organizer/schedule/api/0
-             # 👇 and enter it here.
-             sessionizeId: 123acb56
- `
+    ```yaml
+    theme: event
+    sectionPagesMenu: main
+    params:
+        themes:
+            event:
+                # 👇 Set the name of your event.
+                title: My Event
+                # 👇 Fetch the ID of your event's API endpoint from
+                # 👇 https://sessionize.com/app/organizer/schedule/api/0
+                # 👇 and enter it here.
+                sessionizeId: 123acb56
+    ```
 6. Run Hugo in development mode:
     ```shell
     hugo server

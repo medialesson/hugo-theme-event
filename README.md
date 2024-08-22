@@ -55,7 +55,7 @@ overwrite them in the `i18n/` folder of your project.
 #### Configure menus
 
 The Event theme uses Hugo's standard menu functionality. Check out our [menu
-configuration guide](docs/guides/getting-started.md) for more details.
+configuration guide](docs/guides/menu-configuration.md) for more details.
 
 #### Configure generated content
 
@@ -64,6 +64,7 @@ or more pages out of this content. You can control the visibility of these pages
 with your menu configuration. All you need are the identifier and the slug
 (`pageRef`). The following table gives an overview about the available pages.
 For more details about available configuration options of each page, please read
+our [content configuration guide](docs/guides/content-configuration.md).
 
 | Identifier        | Slug (`pageRef`)   | Description                                          |
 | ----------------- | ------------------ | ---------------------------------------------------- |

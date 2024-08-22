@@ -74,3 +74,13 @@ For more details about available configuration options of each page, please read
 | `location`        | `/location`        | A page with the event address, directions and a map. |
 | `sponsors`        | `/sponsors`        | A page displaying sponsors and partners.             |
 | `code_of_conduct` | `/code-of-conduct` | A page with the Berlin Code of Conduct.              |
+
+### Deployment
+
+The [official Hugo documentation](https://gohugo.io/hosting-and-deployment/)
+provides various guides and samples about how you can deploy your page.
+
+Please take into account that the Event theme creates just static content during
+build. If anything changes in your Sessionize event, you need to rebuild and
+redeploy your page. Therefore, consider to run your deployment on a regular
+basis (e.g., hourly or nightly).

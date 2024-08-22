@@ -85,15 +85,15 @@ params:
                 # 👇 Image showcasing the building or venue where the event will take place.
                 locationImage:
             sponsors:
-                - logo: logos/medialesson-logo.svg
-                  url: https://www.media-lesson.com/
+                - logo:
+                  url:
                   # 👇 This name is used as the alt text for the logo
-                  name: 'Medialesson GmbH'
+                  name:
             partners:
-                - logo: logos/medialesson-logo.svg
-                  url: https://www.media-lesson.com/
+                - logo:
+                  url:
                   # 👇 This name is used as the alt text for the logo
-                  name: 'Medialesson GmbH'
+                  name:
             colors:
                 primaryLighter: '#d7fb4d'
                 primary: '#c6eb4d'

@@ -4,18 +4,25 @@
 
     <section class="sponsors">
         <div class="section">
-            {{ if $event.sponsors }}
+            {{ $validSponsors := slice }}
+            {{ range $sponsor := $event.sponsors }}
+                {{ if and $sponsor.logo $sponsor.name }}
+                    {{ $validSponsors = $validSponsors | append $sponsor }}
+                {{ end }}
+            {{- end }}
+
+            {{ if gt (len $validSponsors) 0 }}
                 <h1 class="heading heading--1">
                     {{- T "miscellaneous_sponsors_title_sponsors" }}
                 </h1>
                 <ul class="sponsors__list">
-                    {{ range $event.sponsors }}
+                    {{ range $sponsor := $validSponsors }}
                         <li class="sponsors__list-item">
                             {{- partial "sponsor-card.html" (
                                 dict
-                                "companyUrl" .url
-                                "logoResource" .logo
-                                "name" .name
+                                "companyUrl" $sponsor.url
+                                "logoResource" $sponsor.logo
+                                "name" $sponsor.name
                                 )
                             }}
                         </li>
@@ -23,25 +30,31 @@
                 </ul>
             {{ end }}
 
-            {{ if .Site.Params.themes.event.partners }}
+            {{ $validPartners := slice }}
+            {{ range $partner := $event.partners }}
+                {{ if and $partner.logo $partner.name }}
+                    {{ $validPartners = $validPartners | append $partner }}
+                {{ end }}
+            {{- end }}
+
+            {{ if gt (len $validPartners) 0 }}
                 <h1 class="heading heading--1">
                     {{- T "miscellaneous_sponsors_title_partners" }}
                 </h1>
                 <ul class="sponsors__list">
-                    {{ range $event.partners }}
+                    {{ range $partner := $validPartners }}
                         <li class="sponsors__list-item">
                             {{- partial "sponsor-card.html" (
                                 dict
-                                "profileUrl" .url
-                                "logoResource" .logo
-                                "name" .name
+                                "profileUrl" $partner.url
+                                "logoResource" $partner.logo
+                                "name" $partner.name
                                 )
                             }}
                         </li>
                     {{- end }}
                 </ul>
             {{ end }}
-
         </div>
     </section>
 

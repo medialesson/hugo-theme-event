@@ -6,7 +6,7 @@
         <div class="section">
             {{ $validSponsors := slice }}
             {{ range $sponsor := $event.sponsors }}
-                {{ if and $sponsor.logo $sponsor.name }}
+                {{ if and $sponsor.logo $sponsor.url }}
                     {{ $validSponsors = $validSponsors | append $sponsor }}
                 {{ end }}
             {{- end }}
@@ -32,7 +32,7 @@
 
             {{ $validPartners := slice }}
             {{ range $partner := $event.partners }}
-                {{ if and $partner.logo $partner.name }}
+                {{ if and $partner.logo $partner.url }}
                     {{ $validPartners = $validPartners | append $partner }}
                 {{ end }}
             {{- end }}

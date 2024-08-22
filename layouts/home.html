@@ -63,4 +63,5 @@
             )
         }}
     {{- end }}
+    {{- partial "sections/our-sponsors.html" (dict "sponsors" .Site.Params.themes.event.sponsors) -}}
 {{- end }}

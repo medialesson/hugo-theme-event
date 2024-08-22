@@ -1,0 +1,24 @@
+.our-sponsors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.our-sponsors__list {
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1.4rem;
+}
+
+.our-sponsors__list-item {
+    flex: 0 0 calc(25% - 1.4rem);
+    margin-bottom: 1.875rem;
+    box-sizing: border-box;
+}

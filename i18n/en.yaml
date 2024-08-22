@@ -32,6 +32,8 @@ section_home_conference_tracks_button: Open schedule
 section_home_featured_speakers_title: Featured Speakers
 section_home_featured_speakers_subtitle: Meet the Experts
 section_home_featured_speakers_button: All speakers at a glance
+section_home_our-sponsors_title: Our Sponsors
+section_home_our-sponsors_subtitle: A big thank you to our supporters!
 section_home_event_highlights_figures_speaker:
     one: '{{ . }} Speaker'
     other: '{{ . }} Speakers'

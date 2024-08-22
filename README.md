@@ -42,14 +42,21 @@ standards wherever possible.
 
 #### Overwrite theme settings
 
-Open the theme's configuration `themes/event/hugo.yaml` to see all options
-and their defaults. You can overwrite all settings on demand in your project's
-Hugo configuration.
+Open the theme's configuration `themes/event/hugo.yaml` to see all options and
+their defaults. You can overwrite all settings on demand in your project's [Hugo
+configuration](https://gohugo.io/getting-started/configuration/). All parameters
+of the Event theme are placed under `params.themes.event`. If this documentation
+describes a parameter with a specific name, for example `someParameter`, the
+full path of the parameters is `params.themes.event.someParameter`. And if the
+parameter must have different values depending on the language, define [language
+specific
+parameters](https://gohugo.io/content-management/multilingual/#configure-languages)
+(e.g., `languages.de.params.themes.event.someParameter`).
 
 #### Overwrite translations
 
-The ships with translations for German and English. Checkout the folder
-`themes/event/i18n/` to see what translations this theme uses. You can
+The Event theme ships with translations for German and English. Checkout the
+folder `themes/event/i18n/` to see what translations this theme uses. You can
 overwrite them in the `i18n/` folder of your project.
 
 #### Configure menus
@@ -57,14 +64,12 @@ overwrite them in the `i18n/` folder of your project.
 The Event theme uses Hugo's standard menu functionality. Check out our [menu
 configuration guide](docs/guides/menu-configuration.md) for more details.
 
-#### Configure generated content
+#### Integrate generated content
 
 The Event theme generates various contents during build. Hugo then creates one
 or more pages out of this content. You can control the visibility of these pages
 with your menu configuration. All you need are the identifier and the slug
 (`pageRef`). The following table gives an overview about the available pages.
-For more details about available configuration options of each page, please read
-our [content configuration guide](docs/guides/content-configuration.md).
 
 | Identifier        | Slug (`pageRef`)   | Description                                          |
 | ----------------- | ------------------ | ---------------------------------------------------- |
@@ -74,6 +79,15 @@ our [content configuration guide](docs/guides/content-configuration.md).
 | `location`        | `/location`        | A page with the event address, directions and a map. |
 | `sponsors`        | `/sponsors`        | A page displaying sponsors and partners.             |
 | `code_of_conduct` | `/code-of-conduct` | A page with the Berlin Code of Conduct.              |
+
+#### Configure features
+
+The Event theme comes with various features. Some features use common parameters,
+while others require dedicated ones. Without configuration, the theme may exclude
+features from the build.
+
+For more details, please refer to our [feature configuration
+guide](docs/guides/feature-configuration.md).
 
 ### Deployment
 

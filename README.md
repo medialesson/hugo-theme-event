@@ -4,11 +4,10 @@ This theme turns your event planned with
 [Sessionize](https://sessionize.com/) into a Hugo website. It automatically
 creates various contents and offers the following features.
 
--   Event schedule
--   Speaker overview
--   Session pages
--   Speaker pages
--   Various CTA elements
+-   Filterable Event schedule
+-   Session and speaker pages
+-   Responsive design
+-   Multilingual
 -   Eye-catching home page with:
     -   Countdown
     -   Key figures
@@ -16,9 +15,9 @@ creates various contents and offers the following features.
     -   Sponsors
 -   Eventbrite integration
 -   Map integration
+-   Various CTA elements
 -   Color customization
 -   Plain HTML and CSS (almost no JavaScript)
--   Responsive design
 
 ## Quick start
 

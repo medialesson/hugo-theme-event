@@ -83,3 +83,8 @@ Please take into account that the Event theme creates just static content during
 build. If anything changes in your Sessionize event, you need to rebuild and
 redeploy your page. Therefore, consider to run your deployment on a regular
 basis (e.g., hourly or nightly).
+
+## Contributing
+
+Contributions to the Event theme are always welcome. Please read and follow our
+[contribution guidelines](CONTRIBUTING.md) before you start.

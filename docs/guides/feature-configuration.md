@@ -4,11 +4,11 @@ The Event theme comes with various features. Some features use common
 parameters, while others require dedicated ones. Without configuration, the
 theme may exclude features from the build.
 
-### Call to action (CTA)
+## Call to action (CTA)
 
 -   Tbd
 
-### Countdown
+## Countdown
 
 The home page displays a countdown that counts down till the start of the event.
 
@@ -16,7 +16,7 @@ The home page displays a countdown that counts down till the start of the event.
 
 -   `startDate`: Start date of the event.
 
-### Featured speakers
+## Featured speakers
 
 This feature highlights speakers marked as top speaker in Sessionize on the home
 page.
@@ -57,4 +57,10 @@ page also displays the sponsors.
 
 ## Social links
 
--   Tbd
+The sidebar and footer can display links to social media profiles.
+
+### Parameters
+
+-   `socialLinks.xUrl`: URL to a X (Twitter) profile.
+-   `socialLinks.facebookUrl`: URL to a Facebook profile.
+-   `socialLinks.linkedinUrl`: URL to a LinkedIn profile.

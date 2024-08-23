@@ -73,7 +73,7 @@ params:
                     url:
                 enableBanner: true
             socialLinks:
-                twitterUrl:
+                xUrl:
                 facebookUrl:
                 linkedinUrl:
             favicon: favicon.ico

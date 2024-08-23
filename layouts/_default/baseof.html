@@ -103,12 +103,27 @@
                     )
                 }}
 
-                {{- partial "menus/sidebar.html" (
-                    dict
-                    "menu" .Site.Menus.main
-                    "context" .
-                    )
-                }}
+
+                <div class="page-sidebar__menu">
+                    {{- partial "menus/sidebar.html" (
+                        dict
+                        "menu" .Site.Menus.main
+                        "context" .
+                        )
+                    }}
+                </div>
+
+                <div class="page-sidebar__social-links">
+                    {{- partial "social-links.html" (
+                        dict
+                        "linkedinUrl" .Site.Params.themes.event.socialLinks.linkedinUrl
+                        "xUrl" .Site.Params.themes.event.socialLinks.xUrl
+                        "facebookUrl" .Site.Params.themes.event.socialLinks.facebookUrl
+                        "companyUrl" .Site.Params.themes.event.socialLinks.companyUrl
+                        "linkClass" "page-sidebar__social-link"
+                        )
+                    }}
+                </div>
             </nav>
 
             <label class="page-sidebar__empty-space" for="sidebarToggle">
@@ -160,7 +175,15 @@
                         {{ end }}
                     </select>
 
-                    {{- partial "social-links.html" .Site.Params.themes.event.socialLinks }}
+                    {{- partial "social-links.html" (
+                        dict
+                        "linkedinUrl" .Site.Params.themes.event.socialLinks.linkedinUrl
+                        "xUrl" .Site.Params.themes.event.socialLinks.xUrl
+                        "facebookUrl" .Site.Params.themes.event.socialLinks.facebookUrl
+                        "companyUrl" .Site.Params.themes.event.socialLinks.companyUrl
+                        "linkClass" "page-footer-section__social-link"
+                        )
+                    }}
                 </div>
 
                 {{- partial "menus/footer.html" (dict "menu" site.Menus.footer) }}

@@ -65,6 +65,19 @@
     }
 }
 
+.page-sidebar__menu {
+    flex-grow: 1;
+}
+
+.page-sidebar__social-links {
+    align-self: flex-start;
+}
+
+.page-sidebar__social-link {
+    color: white;
+    font-size: 2.375rem;
+}
+
 .page-sidebar__header {
     display: flex;
     justify-content: space-between;
@@ -156,6 +169,11 @@
     align-items: center;
     font-size: 1.75rem;
     gap: 2.5rem;
+}
+
+.page-footer-section__social-link {
+    opacity: 0.2;
+    color: var(--color-secondary-darker);
 }
 
 .page-footer-section__end {

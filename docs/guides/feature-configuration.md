@@ -6,7 +6,20 @@ theme may exclude features from the build.
 
 ## Call to action (CTA)
 
--   Tbd
+To encourage users to buy tickets for your event, the Event theme contains
+various elements that display messages and interactions.
+
+### Parameters
+
+-   `callToAction.eventbrite.eventId`: ID of an event from Eventbrite. If set,
+    users will see an embedded ticket order dialog when they click on the CTA
+    button. To get the event ID, open the dashboard of your event on Eventbrite and
+    take the 12-digit number in the URL.
+-   `callToAction.other.url`: Any URL to which users are forwarded to when they
+    click on the CTA button and Eventbrite is not used.
+-   `callToAction.enableBanner`: Boolean flag to show/hide the CTA banner on top
+    of the page. To change the text of the banner, overwrite the corresponding
+    translations.
 
 ## Countdown
 

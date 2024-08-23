@@ -2,6 +2,8 @@
     all: unset;
     display: block;
     font-weight: 700;
+    text-wrap: wrap;
+    word-wrap: break-word;
 }
 
 .heading--1 {

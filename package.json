@@ -1,7 +1,7 @@
 {
     "scripts": {
         "format:check": "prettier --check .",
-        "test": "echo \"No test specified yet.\" && exit 1"
+        "test": "echo \"No test specified yet.\" && exit 0"
     },
     "devDependencies": {
         "prettier": "^3.3.3",

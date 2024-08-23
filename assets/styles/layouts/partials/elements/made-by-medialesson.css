@@ -6,3 +6,11 @@
     gap: 0.4375rem;
     text-decoration: none;
 }
+
+.made-by-medialesson__heart {
+    height: 0.625rem;
+}
+
+.made-by-medialesson__logo-name {
+    height: 1.125rem;
+}

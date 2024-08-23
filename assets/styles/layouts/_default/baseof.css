@@ -71,11 +71,16 @@
 
 .page-sidebar__social-links {
     align-self: flex-start;
+    margin-bottom: 2.5rem;
 }
 
 .page-sidebar__social-link {
     color: white;
     font-size: 2.375rem;
+}
+
+.page-sidebar__made-by-link {
+    color: white;
 }
 
 .page-sidebar__header {
@@ -180,7 +185,6 @@
     opacity: 0.7;
 }
 
-.page-footer-section__end a {
-    color: var(--color-secondary-darker);
-    text-decoration: none;
+.page-footer-section__made-by-link {
+    color: #0000004d;
 }

@@ -124,6 +124,12 @@
                         )
                     }}
                 </div>
+
+                {{- partial "elements/made-by-medialesson.html" (
+                    dict
+                    "linkClass" "page-sidebar__made-by-link"
+                    )
+                }}
             </nav>
 
             <label class="page-sidebar__empty-space" for="sidebarToggle">
@@ -190,7 +196,11 @@
 
 
                 <div class="page-footer-section__end">
-                    {{- partial "elements/made-by-medialesson.html" }}
+                    {{- partial "elements/made-by-medialesson.html" (
+                        dict
+                        "linkClass" "page-footer-section__made-by-link"
+                        )
+                    }}
                 </div>
             </section>
         </footer>

@@ -1,10 +1,13 @@
-<a class="made-by-medialesson" href="https://medialesson.de">
+{{- $input := . }}
+
+
+<a class="made-by-medialesson {{ $input.linkClass }}" href="https://medialesson.de">
     Made with
-    {{- with resources.Get "logos/medialesson-heart.svg" }}
-        <img src="{{ .RelPermalink }}" width="9.96" height="9.96" alt="heart" />
-    {{ end }}
+    <div class="made-by-medialesson__heart">
+        {{- partial "graphics/medialesson-heart.html" }}
+    </div>
     by
-    {{- with resources.Get "logos/medialesson.svg" }}
-        <img src="{{ .RelPermalink }}" width="130.6px" height="17.94px" alt="Medialsson" />
-    {{ end }}
+    <div class="made-by-medialesson__logo-name">
+        {{- partial "graphics/medialesson-logo-name.html" }}
+    </div>
 </a>

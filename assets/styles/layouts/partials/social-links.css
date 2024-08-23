@@ -8,10 +8,11 @@
 
 .social-links__menu-item {
     flex-grow: 1;
-    height: 100%;
 }
 
 .social-links__link {
     display: flex;
     align-items: center;
+    height: 1em;
+    width: 1em;
 }

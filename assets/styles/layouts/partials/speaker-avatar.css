@@ -7,3 +7,9 @@
     gap: 1.6875rem;
     font-size: 1.125rem;
 }
+
+.speaker-avatar-container__social-link {
+    color: var(--color-secondary-darker);
+    font-size: 1.125rem;
+    opacity: 0.2;
+}

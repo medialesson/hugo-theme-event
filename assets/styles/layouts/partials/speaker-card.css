@@ -50,8 +50,12 @@
 }
 
 .speaker-card__social-links {
-    font-size: 1.125rem;
     flex-shrink: 1;
     margin-bottom: 0.9375rem;
-    justify-self: baseline;
+}
+
+.speaker-card__social-link {
+    color: var(--color-secondary-darker);
+    font-size: 1.125rem;
+    opacity: 0.2;
 }

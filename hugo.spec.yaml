@@ -1,0 +1,17 @@
+###
+### THIS CONFIGURATION FILE IS FOR TESTING PURPOSES ONLY.
+###
+
+params:
+    themes:
+        event:
+            sessionizeId: test
+            title: testcon
+            startDate: 2045-06-01
+            endDate: 2045-06-03
+            location: Pforzheim, Germany
+            address:
+                - Building
+                - Street
+                - City
+                - Country

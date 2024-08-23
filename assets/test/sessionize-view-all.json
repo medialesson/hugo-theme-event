@@ -1,607 +1,526 @@
 {
     "sessions": [
-      {
-        "id": "b99eb568-4f2c-4fd9-8ec6-a1326b961dfc",
-        "title": "Registration",
-        "description": null,
-        "startsAt": "2025-01-30T11:00:00",
-        "endsAt": "2025-01-30T12:00:00",
-        "isServiceSession": true,
-        "isPlenumSession": false,
-        "speakers": [],
-        "categoryItems": [],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": null,
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729573",
-        "title": "Emma's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Illustration, Personal branding, Consumer. Ha!",
-        "startsAt": "2025-01-30T12:00:00",
-        "endsAt": "2025-01-30T13:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000002"
-        ],
-        "categoryItems": [
-          290678,
-          290680,
-          290686,
-          290687
-        ],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729574",
-        "title": "Olivia's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Personal branding, Coffee, Shoe. Ha!",
-        "startsAt": "2025-01-30T12:00:00",
-        "endsAt": "2025-01-30T13:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000003"
-        ],
-        "categoryItems": [
-          290679,
-          290681,
-          290685,
-          290693
-        ],
-        "questionAnswers": [],
-        "roomId": 52656,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "3447531d-f78e-4ca0-8b80-22368909baa4",
-        "title": "Coffee Break",
-        "description": null,
-        "startsAt": "2025-01-30T13:00:00",
-        "endsAt": "2025-01-30T14:00:00",
-        "isServiceSession": true,
-        "isPlenumSession": false,
-        "speakers": [],
-        "categoryItems": [],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": null,
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729572",
-        "title": "Jackson's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Board games, Coffee, Psychology. Ha!",
-        "startsAt": "2025-01-30T14:00:00",
-        "endsAt": "2025-01-30T15:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000001"
-        ],
-        "categoryItems": [
-          290679,
-          290681,
-          290684,
-          290691
-        ],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729571",
-        "title": "Sophia's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Personal branding, Human resources, Consumer. Ha!",
-        "startsAt": "2025-01-30T14:00:00",
-        "endsAt": "2025-01-30T15:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000000"
-        ],
-        "categoryItems": [
-          290678,
-          290680,
-          290683,
-          290687
-        ],
-        "questionAnswers": [],
-        "roomId": 52656,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "3861063a-4d99-4aef-b4f2-ca3834218de8",
-        "title": "Lunch",
-        "description": null,
-        "startsAt": "2025-01-30T15:00:00",
-        "endsAt": "2025-01-30T16:00:00",
-        "isServiceSession": true,
-        "isPlenumSession": false,
-        "speakers": [],
-        "categoryItems": [],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": null,
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729576",
-        "title": "Lucas's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Shoe, Interview, Psychology. Ha!",
-        "startsAt": "2025-01-30T16:00:00",
-        "endsAt": "2025-01-30T17:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000005"
-        ],
-        "categoryItems": [
-          290679,
-          290682,
-          290683,
-          290691
-        ],
-        "questionAnswers": [],
-        "roomId": 52656,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729579",
-        "title": "Ava's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Technology, Interview, Consumer. Ha!",
-        "startsAt": "2025-01-31T13:00:00",
-        "endsAt": "2025-01-31T14:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000008"
-        ],
-        "categoryItems": [
-          290679,
-          290682,
-          290684,
-          290694
-        ],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729575",
-        "title": "Aiden's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Interview, Consumer, Psychology. Ha!",
-        "startsAt": "2025-01-31T13:00:00",
-        "endsAt": "2025-01-31T14:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000004"
-        ],
-        "categoryItems": [
-          290678,
-          290681,
-          290683,
-          290691
-        ],
-        "questionAnswers": [],
-        "roomId": 52656,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "906e19b8-cf7b-435b-8ee3-2f695ef71f81",
-        "title": "Lunch",
-        "description": null,
-        "startsAt": "2025-01-31T14:00:00",
-        "endsAt": "2025-01-31T15:00:00",
-        "isServiceSession": true,
-        "isPlenumSession": false,
-        "speakers": [],
-        "categoryItems": [],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": null,
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729577",
-        "title": "Liam's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Technology, Personal branding, Illustration. Ha!",
-        "startsAt": "2025-01-31T15:00:00",
-        "endsAt": "2025-01-31T16:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000006"
-        ],
-        "categoryItems": [
-          290679,
-          290682,
-          290685,
-          290692
-        ],
-        "questionAnswers": [],
-        "roomId": 52655,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      },
-      {
-        "id": "729578",
-        "title": "Noah's Session",
-        "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Coffee, Human resources, Illustration. Ha!",
-        "startsAt": "2025-01-31T15:00:00",
-        "endsAt": "2025-01-31T16:00:00",
-        "isServiceSession": false,
-        "isPlenumSession": false,
-        "speakers": [
-          "00000000-0000-0000-0000-000000000007"
-        ],
-        "categoryItems": [
-          290677,
-          290682,
-          290684,
-          290689
-        ],
-        "questionAnswers": [],
-        "roomId": 52656,
-        "liveUrl": null,
-        "recordingUrl": null,
-        "status": "Accepted",
-        "isInformed": false,
-        "isConfirmed": false
-      }
+        {
+            "id": "b99eb568-4f2c-4fd9-8ec6-a1326b961dfc",
+            "title": "Registration",
+            "description": null,
+            "startsAt": "2025-01-30T11:00:00",
+            "endsAt": "2025-01-30T12:00:00",
+            "isServiceSession": true,
+            "isPlenumSession": false,
+            "speakers": [],
+            "categoryItems": [],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": null,
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729573",
+            "title": "Emma's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Illustration, Personal branding, Consumer. Ha!",
+            "startsAt": "2025-01-30T12:00:00",
+            "endsAt": "2025-01-30T13:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000002"],
+            "categoryItems": [290678, 290680, 290686, 290687],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729574",
+            "title": "Olivia's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Personal branding, Coffee, Shoe. Ha!",
+            "startsAt": "2025-01-30T12:00:00",
+            "endsAt": "2025-01-30T13:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000003"],
+            "categoryItems": [290679, 290681, 290685, 290693],
+            "questionAnswers": [],
+            "roomId": 52656,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "3447531d-f78e-4ca0-8b80-22368909baa4",
+            "title": "Coffee Break",
+            "description": null,
+            "startsAt": "2025-01-30T13:00:00",
+            "endsAt": "2025-01-30T14:00:00",
+            "isServiceSession": true,
+            "isPlenumSession": false,
+            "speakers": [],
+            "categoryItems": [],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": null,
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729572",
+            "title": "Jackson's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Board games, Coffee, Psychology. Ha!",
+            "startsAt": "2025-01-30T14:00:00",
+            "endsAt": "2025-01-30T15:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000001"],
+            "categoryItems": [290679, 290681, 290684, 290691],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729571",
+            "title": "Sophia's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Personal branding, Human resources, Consumer. Ha!",
+            "startsAt": "2025-01-30T14:00:00",
+            "endsAt": "2025-01-30T15:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000000"],
+            "categoryItems": [290678, 290680, 290683, 290687],
+            "questionAnswers": [],
+            "roomId": 52656,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "3861063a-4d99-4aef-b4f2-ca3834218de8",
+            "title": "Lunch",
+            "description": null,
+            "startsAt": "2025-01-30T15:00:00",
+            "endsAt": "2025-01-30T16:00:00",
+            "isServiceSession": true,
+            "isPlenumSession": false,
+            "speakers": [],
+            "categoryItems": [],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": null,
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729576",
+            "title": "Lucas's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Shoe, Interview, Psychology. Ha!",
+            "startsAt": "2025-01-30T16:00:00",
+            "endsAt": "2025-01-30T17:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000005"],
+            "categoryItems": [290679, 290682, 290683, 290691],
+            "questionAnswers": [],
+            "roomId": 52656,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729579",
+            "title": "Ava's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Technology, Interview, Consumer. Ha!",
+            "startsAt": "2025-01-31T13:00:00",
+            "endsAt": "2025-01-31T14:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000008"],
+            "categoryItems": [290679, 290682, 290684, 290694],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729575",
+            "title": "Aiden's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Interview, Consumer, Psychology. Ha!",
+            "startsAt": "2025-01-31T13:00:00",
+            "endsAt": "2025-01-31T14:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000004"],
+            "categoryItems": [290678, 290681, 290683, 290691],
+            "questionAnswers": [],
+            "roomId": 52656,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "906e19b8-cf7b-435b-8ee3-2f695ef71f81",
+            "title": "Lunch",
+            "description": null,
+            "startsAt": "2025-01-31T14:00:00",
+            "endsAt": "2025-01-31T15:00:00",
+            "isServiceSession": true,
+            "isPlenumSession": false,
+            "speakers": [],
+            "categoryItems": [],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": null,
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729577",
+            "title": "Liam's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Technology, Personal branding, Illustration. Ha!",
+            "startsAt": "2025-01-31T15:00:00",
+            "endsAt": "2025-01-31T16:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000006"],
+            "categoryItems": [290679, 290682, 290685, 290692],
+            "questionAnswers": [],
+            "roomId": 52655,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        },
+        {
+            "id": "729578",
+            "title": "Noah's Session",
+            "description": "Usually, you would find a session description here. But, this is not a real session submission, so let just say we'll talk about Coffee, Human resources, Illustration. Ha!",
+            "startsAt": "2025-01-31T15:00:00",
+            "endsAt": "2025-01-31T16:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": false,
+            "speakers": ["00000000-0000-0000-0000-000000000007"],
+            "categoryItems": [290677, 290682, 290684, 290689],
+            "questionAnswers": [],
+            "roomId": 52656,
+            "liveUrl": null,
+            "recordingUrl": null,
+            "status": "Accepted",
+            "isInformed": false,
+            "isConfirmed": false
+        }
     ],
     "speakers": [
-      {
-        "id": "00000000-0000-0000-0000-000000000004",
-        "firstName": "Aiden",
-        "lastName": "Test",
-        "bio": "Pop culture fanatic. Friend of animals everywhere. Student. Thinker. Bacon practitioner.",
-        "tagLine": "Professional public speaker",
-        "profilePicture": "https://sessionize.com/image/8db9-400o400o1-test4.jpg",
-        "isTopSpeaker": false,
-        "links": [
-          {
-            "title": "Twitter",
-            "url": "https://twitter.com/sessionizecom",
-            "linkType": "Twitter"
-          },
-          {
-            "title": "LinkedIn",
-            "url": "http://linkedin.com/in/domagojpa",
-            "linkType": "LinkedIn"
-          }
-        ],
-        "sessions": [
-          729575
-        ],
-        "fullName": "Aiden Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000008",
-        "firstName": "Ava",
-        "lastName": "Test",
-        "bio": "Student. Wannabe creator. Incurable music advocate.",
-        "tagLine": "PR specialist",
-        "profilePicture": "https://sessionize.com/image/e987-400o400o1-test8.jpg",
-        "isTopSpeaker": false,
-        "links": [],
-        "sessions": [
-          729579
-        ],
-        "fullName": "Ava Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000002",
-        "firstName": "Emma",
-        "lastName": "Test",
-        "bio": "General student. Avid coffee specialist. Web aficionado. Food geek. Bacon expert. Alcohol junkie.",
-        "tagLine": "Miss Venezuela",
-        "profilePicture": "https://sessionize.com/image/854e-400o400o1-test2.jpg",
-        "isTopSpeaker": true,
-        "links": [],
-        "sessions": [
-          729573
-        ],
-        "fullName": "Emma Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000001",
-        "firstName": "Jackson",
-        "lastName": "Test",
-        "bio": "Thinker. Food trailblazer. Organizer. Student. Pop culture fanatic. Writer. Passionate twitter lover. Music advocate.",
-        "tagLine": "Tech guy",
-        "profilePicture": "https://sessionize.com/image/e863-400o400o1-test1.jpg",
-        "isTopSpeaker": true,
-        "links": [
-          {
-            "title": "Twitter",
-            "url": "https://twitter.com/sessionizecom",
-            "linkType": "Twitter"
-          }
-        ],
-        "sessions": [
-          729572
-        ],
-        "fullName": "Jackson Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000006",
-        "firstName": "Liam",
-        "lastName": "Test",
-        "bio": "Total web enthusiast. Unable to type with boxing gloves on. Future teen idol. Avid internet trailblazer. Amateur bacon buff.",
-        "tagLine": "Tester @ Sessionize",
-        "profilePicture": "https://sessionize.com/image/6d64-400o400o1-test6.jpg",
-        "isTopSpeaker": false,
-        "links": [],
-        "sessions": [
-          729577
-        ],
-        "fullName": "Liam Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000005",
-        "firstName": "Lucas",
-        "lastName": "Test",
-        "bio": "Music evangelist. Coffee junkie. Twitter trailblazer. Total food nerd. Student. General creator. Falls down a lot.",
-        "tagLine": "V.I.P.",
-        "profilePicture": "https://sessionize.com/image/b36e-400o400o1-test5.jpg",
-        "isTopSpeaker": false,
-        "links": [],
-        "sessions": [
-          729576
-        ],
-        "fullName": "Lucas Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000007",
-        "firstName": "Noah",
-        "lastName": "Test",
-        "bio": "Friend of animals everywhere. Freelance twitter practitioner. Gamer. Subtly charming food geek.",
-        "tagLine": "Everyday normal guy",
-        "profilePicture": "https://sessionize.com/image/cce3-400o400o1-test7.jpg",
-        "isTopSpeaker": true,
-        "links": [],
-        "sessions": [
-          729578
-        ],
-        "fullName": "Noah Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000003",
-        "firstName": "Olivia",
-        "lastName": "Test",
-        "bio": "Hipster-friendly alcohol aficionado. Avid twitter lover. Explorer. Hardcore coffee buff.",
-        "tagLine": "ABC, DEF, GHI",
-        "profilePicture": "https://sessionize.com/image/d7ef-400o400o1-test3.jpg",
-        "isTopSpeaker": false,
-        "links": [],
-        "sessions": [
-          729574
-        ],
-        "fullName": "Olivia Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      },
-      {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "firstName": "Sophia",
-        "lastName": "Test",
-        "bio": "Award-winning zombie specialist. Reader. Twitter fan. Total introvert. Internet evangelist. Thinker. Beer junkie. Food advocate.",
-        "tagLine": "CEO / Contoso",
-        "profilePicture": "https://sessionize.com/image/6447-400o400o1-test0.jpg",
-        "isTopSpeaker": true,
-        "links": [
-          {
-            "title": "Twitter",
-            "url": "https://twitter.com/sessionizecom",
-            "linkType": "Twitter"
-          }
-        ],
-        "sessions": [
-          729571
-        ],
-        "fullName": "Sophia Test",
-        "categoryItems": [],
-        "questionAnswers": []
-      }
+        {
+            "id": "00000000-0000-0000-0000-000000000004",
+            "firstName": "Aiden",
+            "lastName": "Test",
+            "bio": "Pop culture fanatic. Friend of animals everywhere. Student. Thinker. Bacon practitioner.",
+            "tagLine": "Professional public speaker",
+            "profilePicture": "https://sessionize.com/image/8db9-400o400o1-test4.jpg",
+            "isTopSpeaker": false,
+            "links": [
+                {
+                    "title": "Twitter",
+                    "url": "https://twitter.com/sessionizecom",
+                    "linkType": "Twitter"
+                },
+                {
+                    "title": "LinkedIn",
+                    "url": "http://linkedin.com/in/domagojpa",
+                    "linkType": "LinkedIn"
+                }
+            ],
+            "sessions": [729575],
+            "fullName": "Aiden Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000008",
+            "firstName": "Ava",
+            "lastName": "Test",
+            "bio": "Student. Wannabe creator. Incurable music advocate.",
+            "tagLine": "PR specialist",
+            "profilePicture": "https://sessionize.com/image/e987-400o400o1-test8.jpg",
+            "isTopSpeaker": false,
+            "links": [],
+            "sessions": [729579],
+            "fullName": "Ava Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000002",
+            "firstName": "Emma",
+            "lastName": "Test",
+            "bio": "General student. Avid coffee specialist. Web aficionado. Food geek. Bacon expert. Alcohol junkie.",
+            "tagLine": "Miss Venezuela",
+            "profilePicture": "https://sessionize.com/image/854e-400o400o1-test2.jpg",
+            "isTopSpeaker": true,
+            "links": [],
+            "sessions": [729573],
+            "fullName": "Emma Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000001",
+            "firstName": "Jackson",
+            "lastName": "Test",
+            "bio": "Thinker. Food trailblazer. Organizer. Student. Pop culture fanatic. Writer. Passionate twitter lover. Music advocate.",
+            "tagLine": "Tech guy",
+            "profilePicture": "https://sessionize.com/image/e863-400o400o1-test1.jpg",
+            "isTopSpeaker": true,
+            "links": [
+                {
+                    "title": "Twitter",
+                    "url": "https://twitter.com/sessionizecom",
+                    "linkType": "Twitter"
+                }
+            ],
+            "sessions": [729572],
+            "fullName": "Jackson Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000006",
+            "firstName": "Liam",
+            "lastName": "Test",
+            "bio": "Total web enthusiast. Unable to type with boxing gloves on. Future teen idol. Avid internet trailblazer. Amateur bacon buff.",
+            "tagLine": "Tester @ Sessionize",
+            "profilePicture": "https://sessionize.com/image/6d64-400o400o1-test6.jpg",
+            "isTopSpeaker": false,
+            "links": [],
+            "sessions": [729577],
+            "fullName": "Liam Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000005",
+            "firstName": "Lucas",
+            "lastName": "Test",
+            "bio": "Music evangelist. Coffee junkie. Twitter trailblazer. Total food nerd. Student. General creator. Falls down a lot.",
+            "tagLine": "V.I.P.",
+            "profilePicture": "https://sessionize.com/image/b36e-400o400o1-test5.jpg",
+            "isTopSpeaker": false,
+            "links": [],
+            "sessions": [729576],
+            "fullName": "Lucas Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Noah",
+            "lastName": "Test",
+            "bio": "Friend of animals everywhere. Freelance twitter practitioner. Gamer. Subtly charming food geek.",
+            "tagLine": "Everyday normal guy",
+            "profilePicture": "https://sessionize.com/image/cce3-400o400o1-test7.jpg",
+            "isTopSpeaker": true,
+            "links": [],
+            "sessions": [729578],
+            "fullName": "Noah Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000003",
+            "firstName": "Olivia",
+            "lastName": "Test",
+            "bio": "Hipster-friendly alcohol aficionado. Avid twitter lover. Explorer. Hardcore coffee buff.",
+            "tagLine": "ABC, DEF, GHI",
+            "profilePicture": "https://sessionize.com/image/d7ef-400o400o1-test3.jpg",
+            "isTopSpeaker": false,
+            "links": [],
+            "sessions": [729574],
+            "fullName": "Olivia Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        },
+        {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "firstName": "Sophia",
+            "lastName": "Test",
+            "bio": "Award-winning zombie specialist. Reader. Twitter fan. Total introvert. Internet evangelist. Thinker. Beer junkie. Food advocate.",
+            "tagLine": "CEO / Contoso",
+            "profilePicture": "https://sessionize.com/image/6447-400o400o1-test0.jpg",
+            "isTopSpeaker": true,
+            "links": [
+                {
+                    "title": "Twitter",
+                    "url": "https://twitter.com/sessionizecom",
+                    "linkType": "Twitter"
+                }
+            ],
+            "sessions": [729571],
+            "fullName": "Sophia Test",
+            "categoryItems": [],
+            "questionAnswers": []
+        }
     ],
     "questions": [],
     "categories": [
-      {
-        "id": 81731,
-        "title": "Session format",
-        "items": [
-          {
-            "id": 290677,
-            "name": "Lightning talk",
-            "sort": 1
-          },
-          {
-            "id": 290678,
-            "name": "Session",
-            "sort": 2
-          },
-          {
-            "id": 290679,
-            "name": "Workshop",
-            "sort": 3
-          }
-        ],
-        "sort": 0,
-        "type": "session"
-      },
-      {
-        "id": 81732,
-        "title": "Track",
-        "items": [
-          {
-            "id": 290680,
-            "name": "Business",
-            "sort": 1
-          },
-          {
-            "id": 290681,
-            "name": "Technical",
-            "sort": 2
-          },
-          {
-            "id": 290682,
-            "name": "Scientific",
-            "sort": 3
-          }
-        ],
-        "sort": 1,
-        "type": "session"
-      },
-      {
-        "id": 81733,
-        "title": "Level",
-        "items": [
-          {
-            "id": 290683,
-            "name": "Introductory and overview",
-            "sort": 1
-          },
-          {
-            "id": 290684,
-            "name": "Intermediate",
-            "sort": 2
-          },
-          {
-            "id": 290685,
-            "name": "Advanced",
-            "sort": 3
-          },
-          {
-            "id": 290686,
-            "name": "Expert",
-            "sort": 4
-          }
-        ],
-        "sort": 2,
-        "type": "session"
-      },
-      {
-        "id": 81734,
-        "title": "Language",
-        "items": [
-          {
-            "id": 290687,
-            "name": "English",
-            "sort": 1
-          },
-          {
-            "id": 290688,
-            "name": "Spanish",
-            "sort": 2
-          },
-          {
-            "id": 290689,
-            "name": "German",
-            "sort": 3
-          },
-          {
-            "id": 290690,
-            "name": "Italian",
-            "sort": 4
-          },
-          {
-            "id": 290691,
-            "name": "French",
-            "sort": 5
-          },
-          {
-            "id": 290692,
-            "name": "Chinese",
-            "sort": 6
-          },
-          {
-            "id": 290693,
-            "name": "Arabic",
-            "sort": 7
-          },
-          {
-            "id": 290694,
-            "name": "Portuguese",
-            "sort": 8
-          }
-        ],
-        "sort": 3,
-        "type": "session"
-      }
+        {
+            "id": 81731,
+            "title": "Session format",
+            "items": [
+                {
+                    "id": 290677,
+                    "name": "Lightning talk",
+                    "sort": 1
+                },
+                {
+                    "id": 290678,
+                    "name": "Session",
+                    "sort": 2
+                },
+                {
+                    "id": 290679,
+                    "name": "Workshop",
+                    "sort": 3
+                }
+            ],
+            "sort": 0,
+            "type": "session"
+        },
+        {
+            "id": 81732,
+            "title": "Track",
+            "items": [
+                {
+                    "id": 290680,
+                    "name": "Business",
+                    "sort": 1
+                },
+                {
+                    "id": 290681,
+                    "name": "Technical",
+                    "sort": 2
+                },
+                {
+                    "id": 290682,
+                    "name": "Scientific",
+                    "sort": 3
+                }
+            ],
+            "sort": 1,
+            "type": "session"
+        },
+        {
+            "id": 81733,
+            "title": "Level",
+            "items": [
+                {
+                    "id": 290683,
+                    "name": "Introductory and overview",
+                    "sort": 1
+                },
+                {
+                    "id": 290684,
+                    "name": "Intermediate",
+                    "sort": 2
+                },
+                {
+                    "id": 290685,
+                    "name": "Advanced",
+                    "sort": 3
+                },
+                {
+                    "id": 290686,
+                    "name": "Expert",
+                    "sort": 4
+                }
+            ],
+            "sort": 2,
+            "type": "session"
+        },
+        {
+            "id": 81734,
+            "title": "Language",
+            "items": [
+                {
+                    "id": 290687,
+                    "name": "English",
+                    "sort": 1
+                },
+                {
+                    "id": 290688,
+                    "name": "Spanish",
+                    "sort": 2
+                },
+                {
+                    "id": 290689,
+                    "name": "German",
+                    "sort": 3
+                },
+                {
+                    "id": 290690,
+                    "name": "Italian",
+                    "sort": 4
+                },
+                {
+                    "id": 290691,
+                    "name": "French",
+                    "sort": 5
+                },
+                {
+                    "id": 290692,
+                    "name": "Chinese",
+                    "sort": 6
+                },
+                {
+                    "id": 290693,
+                    "name": "Arabic",
+                    "sort": 7
+                },
+                {
+                    "id": 290694,
+                    "name": "Portuguese",
+                    "sort": 8
+                }
+            ],
+            "sort": 3,
+            "type": "session"
+        }
     ],
     "rooms": [
-      {
-        "id": 52655,
-        "name": "Room 1",
-        "sort": 0
-      },
-      {
-        "id": 52656,
-        "name": "Room 2",
-        "sort": 1
-      }
+        {
+            "id": 52655,
+            "name": "Room 1",
+            "sort": 0
+        },
+        {
+            "id": 52656,
+            "name": "Room 2",
+            "sort": 1
+        }
     ]
-  }
+}

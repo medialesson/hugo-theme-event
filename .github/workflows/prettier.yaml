@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Prettier Formatting Check
 
 on:
     push:
@@ -9,13 +9,11 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
-                  node-version: 22.x
+                  node-version: lts/*
                   cache: 'npm'
             - run: npm ci
-            - run: npm run format:check
-            - run: npm test
+            - run: npx prettier --check .

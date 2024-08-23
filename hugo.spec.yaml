@@ -2,6 +2,8 @@
 ### THIS CONFIGURATION FILE IS FOR TESTING PURPOSES ONLY.
 ###
 
+defaultContentLanguage: de
+
 params:
     themes:
         event:

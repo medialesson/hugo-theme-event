@@ -12,7 +12,7 @@ import { expect, test } from '@playwright/test';
         bio: 'Award-winning zombie specialist. Reader. Twitter fan. Total introvert. Internet evangelist. Thinker. Beer junkie. Food advocate.',
     },
 ].forEach(({ name, bio }) => {
-    test(`Should provide link to page of featured speaker ${name}`, async ({ page }) => {
+    test(`Should provide link to page of featured speaker ${name} on home page`, async ({ page }) => {
         await page.goto('/');
         await page.getByRole('menu', { name: 'Featured Speakers' }).getByRole('link', { name: name }).click();
         await expect(page.getByRole('heading', { name: name })).toBeVisible();

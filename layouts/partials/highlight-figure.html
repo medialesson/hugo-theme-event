@@ -1,7 +1,7 @@
 {{ $input := . }}
 
 
-<figure class="highlight-figure">
+<figure class="highlight-figure" aria-label="Highlight">
     {{- with resources.Get $input.icon }}
         <!--    alt="" tells screen readers to skip the image, as it's purely decorative -->
         <img class="highlight-figure__image" aria-hidden="true" src="{{ .RelPermalink }}" alt="" />

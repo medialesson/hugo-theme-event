@@ -1,34 +1,54 @@
 {{ $input := . }}
 
 
-<menu class="social-links">
+<menu class="social-links" role="menu" aria-label="Social Media Links">
     {{- if $input.linkedinUrl }}
-        <li class="social-links__menu-item">
-            <a href="{{- $input.linkedinUrl }}" rel="external" class="social-links__link {{ $input.linkClass }}">
+        <li role="presentation" class="social-links__menu-item">
+            <a
+                href="{{- $input.linkedinUrl }}"
+                role="menuitem"
+                aria-label="LinkedIn"
+                rel="external"
+                class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/linkedin.html" }}
             </a>
         </li>
     {{ end }}
 
     {{- if $input.xUrl }}
-        <li class="social-links__menu-item">
-            <a href="{{- $input.xUrl }}" rel="external" class="social-links__link {{ $input.linkClass }}">
+        <li role="presentation" class="social-links__menu-item">
+            <a
+                href="{{- $input.xUrl }}"
+                role="menuitem"
+                aria-label="X (Twitter)"
+                rel="external"
+                class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/x.html" }}
             </a>
         </li>
     {{ end }}
 
     {{- if $input.facebookUrl }}
-        <li class="social-links__menu-item">
-            <a href="{{- $input.facebookUrl }}" rel="external" class="social-links__link {{ $input.linkClass }}">
+        <li role="presentation" class="social-links__menu-item">
+            <a
+                href="{{- $input.facebookUrl }}"
+                role="menuitem"
+                aria-label="Facebook"
+                rel="external"
+                class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/facebook.html" }}
             </a>
         </li>
     {{ end }}
 
     {{- if $input.companyUrl }}
-        <li class="social-links__menu-item">
-            <a href="{{- $input.companyUrl }}" rel="external" class="social-links__link {{ $input.linkClass }}">
+        <li role="presentation" class="social-links__menu-item">
+            <a
+                href="{{- $input.companyUrl }}"
+                role="menuitem"
+                aria-label="Company"
+                rel="external"
+                class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/company.html" }}
             </a>
         </li>

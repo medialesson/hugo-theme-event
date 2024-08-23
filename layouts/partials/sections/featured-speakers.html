@@ -9,9 +9,14 @@
         <h2 class="heading heading--2 heading--centered">
             {{ T "section_home_featured_speakers_subtitle" }}
         </h2>
-        <menu class="featured-speakers__menu">
+        <menu
+            class="featured-speakers__menu"
+            role="menu"
+            {{- with (T "section_home_featured_speakers_title") }}
+                aria-label="{{ . }}"
+            {{- end }}>
             {{- range $input.speakers }}
-                <li>
+                <li role="presentation">
                     {{- partial "speaker-card.html" (
                         dict
                         "profileUrl" .profileUrl

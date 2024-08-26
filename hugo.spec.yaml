@@ -17,3 +17,5 @@ params:
                 - Street
                 - City
                 - Country
+            callToAction:
+                enableBanner: true

@@ -5,6 +5,18 @@ on:
         branches: [main]
     pull_request:
         branches: [main]
+        paths-ignore:
+            - '.github/ISSUE_TEMPLATE/**'
+            - '.github/pull_request_template.md'
+            - '.husky/**'
+            - '.vscode/**'
+            - 'docs/**'
+            - '.git*'
+            - '.prettier*'
+            - '*eslint*'
+            - 'CONTRIBUTING.md'
+            - 'LICENSE'
+            - 'README.md'
 
 jobs:
     test:

@@ -21,6 +21,17 @@ various elements that display messages and interactions.
     of the page. To change the text of the banner, overwrite the corresponding
     translations.
 
+## Quick navigation
+
+To enable quick navigation on the home and `/sessions` pages, you need to provide
+additional parameters for main menu items. This feature highlights specific menu
+items to offer users quick access to key pages.
+
+### Parameters
+
+-   `menus.main.params.showAsQuickNavigation`: Boolean flag to show/hide the quick navigation item.
+-   `menus.main.params.description`: Description of the menu item. This text is displayed in the quick navigation.
+
 ## Countdown
 
 The home page displays a countdown that counts down till the start of the event.

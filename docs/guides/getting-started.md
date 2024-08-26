@@ -8,25 +8,43 @@
 ## Installation
 
 1. Open a shell of your choice.
-2. Create a new Hugo site:
+2. Create a new Hugo site. Replace `path` with the name of you website. We
+   recommend YAML to configure Hugo (`--format yaml`).
     ```shell
-    hugo new site [path]
+     hugo new site [path] [--format yaml]
     ```
-3. Switch to the directory of your new site:
+3. Switch to the directory of your new site.
+
     ```shell
     cd [path]
     ```
-4. Clone this repository into the `themes/` directory or add it as submodule:
+
+4. Clone this repository into the `themes/` directory.
 
     ```shell
     git clone https://github.com/medialesson/hugo-theme-event.git themes/event
-
-    # or
-
-    git submodule add git@github.com:medialesson/hugo-theme-event.git themes/event
     ```
 
-5. Add and adapt the following minimal settings to your [Hugo
+    Or add it as submodule, which simplifies updates.
+
+    ```shell
+    git init
+    git submodule add https://github.com/medialesson/hugo-theme-event.git themes/event
+    ```
+
+5. Go to the [endpoint
+   overview](https://sessionize.com/app/organizer/schedule/api/0) of your
+   Sessionize event and create a new endpoint.
+
+    1. As format choose `JSON`.
+    2. Choose which sessions you want to see on your website (`Includes sessions`).
+    3. If you want to use all features of this theme, select the following
+       additional fields.
+        - **Sessions:** Submission fields (Track)
+        - **Sessions:** Include Service Sessions
+        - **Speakers:** Links
+
+6. Add and adapt the following minimal settings to your [Hugo
    configuration](https://gohugo.io/getting-started/configuration/):
     ```yaml
     theme: event
@@ -39,10 +57,10 @@
                 # 👇 Fetch the ID of your event's API endpoint from
                 # 👇 https://sessionize.com/app/organizer/schedule/api/0
                 # 👇 and enter it here.
-                sessionizeId: 123acb56
+                sessionizeId: 67poir7q
     ```
-6. Run Hugo in development mode:
+7. Run Hugo in development mode:
     ```shell
     hugo server
     ```
-7. View your event website on http://localhost:1313/.
+8. View your event website on http://localhost:1313/.

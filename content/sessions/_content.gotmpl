@@ -1,22 +1,28 @@
 {{ .EnableAllLanguages }}
 
 {{ $context := . }}
-{{ with partialCached "sessionize-api/view-all.html" (
-    dict
-    "sessionizeId" $context.Site.Params.themes.event.sessionizeId
-    )
-}}
-    {{ with partial "content-adapters/create-session-content.html" (
+{{ $sessionizeId := $context.Site.Params.themes.event.sessionizeId }}
+
+{{ if (or (eq $sessionizeId nil) (not $sessionizeId)) }}
+    {{ errorf "No Sessionize ID found! Did you set it in the site parameters?" }}
+{{ else }}
+    {{ with partialCached "sessionize-api/view-all.html" (
         dict
-        "sessionize" .
-        "trackCategoryTitle" $context.Site.Params.themes.event.trackCategoryTitle
+        "sessionizeId" $sessionizeId
         )
     }}
-        {{ range .pages }}
-            {{ $.AddPage . }}
-        {{ end }}
-        {{ range .resources }}
-            {{ $.AddResource . }}
+        {{ with partial "content-adapters/create-session-content.html" (
+            dict
+            "sessionize" .
+            "trackCategoryTitle" $context.Site.Params.themes.event.trackCategoryTitle
+            )
+        }}
+            {{ range .pages }}
+                {{ $.AddPage . }}
+            {{ end }}
+            {{ range .resources }}
+                {{ $.AddResource . }}
+            {{ end }}
         {{ end }}
     {{ end }}
 {{ end }}

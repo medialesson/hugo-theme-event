@@ -1,6 +1,7 @@
 languages:
     en:
         languageName: English
+        disabled: true
         params:
             themes:
                 event:
@@ -19,6 +20,7 @@ languages:
                         More information about the event will be added soon. Stay tuned! 🎉
     de:
         languageName: Deutsch
+        disabled: true
         params:
             themes:
                 event:
@@ -46,8 +48,8 @@ params:
             # 👇 and enter it here.
             sessionizeId:
             title: Your Event Title
-            startDate: 2095-06-01
-            endDate: 2095-06-03
+            startDate: 2026-06-01
+            endDate: 2026-06-03
             location: City, Country
             address:
                 - Building

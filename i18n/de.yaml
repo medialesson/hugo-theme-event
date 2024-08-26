@@ -1,47 +1,47 @@
-countdown_days: Tage
-countdown_hours: Stunden
-countdown_minutes: Minuten
-countdown_seconds: Sekunden
-cta_banner_message: Sichern Sie sich jetzt Ihr Ticket!
-cta_button_get_ticket: Jetzt registrieren!
-cta_section_title: Etwas spannendes entdeckt?
-cta_section_subtitle: Registriere dich noch heute!
-cta_section_message: |
+countdown.days: Tage
+countdown.hours: Stunden
+countdown.minutes: Minuten
+countdown.seconds: Sekunden
+cta_banner.message: Sichern Sie sich jetzt Ihr Ticket!
+cta_button.get_ticket: Jetzt registrieren!
+cta_section.heading: Etwas spannendes entdeckt?
+cta_section.subheading: Registriere dich noch heute!
+cta_section.message: |
     Verpasse nicht die Chance, von führenden Expertinnen und Experten zu lernen
     und wertvolle Kontakte zu knüpfen!
-list_speakers_title: Sprecher
-list_sessions_title: Programm
-list_sessions_title_day_filter: Datum
-list_sessions_title_track_filter: Track
-list_sessions_day: Tag {{ . }}
-menu_code_of_conduct: Verhaltenskodex
-menu_about: Über uns
-menu_sessions: Programm
-menu_speakers: Sprecher
-menu_location: Location
-menu_sponsors: Sponsoren & Partner
-miscellaneous_location_title: Unsere Location
-miscellaneous_location_directions_title: Anfahrt
-miscellaneous_sponsors_title_sponsors: Sponsoren
-miscellaneous_sponsors_title_partners: Partner
-miscellaneous_about_title: Über uns
-miscellaneous_about_organizers_title: 'Das Organisationsteam von {{ . }}'
-section_home_conference_tracks_title: Conference Tracks
-section_home_conference_tracks_subtitle: Entdecke unsere Hauptthemen
-section_home_conference_tracks_button: Zum Programm
-section_home_featured_speakers_title: Featured Speakers
-section_home_featured_speakers_subtitle: Triff die Experten
-section_home_featured_speakers_button: Alle Sprecher auf einen Blick
-section_home_our-sponsors_title: Unsere Sponsoren
-section_home_our-sponsors_subtitle: Ein großes Danke an unsere Unterstützer!
-section_home_event_highlights_figures_speaker:
+speakers_page.heading: Sprecher
+sessions_page.heading: Programm
+sessions_page.heading_day_filter: Datum
+sessions_page.heading_track_filter: Track
+sessions_page.day: Tag {{ . }}
+menu.code_of_conduct: Verhaltenskodex
+menu.about: Über uns
+menu.sessions: Programm
+menu.speakers: Sprecher
+menu.location: Location
+menu.sponsors: Sponsoren & Partner
+location_page.heading: Unsere Location
+location_page.directions_heading: Anfahrt
+sponsors_page.heading_sponsors: Sponsoren
+sponsors_page.heading_partners: Partner
+about_page.heading: Über uns
+about_page.organizers_heading: 'Das Organisationsteam von {{ . }}'
+conference_tracks_section.heading: Conference Tracks
+conference_tracks_section.subheading: Entdecke unsere Hauptthemen
+conference_tracks_section.button: Zum Programm
+featured_speakers_section.heading: Featured Speakers
+featured_speakers_section.subheading: Triff die Experten
+featured_speakers_section.button: Alle Sprecher auf einen Blick
+sponsors_section.heading: Unsere Sponsoren
+sponsors_section.subheading: Ein großes Danke an unsere Unterstützer!
+event_highlights_section.number_of_speakers:
     other: '{{ . }} Sprecher'
-section_home_event_highlights_figures_session:
+event_highlights_section.number_of_sessions:
     one: '{{ . }} Session'
     other: '{{ . }} Sessions'
-section_home_event_highlights_figures_day:
+event_highlights_section.number_of_days:
     one: '{{ . }} Tag'
     other: '{{ . }} Tage'
-single_speaker_sessions_by: Sessions von
-single_session_further_sessions: Weitere Sessions
-single_session_further_sessions_from: Weitere Sessions aus
+speaker_page.sessions_by: Sessions von
+session_page.further_sessions: Weitere Sessions
+session_page.further_sessions_from: Weitere Sessions aus

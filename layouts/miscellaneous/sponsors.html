@@ -13,7 +13,7 @@
 
             {{ if gt (len $validSponsors) 0 }}
                 <h1 class="heading heading--1">
-                    {{- T "miscellaneous_sponsors_title_sponsors" }}
+                    {{- T "sponsors_page.heading_sponsors" }}
                 </h1>
                 <ul class="sponsors__list">
                     {{ range $sponsor := $validSponsors }}
@@ -39,7 +39,7 @@
 
             {{ if gt (len $validPartners) 0 }}
                 <h1 class="heading heading--1">
-                    {{- T "miscellaneous_sponsors_title_partners" }}
+                    {{- T "sponsors_page.heading_partners" }}
                 </h1>
                 <ul class="sponsors__list">
                     {{ range $partner := $validPartners }}

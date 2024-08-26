@@ -1,49 +1,49 @@
-countdown_days: Days
-countdown_hours: Hrs
-countdown_minutes: Mins
-countdown_seconds: Secs
-cta_banner_message: Get your ticket now!
-cta_button_get_ticket: Register now!
-cta_section_title: Have you discovered something exciting?
-cta_section_subtitle: Register today!
-cta_section_message: |
+countdown.days: Days
+countdown.hours: Hrs
+countdown.minutes: Mins
+countdown.seconds: Secs
+cta_banner.message: Get your ticket now!
+cta_button.get_ticket: Register now!
+cta_section.heading: Have you discovered something exciting?
+cta_section.subheading: Register today!
+cta_section.message: |
     Don't miss the chance to learn from leading experts and make valuable
     contacts!
 header_featured_speakers: Featured Speakers
-list_speakers_title: Speakers
-list_sessions_title: Schedule
-list_sessions_day: Day {{ . }}
-list_sessions_title_day_filter: Date
-list_sessions_title_track_filter: Track
-menu_code_of_conduct: Code of Conduct
-menu_about: About Us
-menu_sessions: Schedule
-menu_speakers: Speakers
-menu_location: Location
-menu_sponsors: Sponsors & Partners
-miscellaneous_location_title: Our Location
-miscellaneous_location_directions_title: Directions
-miscellaneous_sponsors_title_sponsors: Sponsors
-miscellaneous_sponsors_title_partners: Partners
-miscellaneous_about_title: About Us
-miscellaneous_about_organizers_title: 'The organizing team of {{ . }}'
-section_home_conference_tracks_title: Conference Tracks
-section_home_conference_tracks_subtitle: Discover our Topics
-section_home_conference_tracks_button: Open schedule
-section_home_featured_speakers_title: Featured Speakers
-section_home_featured_speakers_subtitle: Meet the Experts
-section_home_featured_speakers_button: All speakers at a glance
-section_home_our-sponsors_title: Our Sponsors
-section_home_our-sponsors_subtitle: A big thank you to our supporters!
-section_home_event_highlights_figures_speaker:
+speakers_page.heading: Speakers
+sessions_page.heading: Schedule
+sessions_page.day: Day {{ . }}
+sessions_page.heading_day_filter: Date
+sessions_page.heading_track_filter: Track
+menu.code_of_conduct: Code of Conduct
+menu.about: About Us
+menu.sessions: Schedule
+menu.speakers: Speakers
+menu.location: Location
+menu.sponsors: Sponsors & Partners
+location_page.heading: Our Location
+location_page.directions_heading: Directions
+sponsors_page.heading_sponsors: Sponsors
+sponsors_page.heading_partners: Partners
+about_page.heading: About Us
+about_page.organizers_heading: 'The organizing team of {{ . }}'
+conference_tracks_section.heading: Conference Tracks
+conference_tracks_section.subheading: Discover our Topics
+conference_tracks_section.button: Open schedule
+featured_speakers_section.heading: Featured Speakers
+featured_speakers_section.subheading: Meet the Experts
+featured_speakers_section.button: All speakers at a glance
+sponsors_section.heading: Our Sponsors
+sponsors_section.subheading: A big thank you to our supporters!
+event_highlights_section.number_of_speakers:
     one: '{{ . }} Speaker'
     other: '{{ . }} Speakers'
-section_home_event_highlights_figures_session:
+event_highlights_section.number_of_sessions:
     one: '{{ . }} Session'
     other: '{{ . }} Sessions'
-section_home_event_highlights_figures_day:
+event_highlights_section.number_of_days:
     one: '{{ . }} Day'
     other: '{{ . }} Days'
-single_speaker_sessions_by: Sessions by
-single_session_further_sessions: Further Sessions
-single_session_further_sessions_from: Further Sessions from
+speaker_page.sessions_by: Sessions by
+session_page.further_sessions: Further Sessions
+session_page.further_sessions_from: Further Sessions from

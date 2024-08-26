@@ -6,4 +6,7 @@
 -   [ ] I have added tests that prove my fix is effective or that my feature works
 -   [ ] I have checked my code and corrected any misspellings
 -   [ ] My changes generate no new warnings
+-   [ ] My changes are backward compatible
+    -   [ ] I have not changed any parameter names
+    -   [ ] I have not changed any translation keys
 -   [ ] My changes conform to the contributing guidelines (`CONTRIBUTING.md`)

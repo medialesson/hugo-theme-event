@@ -35,12 +35,12 @@
         <section class="section same-track-sessions-section">
             <h1 class="same-track-sessions-section__heading">
                 {{- if page.Params.track }}
-                    {{- T "single_session_further_sessions_from" | upper }}
+                    {{- T "session_page.further_sessions_from" | upper }}
                     <span class="same-track-sessions-section__hashtag">
                         {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
                     </span>
                 {{- else }}
-                    {{- T "single_session_further_sessions" | upper }}
+                    {{- T "session_page.further_sessions" | upper }}
                 {{- end }}
             </h1>
 

@@ -12,7 +12,7 @@
                 {{- else }}
                     class="sidebar-menu__link"
                 {{- end }}>
-                {{- or (T (printf "menu_%s" .Identifier)) .Name }}
+                {{- or (T (printf "menu.%s" .Identifier)) .Name }}
             </a>
         </li>
     {{- end }}

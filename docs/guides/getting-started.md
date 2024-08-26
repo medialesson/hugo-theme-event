@@ -8,21 +8,27 @@
 ## Installation
 
 1. Open a shell of your choice.
-2. Create a new Hugo site:
+2. Create a new Hugo site. Replace `path` with the name of you website. We
+   recommend YAML to configure Hugo (`--format yaml`).
     ```shell
-    hugo new site [path]
+     hugo new site [path] [--format yaml]
     ```
-3. Switch to the directory of your new site:
+3. Switch to the directory of your new site.
+
     ```shell
     cd [path]
     ```
-4. Clone this repository into the `themes/` directory or add it as submodule:
+
+4. Clone this repository into the `themes/` directory.
 
     ```shell
     git clone https://github.com/medialesson/hugo-theme-event.git themes/event
+    ```
 
-    # or
+    Or add it as submodule, which simplifies updates.
 
+    ```shell
+    git init
     git submodule add https://github.com/medialesson/hugo-theme-event.git themes/event
     ```
 
@@ -39,7 +45,7 @@
                 # 👇 Fetch the ID of your event's API endpoint from
                 # 👇 https://sessionize.com/app/organizer/schedule/api/0
                 # 👇 and enter it here.
-                sessionizeId: 123acb56
+                sessionizeId: 67poir7q
     ```
 6. Run Hugo in development mode:
     ```shell

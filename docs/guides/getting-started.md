@@ -32,7 +32,19 @@
     git submodule add https://github.com/medialesson/hugo-theme-event.git themes/event
     ```
 
-5. Add and adapt the following minimal settings to your [Hugo
+5. Go to the [endpoint
+   overview](https://sessionize.com/app/organizer/schedule/api/0) of your
+   Sessionize event and create a new endpoint.
+
+    1. As format choose `JSON`.
+    2. Choose which sessions you want to see on your website (`Includes sessions`).
+    3. If you want to use all features of this theme, select the following
+       additional fields.
+        - **Sessions:** Submission fields (Track)
+        - **Sessions:** Include Service Sessions
+        - **Speakers:** Links
+
+6. Add and adapt the following minimal settings to your [Hugo
    configuration](https://gohugo.io/getting-started/configuration/):
     ```yaml
     theme: event
@@ -47,8 +59,8 @@
                 # 👇 and enter it here.
                 sessionizeId: 67poir7q
     ```
-6. Run Hugo in development mode:
+7. Run Hugo in development mode:
     ```shell
     hugo server
     ```
-7. View your event website on http://localhost:1313/.
+8. View your event website on http://localhost:1313/.

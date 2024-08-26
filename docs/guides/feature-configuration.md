@@ -27,6 +27,10 @@ To enable quick navigation on the home and `/sessions` pages, you need to provid
 additional parameters for main menu items. This feature highlights specific menu
 items to offer users quick access to key pages.
 
+**Note:** A maximum of 4 navigation items can be displayed in the quick navigation
+section. Ensure that only the most important or relevant items are marked for quick
+navigation to optimize the user experience.
+
 ### Parameters
 
 -   `menus.main.params.showAsQuickNavigation`: Boolean flag to show/hide the quick navigation item.

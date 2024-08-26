@@ -23,7 +23,7 @@
 
     # or
 
-    git submodule add git@github.com:medialesson/hugo-theme-event.git themes/event
+    git submodule add https://github.com/medialesson/hugo-theme-event.git themes/event
     ```
 
 5. Add and adapt the following minimal settings to your [Hugo

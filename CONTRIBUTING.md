@@ -38,7 +38,7 @@ breaking changes when refactoring.
     -   Where `[element]` is a descriptive name of one functional part of the
         specific feature like `heading` or `day_filter`. Or, as last resort, the
         English term (e.g., `day`).
--   Key consist only of lower cases and underscores (`_`) and exactly one period (`.`).
+-   Keys consist only of lower cases and underscores (`_`) and exactly one period (`.`).
 -   The key as a whole should be as descriptive as possible. Developers and
     translators should get an idea of where and how the translation is used just by
     the key.

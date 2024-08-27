@@ -7,7 +7,7 @@
         <li role="presentation">
             {{- $title :=  or (T (printf "menu.%s" $item.Identifier)) $item.Name }}
             <a
-                class="secondary-menu__link"
+                class="menu-item__link"
                 href="{{- $item.URL }}"
                 role="menuitem"
                 aria-label="{{ $title }}"

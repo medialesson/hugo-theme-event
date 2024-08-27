@@ -3,8 +3,8 @@
 
 <menu class="sessions-menu">
     {{ range $input.sessions }}
-        <li>
-            <a class="sessions-menu__link" href="{{- .sessionUrl }}">
+        <li role="presentation">
+            <a class="menu-item__link" href="{{- .sessionUrl }}">
                 <h1 class="sessions-menu__heading">{{- .title }}</h1>
                 <div>
                     <div class="sessions-menu__time">

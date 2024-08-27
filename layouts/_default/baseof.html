@@ -164,12 +164,18 @@
 
         <main class="page-main">
             {{ block "main" . }}{{ end }}
-            {{- with .Site.Menus.secondary }}
-                {{- if gt (len .) 0 }}
-                    {{- partial "partials/menus/secondary.html" (dict "menu" .) -}}
-                {{- end }}
-            {{- end }}
         </main>
+
+        {{- with .Site.Menus.secondary }}
+            {{- if gt (len .) 0 }}
+                <nav class="section-container section-container--dimmed">
+                    <section class="section section--long">
+                        {{- partial "partials/menus/secondary.html" (dict "menu" .) -}}
+                    </section>
+                </nav>
+            {{- end }}
+        {{- end }}
+
 
         <footer class="section-container">
             <section class="section section--short page-footer-section">

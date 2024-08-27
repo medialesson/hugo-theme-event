@@ -5,7 +5,7 @@
     {{- range $input.menu }}
         <li>
             <a class="footer-menu__link" href="{{ .URL }}">
-                {{- or (T (printf "menu_%s" .Identifier)) .Name }}
+                {{- or (T (printf "menu.%s" .Identifier)) .Name }}
             </a>
         </li>
     {{- end }}

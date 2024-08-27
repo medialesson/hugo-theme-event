@@ -4,10 +4,10 @@
 <div class="section-container section-container--dimmed">
     <section class="section section--long conference-tracks-section">
         <h1 class="heading heading--highlighted heading--centered">
-            {{ T "section_home_conference_tracks_title" }}
+            {{ T "conference_tracks_section.heading" }}
         </h1>
         <h2 class="heading heading--2 heading--centered">
-            {{ T "section_home_conference_tracks_subtitle" }}
+            {{ T "conference_tracks_section.subheading" }}
         </h2>
         <ol class="conference-tracks-section__list">
             {{- range $input.tracks }}
@@ -19,7 +19,7 @@
 
         {{- with $input.sessionsUrl }}
             <a href="{{ . }}" class="button button--outlined">
-                {{ T "section_home_conference_tracks_button" }}
+                {{ T "conference_tracks_section.button" }}
             </a>
         {{- end }}
     </section>

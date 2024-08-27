@@ -4,7 +4,7 @@
 {{ $sessionizeId := $context.Site.Params.themes.event.sessionizeId }}
 
 {{ if (or (eq $sessionizeId nil) (not $sessionizeId)) }}
-    {{ errorf "No Sessionize ID found! Did you set it in the site parameters?" }}
+    {{ warnf "No Sessionize ID found! Did you set it in the site parameters?" }}
 {{ else }}
     {{ with partialCached "sessionize-api/view-all.html" (
         dict

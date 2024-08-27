@@ -4,15 +4,15 @@
 <div class="section-container">
     <section class="section section--long featured-speakers">
         <h1 class="heading heading--highlighted heading--centered">
-            {{ T "section_home_featured_speakers_title" }}
+            {{ T "featured_speakers_section.heading" }}
         </h1>
         <h2 class="heading heading--2 heading--centered">
-            {{ T "section_home_featured_speakers_subtitle" }}
+            {{ T "featured_speakers_section.subheading" }}
         </h2>
         <menu
             class="featured-speakers__menu"
             role="menu"
-            {{- with (T "section_home_featured_speakers_title") }}
+            {{- with (T "featured_speakers_section.heading") }}
                 aria-label="{{ . }}"
             {{- end }}>
             {{- range $input.speakers }}
@@ -34,7 +34,7 @@
 
         {{- with $input.speakersUrl }}
             <a href="{{ . }}" class="button button--outlined">
-                {{ T "section_home_featured_speakers_button" }}
+                {{ T "featured_speakers_section.button" }}
             </a>
         {{- end }}
     </section>

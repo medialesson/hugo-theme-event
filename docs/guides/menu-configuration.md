@@ -13,7 +13,7 @@ in one place.
 This theme offers a `main` menu and a `footer` menu. You can create menu entries
 for contents created by this theme (see above) and your custom contents (e.g. an
 imprint). When the menus get rendered, this theme tries to translate each menu
-entry by its identifier (`menu_` + identifier). If no translation is available,
+entry by its identifier (`menu.` + identifier). If no translation is available,
 the name of the menu entry will be used.
 
 The following sample demonstrates how to create menu entries with standard Hugo

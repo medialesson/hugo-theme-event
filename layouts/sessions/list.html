@@ -31,18 +31,18 @@
 
     <header class="section-container">
         <div class="section">
-            <h1 class="heading heading--1">{{ T "list_sessions_title" }}</h1>
+            <h1 class="heading heading--1">{{ T "sessions_page.heading" }}</h1>
             <div class="session-list-filters">
                 {{- if gt ($sessionsGroupedByDay | len) 1 }}
                     <article class="session-list-filter">
                         <h2 class="session-list-filter__heading">
-                            {{ T "list_sessions_title_day_filter" }}
+                            {{ T "sessions_page.heading_day_filter" }}
                         </h2>
                         <menu class="session-list-filter__menu">
                             {{- range $index, $element := $sessionsGroupedByDay }}
                                 <li>
                                     <label class="session-list-filter__label" for="filter-day-{{ $index }}">
-                                        {{ T "list_sessions_day" (add $index 1) }}
+                                        {{ T "sessions_page.day" (add $index 1) }}
                                     </label>
                                 </li>
                             {{- end }}
@@ -53,7 +53,7 @@
                 {{- if gt ($sessionsGroupedByTrack | len) 1 }}
                     <article class="session-list-filter">
                         <h2 class="session-list-filter__heading">
-                            {{- T "list_sessions_title_track_filter" }}
+                            {{- T "sessions_page.heading_track_filter" }}
                         </h2>
                         <menu class="session-list-filter__menu">
                             {{- range $index, $element := $sessionsGroupedByTrack }}
@@ -74,7 +74,7 @@
         {{- range $index, $element := $sessionsGroupedByDay }}
             <section class="section session-day-section" data-day="{{ $index }}">
                 <h1 class="heading heading--highlighted">
-                    {{ T "list_sessions_day" (add $index 1) }}
+                    {{ T "sessions_page.day" (add $index 1) }}
                 </h1>
                 <h2 class="heading heading--2">
                     {{ .Key | time.Format ":date_long" }}

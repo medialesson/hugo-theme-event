@@ -1,0 +1,4 @@
+params:
+  themes:
+    event:
+      sessionizeId: test

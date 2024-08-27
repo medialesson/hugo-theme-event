@@ -1,4 +1,4 @@
-.quick-navigation-menu {
+.secondary-menu {
     all: unset;
     list-style: none;
     display: flex;
@@ -7,7 +7,7 @@
     gap: 1.875rem;
 }
 
-.quick-navigation-menu__link {
+.secondary-menu__link {
     all: unset;
     width: 16.25rem;
     cursor: pointer;
@@ -18,14 +18,14 @@
     gap: 2rem;
 }
 
-.quick-navigation-menu__heading {
+.secondary-menu__heading {
     all: unset;
     font-weight: 800;
     font-size: 1.5rem;
     flex-grow: 1;
 }
 
-.quick-navigation-menu__description {
+.secondary-menu__description {
     all: unset;
     display: block;
     font-weight: 400;

@@ -164,6 +164,11 @@
 
         <main class="page-main">
             {{ block "main" . }}{{ end }}
+            {{- with .Site.Menus.secondary }}
+                {{- if gt (len .) 0 }}
+                    {{- partial "partials/menus/secondary.html" (dict "menu" .) -}}
+                {{- end }}
+            {{- end }}
         </main>
 
         <footer class="section-container">

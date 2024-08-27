@@ -4,7 +4,7 @@
 <menu class="secondary-menu" role="menu">
     {{- $firstFour := first 4 $input.menu }}
     {{- range $item := $firstFour }}
-        <li role="presentational">
+        <li role="presentation">
             {{- $title :=  or (T (printf "menu.%s" $item.Identifier)) $item.Name }}
             <a
                 class="secondary-menu__link"

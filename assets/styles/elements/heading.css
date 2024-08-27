@@ -41,3 +41,7 @@
     width: 100%;
     text-align: center;
 }
+
+.heading--embedded {
+    margin-bottom: 0;
+}

@@ -1,4 +1,11 @@
 .paragraph {
     all: unset;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
     margin-bottom: 3.125rem;
+}
+
+.paragraph--embedded {
+    margin-bottom: 0;
 }

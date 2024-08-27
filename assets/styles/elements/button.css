@@ -7,12 +7,27 @@
     font-size: 1rem;
     color: white;
     cursor: pointer;
-    text-wrap: nowrap;
+    white-space: nowrap;
     text-decoration: none;
+    transition:
+        background 0.3s ease,
+        border 0.3s ease;
+}
+
+.button:hover {
+    color: white;
+    background: var(--color-primary-darker);
+    border: 0.0625rem solid var(--color-primary-darker);
 }
 
 .button--outlined {
     background: #ffffff;
     border: 0.0625rem solid var(--color-primary);
     color: var(--color-primary);
+}
+
+.button--outlined:hover {
+    background: #ffffff;
+    color: var(--color-primary-darker);
+    border: 0.0625rem solid var(--color-primary-darker);
 }

@@ -11,6 +11,16 @@ account.
 -   Open a pull request (PR) for your branch.
 -   Consider to update the demo project after your PR was completed.
 
+## Parameters
+
+Parameter names must conform to the following rules to reduce the chance of
+breaking changes when refactoring.
+
+-   Place all parameters under `params.themes.event`.
+-   Place paths to general images under `params.themes.event.images`.
+-   Place colors used as CCS property to `params.themes.event.colors`.
+-   Choose the parameter name wisely! A later modification of a parameter would introduce a breaking change.
+
 ## Styling
 
 All `<style>` elements must be included inside the `<head>` of the
@@ -42,7 +52,7 @@ breaking changes when refactoring.
 -   The key as a whole should be as descriptive as possible. Developers and
     translators should get an idea of where and how the translation is used just by
     the key.
--   Choose your keys wisely! A later modification of a key would introduce a breaking change.
+-   Choose the keys wisely! A later modification of a key would introduce a breaking change.
 -   Avoid technical or framework related terms (e.g., `single`, `list` or `taxonomy`).
 
 ## References

@@ -42,7 +42,8 @@
     {{- $topSpeakers := slice }}
     {{- range (where .Site.Pages "Section" "speakers") }}
         {{- if .Params.isTopSpeaker }}
-            {{- $topSpeakers = $topSpeakers | append ( dict
+            {{- $topSpeakers = $topSpeakers | append (
+                dict
                 "profileUrl" .Permalink
                 "avatarResource" (.Resources.GetMatch "avatar.*")
                 "name" .Title
@@ -55,11 +56,32 @@
         {{- end }}
     {{- end }}
 
-    {{- if gt ($topSpeakers | len) 1 }}
+    {{- if gt ($topSpeakers | len) 0 }}
         {{ partial "sections/featured-speakers.html" (
             dict
             "speakers" $topSpeakers
             "speakersUrl" (.Site.GetPage "speakers").RelPermalink
+            )
+        }}
+    {{- end }}
+
+    {{- $featuredSessions := slice }}
+    {{- range (where .Site.Pages "Section" "sessions") }}
+        {{- if (in .Site.Params.themes.event.featuredSessions .Params.sessionId) }}
+            {{- $featuredSessions = $featuredSessions | append (
+                dict
+                "sessionUrl" .Permalink
+                "sessionName" .Title
+                )
+            }}
+        {{- end }}
+    {{- end }}
+
+    {{- if gt ($featuredSessions | len) 0 }}
+        {{ partial "sections/featured-sessions.html" (
+            dict
+            "sessions" $featuredSessions
+            "sessionsUrl" (.Site.GetPage "sessions").RelPermalink
             )
         }}
     {{- end }}

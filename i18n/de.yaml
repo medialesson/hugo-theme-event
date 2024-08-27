@@ -32,6 +32,8 @@ conference_tracks_section.action: Zum Programm
 featured_speakers_section.heading: Featured Speakers
 featured_speakers_section.subheading: Triff die Experten
 featured_speakers_section.action: Alle Sprecher auf einen Blick
+featured_sessions_section.heading: Featured Sessions
+featured_sessions_section.action: Alle Sessions
 sponsors_section.heading: Unsere Sponsoren
 sponsors_section.subheading: Ein großes Danke an unsere Unterstützer!
 event_highlights_section.number_of_speakers:

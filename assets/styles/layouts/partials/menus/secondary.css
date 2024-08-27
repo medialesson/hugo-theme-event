@@ -1,0 +1,23 @@
+.secondary-menu {
+    all: unset;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 1.875rem;
+}
+
+.secondary-menu__link {
+    all: unset;
+    width: 16.25rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+    gap: 2rem;
+}
+
+.secondary-menu__description {
+    flex-grow: 2;
+}

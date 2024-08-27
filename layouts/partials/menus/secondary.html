@@ -1,14 +1,18 @@
 {{ $input := . }}
 
 
-<menu class="secondary-menu">
+<menu class="secondary-menu" role="menu">
     {{- $firstFour := first 4 $input.menu }}
     {{- range $item := $firstFour }}
-        <li>
-            <a class="secondary-menu__link" href="{{- $item.URL }}">
-                <h1 class="heading heading--3 heading--embedded">
-                    {{- or (T (printf "menu.%s" $item.Identifier)) $item.Name }}
-                </h1>
+        <li role="presentational">
+            {{- $title :=  or (T (printf "menu.%s" $item.Identifier)) $item.Name }}
+            <a
+                class="secondary-menu__link"
+                href="{{- $item.URL }}"
+                role="menuitem"
+                aria-label="{{ $title }}"
+                aria-details="{{- $item.Params.description | plainify }}">
+                <h1 class="heading heading--3 heading--embedded">{{- $title }}</h1>
                 <div class="secondary-menu__description">
                     <p class="paragraph paragraph-embedded">
                         {{- $item.Params.description | markdownify }}

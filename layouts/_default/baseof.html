@@ -168,8 +168,8 @@
 
         {{- with .Site.Menus.secondary }}
             {{- if gt (len .) 0 }}
-                <nav class="section-container section-container--dimmed">
-                    <section class="section section--long">
+                <nav class="section-container section-container--dimmed" aria-label="Secondary">
+                    <section class="section section--long" role="presentation">
                         {{- partial "partials/menus/secondary.html" (dict "menu" .) -}}
                     </section>
                 </nav>

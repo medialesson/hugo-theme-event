@@ -64,7 +64,10 @@
                                 {{ $session.sessionName }}
                             </h2>
                             <p class="paragraph paragraph--highlighted featured-sessions-section__session-description">
-                                {{ $session.sessionDescription }}
+                                {{ substr $session.sessionDescription 0 350 }} ...
+                                <a href="{{ $session.sessionUrl }}" class="link link--white">
+                                    {{ T "featured_sessions_section.read_more" | lower }}
+                                </a>
                             </p>
                             <div class="featured-sessions-section__carousel-buttons" aria-hidden="true">
                                 <button

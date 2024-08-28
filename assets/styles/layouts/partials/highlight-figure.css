@@ -4,7 +4,14 @@
     flex-direction: column;
     align-items: center;
     width: 16.875rem;
-    position: relative; /* Position relative to place the dashed line */
+    gap: 2rem;
+    position: relative;
+}
+
+.highlight-figure__image-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .highlight-figure__image {
@@ -24,21 +31,17 @@
 }
 
 /* Create the dashed line between images */
-.highlight-figure::after {
+.highlight-figure__image-wrapper::after {
     content: '';
     position: absolute;
-    top: 50%;
-    right: -1rem;
-    width: 2rem;
+    top: 50%; /* Center the line vertically relative to the image */
+    left: 100%; /* Position to the right of the image */
+    width: 6rem; /* Length of the dashed line */
     border-top: 2px dashed var(--color-primary); /* Dashed line */
-    transform: translateX(50%);
+    transform: translateX(50%); /* Center the line horizontally */
 }
 
-.highlight-figure:last-of-type::after {
+/* Hide the dashed line for the last item */
+.highlight-figure:last-of-type .highlight-figure__image-wrapper::after {
     display: none;
-}
-
-/* Spacing between images */
-.highlight-figure + .highlight-figure {
-    margin-left: 2rem;
 }

@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 3.75rem;
 }
 
 .featured-sessions-section__carousel {
@@ -28,16 +29,58 @@
     flex-shrink: 0;
     width: 100%;
     scroll-snap-align: center;
+    display: flex;
+    gap: 2rem;
 }
 
-.featured-sessions-section__link {
+.featured-sessions-section__speakers {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (width < 768px) {
+    .featured-sessions-section__speakers {
+        display: none;
+    }
+}
+
+.featured-sessions-section__avatar {
+    all: unset;
+    display: block;
+    max-width: 21.125rem;
+    flex: 50%;
+}
+
+.featured-sessions-section__avatar--first {
+    flex: 53%;
+}
+
+.featured-sessions-section__avatar--second {
+    flex: 47%;
+    margin-top: 9rem;
+}
+
+.featured-sessions-section__avatar-caption {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.featured-sessions-section__session {
+    flex: 50%;
+    height: 40rem;
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
+}
+
+.featured-sessions-section__session-description {
+    flex-grow: 1;
 }
 
 .featured-sessions-section__carousel-buttons {
     display: flex;
     gap: 1.25rem;
-    padding-left: 1.875rem;
     padding-bottom: 1.875rem;
 }

@@ -1,16 +1,10 @@
 .highlight-figure {
     all: unset;
-    width: 16.875rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-}
-
-.highlight-figure__caption {
-    font-weight: 600;
-    text-align: center;
-    font-size: 1.5rem;
+    width: 16.875rem;
+    position: relative; /* Position relative to place the dashed line */
 }
 
 .highlight-figure__image {
@@ -20,4 +14,31 @@
     background-color: var(--color-primary);
     border-radius: 1.25rem;
     padding: 1.75rem;
+}
+
+.highlight-figure__caption {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Create the dashed line between images */
+.highlight-figure::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    width: 2rem;
+    border-top: 2px dashed var(--color-primary); /* Dashed line */
+    transform: translateX(50%);
+}
+
+.highlight-figure:last-of-type::after {
+    display: none;
+}
+
+/* Spacing between images */
+.highlight-figure + .highlight-figure {
+    margin-left: 2rem;
 }

@@ -179,6 +179,11 @@
 .page-footer-section__social-link {
     opacity: 0.2;
     color: var(--color-secondary-darker);
+    transition: border 0.3s ease;
+}
+
+.page-footer-section__social-link:hover {
+    opacity: 0.4;
 }
 
 .page-footer-section__end {

@@ -9,6 +9,12 @@
     border-radius: 0.3125rem;
     border: 0.0625rem solid var(--color-primary);
     box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
+    transition: border 0.3s ease;
+}
+
+.speaker-card:hover {
+    border: 0.1875rem solid var(--color-primary);
+    box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
 }
 
 .speaker-card__link {
@@ -55,7 +61,32 @@
 }
 
 .speaker-card__social-link {
-    color: var(--color-secondary-darker);
+    color: var(--color-primary);
     font-size: 1.125rem;
+    padding: 0.25rem;
+    opacity: 0.5;
+    transition: border 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.speaker-card__social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    z-index: -1;
+    transition: border 0.3s ease;
+}
+
+.speaker-card__social-link:hover::before {
+    background-color: var(--color-primary-lighter);
     opacity: 0.2;
+}
+
+.speaker-card__social-link:hover {
+    opacity: 1;
 }

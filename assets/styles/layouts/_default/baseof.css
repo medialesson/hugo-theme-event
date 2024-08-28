@@ -77,6 +77,12 @@
 .page-sidebar__social-link {
     color: white;
     font-size: 2.375rem;
+    transition: transform 0.3s ease;
+}
+
+.page-sidebar__social-link:hover,
+.page-sidebar__social-link:active {
+    transform: scale(1.2);
 }
 
 .page-sidebar__made-by-link {
@@ -179,7 +185,7 @@
 .page-footer-section__social-link {
     opacity: 0.2;
     color: var(--color-secondary-darker);
-    transition: border 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .page-footer-section__social-link:hover {
@@ -190,6 +196,21 @@
     opacity: 0.7;
 }
 
+.page-footer-section__end:hover {
+    opacity: 1;
+}
+
 .page-footer-section__made-by-link {
     color: #0000004d;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }

@@ -24,10 +24,14 @@
     background: #ffffff;
     border: 0.0625rem solid var(--color-primary);
     color: var(--color-primary);
+    transition:
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .button--outlined:hover {
     background: #ffffff;
     color: var(--color-primary-darker);
-    border: 0.0625rem solid var(--color-primary-darker);
+    box-shadow: 0 0 0 0.025rem var(--color-primary);
+    border: 0.0625rem solid var(--color-primary);
 }

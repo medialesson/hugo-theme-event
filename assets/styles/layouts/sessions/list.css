@@ -50,13 +50,14 @@
     -webkit-user-select: none;
     user-select: none;
     transition:
-        border 0.3s ease,
-        color 0.3s ease;
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .session-list-filter__label:hover {
-    border: 0.0625rem solid var(--color-primary-darker);
     color: var(--color-primary-darker);
+    box-shadow: 0 0 0 0.025rem var(--color-primary);
+    border: 0.0625rem solid var(--color-primary);
 }
 
 .session-filter-input {

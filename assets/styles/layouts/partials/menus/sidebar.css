@@ -11,6 +11,7 @@
     transition: padding 0.3s ease;
 }
 
+.sidebar-menu__item:active,
 .sidebar-menu__item:hover {
     border-bottom: none;
     padding-left: 0.5rem;
@@ -33,6 +34,7 @@
     position: relative; /* Position relative for the pseudo-element */
 }
 
+.sidebar-menu__item:active::before,
 .sidebar-menu__item:hover::before {
     content: '';
     position: absolute;

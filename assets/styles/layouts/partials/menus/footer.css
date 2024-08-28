@@ -15,3 +15,7 @@
     font-size: 1rem;
     line-height: 1.5rem;
 }
+
+.footer-menu__link:hover {
+    color: var(--color-primary-darkest);
+}

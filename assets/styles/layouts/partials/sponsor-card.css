@@ -8,7 +8,16 @@
     justify-content: center; /* Center content vertically and horizontally */
     border-radius: 0.3125rem;
     border: 0.0625rem solid var(--color-primary);
-    box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
+    box-shadow:
+        0 0 0 0 var(--color-primary),
+        0 0.0625rem 0.1875rem var(--color-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+.sponsor-card:hover {
+    box-shadow:
+        0 0 0 0.1875rem var(--color-primary),
+        0 0.0625rem 0.1875rem var(--color-shadow);
 }
 
 .sponsor-card__link {

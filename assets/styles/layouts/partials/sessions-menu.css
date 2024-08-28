@@ -7,17 +7,6 @@
     gap: 1.875rem;
 }
 
-.sessions-menu__link {
-    all: unset;
-    width: 16.25rem;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    height: 100%;
-    gap: 2rem;
-}
-
 .sessions-menu__heading {
     all: unset;
     font-weight: 800;

@@ -7,6 +7,14 @@
 
 .sidebar-menu__item {
     all: unset;
+    position: relative;
+    transition: padding 0.3s ease;
+}
+
+.sidebar-menu__item:active,
+.sidebar-menu__item:hover {
+    border-bottom: none;
+    padding-left: 0.5rem;
 }
 
 .sidebar-menu__item:not(:last-child) {
@@ -23,4 +31,17 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 1.125rem;
+    position: relative; /* Position relative for the pseudo-element */
+}
+
+.sidebar-menu__item:active::before,
+.sidebar-menu__item:hover::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -4px;
+    right: -4px;
+    bottom: -2px;
+    border: 2px solid white;
+    z-index: 0; /* Ensure it goes below the link */
 }

@@ -8,6 +8,15 @@
     border-radius: 0.75rem;
     border: 0.125rem solid var(--color-primary);
     cursor: pointer;
+    transition:
+        outline 0.3s ease,
+        box-shadow 0.3s ease;
+    outline: 0 solid transparent;
+}
+
+.event-row:hover {
+    outline: 0.0625rem solid var(--color-primary);
+    box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
 }
 
 @media (width <= 576px) {
@@ -24,6 +33,11 @@
     .event-row__avatars {
         display: none;
     }
+}
+
+.event-row--service-session:hover {
+    outline: 0 solid transparent;
+    box-shadow: none;
 }
 
 .event-row__track {

@@ -113,3 +113,26 @@
         padding-bottom: 1.375rem;
     }
 }
+
+/**
+ * .sr-only
+ *
+ * Purpose:
+ * The .sr-only class is designed to hide elements visually while keeping them accessible to screen readers.
+ * This ensures that additional content or context can be provided to users with assistive technologies
+ * without disrupting the visual design of the page.
+ *
+ * Usage:
+ * - Apply this class to elements that should only be accessible via screen readers, such as additional
+ *   descriptions, instructions, or labels meant for assistive technology users.
+ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

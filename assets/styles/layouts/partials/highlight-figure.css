@@ -45,3 +45,9 @@
 .highlight-figure:last-of-type .highlight-figure__image-wrapper::after {
     display: none;
 }
+
+@media (width <= 1250px) {
+    .highlight-figure__image-wrapper::after {
+        display: none;
+    }
+}

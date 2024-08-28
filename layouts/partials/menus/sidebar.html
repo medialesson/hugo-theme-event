@@ -4,8 +4,9 @@
 <menu class="sidebar-menu">
     {{- $currentNode := $input.context }}
     {{- range $input.menu }}
-        <li class="sidebar-menu__item">
+        <li role="presentation" class="sidebar-menu__item">
             <a
+                role="menuitem"
                 href="{{ .URL }}"
                 {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
                     class="sidebar-menu__link sidebar-menu__link--active"

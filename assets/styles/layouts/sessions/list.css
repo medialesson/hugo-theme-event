@@ -49,6 +49,14 @@
     font-weight: 500;
     -webkit-user-select: none;
     user-select: none;
+    transition:
+        border 0.3s ease,
+        color 0.3s ease;
+}
+
+.session-list-filter__label:hover {
+    border: 0.0625rem solid var(--color-primary-darker);
+    color: var(--color-primary-darker);
 }
 
 .session-filter-input {
@@ -84,6 +92,22 @@
     color: white;
 }
 
+/* Hover effect for selected day filter labels */
+[value='day-0'].session-filter-input:checked ~ * [for='filter-day-0']:hover,
+[value='day-1'].session-filter-input:checked ~ * [for='filter-day-1']:hover,
+[value='day-2'].session-filter-input:checked ~ * [for='filter-day-2']:hover,
+[value='day-3'].session-filter-input:checked ~ * [for='filter-day-3']:hover,
+[value='day-4'].session-filter-input:checked ~ * [for='filter-day-4']:hover,
+[value='day-5'].session-filter-input:checked ~ * [for='filter-day-5']:hover,
+[value='day-6'].session-filter-input:checked ~ * [for='filter-day-6']:hover,
+[value='day-7'].session-filter-input:checked ~ * [for='filter-day-7']:hover,
+[value='day-8'].session-filter-input:checked ~ * [for='filter-day-8']:hover,
+[value='day-9'].session-filter-input:checked ~ * [for='filter-day-9']:hover {
+    background-color: var(--color-primary);
+    border: 0.0625rem solid var(--color-primary);
+    color: white;
+}
+
 /* Hide sessions of not selected tracks. */
 [value='track-0'].session-filter-input:not(:checked) ~ * [data-track='0'],
 [value='track-1'].session-filter-input:not(:checked) ~ * [data-track='1'],
@@ -110,5 +134,21 @@
 [value='track-8'].session-filter-input:checked ~ * [for='filter-track-8'],
 [value='track-9'].session-filter-input:checked ~ * [for='filter-track-9'] {
     background-color: var(--color-primary-lighter);
+    color: white;
+}
+
+/* Hover effect for selected day track filter */
+[value='track-0'].session-filter-input:checked ~ * [for='filter-track-0']:hover,
+[value='track-1'].session-filter-input:checked ~ * [for='filter-track-1']:hover,
+[value='track-2'].session-filter-input:checked ~ * [for='filter-track-2']:hover,
+[value='track-3'].session-filter-input:checked ~ * [for='filter-track-3']:hover,
+[value='track-4'].session-filter-input:checked ~ * [for='filter-track-4']:hover,
+[value='track-5'].session-filter-input:checked ~ * [for='filter-track-5']:hover,
+[value='track-6'].session-filter-input:checked ~ * [for='filter-track-6']:hover,
+[value='track-7'].session-filter-input:checked ~ * [for='filter-track-7']:hover,
+[value='track-8'].session-filter-input:checked ~ * [for='filter-track-8']:hover,
+[value='track-9'].session-filter-input:checked ~ * [for='filter-track-9']:hover {
+    background-color: var(--color-primary);
+    border: 0.0625rem solid var(--color-primary);
     color: white;
 }

@@ -8,13 +8,16 @@
     justify-content: space-between;
     border-radius: 0.3125rem;
     border: 0.0625rem solid var(--color-primary);
-    box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
-    transition: border 0.3s ease;
+    box-shadow:
+        0 0 0 0 var(--color-primary),
+        0 0.0625rem 0.1875rem var(--color-shadow);
+    transition: box-shadow 0.3s ease;
 }
 
 .speaker-card:hover {
-    border: 0.1875rem solid var(--color-primary);
-    box-shadow: 0 0.0625rem 0.1875rem 0 var(--color-shadow);
+    box-shadow:
+        0 0 0 0.1875rem var(--color-primary),
+        0 0.0625rem 0.1875rem var(--color-shadow);
 }
 
 .speaker-card__link {

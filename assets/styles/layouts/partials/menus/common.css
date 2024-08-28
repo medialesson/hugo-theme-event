@@ -19,10 +19,15 @@
     box-shadow: 0 0 0 0.0625rem var(--color-primary);
 }
 
-.menu-item__link svg path {
-    transition: stroke 0.3s ease;
+.menu-item__link:hover {
+    box-shadow: 0 0 0 0.0625rem var(--color-primary);
+
+    .menu-item__icon {
+        color: var(--color-primary);
+    }
 }
 
-.menu-item__link:hover svg path {
-    stroke: var(--color-primary);
+.menu-item__icon {
+    color: #1c2033;
+    transition: color 0.3s ease;
 }

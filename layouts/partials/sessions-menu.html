@@ -14,7 +14,9 @@
                         {{- partial "elements/hashtag.html" (dict "hashtag" .track) }}
                     </div>
                 </div>
-                {{- partial "graphics/vector.html" -}}
+                <div class="menu-item__icon">
+                    {{- partial "graphics/vector.html" -}}
+                </div>
             </a>
         </li>
     {{ end }}

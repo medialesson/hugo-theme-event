@@ -3,14 +3,47 @@
 
 <div class="section-container section-container--highlighted">
     <section class="section section--long featured-sessions-section">
-        {{- range $input.sessions }}
-            <h1 class="heading heading--centered">
-                {{ T "featured_sessions_section.heading" }}
-            </h1>
-            <h2 class="heading heading--centered">
-                {{ .sessionName }}
-            </h2>
-        {{- end }}
+        <div class="featured-sessions-section__carousel">
+            <menu class="featured-sessions-section__list" role="menu">
+                {{- range $index, $session := $input.sessions }}
+                    <li id="featuredSession{{ $index }}" class="featured-sessions-section__list-item" role="presentation">
+                        <a class="featured-sessions-section__link" role="menuitem">
+                            <h1 class="heading">
+                                {{ T "featured_sessions_section.heading" }}
+                            </h1>
+                            <h2 class="heading heading--2">
+                                {{ $session.sessionName }}
+                            </h2>
+                        </a>
+                        <div class="featured-sessions-section__carousel-buttons" aria-hidden="true">
+                            <button
+                                {{- if le $index 0 }}
+                                    disabled class="button button--outlined button--round button--disabled"
+                                {{- else }}
+                                    class="button button--outlined button--round"
+                                    onclick="scrollFeaturedSessionIntoView('{{ sub $index 1 }}')"
+                                {{- end }}>
+                                <div class="button__icon">
+                                    {{ partial "graphics/arrow-left.html" }}
+                                </div>
+                            </button>
+                            <button
+                                {{- if ge $index (sub (len $input.sessions) 1) }}
+                                    disabled class="button button--outlined button--round button--disabled"
+                                {{- else }}
+                                    class="button button--outlined button--round"
+                                    onclick="scrollFeaturedSessionIntoView('{{ add $index 1 }}')"
+                                {{- end }}
+                                >
+                                <div class="button__icon">
+                                    {{ partial "graphics/arrow-right.html" }}
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                {{- end }}
+            </menu>
+        </div>
 
         {{- with $input.sessionsUrl }}
             <a href="{{ . }}" class="button button--outlined">
@@ -19,3 +52,10 @@
         {{- end }}
     </section>
 </div>
+
+<script>
+    function scrollFeaturedSessionIntoView(index) {
+        const featuredSession = document.getElementById(`featuredSession${index}`);
+        featuredSession.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+    }
+</script>

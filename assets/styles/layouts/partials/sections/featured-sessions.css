@@ -4,3 +4,40 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.featured-sessions-section__carousel {
+    width: 100%;
+}
+
+.featured-sessions-section__list {
+    all: unset;
+    list-style: none;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.featured-sessions-section__list::-webkit-scrollbar {
+    display: none;
+}
+
+.featured-sessions-section__list-item {
+    all: unset;
+    flex-shrink: 0;
+    width: 100%;
+    scroll-snap-align: center;
+}
+
+.featured-sessions-section__link {
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-sessions-section__carousel-buttons {
+    display: flex;
+    gap: 1.25rem;
+    padding-left: 1.875rem;
+    padding-bottom: 1.875rem;
+}

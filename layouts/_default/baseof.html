@@ -180,7 +180,9 @@
         <footer class="section-container">
             <section class="section section--short page-footer-section">
                 <div class="page-footer-section__start">
-                    <select class="select" name="language" onchange="location = this.value;">
+                    <!-- Label for assistive technologies only -->
+                    <label for="language-select" class="sr-only">Select Language</label>
+                    <select id="language-select" class="select" name="language" onchange="location = this.value;">
                         {{ range $.Site.Home.AllTranslations }}
                             <option
                                 value="{{ .RelPermalink }}"

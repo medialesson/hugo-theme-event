@@ -1,0 +1,33 @@
+.menu-item__link {
+    all: unset;
+    width: 16rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+    gap: 2rem;
+    padding: 1rem 0.5rem;
+    box-sizing: border-box;
+    transition:
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+    border: 0.0625rem solid transparent;
+}
+
+.menu-item__link:hover {
+    box-shadow: 0 0 0 0.0625rem var(--color-primary);
+}
+
+.menu-item__link:hover {
+    box-shadow: 0 0 0 0.0625rem var(--color-primary);
+
+    .menu-item__icon {
+        color: var(--color-primary);
+    }
+}
+
+.menu-item__icon {
+    color: #1c2033;
+    transition: color 0.3s ease;
+}

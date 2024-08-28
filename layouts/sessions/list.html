@@ -40,7 +40,7 @@
                         </h2>
                         <menu class="session-list-filter__menu">
                             {{- range $index, $element := $sessionsGroupedByDay }}
-                                <li>
+                                <li role="presentation">
                                     <label class="session-list-filter__label" for="filter-day-{{ $index }}">
                                         {{ T "sessions_page.day" (add $index 1) }}
                                     </label>
@@ -57,7 +57,7 @@
                         </h2>
                         <menu class="session-list-filter__menu">
                             {{- range $index, $element := $sessionsGroupedByTrack }}
-                                <li>
+                                <li role="presentation">
                                     <label class="session-list-filter__label" for="filter-track-{{ $index }}">
                                         #{{- $element.Key | upper }}
                                     </label>
@@ -87,6 +87,7 @@
                         {{- range .Pages }}
                             {{- $page := . }}
                             <li
+                                role="presentation"
                                 {{- if .Params.track }}
                                     data-track="{{ (index $sessionTrackIndices .Params.track) }}"
                                 {{- end }}>

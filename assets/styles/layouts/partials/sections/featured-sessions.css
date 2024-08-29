@@ -15,7 +15,9 @@
     list-style: none;
     display: flex;
     overflow-x: scroll;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -69,7 +71,7 @@
 
 .featured-sessions-section__session {
     flex: 50%;
-    height: 40rem;
+    min-height: 40rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -83,4 +85,10 @@
     display: flex;
     gap: 1.25rem;
     padding-bottom: 1.875rem;
+}
+
+@media (width < 768px) {
+    .featured-sessions-section__carousel-buttons {
+        justify-content: center;
+    }
 }

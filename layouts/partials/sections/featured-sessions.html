@@ -64,7 +64,7 @@
                                 {{ $session.sessionName }}
                             </h2>
                             <p class="paragraph paragraph--highlighted featured-sessions-section__session-description">
-                                {{ substr $session.sessionDescription 0 350 }} ...
+                                {{ substr $session.sessionDescription 0 200 }}...
                                 <a href="{{ $session.sessionUrl }}" class="link link--white">
                                     {{ T "featured_sessions_section.read_more" | lower }}
                                 </a>

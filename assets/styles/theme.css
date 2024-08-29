@@ -46,6 +46,10 @@
     initial-value: #a6afc366;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     font-family: 'Inter';
     color: var(--color-primary-darkest);

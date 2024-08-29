@@ -11,7 +11,7 @@ creates various contents and offers the following features.
 -   Eye-catching home page with:
     -   Countdown
     -   Key figures
-    -   Top speakers
+    -   Highlighted speakers and sessions
     -   Sponsors
 -   Eventbrite integration
 -   Map integration

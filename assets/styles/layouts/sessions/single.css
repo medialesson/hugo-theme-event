@@ -1,3 +1,12 @@
+.single-session-section-container {
+    display: flex;
+    gap: 3rem;
+}
+
+.single-session-section-spacer {
+    flex: 21.8125rem;
+}
+
 .single-session-section,
 .same-track-sessions-section {
     display: flex;
@@ -27,6 +36,18 @@
 
 .single-session-section__content {
     all: unset;
+}
+
+.single-session-speaker-menu {
+    all: unset;
+    display: block;
+    list-style: none;
+}
+
+.single-session-speaker-menu__list-item {
+    display: flex;
+    align-items: start;
+    gap: 3rem;
 }
 
 .same-track-sessions-section__heading {

@@ -1,18 +1,53 @@
 {{ define "main" }}
     <div class="section-container">
-        <section class="section single-session-section">
-            <h1 class="single-session-section__heading">
-                <div class="single-session-section__metadata">
-                    {{- if page.Params.track }}
-                        <span class="single-session-section__hashtag">
-                            {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
-                        </span>
-                    {{- end }}
-                    {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
+        <section class="section ">
+            <div class="single-session-section-container">
+                <div class="single-session-section-spacer"></div>
+                <div class="single-session-section">
+                    <h1 class="single-session-section__heading">
+                        <div class="single-session-section__metadata">
+                            {{- if page.Params.track }}
+                                <span class="single-session-section__hashtag">
+                                    {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+                                </span>
+                            {{- end }}
+                            {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
+                        </div>
+                        {{- page.Title -}}
+                    </h1>
+                    <p class="single-session-section__content">{{- page.RawContent }}</p>
                 </div>
-                {{- page.Title -}}
-            </h1>
-            <p class="single-session-section__content">{{- page.RawContent }}</p>
+            </div>
+        </section>
+        <section class="section">
+            <menu class="single-session-speaker-menu">
+                {{- range (where .Site.Pages "Section" "speakers") }}
+                    {{- if (in page.Params.speakerIds .Params.speakerId) }}
+                        {{- $speakerPage := . }}
+                        <li class="single-session-speaker-menu__list-item">
+                            <div>
+                                {{- partial "speaker-avatar.html" (
+                                    dict
+                                    "avatarResource" ($speakerPage.Resources.GetMatch "avatar.*")
+                                    "avatarAlt" $speakerPage.Title
+                                    "linkedinUrl" $speakerPage.Params.linkedinUrl
+                                    "xUrl" $speakerPage.Params.xUrl
+                                    "companyUrl" $speakerPage.Params.company
+                                    )
+                                }}
+                            </div>
+                            <div>
+                                <h1 class="heading heading--2">{{ T "sessions_page.speaker" }}</h1>
+                                <h2 class="heading heading--4 heading--embedded">
+                                    {{ $speakerPage.Title }}
+                                </h2>
+                                <p class="paragraph">{{ $speakerPage.Params.tagLine }}</p>
+                                <p class="paragraph">{{ $speakerPage.RawContent }}</p>
+                            </div>
+                        </li>
+                    {{- end }}
+                {{- end }}
+            </menu>
         </section>
     </div>
 

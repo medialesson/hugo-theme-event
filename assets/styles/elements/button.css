@@ -37,10 +37,9 @@
 }
 
 .button--round {
-    width: 3.75rem;
-    height: 3.75rem;
     border-radius: 50%;
-    padding: 0;
+    padding: 1.25rem;
+    aspect-ratio: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;

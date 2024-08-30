@@ -9,12 +9,14 @@
         )
     }}
 
-    {{- partial "social-links.html" (
-        dict
-        "linkedinUrl" $input.linkedinUrl
-        "xUrl" $input.xUrl
-        "companyUrl" $input.companyUrl
-        "linkClass" "speaker-avatar-container__social-link"
-        )
-    }}
+    {{- if (or $input.linkedinUrl $input.xUrl $input.companyUrl) }}
+        {{- partial "social-links.html" (
+            dict
+            "linkedinUrl" $input.linkedinUrl
+            "xUrl" $input.xUrl
+            "companyUrl" $input.companyUrl
+            "linkClass" "speaker-avatar-container__social-link"
+            )
+        }}
+    {{- end }}
 </article>

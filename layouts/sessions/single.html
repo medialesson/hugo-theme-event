@@ -20,6 +20,7 @@
             </div>
         </section>
         <section class="section">
+            <h1 class="heading heading--2">{{ T "sessions_page.speaker" }}</h1>
             <menu class="single-session-speaker-menu">
                 {{- range (where .Site.Pages "Section" "speakers") }}
                     {{- if (in page.Params.speakerIds .Params.speakerId) }}
@@ -37,7 +38,6 @@
                                 }}
                             </div>
                             <div class="single-session-speaker-menu__speaker">
-                                <h1 class="heading heading--2">{{ T "sessions_page.speaker" }}</h1>
                                 <h2 class="heading heading--4 heading--embedded">
                                     {{ $speakerPage.Title }}
                                 </h2>

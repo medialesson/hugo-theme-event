@@ -2,7 +2,11 @@
 
 
 <div class="section-container">
-    <section class="section section--long featured-speakers">
+    <section
+        class="section section--long featured-speakers"
+        {{ with T "featured_speakers_section.heading" }}
+            aria-label="{{ . }}"
+        {{ end }}>
         <h1 class="heading heading--highlighted heading--centered">
             {{ T "featured_speakers_section.heading" }}
         </h1>
@@ -16,7 +20,7 @@
                 aria-label="{{ . }}"
             {{- end }}>
             {{- range $input.speakers }}
-                <li role="presentation">
+                <li role="menuitem" aria-label="{{ .name }}">
                     {{- partial "speaker-card.html" (
                         dict
                         "profileUrl" .profileUrl

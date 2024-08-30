@@ -1,13 +1,13 @@
 .shaped-image {
     position: relative;
-    width: 21.8125rem;
-    height: 28.6875rem;
+    aspect-ratio: 0.7612612613;
+    width: 100%;
 }
 
 .shaped-image__figure {
     all: unset;
-    width: 4.75rem;
-    height: 4.75rem;
+    display: block;
+    width: 20%;
 }
 
 .shaped-image__figure > svg {
@@ -16,10 +16,17 @@
 
 .shaped-image__image {
     position: absolute;
-    top: 2.4375rem;
-    left: 2.4375rem;
-    width: 19.375rem;
-    height: 26.25rem;
+    left: 10%;
+    width: 90%;
+    height: calc(100% - (10% * 0.7612612613));
+    top: calc(10% * 0.7612612613);
     border-radius: 0 3.125rem;
     object-fit: cover;
+}
+
+.shaped-image__image--no-dotted-square {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

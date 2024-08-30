@@ -28,3 +28,6 @@ params:
                 - Country
             callToAction:
                 enableBanner: true
+            featuredSessions:
+                - '729576'
+                - '729579'

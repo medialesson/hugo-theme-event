@@ -1,3 +1,7 @@
 .link {
     color: var(--color-primary);
 }
+
+.link--white {
+    color: white;
+}

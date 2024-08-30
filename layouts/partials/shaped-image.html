@@ -2,12 +2,19 @@
 
 
 <article class="shaped-image">
-    <figure class="shaped-image__figure">
-        {{- partial "graphics/dotted-square.html" }}
-    </figure>
+    {{- if not $input.hideDottedSquare }}
+        <figure class="shaped-image__figure">
+            {{- partial "graphics/dotted-square.html" }}
+        </figure>
+    {{- end }}
+
 
     <img
-        class="shaped-image__image"
+        {{- if $input.hideDottedSquare }}
+            class="shaped-image__image shaped-image__image--no-dotted-square"
+        {{- else }}
+            class="shaped-image__image"
+        {{- end }}
         {{- with $input.imageResource }}
             src="{{ .RelPermalink }}"
         {{- else }}

@@ -9,3 +9,9 @@
 .paragraph--embedded {
     margin-bottom: 0;
 }
+
+.paragraph--highlighted {
+    line-height: 2.5rem;
+    font-size: 1.25rem;
+    font-style: italic;
+}

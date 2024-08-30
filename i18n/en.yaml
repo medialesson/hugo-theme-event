@@ -30,10 +30,13 @@ about_page.heading: About Us
 about_page.organizers_heading: 'The organizing team of {{ . }}'
 conference_tracks_section.heading: Conference Tracks
 conference_tracks_section.subheading: Discover our Topics
-conference_tracks_section.button: Open schedule
+conference_tracks_section.action: Open schedule
 featured_speakers_section.heading: Featured Speakers
 featured_speakers_section.subheading: Meet the Experts
-featured_speakers_section.button: All speakers at a glance
+featured_speakers_section.action: All speakers at a glance
+featured_sessions_section.heading: Featured Sessions
+featured_sessions_section.read_more: read more
+featured_sessions_section.action: All Sessions
 sponsors_section.heading: Our Sponsors
 sponsors_section.subheading: A big thank you to our supporters!
 event_highlights_section.number_of_speakers:

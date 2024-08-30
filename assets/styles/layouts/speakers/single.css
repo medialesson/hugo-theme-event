@@ -6,6 +6,10 @@
     flex-wrap: wrap;
 }
 
+.single-speaker-section__avatar {
+    color: var(--color-primary);
+}
+
 .single-speaker-section__biography {
     flex-grow: 1;
     flex-basis: 16.375rem;

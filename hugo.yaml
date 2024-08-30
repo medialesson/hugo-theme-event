@@ -94,8 +94,10 @@ params:
                   url:
                   # 👇 This name is used as the alt text for the logo
                   name:
-            # 👇 List of Sessionize speaker IDs that organize the event.
+            # 👇 List of Sessionize speaker IDs of speakers that organize the event.
             organizers:
+            # 👇 List of Sessionize session IDs of highlight sessions.
+            featuredSessions:
             colors:
                 primaryLighter: '#d7fb4d'
                 primary: '#c6eb4d'

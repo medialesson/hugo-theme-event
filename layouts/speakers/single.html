@@ -1,16 +1,17 @@
 {{ define "main" }}
     <div class="section-container">
         <section class="section single-speaker-section">
-            {{- partial "speaker-avatar.html" (
-                dict
-                "avatarResource" (.Resources.GetMatch "avatar.*")
-                "avatarAlt" page.Title
-                "linkedinUrl" page.Params.linkedinUrl
-                "xUrl" page.Params.xUrl
-                "companyUrl" page.Params.company
-                )
-            }}
-
+            <div class="single-speaker-section__avatar">
+                {{- partial "speaker-avatar.html" (
+                    dict
+                    "avatarResource" (.Resources.GetMatch "avatar.*")
+                    "avatarAlt" page.Title
+                    "linkedinUrl" page.Params.linkedinUrl
+                    "xUrl" page.Params.xUrl
+                    "companyUrl" page.Params.company
+                    )
+                }}
+            </div>
 
             <div class="single-speaker-section__biography">
                 {{- partial "speaker-biography.html" (

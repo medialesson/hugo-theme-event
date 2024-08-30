@@ -34,6 +34,24 @@ The home page displays a countdown that counts down till the start of the event.
 This feature highlights speakers marked as top speaker in Sessionize on the home
 page.
 
+## Featured speakers
+
+This feature highlights selected sessions on the home page. Because Sessionize has no
+corresponding functionality, the featured sessions must be configured in the
+theme parameters.
+
+Please note that this feature presents the first 200 characters of an event's
+description and up to two speakers.
+
+### Parameters
+
+-   `featuredSessions`: A list of Sessionize session IDs. You can find the ID of a session
+    on the session's page of your event on Sessionize. In the URL, you'll find the
+    session ID in form of a number or UUID (a.k.a. GUID).
+
+    **IMPORTANT**: The list items must be strings. If your session ID is a
+    number, put it explicitly in quotes (e.g., `'123456'`).
+
 ## Map
 
 The location page can display a map. The theme supports all map services that

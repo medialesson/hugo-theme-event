@@ -21,11 +21,11 @@
         </section>
         <section class="section">
             <h1 class="heading heading--2">{{ T "sessions_page.speaker" }}</h1>
-            <menu class="single-session-speaker-menu">
-                {{- range (where .Site.Pages "Section" "speakers") }}
+            <menu class="carousel single-session-speaker-menu">
+                {{- $sessionSpeakerPages := where (where .Site.Pages "Section" "speakers") "Params.speakerId" "in" page.Params.speakerIds }}
+                {{- range $index, $speakerPage := $sessionSpeakerPages }}
                     {{- if (in page.Params.speakerIds .Params.speakerId) }}
-                        {{- $speakerPage := . }}
-                        <li class="single-session-speaker-menu__list-item">
+                        <li id="sessionSpeaker{{ $index }}" class="carousel__item single-session-speaker-menu__list-item">
                             <div class="single-session-speaker-menu__avatar">
                                 {{- partial "speaker-avatar.html" (
                                     dict
@@ -42,7 +42,21 @@
                                     {{ $speakerPage.Title }}
                                 </h2>
                                 <p class="paragraph">{{ $speakerPage.Params.tagLine }}</p>
-                                <p class="paragraph">{{ $speakerPage.RawContent }}</p>
+                                <p class="paragraph single-session-speaker-menu__biography">
+                                    {{ substr $speakerPage.RawContent 0 500 }}...
+                                    <a href="{{ $speakerPage.RelPermalink }}" class="link">
+                                        {{ T "featured_sessions_section.read_more" | lower }}
+                                    </a>
+                                </p>
+                                <div class="single-session-speaker-menu__carousel-buttons" aria-hidden="true">
+                                    {{- partial "carousel-buttons.html" (
+                                        dict
+                                        "index" $index
+                                        "numberOfItems" (len page.Params.speakerIds)
+                                        "elementIdPrefix" "sessionSpeaker"
+                                        )
+                                    }}
+                                </div>
                             </div>
                         </li>
                     {{- end }}

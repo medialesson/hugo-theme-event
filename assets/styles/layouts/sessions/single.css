@@ -4,7 +4,7 @@
 }
 
 .single-session-section-spacer {
-    flex: 21.8125rem;
+    width: 30%;
 }
 
 .single-session-section,
@@ -13,6 +13,7 @@
     flex-direction: column;
     align-items: start;
     gap: 2.625rem;
+    width: 70%;
 }
 
 .single-session-section__metadata {
@@ -48,6 +49,14 @@
     display: flex;
     align-items: start;
     gap: 3rem;
+}
+
+.single-session-speaker-menu__avatar {
+    width: 30%;
+}
+
+.single-session-speaker-menu__speaker {
+    width: 70%;
 }
 
 .same-track-sessions-section__heading {

@@ -15,7 +15,6 @@
     opacity: 0.5;
     transition: border 0.3s ease;
     position: relative;
-    z-index: 1;
 }
 
 .speaker-avatar-container__social-link::before {

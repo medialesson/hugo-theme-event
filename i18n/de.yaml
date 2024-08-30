@@ -15,6 +15,7 @@ sessions_page.heading_day_filter: Datum
 sessions_page.heading_track_filter: Track
 sessions_page.day: Tag {{ . }}
 sessions_page.speaker: Sprecher
+sessions_page.read_more: mehr erfahren
 menu.code_of_conduct: Verhaltenskodex
 menu.about: Über uns
 menu.sessions: Programm

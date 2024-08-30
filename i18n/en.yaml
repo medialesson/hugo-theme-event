@@ -16,6 +16,7 @@ sessions_page.day: Day {{ . }}
 sessions_page.heading_day_filter: Date
 sessions_page.heading_track_filter: Track
 sessions_page.speaker: Speaker
+sessions_page.read_more: read more
 menu.code_of_conduct: Code of Conduct
 menu.about: About Us
 menu.sessions: Schedule

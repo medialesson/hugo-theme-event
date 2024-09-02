@@ -27,7 +27,9 @@ All `<style>` elements must be included inside the `<head>` of the
 document.[^styleplacement] In other words, all style files must be loaded in the
 main template. They cannot, for example, be placed inside a partial. This is a
 pity, since styles are not tree-shakeable because of this. The theme
-automatically integrates all `*.css` files from the `assets/` directory.
+automatically merges all `*.css` files from the `assets/` directory to one
+minimized file `styles.min.[fingerprint].css` in the root folder. Consider this
+when you reference relative paths in style files (e.g., fonts).
 
 -   Place all style files under `assets/styles/`.
 -   Follow the [BEM](https://getbem.com) naming convention for selectors.

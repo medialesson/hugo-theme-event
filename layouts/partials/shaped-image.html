@@ -22,5 +22,8 @@
                 src="{{ .RelPermalink }}"
             {{- end }}
         {{- end }}
-        alt="{{ $input.imageAlt }}" />
+        alt="{{ $input.imageAlt }}"
+        {{ if not (eq .MediaType.SubType "svg") }}
+            width="{{ .Width }}" height="{{ .Height }}"
+        {{ end }} />
 </article>

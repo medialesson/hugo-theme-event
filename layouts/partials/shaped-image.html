@@ -18,7 +18,7 @@
         {{- with $input.imageResource }}
             src="{{ .RelPermalink }}"
         {{- else }}
-            {{- with resources.Get "images/shaped-image-fallback.png" }}
+            {{- with resources.Get "images/shaped-image-fallback.webp" }}
                 src="{{ .RelPermalink }}"
             {{- end }}
         {{- end }}

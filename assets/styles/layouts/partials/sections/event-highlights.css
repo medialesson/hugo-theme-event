@@ -15,7 +15,10 @@
 }
 
 .event-highlights-section__logo {
-    width: 16.375rem;
+    max-width: 16.375rem;
+    max-height: 16.375rem;
+    width: auto;
+    height: auto;
 }
 
 .event-highlights-section__description {

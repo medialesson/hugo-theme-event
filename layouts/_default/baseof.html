@@ -22,14 +22,8 @@
         {{ template "_internal/opengraph.html" . }}
         {{ template "_internal/twitter_cards.html" . }}
 
-        {{ range resources.Match "**/*.css" }}
-            {{- $secureCss := . | fingerprint }}
-            <link
-                rel="stylesheet"
-                href="{{ $secureCss.RelPermalink }}"
-                type="text/css"
-                media="screen"
-                integrity="{{ $secureCss.Data.Integrity }}" />
+        {{ with (resources.Match "**/*.css" | resources.Concat "styles.css" | minify | fingerprint) }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}" type="text/css" media="screen" integrity="{{ .Data.Integrity }}" />
         {{ end }}
 
     <style>

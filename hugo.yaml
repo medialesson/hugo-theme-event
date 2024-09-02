@@ -81,7 +81,7 @@ params:
             favicon: favicon.ico
             images:
                 logo: logos/medialesson-rgb.svg
-                titleBackground: images/pexels-scottwebb-1048039.jpg
+                titleBackground: images/pexels-scottwebb-1048039.webp
                 # 👇 Image showcasing the building or venue where the event will take place.
                 location:
             sponsors:

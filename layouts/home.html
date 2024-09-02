@@ -44,7 +44,7 @@
         {{- if .Params.isTopSpeaker }}
             {{- $topSpeakers = $topSpeakers | append (
                 dict
-                "profileUrl" .Permalink
+                "profileUrl" .RelPermalink
                 "avatarResource" (.Resources.GetMatch "avatar.*")
                 "name" .Title
                 "description" .Params.tagLine
@@ -82,7 +82,7 @@
             {{- end }}
             {{- $featuredSessions = $featuredSessions | append (
                 dict
-                "sessionUrl" $featuredSessionPage.Permalink
+                "sessionUrl" $featuredSessionPage.RelPermalink
                 "sessionName" $featuredSessionPage.Title
                 "sessionDescription" $featuredSessionPage.RawContent
                 "speakers" $featuredSessionSpeakers

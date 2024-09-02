@@ -7,7 +7,7 @@
                     <li class="speaker-list__item">
                         {{- partial "speaker-card.html" (
                             dict
-                            "profileUrl" .Permalink
+                            "profileUrl" .RelPermalink
                             "avatarResource" (.Resources.GetMatch "avatar.*")
                             "name" .Title
                             "description" .Params.tagLine

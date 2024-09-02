@@ -8,11 +8,11 @@
             aria-label="{{ . }}"
         {{- end }}>
         <div class="featured-sessions-section__carousel">
-            <menu class="featured-sessions-section__list" role="menu">
+            <menu class="carousel" role="menu">
                 {{- range $index, $session := $input.sessions }}
                     <li
                         id="featuredSession{{ $index }}"
-                        class="featured-sessions-section__list-item"
+                        class="carousel__item featured-sessions-section__list-item"
                         role="menuitem"
                         aria-label="{{ $session.sessionName }}">
                         <div class="featured-sessions-section__speakers">
@@ -70,28 +70,13 @@
                                 </a>
                             </p>
                             <div class="featured-sessions-section__carousel-buttons" aria-hidden="true">
-                                <button
-                                    {{- if le $index 0 }}
-                                        disabled class="button button--outlined button--round button--disabled"
-                                    {{- else }}
-                                        class="button button--outlined button--round"
-                                        onclick="scrollFeaturedSessionIntoView('{{ sub $index 1 }}')"
-                                    {{- end }}>
-                                    <div class="button__icon">
-                                        {{ partial "graphics/arrow-left.html" }}
-                                    </div>
-                                </button>
-                                <button
-                                    {{- if ge $index (sub (len $input.sessions) 1) }}
-                                        disabled class="button button--outlined button--round button--disabled"
-                                    {{- else }}
-                                        class="button button--outlined button--round"
-                                        onclick="scrollFeaturedSessionIntoView('{{ add $index 1 }}')"
-                                    {{- end }}>
-                                    <div class="button__icon">
-                                        {{ partial "graphics/arrow-right.html" }}
-                                    </div>
-                                </button>
+                                {{- partial "carousel-buttons.html" (
+                                    dict
+                                    "index" $index
+                                    "numberOfItems" (len $input.sessions)
+                                    "elementIdPrefix" "featuredSession"
+                                    )
+                                }}
                             </div>
                         </div>
                     </li>
@@ -106,10 +91,3 @@
         {{- end }}
     </section>
 </div>
-
-<script>
-    function scrollFeaturedSessionIntoView(index) {
-        const featuredSession = document.getElementById(`featuredSession${index}`);
-        featuredSession.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
-    }
-</script>

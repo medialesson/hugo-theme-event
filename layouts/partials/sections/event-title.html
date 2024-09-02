@@ -4,7 +4,7 @@
 <section
     class="event-title-section"
     {{- with resources.Get $input.backgroundImage }}
-        style="background-image: url('{{ .Permalink }}');"
+        style="background-image: url('{{ .RelPermalink }}');"
     {{ end }}>
     <div class="event-title-section__header">
         <h1 class="event-title-section__heading">

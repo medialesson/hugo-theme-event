@@ -1,9 +1,27 @@
-.single-session-section,
-.same-track-sessions-section {
+.single-session-section {
+    display: flex;
+    gap: 3rem;
+}
+
+.single-session-section__spacer {
+    width: 30%;
+}
+
+.single-session-section__session-information {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 2.625rem;
+    width: 70%;
+}
+
+@media screen and (width < 768px) {
+    .single-session-section__spacer {
+        display: none;
+    }
+    .single-session-section__session-information {
+        width: 100%;
+    }
 }
 
 .single-session-section__metadata {
@@ -25,8 +43,79 @@
     margin-right: 0.75rem;
 }
 
+@media screen and (width < 768px) {
+    .single-session-section__metadata {
+        flex-direction: column;
+        gap: 0.625rem;
+        padding-bottom: 0.625rem;
+    }
+    .single-session-section__hashtag {
+        border-right: unset;
+        padding-right: unset;
+        margin-right: unset;
+    }
+}
+
 .single-session-section__content {
     all: unset;
+}
+
+.single-session-speaker-list {
+    all: unset;
+    display: block;
+    list-style: none;
+}
+
+.single-session-speaker-list__list-item {
+    display: flex;
+    align-items: start;
+    gap: 3rem;
+}
+
+.single-session-speaker-list__avatar {
+    width: 30%;
+}
+
+.single-session-speaker-list__speaker {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media screen and (width < 768px) {
+    .single-session-speaker-list__list-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.8125rem;
+    }
+    .single-session-speaker-list__avatar {
+        width: 100%;
+    }
+    .single-session-speaker-list__speaker {
+        width: 100%;
+    }
+}
+
+.single-session-speaker-list__biography {
+    flex-grow: 1;
+}
+
+.single-session-speaker-list__carousel-buttons {
+    display: flex;
+}
+
+@media (width < 768px) {
+    .single-session-speaker-list__carousel-buttons {
+        justify-content: center;
+    }
+}
+
+.same-track-sessions-section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2.625rem;
 }
 
 .same-track-sessions-section__heading {

@@ -3,11 +3,19 @@
     align-items: start;
     justify-content: center;
     gap: 2.625rem;
-    flex-wrap: wrap;
+}
+
+@media screen and (width < 768px) {
+    .single-speaker-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
 }
 
 .single-speaker-section__avatar {
     color: var(--color-primary);
+    max-width: 50%;
 }
 
 .single-speaker-section__biography {

@@ -4,11 +4,14 @@
             <h1 class="single-session-section__heading">
                 <div class="single-session-section__metadata">
                     {{- if page.Params.track }}
-                        <span class="single-session-section__hashtag">
+                    <span class="single-session-section__pipe">
                             {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
                         </span>
                     {{- end }}
-                    {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
+                    <span class="single-session-section__pipe">
+                           {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
+                    </span>
+                    @{{ page.Params.room.name }}
                 </div>
                 {{- page.Title -}}
             </h1>

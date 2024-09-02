@@ -1,13 +1,13 @@
-.single-session-section-container {
+.single-session-section {
     display: flex;
     gap: 3rem;
 }
 
-.single-session-section-spacer {
+.single-session-section__spacer {
     width: 30%;
 }
 
-.single-session-section {
+.single-session-section__session-information {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -16,10 +16,10 @@
 }
 
 @media screen and (width < 768px) {
-    .single-session-section-spacer {
+    .single-session-section__spacer {
         display: none;
     }
-    .single-session-section {
+    .single-session-section__session-information {
         width: 100%;
     }
 }

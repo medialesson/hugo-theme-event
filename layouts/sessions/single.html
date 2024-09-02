@@ -1,22 +1,20 @@
 {{ define "main" }}
     <div class="section-container">
-        <section class="section" aria-label="Session information">
-            <div class="single-session-section-container">
-                <div class="single-session-section-spacer"></div>
-                <div class="single-session-section">
-                    <h1 class="single-session-section__heading">
-                        <div class="single-session-section__metadata">
-                            {{- if page.Params.track }}
-                                <span class="single-session-section__hashtag">
-                                    {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
-                                </span>
-                            {{- end }}
-                            {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
-                        </div>
-                        {{- page.Title -}}
-                    </h1>
-                    <p class="single-session-section__content">{{- page.RawContent }}</p>
-                </div>
+        <section class="section single-session-section" aria-label="Session information">
+            <div class="single-session-section__spacer"></div>
+            <div class="single-session-section__session-information">
+                <h1 class="single-session-section__heading">
+                    <div class="single-session-section__metadata">
+                        {{- if page.Params.track }}
+                            <span class="single-session-section__hashtag">
+                                {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+                            </span>
+                        {{- end }}
+                        {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
+                    </div>
+                    {{- page.Title -}}
+                </h1>
+                <p class="single-session-section__content">{{- page.RawContent }}</p>
             </div>
         </section>
         <section class="section" aria-label="Speaker of the session">

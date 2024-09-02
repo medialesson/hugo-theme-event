@@ -25,13 +25,13 @@ export default defineConfig({
     /* Run your local dev server before starting the tests */
     webServer: {
         command: 'hugo serve --config hugo.spec.yaml',
-        url: 'http://127.0.0.1:1313',
+        url: 'http://localhost:1313',
         reuseExistingServer: !process.env.CI,
     },
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         /* Base URL to use in actions like `await page.goto('/')`. */
-        baseURL: 'http://127.0.0.1:1313',
+        baseURL: 'http://localhost:1313',
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on-first-retry',

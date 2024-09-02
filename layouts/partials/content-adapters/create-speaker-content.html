@@ -32,7 +32,7 @@
     {{/* Store the speaker's profile picture. */}}
     {{ $item := . }}
     {{ with $url := $item.profilePicture }}
-        {{ with resources.GetRemote $url }}
+        {{ with resources.GetRemote $url  | images.Filter (images.Process "q90 webp") }}
             {{ with .Err }}
                 {{ errorf "Unable to get remote resource %s: %s" $url . }}
             {{ else }}

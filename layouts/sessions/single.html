@@ -1,6 +1,6 @@
 {{ define "main" }}
     <div class="section-container">
-        <section class="section ">
+        <section class="section" aria-label="Session information">
             <div class="single-session-section-container">
                 <div class="single-session-section-spacer"></div>
                 <div class="single-session-section">
@@ -19,14 +19,18 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="section" aria-label="Speaker of the session">
             <h1 class="heading heading--2">{{ T "sessions_page.speaker" }}</h1>
-            <menu class="carousel single-session-speaker-menu">
+            <ul class="carousel single-session-speaker-list" role="list">
                 {{- $sessionSpeakerPages := where (where .Site.Pages "Section" "speakers") "Params.speakerId" "in" page.Params.speakerIds }}
                 {{- range $index, $speakerPage := $sessionSpeakerPages }}
                     {{- if (in page.Params.speakerIds .Params.speakerId) }}
-                        <li id="sessionSpeaker{{ $index }}" class="carousel__item single-session-speaker-menu__list-item">
-                            <div class="single-session-speaker-menu__avatar">
+                        <li
+                            id="sessionSpeaker{{ $index }}"
+                            class="carousel__item single-session-speaker-list__list-item"
+                            role="listitem"
+                            aria-label="{{ $speakerPage.Title }}">
+                            <div class="single-session-speaker-list__avatar">
                                 {{- partial "speaker-avatar.html" (
                                     dict
                                     "avatarResource" ($speakerPage.Resources.GetMatch "avatar.*")
@@ -37,18 +41,18 @@
                                     )
                                 }}
                             </div>
-                            <div class="single-session-speaker-menu__speaker">
+                            <div class="single-session-speaker-list__speaker">
                                 <h2 class="heading heading--4 heading--embedded">
                                     {{ $speakerPage.Title }}
                                 </h2>
                                 <p class="paragraph">{{ $speakerPage.Params.tagLine }}</p>
-                                <p class="paragraph single-session-speaker-menu__biography">
+                                <p class="paragraph single-session-speaker-list__biography">
                                     {{ substr $speakerPage.RawContent 0 500 }}...
                                     <a href="{{ $speakerPage.RelPermalink }}" class="link">
                                         {{ T "sessions_page.read_more" | lower }}
                                     </a>
                                 </p>
-                                <div class="single-session-speaker-menu__carousel-buttons" aria-hidden="true">
+                                <div class="single-session-speaker-list__carousel-buttons" aria-hidden="true">
                                     {{- partial "carousel-buttons.html" (
                                         dict
                                         "index" $index
@@ -61,7 +65,7 @@
                         </li>
                     {{- end }}
                 {{- end }}
-            </menu>
+            </ul>
         </section>
     </div>
 
@@ -81,7 +85,7 @@
 
 
     <div class="section-container section-container--dimmed">
-        <section class="section same-track-sessions-section">
+        <section class="section same-track-sessions-section" aria-label="Further session from the same track">
             <h1 class="same-track-sessions-section__heading">
                 {{- if page.Params.track }}
                     {{- T "session_page.further_sessions_from" | upper }}

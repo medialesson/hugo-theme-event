@@ -31,3 +31,4 @@ params:
             featuredSessions:
                 - '729576'
                 - '729579'
+            trackCategoryTitle: Track

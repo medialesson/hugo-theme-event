@@ -36,4 +36,4 @@ jobs:
 
                   hugo --minify
             - name: Run Lighthouse CI
-              run: npx lhci autorun
+              run: npx @lhci/cli autorun

@@ -87,6 +87,12 @@
 
 .page-sidebar__made-by-link {
     color: white;
+    transition: transform 0.3s ease;
+}
+
+.page-sidebar__made-by-link:hover,
+.page-sidebar__made-by-link:active {
+    transform: scale(1.05);
 }
 
 .page-sidebar__header {
@@ -109,6 +115,12 @@
 
 .page-sidebar__close-label {
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.page-sidebar__close-label:hover,
+.page-sidebar__close-label:active {
+    transform: scale(1.2);
 }
 
 .page-header {

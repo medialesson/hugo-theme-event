@@ -36,6 +36,10 @@
     border: 0.0625rem solid var(--color-primary);
 }
 
+/*
+ * Applies a scaling effect on hover. Useful when buttons are placed in front
+ * of a background with the primary color.
+ */
 .button--scaled {
     transition: transform 0.3s ease;
 }

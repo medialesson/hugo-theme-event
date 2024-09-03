@@ -1,20 +1,23 @@
 {{ $input := . }}
 
 
-<menu class="sidebar-menu">
-    {{- $currentNode := $input.context }}
-    {{- range $input.menu }}
-        <li role="presentation" class="sidebar-menu__item">
+<nav role="navigation">
+    <ul class="sidebar-menu">
+        {{- $currentNode := $input.context }}
+        {{- range $input.menu }}
+        <li class="sidebar-menu__item">
             <a
-                role="menuitem"
-                href="{{ .URL }}"
-                {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
+                    href="{{ .URL }}"
+                    {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
                     class="sidebar-menu__link sidebar-menu__link--active"
-                {{- else }}
+                    aria-current="page"
+                    {{- else }}
                     class="sidebar-menu__link"
-                {{- end }}>
+                    {{- end }}
+                    aria-label="{{- or (T (printf "menu.%s" .Identifier)) .Name }}">
                 {{- or (T (printf "menu.%s" .Identifier)) .Name }}
             </a>
         </li>
-    {{- end }}
-</menu>
+        {{- end }}
+    </ul>
+</nav>

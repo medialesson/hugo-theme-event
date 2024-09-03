@@ -8,13 +8,7 @@
 .sidebar-menu__item {
     all: unset;
     position: relative;
-    transition: padding 0.3s ease;
-}
-
-.sidebar-menu__item:active,
-.sidebar-menu__item:hover {
-    border-bottom: none;
-    padding-left: 0.5rem;
+    margin: 0;
 }
 
 .sidebar-menu__item:not(:last-child) {
@@ -31,7 +25,14 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 1.125rem;
-    position: relative; /* Position relative for the pseudo-element */
+    position: relative;
+    transition: padding 0.3s ease;
+    z-index: 1; /* Ensure the link content is above the pseudo-element */
+}
+
+.sidebar-menu__item:active .sidebar-menu__link,
+.sidebar-menu__item:hover .sidebar-menu__link {
+    padding-left: 0.5rem;
 }
 
 .sidebar-menu__item:active::before,

@@ -17,7 +17,7 @@ creates various contents and offers the following features.
 -   Map integration
 -   Various CTA elements
 -   Color customization
--   Plain HTML and CSS (almost no JavaScript)
+-   Plain HTML and CSS (no JavaScript needed)
 
 ## Quick start
 

@@ -59,13 +59,19 @@
                     </a>
 
                     <div class="page-header__menu-container">
-                        {{- partial "menus/header.html" (
-                            dict
-                            "menu" .Site.Menus.main
-                            "context" .
-                            "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
-                            )
-                        }}
+                        <div id="pageHeaderMenuScriptValidator" style="display: none;">
+                            <script>
+                                // Display the header menu only if JavaScript is enabled.
+                                pageHeaderMenuScriptValidator.style.display = 'inherit';
+                            </script>
+                            {{- partial "menus/header.html" (
+                                dict
+                                "menu" .Site.Menus.main
+                                "context" .
+                                "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
+                                )
+                            }}
+                        </div>
                     </div>
 
                     {{- partial "cta/button.html" (

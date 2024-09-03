@@ -3,7 +3,7 @@
 
 <menu class="secondary-menu" role="menu">
     {{- $firstFour := first 4 $input.menu }}
-    {{- range $item := $firstFour }}
+    {{- range $index, $item := $firstFour }}
         <li role="presentation">
             {{- $title :=  or (T (printf "menu.%s" $item.Identifier)) $item.Name }}
             <a
@@ -11,10 +11,10 @@
                 href="{{- $item.URL }}"
                 role="menuitem"
                 aria-label="{{ $title }}"
-                aria-details="{{- $item.Params.description | plainify }}">
+                aria-describedby="description-{{ $index }}">
                 <h1 class="heading heading--3 heading--embedded">{{- $title }}</h1>
                 <div class="secondary-menu__description">
-                    <p class="paragraph paragraph-embedded">
+                    <p class="paragraph paragraph-embedded" id="description-{{ $index }}">
                         {{- $item.Params.description | markdownify }}
                     </p>
                 </div>

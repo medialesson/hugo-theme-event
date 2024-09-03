@@ -5,19 +5,18 @@
     <ul class="sidebar-menu">
         {{- $currentNode := $input.context }}
         {{- range $input.menu }}
-        <li class="sidebar-menu__item">
-            <a
+            <li class="sidebar-menu__item">
+                <a
                     href="{{ .URL }}"
                     {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
-                    class="sidebar-menu__link sidebar-menu__link--active"
-                    aria-current="page"
+                        class="sidebar-menu__link sidebar-menu__link--active" aria-current="page"
                     {{- else }}
-                    class="sidebar-menu__link"
+                        class="sidebar-menu__link"
                     {{- end }}
                     aria-label="{{- or (T (printf "menu.%s" .Identifier)) .Name }}">
-                {{- or (T (printf "menu.%s" .Identifier)) .Name }}
-            </a>
-        </li>
+                    {{- or (T (printf "menu.%s" .Identifier)) .Name }}
+                </a>
+            </li>
         {{- end }}
     </ul>
 </nav>

@@ -1,4 +1,4 @@
-name: Lighthouse CI
+name: Lighthouse Rating
 
 on:
     push:
@@ -22,9 +22,9 @@ jobs:
                   && sudo dpkg -i ${{ runner.temp }}/hugo.deb
             - uses: actions/setup-node@v4
               with:
-                  node-version: 16
+                  node-version: 18
                   cache: 'npm'
-            - name: Build Hugo Site (panic on warning)
+            - name: Build Hugo Site
               run: |
                   git clone https://github.com/medialesson/hugo-theme-event.git themes/event
 

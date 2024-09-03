@@ -29,6 +29,11 @@ jobs:
 
                   touch hugo.yaml
                   echo "theme: event" >> hugo.yaml
+                  echo "languages:" >> hugo.yaml
+                  echo "  en:" >> hugo.yaml
+                  echo "    disabled: false" >> hugo.yaml
+                  echo "  de:" >> hugo.yaml
+                  echo "    disabled: false" >> hugo.yaml
                   echo "params:" >> hugo.yaml
                   echo "  themes:" >> hugo.yaml
                   echo "    event:" >> hugo.yaml

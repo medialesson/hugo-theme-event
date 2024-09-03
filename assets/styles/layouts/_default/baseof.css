@@ -81,6 +81,7 @@
 }
 
 .page-sidebar__social-link:hover,
+.page-sidebar__social-link:focus,
 .page-sidebar__social-link:active {
     transform: scale(1.2);
 }

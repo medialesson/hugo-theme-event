@@ -31,13 +31,14 @@
     z-index: 1; /* Ensure the link content is above the pseudo-element */
 }
 
-.sidebar-menu__item:active .sidebar-menu__link,
-.sidebar-menu__item:hover .sidebar-menu__link {
+.sidebar-menu__link:hover,
+.sidebar-menu__link:focus,
+.sidebar-menu__link:active {
     padding-left: 0.5rem;
 }
 
-.sidebar-menu__item:active::before,
-.sidebar-menu__item:hover::before {
+.sidebar-menu__link:hover::before,
+.sidebar-menu__link:focus::before {
     content: '';
     position: absolute;
     top: -2px;

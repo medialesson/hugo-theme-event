@@ -41,4 +41,4 @@ jobs:
 
                   hugo --minify
             - name: Run Lighthouse CI
-              run: npx @lhci/cli autorun
+              run: npx @lhci/cli autorun --config=./theme/event/lighthouserc.yaml

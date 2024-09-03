@@ -23,7 +23,6 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                   node-version: 18
-                  cache: 'npm'
             - name: Build Hugo Site
               run: |
                   git clone https://github.com/medialesson/hugo-theme-event.git themes/event

@@ -55,8 +55,8 @@
 }
 
 .session-list-filter__label:hover {
-    color: var(--color-primary-darker);
-    box-shadow: 0 0 0 0.025rem var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 0 0.125rem var(--color-primary);
     border: 0.0625rem solid var(--color-primary);
 }
 

@@ -36,6 +36,18 @@
     border: 0.0625rem solid var(--color-primary);
 }
 
+/*
+ * Applies a scaling effect on hover. Useful when buttons are placed in front
+ * of a background with the primary color.
+ */
+.button--scaled {
+    transition: transform 0.3s ease;
+}
+
+.button--scaled:hover {
+    transform: scale(1.05);
+}
+
 .button--round {
     border-radius: 50%;
     padding: 1.25rem;
@@ -44,6 +56,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 0.25rem 1rem 0 #00000040;
+    transition: box-shadow 0.3s ease;
 }
 
 .button--round:hover {

@@ -1,7 +1,7 @@
 {{ $input := . }}
 
 {{- if $input.eventbriteId }}
-    {{ partialCached "cta/eventbrite.html" (dict "eventId" $input.eventbriteId) }}
+    {{ partial "cta/eventbrite.html" (dict "eventId" $input.eventbriteId "buttonClass" $input.buttonClass) }}
 {{- else if $input.ctaUrl }}
     {{ partialCached "cta/link.html" (dict "url" $input.ctaUrl) }}
 {{- end }}

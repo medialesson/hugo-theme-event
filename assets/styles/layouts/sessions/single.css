@@ -47,9 +47,10 @@
     .single-session-section__metadata {
         flex-direction: column;
         gap: 0.625rem;
-        padding-bottom: 0.625rem;
+        padding-bottom: 1rem;
     }
-    .single-session-section__hashtag {
+
+    .single-session-section__pipe {
         border-right: unset;
         padding-right: unset;
         margin-right: unset;
@@ -127,16 +128,4 @@
 
 .same-track-sessions-section__hashtag {
     font-weight: 900;
-}
-
-@media (width <= 576px) {
-    .single-session-section__pipe {
-        border: none;
-    }
-
-    .single-session-section__metadata {
-        flex-direction: column;
-        gap: 0.625rem;
-        padding-bottom: 1rem;
-    }
 }

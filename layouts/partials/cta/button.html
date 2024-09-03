@@ -9,7 +9,7 @@
     {{- page.Scratch.Add "cta_eventbrite_instance" 1 }}
 
 
-    <button id="{{ $buttonId }}" type="button" class="button button--outlined" style="display: none;">
+    <button id="{{ $buttonId }}" type="button" class="button button--outlined {{ .buttonClass }}" style="display: none;">
         {{ T "cta_button.get_ticket" }}
     </button>
 

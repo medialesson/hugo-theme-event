@@ -105,14 +105,12 @@
                 }}
 
 
-                <div class="page-sidebar__menu">
-                    {{- partial "menus/sidebar.html" (
-                        dict
-                        "menu" .Site.Menus.main
-                        "context" .
-                        )
-                    }}
-                </div>
+                {{- partial "menus/sidebar.html" (
+                    dict
+                    "menu" .Site.Menus.main
+                    "context" .
+                    )
+                }}
 
                 <div class="page-sidebar__social-links">
                     {{- partial "social-links.html" (

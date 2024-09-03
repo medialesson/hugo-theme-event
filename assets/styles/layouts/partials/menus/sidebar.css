@@ -3,6 +3,7 @@
     list-style: none;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .sidebar-menu__item {

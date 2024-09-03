@@ -9,6 +9,14 @@ theme may exclude features from the build.
 To encourage users to buy tickets for your event, the Event theme contains
 various elements that display messages and interactions.
 
+### Privacy concern
+
+When using the Eventbrite integration, Eventbrite will open various connections
+to third party servers. These connections are not established before the user
+clicks on the CTA button. However, depending on where you operate your website,
+you may need to obtain the user's consent before establishing such connections
+("cookie banner").
+
 ### Parameters
 
 -   `callToAction.eventbrite.eventId`: ID of an event from Eventbrite. If set,
@@ -59,6 +67,14 @@ provide an embeddable URL of the map (e.g., OpenStreetMap or Google). A free and
 open-source map service based on OpenStreetMap is
 [uMap](https://umap.openstreetmap.de). With uMap you can create fully
 customizable and reusable maps.
+
+### Privacy concern
+
+When using the map feature, a website of the map service gets embedded into the
+location page. This connection, by design, sends personally identifiable data to
+the map service. Depending on where you operate your website, you may need to
+obtain the user's consent before establishing such connections ("cookie
+banner").
 
 ### Parameters
 

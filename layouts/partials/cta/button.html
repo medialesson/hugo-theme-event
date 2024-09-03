@@ -1,7 +1,62 @@
 {{ $input := . }}
 
 {{- if $input.eventbriteId }}
-    {{ partialCached "cta/eventbrite.html" (dict "eventId" $input.eventbriteId) }}
+    {{/* Ensure a unique ID for each button on the page. */}}
+    {{- if not (page.Scratch.Get "cta_eventbrite_instance") }}
+        {{- page.Scratch.Set "cta_eventbrite_instance" 0 }}
+    {{- end }}
+    {{- $buttonId := (printf "eventbrite-widget-modal-trigger-%d" (page.Scratch.Get "cta_eventbrite_instance")) }}
+    {{- page.Scratch.Add "cta_eventbrite_instance" 1 }}
+
+
+    <button id="{{ $buttonId }}" type="button" class="button button--outlined" style="display: none;">
+        {{ T "cta_button.get_ticket" }}
+    </button>
+
+    {{/* Load Eventbrite script once per page. */}}
+    {{- if not (page.Scratch.Get "cta_eventbrite_script_loaded") }}
+        {{/* Provide Eventbrite script from own server, for performance and privacy reasons. */}}
+        {{- with resources.GetRemote "https://www.eventbrite.de/static/widgets/eb_widgets.js" }}
+            {{- with .Err }}
+                {{ errorf "%s" . }}
+            {{- else }}
+                <script src="{{ .RelPermalink }}"></script>
+                {{- page.Scratch.Set "cta_eventbrite_script_loaded" true }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+
+    <script type="text/javascript">
+        // Display the button if JavaScript is enabled.
+        window['{{ $buttonId }}'].style.display = 'inherit';
+
+        window.EBWidgets.createWidget({
+            widgetType: "checkout",
+            eventId: "{{ $input.eventbriteId }}",
+            modal: true,
+            modalTriggerElementId: "{{ $buttonId }}",
+        });
+    </script>
+{{- end }}
+
+{{ define "partials/inline/cta/link.html" }}
+    {{ $input := . }}
+    <a class="button button--outlined" href="{{ $input.url }}" rel="noopener noreferrer" rel="external" target="_blank">
+        {{ T "cta_button.get_ticket" }}
+        <div class="button__icon">
+            {{ partial "graphics/external-link.html" }}
+        </div>
+    </a>
+{{ end }}
+
+{{- if $input.eventbriteId }}
+    <noscript>
+        {{- partial "inline/cta/link.html" (
+            dict
+            "url" (printf "https://www.eventbrite.de/e/%d" $input.eventbriteId)
+            )
+        }}
+    </noscript>
 {{- else if $input.ctaUrl }}
-    {{ partialCached "cta/link.html" (dict "url" $input.ctaUrl) }}
+    {{ partial "inline/cta/link.html" (dict "url" $input.ctaUrl) }}
 {{- end }}

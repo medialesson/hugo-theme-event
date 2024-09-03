@@ -24,8 +24,8 @@ menu.location: Location
 menu.sponsors: Sponsoren & Partner
 location_page.heading: Unsere Location
 location_page.directions_heading: Anfahrt
-location_page.map.frame: Interaktive Karte, die den Standort der Veranstaltung zeigt
-location_page.map.fullscreen: Größere Karte des Veranstaltungsortes anzeigen
+location_page.map_frame: Interaktive Karte, die den Standort der Veranstaltung zeigt
+location_page.map_fullscreen: Größere Karte des Veranstaltungsortes anzeigen
 sponsors_page.heading_sponsors: Sponsoren
 sponsors_page.heading_partners: Partner
 about_page.heading: Über uns

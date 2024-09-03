@@ -7,14 +7,14 @@
         scrolling="no"
         allowfullscreen
         src="{{ .embeddableMapUrl | htmlUnescape }}"
-        title="{{ T "location_page.map.frame" }}"></iframe>
+        title="{{ T "location_page.map_frame" }}"></iframe>
 
     {{- if .viewLargerMapUrl }}
         <a
             href="{{ .viewLargerMapUrl }}"
             rel="external"
             class="map-container__button"
-            aria-label="{{ T "location_page.map.fullscreen" }}">
+            aria-label="{{ T "location_page.map_fullscreen" }}">
             <img src="{{ $icon.RelPermalink | htmlUnescape }}" alt="Fullscreen Icon" width="18" height="18" />
         </a>
     {{- end }}

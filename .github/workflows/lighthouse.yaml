@@ -2,11 +2,9 @@ name: Lighthouse Rating
 
 on:
     push:
-        branches:
-            - main
+        branches: [main]
     pull_request:
-        branches:
-            - main
+        branches: [main]
     workflow_dispatch:
 
 jobs:
@@ -28,19 +26,7 @@ jobs:
                   SOURCE_BRANCH="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
                   git clone --single-branch --branch=$SOURCE_BRANCH https://github.com/medialesson/hugo-theme-event.git themes/event
 
-                  touch hugo.yaml
-                  echo "theme: event" >> hugo.yaml
-                  echo "languages:" >> hugo.yaml
-                  echo "  en:" >> hugo.yaml
-                  echo "    disabled: false" >> hugo.yaml
-                  echo "  de:" >> hugo.yaml
-                  echo "    disabled: false" >> hugo.yaml
-                  echo "params:" >> hugo.yaml
-                  echo "  themes:" >> hugo.yaml
-                  echo "    event:" >> hugo.yaml
-                  echo "      sessionizeId: test" >> hugo.yaml
-
-                  hugo --minify
+                  hugo --config ./themes/event/hugo.lighthouse.yaml --minify
             - name: Run Lighthouse CI
               run: |
                   npx @lhci/cli autorun --config=./themes/event/lighthouserc.yaml

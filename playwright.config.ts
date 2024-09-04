@@ -24,7 +24,7 @@ export default defineConfig({
     reporter: [['html', { open: 'never' }]],
     /* Run your local dev server before starting the tests */
     webServer: {
-        command: 'hugo serve --config hugo.spec.yaml',
+        command: 'hugo serve --config hugo.playwright.yaml',
         url: 'http://localhost:1313',
         reuseExistingServer: !process.env.CI,
     },

@@ -1,0 +1,8 @@
+###
+### THIS CONFIGURATION FILE IS FOR CONTINUES INTEGRATIONS ONLY.
+###
+
+params:
+    themes:
+        event:
+            sessionizeId: test

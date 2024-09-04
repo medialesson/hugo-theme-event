@@ -25,7 +25,8 @@ jobs:
                   node-version: 18
             - name: Build Hugo Site
               run: |
-                  git clone https://github.com/medialesson/hugo-theme-event.git themes/event
+                  SOURCE_BRANCH="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+                  git clone --single-branch --branch=$SOURCE_BRANCH https://github.com/medialesson/hugo-theme-event.git themes/event
 
                   touch hugo.yaml
                   echo "theme: event" >> hugo.yaml
@@ -42,5 +43,4 @@ jobs:
                   hugo --minify
             - name: Run Lighthouse CI
               run: |
-                  tree
-                  npx @lhci/cli autorun --config=themes/event/lighthouserc.yaml
+                  npx @lhci/cli autorun --config=./themes/event/lighthouserc.yaml

@@ -1,3 +1,13 @@
 ci:
     collect:
-        staticDistDir: './public'
+        staticDistDir: ./public
+        url:
+            - http://localhost/
+            # - http://localhost/about
+            # - http://localhost/code-of-conduct
+            # - http://localhost/location
+            # - http://localhost/sessions
+            # - http://localhost/sessions/aidens-session-729575/
+            # - http://localhost/speakers
+            # - http://localhost/speakers/top-speaker-1-00000000-0000-0000-0000-000000000004/
+            # - http://localhost/sponsors/

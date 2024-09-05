@@ -3,15 +3,14 @@
 
 <!-- Label for assistive technologies only -->
 <label id="secondary-menu-label" class="sr-only">{{ T "secondary_menu.label" }}</label>
-<ul class="secondary-menu" role="menubar" aria-labelledby="secondary-menu-label">
+<ul class="secondary-menu" aria-labelledby="secondary-menu-label">
     {{- $firstFour := first 4 $input.menu }}
     {{- range $index, $item := $firstFour }}
-        <li role="none">
+        <li>
             {{- $title :=  or (T (printf "menu.%s" $item.Identifier)) $item.Name }}
             <a
                 class="menu-item__link"
                 href="{{- $item.URL }}"
-                role="menuitem"
                 aria-label="{{ $title }}"
                 aria-describedby="secondary-menu-description-{{ $index }}">
                 <h1 class="heading heading--3 heading--embedded">{{- $title }}</h1>

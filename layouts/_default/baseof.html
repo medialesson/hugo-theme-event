@@ -170,7 +170,7 @@
         {{- with .Site.Menus.secondary }}
             {{- if gt (len .) 0 }}
                 <div class="section-container section-container--dimmed">
-                    <div class="section section--long">
+                    <div class="section section--long" role="complementary">
                         {{- partial "menus/secondary.html" (dict "menu" .) -}}
                     </div>
                 </div>

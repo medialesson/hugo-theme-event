@@ -11,7 +11,7 @@ cta_section.message: |
     contacts!
 header_featured_speakers: Featured Speakers
 speakers_page.heading: Speakers
-speakers_page.social_links: "{{ . }} social media links"
+speakers_page.social_links: '{{ . }} social media links'
 sessions_page.heading: Schedule
 sessions_page.day: Day {{ . }}
 sessions_page.heading_day_filter: Date

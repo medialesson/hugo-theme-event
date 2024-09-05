@@ -11,6 +11,7 @@ cta_section.message: |
     contacts!
 header_featured_speakers: Featured Speakers
 speakers_page.heading: Speakers
+speakers_page.social_links: "{{ . }} social media links"
 sessions_page.heading: Schedule
 sessions_page.day: Day {{ . }}
 sessions_page.heading_day_filter: Date
@@ -24,7 +25,7 @@ menu.speakers: Speakers
 menu.location: Location
 menu.sponsors: Sponsors & Partners
 main_menu.label: Main Menu
-social-links_menu.label: Social media links
+social-links_list.label: Social media links
 secondary_menu.label: Secondary menu
 language_menu.label: Select language
 location_page.heading: Our Location

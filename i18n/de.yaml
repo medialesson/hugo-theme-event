@@ -10,6 +10,7 @@ cta_section.message: |
     Verpasse nicht die Chance, von führenden Expertinnen und Experten zu lernen
     und wertvolle Kontakte zu knüpfen!
 speakers_page.heading: Sprecher
+speakers_page.social_links: "Soziale Medien-Links von {{ . }}"
 sessions_page.heading: Programm
 sessions_page.heading_day_filter: Datum
 sessions_page.heading_track_filter: Track
@@ -23,7 +24,7 @@ menu.speakers: Sprecher
 menu.location: Location
 menu.sponsors: Sponsoren & Partner
 main_menu.label: Hauptmenü
-social-links_menu.label: Links zu sozialen Medien
+social-links_list.label: Links zu sozialen Medien
 secondary_menu.label: Zusätzliches Menü
 language_menu.label: Sprache auswählen
 location_page.heading: Unsere Location

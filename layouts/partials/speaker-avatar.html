@@ -10,7 +10,6 @@
     }}
 
     {{- if (or $input.linkedinUrl $input.xUrl $input.companyUrl) }}
-        {{ $uniqueLabelId := printf "social-links-list-label-%s" $input.avatarAlt }}
         {{ $ariaLabel := T "speakers_page.social_links" $input.avatarAlt }}
 
         {{- partial "social-links.html" (
@@ -19,7 +18,6 @@
             "xUrl" $input.xUrl
             "companyUrl" $input.companyUrl
             "linkClass" "speaker-avatar-container__social-link"
-            "uniqueId" $uniqueLabelId
             "ariaLabel" $ariaLabel
             )
         }}

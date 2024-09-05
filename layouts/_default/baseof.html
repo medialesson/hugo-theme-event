@@ -195,7 +195,6 @@
                         {{ end }}
                     </select>
 
-                    {{ $uniqueLabelId := printf "social-links-list-label-%d" (now.Unix) }}
                     {{- partial "social-links.html" (
                         dict
                         "linkedinUrl" .Site.Params.themes.event.socialLinks.linkedinUrl
@@ -203,7 +202,6 @@
                         "facebookUrl" .Site.Params.themes.event.socialLinks.facebookUrl
                         "companyUrl" .Site.Params.themes.event.socialLinks.companyUrl
                         "linkClass" "page-footer-section__social-link"
-                        "uniqueId" $uniqueLabelId
                         "ariaLabel" (T "social-links_list.label")
                         )
                     }}

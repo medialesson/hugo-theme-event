@@ -15,7 +15,6 @@
         <p class="speaker-card__description">{{ $input.description }}</p>
     </a>
     <div class="speaker-card__social-links">
-        {{ $uniqueLabelId := printf "social-links-list-label-%s" $input.name }}
         {{ $ariaLabel := T "speakers_page.social_links" $input.name }}
 
         {{- partial "social-links.html" (
@@ -24,7 +23,6 @@
             "xUrl" $input.xUrl
             "companyUrl" $input.companyUrl
             "linkClass" "speaker-card__social-link"
-            "uniqueId" $uniqueLabelId
             "ariaLabel" $ariaLabel
             )
         }}

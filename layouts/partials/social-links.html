@@ -1,9 +1,16 @@
 {{ $input := . }}
 
 
-<label id="{{ $input.uniqueId }}" class="sr-only">{{ $input.ariaLabel }}</label>
+{{/* Ensure a unique ID for each label on the page. */}}
+{{- if not (page.Scratch.Get "social_links_instance") }}
+    {{- page.Scratch.Set "social_links_instance" 0 }}
+{{- end }}
+{{- $labelId := (printf "social-links-list-label-%d" (page.Scratch.Get "social_links_instance")) }}
+{{- page.Scratch.Add "social_links_instance" 1 }}
 
-<ul class="social-links" aria-labelledby="{{ $input.uniqueId }}">
+<label id="{{ $labelId }}" class="sr-only">{{ $input.ariaLabel }}</label>
+
+<ul class="social-links" aria-labelledby="{{ $labelId }}">
     {{- if $input.linkedinUrl }}
         <li class="social-links__menu-item">
             <a

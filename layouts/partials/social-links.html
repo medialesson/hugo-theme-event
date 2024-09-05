@@ -1,9 +1,11 @@
 {{ $input := . }}
 
 
-<menu class="social-links" role="menu" aria-label="Social Media Links">
+<!-- Label for assistive technologies only -->
+<label id="social-links-menu-label" class="sr-only">{{ T "social-links_menu.label" }}</label>
+<ul class="social-links" role="menubar" aria-labelledby="social-links-menu-label">
     {{- if $input.linkedinUrl }}
-        <li role="presentation" class="social-links__menu-item">
+        <li class="social-links__menu-item">
             <a
                 href="{{- $input.linkedinUrl }}"
                 role="menuitem"
@@ -16,7 +18,7 @@
     {{ end }}
 
     {{- if $input.xUrl }}
-        <li role="presentation" class="social-links__menu-item">
+        <li class="social-links__menu-item" role="none">
             <a
                 href="{{- $input.xUrl }}"
                 role="menuitem"
@@ -29,7 +31,7 @@
     {{ end }}
 
     {{- if $input.facebookUrl }}
-        <li role="presentation" class="social-links__menu-item">
+        <li class="social-links__menu-item" role="none">
             <a
                 href="{{- $input.facebookUrl }}"
                 role="menuitem"
@@ -42,7 +44,7 @@
     {{ end }}
 
     {{- if $input.companyUrl }}
-        <li role="presentation" class="social-links__menu-item">
+        <li class="social-links__menu-item" role="none">
             <a
                 href="{{- $input.companyUrl }}"
                 role="menuitem"
@@ -53,4 +55,4 @@
             </a>
         </li>
     {{ end }}
-</menu>
+</ul>

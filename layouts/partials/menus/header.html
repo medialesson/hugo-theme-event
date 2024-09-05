@@ -1,31 +1,33 @@
 {{ $input := . }}
 
 
-<menu class="header-menu">
-    <li>
+<ul class="header-menu" role="menubar">
+    <li role="none">
         <a
             {{- if $input.context.IsHome }}
                 class="header-menu__link header-menu__link--active"
             {{- else }}
                 class="header-menu__link"
             {{- end }}
-            href="{{ site.Home.RelPermalink }}">
+            href="{{ site.Home.RelPermalink }}"
+            role="menuitem">
             {{ $input.homeLabel | default "Home" }}
         </a>
     </li>
 
     {{- $currentNode := $input.context }}
     {{- range $input.menu }}
-        <li>
+        <li role="none">
             <a
                 href="{{ .URL }}"
                 {{- if or ($currentNode.IsMenuCurrent .Menu .) ($currentNode.HasMenuCurrent .Menu .) }}
-                    class="header-menu__link header-menu__link--active"
+                    class="header-menu__link header-menu__link--active" aria-current="page"
                 {{- else }}
                     class="header-menu__link"
-                {{- end }}>
+                {{- end }}
+                role="menuitem">
                 {{- or (T (printf "menu.%s" .Identifier)) .Name }}
             </a>
         </li>
     {{- end }}
-</menu>
+</ul>

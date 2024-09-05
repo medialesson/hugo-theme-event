@@ -1,12 +1,15 @@
 {{ $input := . }}
 
 
-<menu class="footer-menu">
+<ul class="footer-menu" role="menubar">
     {{- range $input.menu }}
-        <li>
-            <a class="footer-menu__link" href="{{ .URL }}">
+        <li role="none">
+            <a class="footer-menu__link"
+               href="{{ .URL }}"
+               aria-label="{{- or (T (printf "menu.%s" .Identifier)) .Name }}"
+               role="menuitem">
                 {{- or (T (printf "menu.%s" .Identifier)) .Name }}
             </a>
         </li>
     {{- end }}
-</menu>
+</ul>

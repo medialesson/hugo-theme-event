@@ -23,6 +23,10 @@ menu.sessions: Schedule
 menu.speakers: Speakers
 menu.location: Location
 menu.sponsors: Sponsors & Partners
+main_menu.label: Main Menu
+social-links_menu.label: Social media links
+secondary_menu.label: Secondary menu
+language_menu.label: Select language
 location_page.heading: Our Location
 location_page.directions_heading: Directions
 location_page.map_frame: Interactive map showing the location of the event

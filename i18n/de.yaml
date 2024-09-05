@@ -22,6 +22,10 @@ menu.sessions: Programm
 menu.speakers: Sprecher
 menu.location: Location
 menu.sponsors: Sponsoren & Partner
+main_menu.label: Hauptmenü
+social-links_menu.label: Links zu sozialen Medien
+secondary_menu.label: Zusätzliches Menü
+language_menu.label: Sprache auswählen
 location_page.heading: Unsere Location
 location_page.directions_heading: Anfahrt
 location_page.map_frame: Interaktive Karte, die den Standort der Veranstaltung zeigt

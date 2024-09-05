@@ -2,7 +2,7 @@
 {{- if gt $input.numberOfItems 1 }}
     <div class="carousel-buttons">
         <button
-                aria-label={{ T "carousel_buttons.previous_item" }}
+            aria-label="{{ T "carousel_buttons.previous_item" }}"
             {{- if le $input.index 0 }}
                 disabled class="button button--outlined button--round button--disabled"
             {{- else }}
@@ -16,7 +16,7 @@
             </div>
         </button>
         <button
-            aria-label={{ T "carousel_buttons.next_item" }}
+            aria-label="{{ T "carousel_buttons.next_item" }}"
             {{- if ge $input.index (sub $input.numberOfItems 1) }}
                 disabled class="button button--outlined button--round button--disabled"
             {{- else }}

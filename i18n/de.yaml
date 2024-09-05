@@ -57,3 +57,5 @@ event_highlights_section.number_of_days:
 speaker_page.sessions_by: Sessions von
 session_page.further_sessions: Weitere Sessions
 session_page.further_sessions_from: Weitere Sessions aus
+carousel_buttons.next_item: Nächstes Element
+carousel_buttons.previous_item: Vorheriges Element

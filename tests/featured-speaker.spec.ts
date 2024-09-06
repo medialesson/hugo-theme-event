@@ -26,19 +26,14 @@ import { expect, test } from '@playwright/test';
         await page.goto('/');
 
         const featuredSpeakersSection = page.getByRole('region', { name: 'Featured Speakers' });
-        const featuredSpeakersMenu = featuredSpeakersSection.getByRole('menu', { name: 'Featured Speakers' });
-        const featuredSpeakersMenuItem = featuredSpeakersMenu.getByRole('menuitem', { name: fullName });
+        const featuredSpeakersList = featuredSpeakersSection.getByRole('list', { name: 'Featured Speakers' });
+        const featuredSpeakerItem = featuredSpeakersList.locator(`li[data-testid="speaker-item-${fullName}"]`);
+        const featuredSpeakerDescription = featuredSpeakerItem.getByText(tagLine);
 
-        // The Playwright's strict mode throws an error when multiple elements
-        // match a single selector, which happens here because both the speaker's name and the social media label
-        // contain the speaker's name. By specifying the class '.speaker-card__name', we are
-        // targeting the exact element that displays the speaker's name, ensuring the test interacts with the correct element.
-        const featuredSpeakerCard = featuredSpeakersMenu.locator('.speaker-card__name', { hasText: fullName });
-        // Ensure the speaker's name is visible
-        await expect(featuredSpeakerCard).toBeVisible();
+        await expect(featuredSpeakerItem).toBeVisible();
+        await expect(featuredSpeakerDescription).toBeVisible();
 
-        await expect(featuredSpeakersMenuItem.getByText(tagLine)).toBeVisible();
-        await featuredSpeakersMenuItem.getByRole('link', { name: fullName }).click();
+        await featuredSpeakerItem.getByRole('link', { name: fullName }).click();
         await expect(page).toHaveURL(profileUrl);
     });
 });

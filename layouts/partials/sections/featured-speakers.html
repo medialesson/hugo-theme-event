@@ -13,14 +13,13 @@
         <h2 class="heading heading--2 heading--centered">
             {{ T "featured_speakers_section.subheading" }}
         </h2>
-        <menu
+        <ul
             class="featured-speakers__menu"
-            role="menu"
             {{- with (T "featured_speakers_section.heading") }}
                 aria-label="{{ . }}"
             {{- end }}>
             {{- range $input.speakers }}
-                <li role="menuitem" aria-label="{{ .name }}">
+                <li aria-label="{{ .name }}" data-testid="speaker-item-{{ .name }}">
                     {{- partial "speaker-card.html" (
                         dict
                         "profileUrl" .profileUrl
@@ -34,7 +33,7 @@
                     }}
                 </li>
             {{- end }}
-        </menu>
+        </ul>
 
         {{- with $input.speakersUrl }}
             <a href="{{ . }}" class="button button--outlined">

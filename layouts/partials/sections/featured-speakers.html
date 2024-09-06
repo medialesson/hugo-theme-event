@@ -18,17 +18,17 @@
             {{- with (T "featured_speakers_section.heading") }}
                 aria-label="{{ . }}"
             {{- end }}>
-            {{- range $input.speakers }}
-                <li aria-label="{{ .name }}" data-testid="speaker-item-{{ .name }}">
+            {{- range $index, $speaker := $input.speakers }}
+                <li aria-label="{{ $speaker.name }}" data-testid="speaker-item-{{ $index }}">
                     {{- partial "speaker-card.html" (
                         dict
-                        "profileUrl" .profileUrl
-                        "avatarResource" .avatarResource
-                        "name" .name
-                        "description" .description
-                        "linkedinUrl" .linkedinUrl
-                        "xUrl" .xUrl
-                        "companyUrl" .companyUrl
+                        "profileUrl" $speaker.profileUrl
+                        "avatarResource" $speaker.avatarResource
+                        "name" $speaker.name
+                        "description" $speaker.description
+                        "linkedinUrl" $speaker.linkedinUrl
+                        "xUrl" $speaker.xUrl
+                        "companyUrl" $speaker.companyUrl
                         )
                     }}
                 </li>

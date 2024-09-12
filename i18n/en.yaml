@@ -17,6 +17,8 @@ sessions_page.heading_day_filter: Date
 sessions_page.heading_track_filter: Track
 sessions_page.speaker: Speaker
 sessions_page.read_more: read more
+sessions_page.heading_no_sessions: No sessions scheduled yet
+sessions_page.heading_come_back_soon: Come back soon or follow us on social media
 menu.code_of_conduct: Code of Conduct
 menu.about: About Us
 menu.sessions: Schedule

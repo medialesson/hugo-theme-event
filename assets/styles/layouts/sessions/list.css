@@ -153,3 +153,32 @@
     border: 0.0625rem solid var(--color-primary);
     color: white;
 }
+
+.nothing-scheduled-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nothing-scheduled-section__heading {
+    width: 75%;
+}
+
+.nothing-scheduled-section__placeholder {
+    width: 50%;
+    color: var(--color-primary);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+@media screen and (width < 768px) {
+    .nothing-scheduled-section__heading {
+        width: 90%;
+    }
+
+    .nothing-scheduled-section__placeholder {
+        width: 85%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}

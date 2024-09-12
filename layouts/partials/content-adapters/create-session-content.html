@@ -12,6 +12,7 @@
         {{ $startsAt = .startsAt | time.AsTime }}
         {{ $date = $startsAt | time.Format "2006-01-02" | time.AsTime }}
     {{ end }}
+    {{ $isScheduled := not $date.IsZero }}
     {{ $room := index (where $input.sessionize.rooms "id" .roomId) 0 }}
     {{ $content := dict "mediaType" "text/markdown" "value" .description }}
     {{ $speakers := where $input.sessionize.speakers "id" "in" .speakers }}
@@ -25,6 +26,7 @@
         "speakers" $speakers
         "speakerIds" .speakers
         "track" $track.name
+        "isScheduled" $isScheduled
     }}
     {{ $path := (printf "%s %s" .title .id) }}
     {{ $page := dict

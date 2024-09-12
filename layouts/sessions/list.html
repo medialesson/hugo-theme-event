@@ -118,17 +118,18 @@
                 {{- end }}
             </section>
         {{ else }}
-        <div class="section nothing-scheduled-section">
-            <h1 class="heading heading--highlighted heading--centered nothing-scheduled-section__heading">
-                No sessions scheduled yet
-            </h1>
-            <h2 class="heading heading--2 heading--centered nothing-scheduled-section__heading">
-                Come back soon or follow us on social media
-            </h2>
+            <div class="section nothing-scheduled-section">
+                <h1 class="heading heading--highlighted heading--centered nothing-scheduled-section__heading">
+                    {{ T "sessions_page.heading_no_sessions" }}
+                </h1>
+                <h2 class="heading heading--2 heading--centered nothing-scheduled-section__heading">
+                    {{ T "sessions_page.heading_come_back_soon" }}
+                </h2>
 
-            <div class="nothing-scheduled-section__placeholder">
-                {{- partial "graphics/no-content.html" }}
-            </div>
+                <div class="nothing-scheduled-section__placeholder">
+                    {{- partial "graphics/no-content.html" }}
+                </div>
+            </div>  
         {{ end }}
     </div>
 

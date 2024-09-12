@@ -6,8 +6,12 @@
 {{ $trackItems := or $trackCategory.items (slice) }}
 
 {{ range $input.sessionize.sessions }}
-    {{ $startsAt := .startsAt | time.AsTime }}
-    {{ $date := $startsAt | time.Format "2006-01-02" | time.AsTime }}
+    {{ $startsAt := time.AsTime "0001-01-01T00:00:00-00:00" }}
+    {{ $date := time.AsTime "0001-01-01T00:00:00-00:00" }}
+    {{ if .startsAt }}
+        {{ $startsAt = .startsAt | time.AsTime }}
+        {{ $date = $startsAt | time.Format "2006-01-02" | time.AsTime }}
+    {{ end }}
     {{ $room := index (where $input.sessionize.rooms "id" .roomId) 0 }}
     {{ $content := dict "mediaType" "text/markdown" "value" .description }}
     {{ $speakers := where $input.sessionize.speakers "id" "in" .speakers }}

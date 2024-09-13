@@ -2,6 +2,8 @@
     <div class="section-container">
         <section class="section single-speaker-section">
             <div class="single-speaker-section__avatar">
+                {{ $ariaLabel := T "speakers_page.social_links" page.Title }}
+
                 {{- partial "speaker-avatar.html" (
                     dict
                     "avatarResource" (.Resources.GetMatch "avatar.*")
@@ -9,6 +11,7 @@
                     "linkedinUrl" page.Params.linkedinUrl
                     "xUrl" page.Params.xUrl
                     "companyUrl" page.Params.company
+                    "ariaLabel" $ariaLabel
                     )
                 }}
             </div>

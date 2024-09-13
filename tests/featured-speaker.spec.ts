@@ -24,12 +24,15 @@ import { expect, test } from '@playwright/test';
 ].forEach(({ fullName, tagLine, profileUrl }) => {
     test(`Should provide link to page of featured speaker ${fullName} on home page`, async ({ page }) => {
         await page.goto('/');
+
         const featuredSpeakersSection = page.getByRole('region', { name: 'Featured Speakers' });
-        const featuredSpeakersMenu = featuredSpeakersSection.getByRole('menu', { name: 'Featured Speakers' });
-        const featuredSpeakersMenuItem = featuredSpeakersMenu.getByRole('menuitem', { name: fullName });
-        await expect(featuredSpeakersMenuItem.getByText(fullName)).toBeVisible();
-        await expect(featuredSpeakersMenuItem.getByText(tagLine)).toBeVisible();
-        await featuredSpeakersMenuItem.getByRole('link', { name: fullName }).click();
+        const featuredSpeakersList = featuredSpeakersSection.getByRole('list', { name: 'Featured Speakers' });
+        const featuredSpeakerItem = featuredSpeakersList.getByRole('listitem', { name: fullName });
+
+        await expect(featuredSpeakerItem.getByRole('heading', { name: fullName })).toBeVisible();
+        await expect(featuredSpeakerItem.getByText(tagLine)).toBeVisible();
+
+        await featuredSpeakerItem.getByRole('link', { name: fullName }).click();
         await expect(page).toHaveURL(profileUrl);
     });
 });

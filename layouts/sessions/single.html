@@ -5,15 +5,17 @@
             <div class="single-session-section__session-information">
                 <h1 class="single-session-section__heading">
                     <div class="single-session-section__metadata">
-                        {{- if page.Params.track }}
+                        {{- if page.Params.isScheduled }}
+                            {{- if page.Params.track }}
+                                <span class="single-session-section__pipe">
+                                    {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+                                </span>
+                            {{- end }}
                             <span class="single-session-section__pipe">
-                                {{- partial "elements/hashtag.html" (dict "hashtag" page.Params.track) }}
+                                {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
                             </span>
+                            @{{ page.Params.room.name }}
                         {{- end }}
-                        <span class="single-session-section__pipe">
-                            {{- partial "elements/date-and-time.html" (dict "date" page.Params.startsAt ) }}
-                        </span>
-                        @{{ page.Params.room.name }}
                     </div>
                     {{- page.Title -}}
                 </h1>
@@ -53,7 +55,7 @@
                                         {{ T "sessions_page.read_more" | lower }}
                                     </a>
                                 </p>
-                                <div class="single-session-speaker-list__carousel-buttons" aria-hidden="true">
+                                <div class="single-session-speaker-list__carousel-buttons">
                                     {{- partial "carousel-buttons.html" (
                                         dict
                                         "index" $index
@@ -77,6 +79,7 @@
                 dict
                 "title" .Title
                 "startsAt" .Params.startsAt
+                "isScheduled" .Params.isScheduled
                 "room" .Params.room.name
                 "sessionUrl" .RelPermalink
                 )

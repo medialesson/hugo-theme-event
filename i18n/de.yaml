@@ -10,20 +10,29 @@ cta_section.message: |
     Verpasse nicht die Chance, von führenden Expertinnen und Experten zu lernen
     und wertvolle Kontakte zu knüpfen!
 speakers_page.heading: Sprecher
+speakers_page.social_links: 'Soziale Medien-Links von {{ . }}'
 sessions_page.heading: Programm
 sessions_page.heading_day_filter: Datum
 sessions_page.heading_track_filter: Track
 sessions_page.day: Tag {{ . }}
 sessions_page.speaker: Sprecher
 sessions_page.read_more: mehr erfahren
+sessions_page.heading_no_sessions: Noch keine Sessions geplant
+sessions_page.heading_come_back_soon: Schauen Sie bald wieder vorbei oder folgen Sie uns auf Social Media
 menu.code_of_conduct: Verhaltenskodex
 menu.about: Über uns
 menu.sessions: Programm
 menu.speakers: Sprecher
 menu.location: Location
 menu.sponsors: Sponsoren & Partner
+main_menu.label: Hauptmenü
+social-links_list.label: Links zu sozialen Medien
+secondary_menu.label: Zusätzliches Menü
+language_menu.label: Sprache auswählen
 location_page.heading: Unsere Location
 location_page.directions_heading: Anfahrt
+location_page.map_frame: Interaktive Karte, die den Standort der Veranstaltung zeigt
+location_page.map_fullscreen: Größere Karte des Veranstaltungsortes anzeigen
 sponsors_page.heading_sponsors: Sponsoren
 sponsors_page.heading_partners: Partner
 about_page.heading: Über uns
@@ -50,3 +59,5 @@ event_highlights_section.number_of_days:
 speaker_page.sessions_by: Sessions von
 session_page.further_sessions: Weitere Sessions
 session_page.further_sessions_from: Weitere Sessions aus
+carousel.button_next: Nächstes Element
+carousel.button_previous: Vorheriges Element

@@ -65,10 +65,6 @@
     }
 }
 
-.page-sidebar__menu {
-    flex-grow: 1;
-}
-
 .page-sidebar__social-links {
     align-self: flex-start;
     margin-bottom: 2.5rem;
@@ -81,6 +77,7 @@
 }
 
 .page-sidebar__social-link:hover,
+.page-sidebar__social-link:focus,
 .page-sidebar__social-link:active {
     transform: scale(1.2);
 }

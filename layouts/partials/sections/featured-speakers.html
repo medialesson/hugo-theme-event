@@ -19,7 +19,7 @@
                 aria-label="{{ . }}"
             {{- end }}>
             {{- range $index, $speaker := $input.speakers }}
-                <li aria-label="{{ $speaker.name }}" data-testid="speaker-item-{{ $index }}">
+                <li aria-label="{{ $speaker.name }}">
                     {{- partial "speaker-card.html" (
                         dict
                         "profileUrl" $speaker.profileUrl

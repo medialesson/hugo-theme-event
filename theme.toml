@@ -1,0 +1,36 @@
+name = "Sessionize Conference"
+license = "AGPL-3.0"
+licenselink = "https://github.com/medialesson/hugo-theme-event/blob/main/LICENSE"
+description = "Create a website for your Sessionize event within seconds."
+
+homepage = "https://github.com/medialesson/hugo-theme-event"
+demosite = "https://medialesson.github.io/hugo-theme-event-demo/"
+
+tags = [
+"responsive",
+"light",
+"multilingual",
+"landing",
+"company",
+"event",
+"conference"
+]
+
+features = [
+"Filterable Event schedule",
+"Session and speaker pages",
+"Responsive design",
+"Multilingual",
+"Countdown",
+"Key figures",
+"Top speakers",
+"Sponsors",
+"Eventbrite integration",
+"Map integration",
+"Various CTA elements",
+"Color customization"
+]
+
+[author]
+name = "Medialesson GmbH"
+homepage = "https://medialesson.de"

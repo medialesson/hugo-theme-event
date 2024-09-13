@@ -22,17 +22,23 @@
                     height="{{ .Height }}" />
             {{- end }}
         {{- end }}
-        <span class="speaker-card__name">{{ $input.name }}</span>
+        <h1 class="heading">{{ $input.name }}</h1>
         <p class="speaker-card__description">{{ $input.description }}</p>
     </a>
     <div class="speaker-card__social-links">
-        {{- partial "social-links.html" (
-            dict
-            "linkedinUrl" $input.linkedinUrl
-            "xUrl" $input.xUrl
-            "companyUrl" $input.companyUrl
-            "linkClass" "speaker-card__social-link"
-            )
-        }}
+        {{ $ariaLabel := T "speakers_page.social_links" $input.name }}
+        {{- $hasSocialLinks := or $input.linkedinUrl $input.xUrl $input.companyUrl }}
+
+        {{- if $hasSocialLinks }}
+            {{- partial "social-links.html" (
+                dict
+                "linkedinUrl" $input.linkedinUrl
+                "xUrl" $input.xUrl
+                "companyUrl" $input.companyUrl
+                "linkClass" "speaker-card__social-link"
+                "ariaLabel" $ariaLabel
+                )
+            }}
+        {{- end }}
     </div>
 </div>

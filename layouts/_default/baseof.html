@@ -50,7 +50,9 @@
 
         <header class="section-container page-header" id="pageHeader">
             <div class="section section--short page-header__content" id="pageHeaderContent">
-                <nav id="mainNavigation" class="page-header__navigation">
+                <nav id="mainNavigation" class="page-header__navigation" aria-labelledby="main-navigation-label">
+                    <!-- Label for assistive technologies only -->
+                    <label id="main-navigation-label" class="sr-only">{{ T "main_menu.label" }}</label>
                     <label class="page-header__toggle-sidebar-label" for="sidebarToggle">
                         {{- partial "graphics/hamburger-menu.html" }}
                     </label>
@@ -85,7 +87,7 @@
         </header>
 
         <aside class="page-sidebar">
-            <nav class="page-sidebar__navigation">
+            <nav class="page-sidebar__navigation" aria-labelledby="main-navigation-label">
                 <header class="page-sidebar__header">
                     <a class="page-sidebar__heading-link" href="{{ site.Home.RelPermalink }}">
                         {{ strings.FirstUpper .Site.Params.themes.event.title }}
@@ -104,15 +106,13 @@
                     )
                 }}
 
+                {{- partial "menus/sidebar.html" (
+                    dict
+                    "menu" .Site.Menus.main
+                    "context" .
+                    )
+                }}
 
-                <div class="page-sidebar__menu">
-                    {{- partial "menus/sidebar.html" (
-                        dict
-                        "menu" .Site.Menus.main
-                        "context" .
-                        )
-                    }}
-                </div>
 
                 <div class="page-sidebar__social-links">
                     {{- partial "social-links.html" (
@@ -170,9 +170,9 @@
         {{- with .Site.Menus.secondary }}
             {{- if gt (len .) 0 }}
                 <div class="section-container section-container--dimmed">
-                    <nav class="section section--long" aria-label="Secondary">
+                    <div class="section section--long" role="complementary">
                         {{- partial "menus/secondary.html" (dict "menu" .) -}}
-                    </nav>
+                    </div>
                 </div>
             {{- end }}
         {{- end }}
@@ -182,7 +182,7 @@
             <section class="section section--short page-footer-section">
                 <div class="page-footer-section__start">
                     <!-- Label for assistive technologies only -->
-                    <label for="language-select" class="sr-only">Select Language</label>
+                    <label for="language-select" class="sr-only">{{ T "language_menu.label" }}</label>
                     <select id="language-select" class="select" name="language" onchange="location = this.value;">
                         {{ range $.Site.Home.AllTranslations }}
                             <option
@@ -202,6 +202,7 @@
                         "facebookUrl" .Site.Params.themes.event.socialLinks.facebookUrl
                         "companyUrl" .Site.Params.themes.event.socialLinks.companyUrl
                         "linkClass" "page-footer-section__social-link"
+                        "ariaLabel" (T "social-links_list.label")
                         )
                     }}
                 </div>

@@ -16,3 +16,7 @@
     height: 1em;
     width: 1em;
 }
+
+.social-links__link:focus {
+    outline: 2px solid white;
+}

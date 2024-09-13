@@ -10,12 +10,15 @@
     }}
 
     {{- if (or $input.linkedinUrl $input.xUrl $input.companyUrl) }}
+        {{ $ariaLabel := T "speakers_page.social_links" $input.avatarAlt }}
+
         {{- partial "social-links.html" (
             dict
             "linkedinUrl" $input.linkedinUrl
             "xUrl" $input.xUrl
             "companyUrl" $input.companyUrl
             "linkClass" "speaker-avatar-container__social-link"
+            "ariaLabel" $ariaLabel
             )
         }}
     {{- end }}

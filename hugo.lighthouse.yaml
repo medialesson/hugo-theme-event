@@ -1,0 +1,53 @@
+###
+### THIS CONFIGURATION FILE IS FOR LIGHTHOUSE ANALYSIS ONLY.
+###
+
+theme: event
+
+menus:
+    main:
+        - identifier: sessions
+          pageRef: /sessions
+        - identifier: speakers
+          pageRef: /speakers
+    secondary:
+        - identifier: about
+          pageRef: /about
+          params:
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        - name: Venue
+          pageRef: /location
+          params:
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    footer:
+        - identifier: code_of_conduct
+          pageRef: /code-of-conduct
+
+params:
+    themes:
+        event:
+            sessionizeId: test
+            callToAction:
+                other:
+                    url: https://example.com
+            socialLinks:
+                xUrl: https://example.com
+                facebookUrl: https://example.com
+                linkedinUrl: https://example.com
+            sponsors:
+                - logo: logos/medialesson-logo.svg
+                  url: https://www.media-lesson.com/
+                  name: 'Medialesson GmbH'
+            partners:
+                - logo: logos/medialesson-logo.svg
+                  url: https://www.media-lesson.com/
+                  name: 'Medialesson GmbH'
+            organizers:
+                - '00000000-0000-0000-0000-000000000000'
+                - '00000000-0000-0000-0000-000000000001'
+                - '00000000-0000-0000-0000-000000000004'
+                - '00000000-0000-0000-0000-000000000002'
+            featuredSessions:
+                - '729572'
+                - '729576'
+                - '729579'

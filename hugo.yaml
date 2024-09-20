@@ -99,10 +99,10 @@ params:
             # 👇 List of Sessionize session IDs of highlight sessions.
             featuredSessions:
             colors:
-                primaryLighter: '#d7fb4d'
-                primary: '#c6eb4d'
-                primaryDarker: '#015a57'
-                primaryDarkest: '#111928'
+                primaryLighter: '#487e7c'
+                primary: '#026f6b'
+                primaryDarker: '#005b57'
+                primaryDarkest: '#00363d'
                 secondary: '#f7f8fa'
                 secondaryDarker: '#637381'
                 track: '#015a57'

@@ -12,7 +12,7 @@ on:
             - '.vscode/**'
             - 'docs/**'
             - '.git*'
-            - '.prettier*'
+            - '*lighthouserc*'
             - '*eslint*'
             - 'CONTRIBUTING.md'
             - 'LICENSE'

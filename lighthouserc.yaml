@@ -2,8 +2,8 @@ ci:
     collect:
         staticDistDir: ./public
         url:
-            - http://localhost/
-            # - http://localhost/about
+            # - http://localhost/
+            - http://localhost/about
             # - http://localhost/code-of-conduct
             # - http://localhost/location
             # - http://localhost/sessions

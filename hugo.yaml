@@ -48,6 +48,7 @@ params:
             # 👇 and enter it here.
             sessionizeId:
             title: Your Event Title
+            shortTitle: Alternative Short Event Title
             startDate: 2026-06-01
             endDate: 2026-06-03
             location: City, Country

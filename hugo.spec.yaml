@@ -17,7 +17,8 @@ params:
     themes:
         event:
             sessionizeId: test
-            title: testcon
+            title: test conference
+            shortTitle: testcon
             startDate: 2045-06-01
             endDate: 2045-06-03
             location: Pforzheim, Germany

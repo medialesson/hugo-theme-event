@@ -70,7 +70,7 @@
                                 dict
                                 "menu" .Site.Menus.main
                                 "context" .
-                                "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
+                                "homeLabel" (strings.FirstUpper (or .Site.Params.themes.event.shortTitle .Site.Params.themes.event.title))
                                 )
                             }}
                         </div>

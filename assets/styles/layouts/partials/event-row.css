@@ -63,10 +63,7 @@
     font-weight: 600;
 }
 
-.event-row__room {
-    font-weight: 400;
-}
-
+.event-row__room,
 .event-row__speakers {
     all: unset;
     font-size: 1rem;

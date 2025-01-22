@@ -16,6 +16,7 @@ sessions_page.heading_day_filter: Datum
 sessions_page.heading_track_filter: Track
 sessions_page.day: Tag {{ . }}
 sessions_page.speaker: Sprecher
+sessions_page.room: Raum
 sessions_page.read_more: mehr erfahren
 sessions_page.heading_no_sessions: Noch keine Sessions geplant
 sessions_page.heading_come_back_soon: Schauen Sie bald wieder vorbei oder folgen Sie uns auf Social Media

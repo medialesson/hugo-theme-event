@@ -1,0 +1,44 @@
+name: Yearly Event Reschedule
+on:
+    schedule:
+        - cron: 1 1 1 1 *
+
+jobs:
+    create_issue:
+        name: Create issue
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+        steps:
+            - name: Create event reschedule issue
+              run: |
+                  if [[ $CLOSE_PREVIOUS == true ]]; then
+                    previous_issue_number=$(gh issue list \
+                      --label "$LABELS" \
+                      --json number \
+                      --jq '.[0].number')
+                    if [[ -n $previous_issue_number ]]; then
+                      gh issue close "$previous_issue_number"
+                      gh issue unpin "$previous_issue_number"
+                    fi
+                  fi
+                  new_issue_url=$(gh issue create \
+                    --title "$TITLE" \
+                    --assignee "$ASSIGNEES" \
+                    --label "$LABELS" \
+                    --body "$BODY")
+                  if [[ $PINNED == true ]]; then
+                    gh issue pin "$new_issue_url"
+                  fi
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GH_REPO: ${{ github.repository }}
+                  TITLE: Reschedule the demo conference
+                  ASSIGNEES: lukket,NataliiaPodp,ThomasPe
+                  LABELS: yearly-event-reschedule
+                  BODY: |
+                      - [ ] Update the conference date in Sessionize to 30 January to 31 January next year.
+                      - [ ] Update `startDate`` and `endDate`` in the `hugo.yaml`` of the event theme demo.
+                      - [ ] Deploy the demo site.
+                  PINNED: true
+                  CLOSE_PREVIOUS: true

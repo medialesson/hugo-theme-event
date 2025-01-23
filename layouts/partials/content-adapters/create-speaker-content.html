@@ -33,18 +33,14 @@
     {{ $item := . }}
     {{ with $url := $item.profilePicture }}
         {{ with resources.GetRemote $url  | images.Filter (images.Process "q90 webp") }}
-            {{ with .Err }}
-                {{ errorf "Unable to get remote resource %s: %s" $url . }}
-            {{ else }}
-                {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
-                {{ $params := dict "alt" $item.fullName }}
-                {{ $resource := dict
-                    "content" $content
-                    "params" $params
-                    "path" (printf "%s/avatar.%s" $path .MediaType.SubType)
-                }}
-                {{ $resources = $resources | append $resource }}
-            {{ end }}
+            {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
+            {{ $params := dict "alt" $item.fullName }}
+            {{ $resource := dict
+                "content" $content
+                "params" $params
+                "path" (printf "%s/avatar.%s" $path .MediaType.SubType)
+            }}
+            {{ $resources = $resources | append $resource }}
         {{ else }}
             {{ errorf "Unable to get remote resource %s" $url }}
         {{ end }}

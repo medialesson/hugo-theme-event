@@ -17,12 +17,10 @@
     {{- if not (page.Scratch.Get "cta_eventbrite_script_loaded") }}
         {{/* Provide Eventbrite script from own server, for performance and privacy reasons. */}}
         {{- with resources.GetRemote "https://www.eventbrite.de/static/widgets/eb_widgets.js" }}
-            {{- with .Err }}
-                {{ errorf "%s" . }}
-            {{- else }}
-                <script src="{{ .RelPermalink }}"></script>
-                {{- page.Scratch.Set "cta_eventbrite_script_loaded" true }}
-            {{- end }}
+            <script src="{{ .RelPermalink }}"></script>
+            {{- page.Scratch.Set "cta_eventbrite_script_loaded" true }}
+        {{- else }}
+            {{ errorf "Unable to load Eventbrite script." }}
         {{- end }}
     {{- end }}
 

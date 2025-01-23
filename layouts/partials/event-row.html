@@ -30,16 +30,29 @@
         <ul class="event-row__avatars">
             {{- range $input.speakers }}
                 {{- $speaker := . }}
-                {{- with $speaker.avatarResource | images.Filter (images.Process "resize 128x") }}
-                    <li>
-                        <img
-                            class="event-row__avatar-img"
-                            src="{{ .RelPermalink }}"
-                            alt="{{ $speaker.name }}"
-                            width="{{ .Width }}"
-                            height="{{ .Height }}" />
-                    </li>
-                {{ end }}
+                {{- with $speaker.avatarResource }}
+                    {{- with images.Filter (images.Process "resize 128x") . }}
+                        <li>
+                            <img
+                                class="event-row__avatar-img"
+                                src="{{ .RelPermalink }}"
+                                alt="{{ $speaker.name }}"
+                                width="{{ .Width }}"
+                                height="{{ .Height }}" />
+                        </li>
+                    {{- end }}
+                {{- else }}
+                    {{- with resources.Get "images/avatar-image-fallback.webp" }}
+                        <li>
+                            <img
+                                class="event-row__avatar-img"
+                                src="{{ .RelPermalink }}"
+                                alt="{{ $speaker.name }}"
+                                width="{{ .Width }}"
+                                height="{{ .Height }}" />
+                        </li>
+                    {{- end }}
+                {{- end }}
             {{- end }}
         </ul>
     </article>

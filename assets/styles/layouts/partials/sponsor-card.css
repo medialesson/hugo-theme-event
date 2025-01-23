@@ -1,6 +1,7 @@
 .sponsor-card {
     width: 16.875rem;
     height: 16.875rem;
+    padding: 0.5rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

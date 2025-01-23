@@ -3,20 +3,22 @@
         <div class="section">
             <h1 class="heading heading--1">{{ T "speakers_page.heading" }}</h1>
             <menu class="speaker-list__menu">
-                {{ range .Pages.ByPublishDate.Reverse }}
-                    <li class="speaker-list__item">
-                        {{- partial "speaker-card.html" (
-                            dict
-                            "profileUrl" .RelPermalink
-                            "avatarResource" (.Resources.GetMatch "avatar.*")
-                            "name" .Title
-                            "description" .Params.tagLine
-                            "linkedinUrl" .Params.linkedinUrl
-                            "xUrl" .Params.xUrl
-                            "companyUrl" .Params.company
-                            )
-                        }}
-                    </li>
+                {{ range .Pages.GroupByParam "lastName" }}
+                    {{ range .Pages.ByParam "firstName" }}
+                        <li class="speaker-list__item">
+                            {{- partial "speaker-card.html" (
+                                dict
+                                "profileUrl" .RelPermalink
+                                "avatarResource" (.Resources.GetMatch "avatar.*")
+                                "name" .Title
+                                "description" .Params.tagLine
+                                "linkedinUrl" .Params.linkedinUrl
+                                "xUrl" .Params.xUrl
+                                "companyUrl" .Params.company
+                                )
+                            }}
+                        </li>
+                    {{ end }}
                 {{ end }}
             </menu>
         </div>

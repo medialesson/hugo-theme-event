@@ -18,6 +18,8 @@
         "xUrl" $xUrl
         "linkedinUrl" $linkedinUrl
         "companyUrl" $companyUrl
+        "lastName" .lastName
+        "firstName" .firstName
     }}
     {{ $path := (printf "%s %s" .fullName .id) }}
     {{ $page := dict

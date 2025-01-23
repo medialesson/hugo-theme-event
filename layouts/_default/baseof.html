@@ -57,7 +57,7 @@
                         {{- partial "graphics/hamburger-menu.html" }}
                     </label>
                     <a class="page-header__title-link" href="{{ site.Home.RelPermalink }}">
-                        {{ (strings.FirstUpper .Site.Params.themes.event.title) }}
+                        {{ (strings.FirstUpper (or .Site.Params.themes.event.shortTitle .Site.Params.themes.event.title)) }}
                     </a>
 
                     <div class="page-header__menu-container">
@@ -90,7 +90,7 @@
             <nav class="page-sidebar__navigation" aria-labelledby="main-navigation-label">
                 <header class="page-sidebar__header">
                     <a class="page-sidebar__heading-link" href="{{ site.Home.RelPermalink }}">
-                        {{ strings.FirstUpper .Site.Params.themes.event.title }}
+                        {{ (strings.FirstUpper (or .Site.Params.themes.event.shortTitle .Site.Params.themes.event.title)) }}
                     </a>
 
                     <label class="page-sidebar__close-label" for="sidebarToggle">

@@ -1,7 +1,7 @@
 {{ $input := . }}
 
 
-<time class="counter" datetime="{{ $input.targetDate }}">
+<time class="counter" datetime="{{ $input.targetDate }}" style="display: none;">
     <div class="counter__segment">
         <span class="counter__value" id="countdown-days"></span>
         <span class="counter__label">{{ T "countdown.days" }}</span>
@@ -21,6 +21,11 @@
 </time>
 
 <script>
+  // Display the counter only if JavaScript is enabled.
+  for (const element of document.getElementsByClassName("counter")) {
+    element.style.display = "inherit";
+  }
+
   const SECOND_IN_MILLISECONDS = 1000;
   const MINUTE_IN_MILLISECONDS = SECOND_IN_MILLISECONDS * 60;
   const HOUR_IN_MILLISECONDS = MINUTE_IN_MILLISECONDS * 60;

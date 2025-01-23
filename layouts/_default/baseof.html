@@ -22,14 +22,8 @@
         {{ template "_internal/opengraph.html" . }}
         {{ template "_internal/twitter_cards.html" . }}
 
-        {{ range resources.Match "**/*.css" }}
-            {{- $secureCss := . | fingerprint }}
-            <link
-                rel="stylesheet"
-                href="{{ $secureCss.RelPermalink }}"
-                type="text/css"
-                media="screen"
-                integrity="{{ $secureCss.Data.Integrity }}" />
+        {{ with (resources.Match "**/*.css" | resources.Concat "styles.css" | minify | fingerprint) }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}" type="text/css" media="screen" integrity="{{ .Data.Integrity }}" />
         {{ end }}
 
     <style>
@@ -56,22 +50,30 @@
 
         <header class="section-container page-header" id="pageHeader">
             <div class="section section--short page-header__content" id="pageHeaderContent">
-                <nav id="mainNavigation" class="page-header__navigation">
+                <nav id="mainNavigation" class="page-header__navigation" aria-labelledby="main-navigation-label">
+                    <!-- Label for assistive technologies only -->
+                    <label id="main-navigation-label" class="sr-only">{{ T "main_menu.label" }}</label>
                     <label class="page-header__toggle-sidebar-label" for="sidebarToggle">
                         {{- partial "graphics/hamburger-menu.html" }}
                     </label>
-                    <a class="page-header__title-link" href="{{ site.Home.Permalink }}">
+                    <a class="page-header__title-link" href="{{ site.Home.RelPermalink }}">
                         {{ (strings.FirstUpper .Site.Params.themes.event.title) }}
                     </a>
 
                     <div class="page-header__menu-container">
-                        {{- partial "menus/header.html" (
-                            dict
-                            "menu" .Site.Menus.main
-                            "context" .
-                            "homeLabel" (strings.FirstUpper .Site.Params.themes.event.title)
-                            )
-                        }}
+                        <div id="pageHeaderMenuScriptValidator" style="display: none;">
+                            <script>
+                                // Display the header menu only if JavaScript is enabled.
+                                pageHeaderMenuScriptValidator.style.display = 'inherit';
+                            </script>
+                            {{- partial "menus/header.html" (
+                                dict
+                                "menu" .Site.Menus.main
+                                "context" .
+                                "homeLabel" (strings.FirstUpper (or .Site.Params.themes.event.shortTitle .Site.Params.themes.event.title))
+                                )
+                            }}
+                        </div>
                     </div>
 
                     {{- partial "cta/button.html" (
@@ -85,9 +87,9 @@
         </header>
 
         <aside class="page-sidebar">
-            <nav class="page-sidebar__navigation">
+            <nav class="page-sidebar__navigation" aria-labelledby="main-navigation-label">
                 <header class="page-sidebar__header">
-                    <a class="page-sidebar__heading-link" href="{{ site.Home.Permalink }}">
+                    <a class="page-sidebar__heading-link" href="{{ site.Home.RelPermalink }}">
                         {{ strings.FirstUpper .Site.Params.themes.event.title }}
                     </a>
 
@@ -100,18 +102,17 @@
                     dict
                     "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
                     "ctaUrl" .Site.Params.themes.event.callToAction.other.url
+                    "buttonClass" "button--scaled"
                     )
                 }}
 
+                {{- partial "menus/sidebar.html" (
+                    dict
+                    "menu" .Site.Menus.main
+                    "context" .
+                    )
+                }}
 
-                <div class="page-sidebar__menu">
-                    {{- partial "menus/sidebar.html" (
-                        dict
-                        "menu" .Site.Menus.main
-                        "context" .
-                        )
-                    }}
-                </div>
 
                 <div class="page-sidebar__social-links">
                     {{- partial "social-links.html" (
@@ -169,9 +170,9 @@
         {{- with .Site.Menus.secondary }}
             {{- if gt (len .) 0 }}
                 <div class="section-container section-container--dimmed">
-                    <nav class="section section--long" aria-label="Secondary">
+                    <div class="section section--long" role="complementary">
                         {{- partial "menus/secondary.html" (dict "menu" .) -}}
-                    </nav>
+                    </div>
                 </div>
             {{- end }}
         {{- end }}
@@ -181,7 +182,7 @@
             <section class="section section--short page-footer-section">
                 <div class="page-footer-section__start">
                     <!-- Label for assistive technologies only -->
-                    <label for="language-select" class="sr-only">Select Language</label>
+                    <label for="language-select" class="sr-only">{{ T "language_menu.label" }}</label>
                     <select id="language-select" class="select" name="language" onchange="location = this.value;">
                         {{ range $.Site.Home.AllTranslations }}
                             <option
@@ -201,6 +202,7 @@
                         "facebookUrl" .Site.Params.themes.event.socialLinks.facebookUrl
                         "companyUrl" .Site.Params.themes.event.socialLinks.companyUrl
                         "linkClass" "page-footer-section__social-link"
+                        "ariaLabel" (T "social-links_list.label")
                         )
                     }}
                 </div>

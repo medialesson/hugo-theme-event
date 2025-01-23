@@ -48,6 +48,10 @@ params:
             # 👇 and enter it here.
             sessionizeId:
             title: Your Event Title
+            # 👇 An optional short version of your event's title. Only use it if
+            # 👇 your event title is very long. The short title may be used in
+            # 👇 places where space is limited (e.g., in the header menu).
+            shortTitle:
             startDate: 2026-06-01
             endDate: 2026-06-03
             location: City, Country
@@ -81,7 +85,7 @@ params:
             favicon: favicon.ico
             images:
                 logo: logos/medialesson-rgb.svg
-                titleBackground: images/pexels-scottwebb-1048039.jpg
+                titleBackground: images/pexels-scottwebb-1048039.webp
                 # 👇 Image showcasing the building or venue where the event will take place.
                 location:
             sponsors:

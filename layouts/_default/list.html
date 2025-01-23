@@ -7,7 +7,7 @@
             {{ range .Pages }}
                 <article>
                     <header>
-                        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                     </header>
                     <section>{{ .Summary }}</section>
                 </article>

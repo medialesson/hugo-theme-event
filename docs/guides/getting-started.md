@@ -8,18 +8,26 @@
 ## Installation
 
 1. Open a shell of your choice.
-2. Create a new Hugo site. Replace `path` with the name of you website. We
+1. Create a new Hugo site. Replace `path` with the name of you website. We
    recommend YAML to configure Hugo (`--format yaml`).
     ```shell
      hugo new site [path] [--format yaml]
     ```
-3. Switch to the directory of your new site.
+1. Switch to the directory of your new site.
 
     ```shell
     cd [path]
     ```
 
-4. Clone this repository into the `themes/` directory.
+1. Install npm dependencies for development (e.g. Prettier).
+
+    ```shell
+    npm install
+    ```
+
+1. Delete folder `archetypes`
+
+1. Clone this repository into the `themes/` directory.
 
     ```shell
     git clone https://github.com/medialesson/hugo-theme-event.git themes/event
@@ -32,7 +40,7 @@
     git submodule add https://github.com/medialesson/hugo-theme-event.git themes/event
     ```
 
-5. Go to the [endpoint
+1. Go to the [endpoint
    overview](https://sessionize.com/app/organizer/schedule/api/0) of your
    Sessionize event and create a new endpoint.
 
@@ -44,7 +52,7 @@
         - **Sessions:** Include Service Sessions
         - **Speakers:** Links
 
-6. Add and adapt the following minimal settings to your [Hugo
+1. Add and adapt the following minimal settings to your [Hugo
    configuration](https://gohugo.io/getting-started/configuration/):
     ```yaml
     theme: event
@@ -59,8 +67,8 @@
                 # 👇 and enter it here.
                 sessionizeId: 67poir7q
     ```
-7. Run Hugo in development mode:
+1. Run Hugo in development mode:
     ```shell
     hugo server
     ```
-8. View your event website on http://localhost:1313/.
+1. View your event website on http://localhost:1313/.

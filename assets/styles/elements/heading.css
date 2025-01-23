@@ -12,6 +12,12 @@
     margin-bottom: 1.75rem;
 }
 
+@media screen and (width < 768px) {
+    .heading--1 {
+        margin-bottom: 2.8175rem;
+    }
+}
+
 .heading--2 {
     font-size: 2.25rem;
     line-height: 3rem;

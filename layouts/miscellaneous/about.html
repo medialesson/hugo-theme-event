@@ -17,7 +17,7 @@
                 {{- if in $organizerIds .Params.speakerId }}
                     <!-- Check if the speaker ID is in the organizers list -->
                     {{- $organizers = $organizers | append ( dict
-                        "profileUrl" .Permalink
+                        "profileUrl" .RelPermalink
                         "avatarResource" (.Resources.GetMatch "avatar.*")
                         "name" .Title
                         "speakerId" .Params.speakerId

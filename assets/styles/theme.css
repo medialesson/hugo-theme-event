@@ -89,8 +89,7 @@ html {
 
 @media (width <= 576px) {
     .section {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 1rem;
     }
 }
 

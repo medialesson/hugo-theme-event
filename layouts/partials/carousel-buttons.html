@@ -1,0 +1,33 @@
+{{- $input := . }}
+{{- if gt $input.numberOfItems 1 }}
+    <div class="carousel-buttons">
+        <button
+            aria-label="{{ T "carousel.button_previous" }}"
+            {{- if le $input.index 0 }}
+                disabled class="button button--outlined button--round button--disabled"
+            {{- else }}
+                class="button button--outlined button--round"
+                {{- with (printf "%s%d" $input.elementIdPrefix (sub $input.index 1)) }}
+                    onclick="window['{{ . }}'].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })"
+                {{- end }}
+            {{- end }}>
+            <div class="button__icon">
+                {{ partial "graphics/arrow-left.html" }}
+            </div>
+        </button>
+        <button
+            aria-label="{{ T "carousel.button_next" }}"
+            {{- if ge $input.index (sub $input.numberOfItems 1) }}
+                disabled class="button button--outlined button--round button--disabled"
+            {{- else }}
+                class="button button--outlined button--round"
+                {{- with (printf "%s%d" $input.elementIdPrefix (add $input.index 1)) }}
+                    onclick="window['{{ . }}'].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })"
+                {{- end }}
+            {{- end }}>
+            <div class="button__icon">
+                {{ partial "graphics/arrow-right.html" }}
+            </div>
+        </button>
+    </div>
+{{- end }}

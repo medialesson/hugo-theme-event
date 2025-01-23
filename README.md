@@ -17,7 +17,7 @@ creates various contents and offers the following features.
 -   Map integration
 -   Various CTA elements
 -   Color customization
--   Plain HTML and CSS (almost no JavaScript)
+-   Plain HTML and CSS (no JavaScript needed)
 
 ## Quick start
 
@@ -32,7 +32,11 @@ out its configuration or fork the repository to start your own project.
 
 ### Getting started
 
-Learn how to start a new project from scratch in our [getting started
+The easiest way to get up and running is by using the
+[Hugo Event Theme Demo template](https://github.com/medialesson/hugo-theme-event-demo).
+This template is a pre-configured Hugo project that uses the Event theme.
+
+To start a new project from scratch read the [getting started
 guide](docs/guides/getting-started.md).
 
 ### Customization

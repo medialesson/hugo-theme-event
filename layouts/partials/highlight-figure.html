@@ -5,7 +5,14 @@
     {{- with resources.Get $input.icon }}
         <div class="highlight-figure__image-wrapper">
             <!--    alt="" tells screen readers to skip the image, as it's purely decorative -->
-            <img class="highlight-figure__image" aria-hidden="true" src="{{ .RelPermalink }}" alt="" />
+            <img
+                class="highlight-figure__image"
+                aria-hidden="true"
+                src="{{ .RelPermalink }}"
+                alt=""
+                {{ if not (eq .MediaType.SubType "svg") }}
+                    width="{{ .Width }}" height="{{ .Height }}"
+                {{ end }} />
         </div>
     {{ end }}
     <figcaption class="highlight-figure__caption">{{ $input.caption }}</figcaption>

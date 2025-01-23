@@ -12,6 +12,7 @@
     flex-basis: 30%;
     flex-shrink: 0;
     box-sizing: border-box;
+    color: var(--color-primary);
 }
 
 @media (max-width: 576px) {

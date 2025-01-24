@@ -20,6 +20,11 @@
                     {{- page.Title -}}
                 </h1>
                 <p class="single-session-section__content">{{- page.RawContent }}</p>
+                <p>
+                    {{- range page.Params.labels }}
+                        {{- partial "elements/label.html" (dict "label" . "fill" true) }}
+                    {{- end }}
+                </p>
             </div>
         </section>
         <section class="section" aria-label="Speaker of the session">

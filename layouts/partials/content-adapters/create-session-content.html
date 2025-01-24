@@ -3,7 +3,13 @@
 {{ $resources := slice }}
 
 {{ $trackCategory := index (where $input.sessionize.categories "title" $input.trackCategoryTitle) 0 }}
-{{ $trackItems := or $trackCategory.items (slice) }}
+{{ $trackCategoryItems := or $trackCategory.items (slice) }}
+
+{{ $otherCategories := where $input.sessionize.categories "title" "ne" $input.trackCategoryTitle }}
+{{ $otherCategoryItems := slice }}
+{{ range $otherCategories }}
+    {{ $otherCategoryItems = $otherCategoryItems | append .items }}
+{{ end }}
 
 {{ range $input.sessionize.sessions }}
     {{ $startsAt := time.AsTime "0001-01-01T00:00:00-00:00" }}
@@ -16,7 +22,12 @@
     {{ $room := index (where $input.sessionize.rooms "id" .roomId) 0 }}
     {{ $content := dict "mediaType" "text/markdown" "value" .description }}
     {{ $speakers := where $input.sessionize.speakers "id" "in" .speakers }}
-    {{ $track := index (where $trackItems "id" "in" .categoryItems) 0 }}
+    {{ $sessionTrack := index (where $trackCategoryItems "id" "in" .categoryItems) 0 }}
+    {{ $sessionCategories := where $otherCategoryItems "id" "in" .categoryItems }}
+    {{ $sessionCategoryNames := slice }}
+    {{ range $sessionCategories }}
+        {{ $sessionCategoryNames = $sessionCategoryNames | append .name }}
+    {{ end }}
     {{ $params := dict
         "sessionId" .id
         "date" $date
@@ -25,8 +36,9 @@
         "isServiceSession" .isServiceSession
         "speakers" $speakers
         "speakerIds" .speakers
-        "track" $track.name
+        "track" $sessionTrack.name
         "isScheduled" $isScheduled
+        "labels" $sessionCategoryNames
     }}
     {{ $path := (printf "%s %s" .title .id) }}
     {{ $page := dict

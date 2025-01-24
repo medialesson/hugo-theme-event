@@ -25,6 +25,11 @@
             {{- T "sessions_page.room" }}:
             {{ $input.room }}
         </h3>
+        <div>
+            {{- range $input.labels }}
+                {{- partial "elements/label.html" (dict "label" .) }}
+            {{- end }}
+        </div>
     </div>
     <article>
         <ul class="event-row__avatars">

@@ -1,0 +1,15 @@
+.label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.15rem 0.25rem;
+    border-radius: 0.275rem;
+    font-size: 0.75rem;
+}
+
+.label--filled {
+    background: var(--color-primary);
+    border: 0.0625rem solid var(--color-primary);
+    color: white;
+}

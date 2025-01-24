@@ -62,7 +62,13 @@
                             </h1>
                             <h2 class="heading heading--2">
                                 {{ $session.sessionName }}
+                                <div class="featured-sessions-section__labels">
+                                    {{- range  $session.labels }}
+                                        {{- partial "elements/label.html" (dict "label" .) }}
+                                    {{- end }}
+                                </div>
                             </h2>
+
                             <p class="paragraph paragraph--highlighted featured-sessions-section__session-description">
                                 {{ substr $session.sessionDescription 0 200 }}...
                                 <a href="{{ $session.sessionUrl }}" class="link link--white">

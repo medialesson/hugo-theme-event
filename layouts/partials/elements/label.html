@@ -1,0 +1,12 @@
+{{ $input := . }}
+
+
+<span
+    {{- if isset $input "fill" }}
+        class="label label--filled"
+    {{- else }}
+        class="label"
+    {{- end }}>
+    {{- partial "graphics/label.html" }}
+    {{- $input.label -}}
+</span>

@@ -40,7 +40,7 @@
         "isScheduled" $isScheduled
         "labels" $sessionCategoryNames
     }}
-    {{ $path := (printf "%s %s" .title .id) }}
+    {{ $path := (printf "%s %s" (.title | urlize) .id) }}
     {{ $page := dict
         "content" $content
         "kind" "page"

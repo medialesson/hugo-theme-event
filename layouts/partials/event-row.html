@@ -7,12 +7,12 @@
     {{- else }}
         class="event-row" href="{{- $input.link }}"
     {{- end }}>
-    <h1 class="event-row__track">
+    <div class="event-row__left">
         {{- if $input.track }}
-            #{{- $input.track | upper }}
+            <h1 class="event-row__track">
+                #{{- $input.track | upper }}
+            </h1>
         {{- end }}
-    </h1>
-    <div class="event-row__center">
         <h2 class="event-row__title">
             {{- $input.title }}
         </h2>
@@ -25,13 +25,8 @@
             {{- T "sessions_page.room" }}:
             {{ $input.room }}
         </h3>
-        <div>
-            {{- range $input.labels }}
-                {{- partial "elements/label.html" (dict "label" .) }}
-            {{- end }}
-        </div>
     </div>
-    <article>
+    <div class="event-row__right">
         <ul class="event-row__avatars">
             {{- range $input.speakers }}
                 {{- $speaker := . }}
@@ -60,5 +55,11 @@
                 {{- end }}
             {{- end }}
         </ul>
-    </article>
+
+        <div class="event-row__labels">
+            {{- range $input.labels }}
+                {{- partial "elements/label.html" (dict "label" .) }}
+            {{- end }}
+        </div>
+    </div>
 </a>

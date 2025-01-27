@@ -6,6 +6,7 @@ test(`Should display all relevant session information`, async ({ page }) => {
     const sessionInformation = page.getByRole('region', { name: 'Session information' });
     await expect(sessionInformation.getByRole('heading', { name: 'BUSINESS' })).toBeVisible();
     await expect(sessionInformation.getByRole('heading', { name: '30.01.2025, 14:00' })).toBeVisible();
+    await expect(sessionInformation.getByRole('heading', { name: '@Room 2' })).toBeVisible();
     await expect(
         sessionInformation.getByRole('heading', { name: 'Mastering Personal Branding in the Digital Age' }),
     ).toBeVisible();
@@ -14,6 +15,9 @@ test(`Should display all relevant session information`, async ({ page }) => {
             "In this engaging session, we will explore the essential strategies for building and maintaining a strong personal brand in today's digital landscape. Learn how to leverage social media, create compelling content, and effectively communicate your unique value proposition. Whether you're a professional looking to enhance your career prospects or an entrepreneur aiming to stand out in a crowded market, this session will provide actionable insights and practical tips to elevate your personal brand.",
         ),
     ).toBeVisible();
+    await expect(sessionInformation.getByRole('listitem', { name: 'Session' })).toBeVisible();
+    await expect(sessionInformation.getByRole('listitem', { name: 'Introductory and overview' })).toBeVisible();
+    await expect(sessionInformation.getByRole('listitem', { name: 'English' })).toBeVisible();
 });
 
 [

@@ -60,7 +60,7 @@
                             <h1 class="heading">
                                 {{- T "featured_sessions_section.heading" -}}
                             </h1>
-                            <h2 class="heading heading--2">
+                            <h2 class="heading heading--2" aria-label="{{- $session.sessionName -}}">
                                 {{- $session.sessionName -}}
                                 <div class="featured-sessions-section__categories">
                                     {{- partial "session-categories.html" (dict "categories" $session.categories) }}

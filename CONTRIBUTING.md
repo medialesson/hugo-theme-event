@@ -57,6 +57,20 @@ breaking changes when refactoring.
 -   Choose the keys wisely! A later modification of a key would introduce a breaking change.
 -   Avoid technical or framework related terms (e.g., `single`, `list` or `taxonomy`).
 
+## Tests
+
+The functionality of the theme is ensured with [Playwright](https://playwright.dev/) tests.
+
+Before you run the tests, make sure neither Hugo nor any other process runs on port `1313`.
+Playwright runs its own instance of the theme and executes the tests against it.
+
+You can run the tests with `npx playwright test`.
+
+For a reliable and deterministic test environment, the tests run a dedicated
+Hugo configuration (`hugo.spec.yaml`). This configuration sets the Sessionize ID
+to `test` which makes the theme load a mocked API response from
+`assets/test/sessionize-view-all.json`.
+
 ## References
 
 [^styleplacement]:

@@ -111,3 +111,18 @@ The sidebar and footer can display links to social media profiles.
 -   `socialLinks.xUrl`: URL to a X (Twitter) profile.
 -   `socialLinks.facebookUrl`: URL to a Facebook profile.
 -   `socialLinks.linkedinUrl`: URL to a LinkedIn profile.
+
+## Tracks and other session categories
+
+All categories of a session provided via the Sessionize API get displayed in the
+various session descriptions as a list of tags. If you want a specific category
+not to be visible, turn it off in the configuration of the Sessionize API.
+
+One dedicated category is interpreted as track of a session. This category is
+also part of each session description, but in a more prominent way and with
+additional features (e.g., filtering).
+
+### Parameters
+
+-   `trackCategoryTitle`: Name of the category used for the session tracks
+    (default: `Track`).

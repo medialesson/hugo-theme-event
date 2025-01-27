@@ -1,14 +1,16 @@
-.label {
+.session-categories {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.session-category {
     display: inline;
     padding: 0.15rem 0.25rem;
     border-radius: 0.275rem;
     font-size: 0.75rem;
     border: 0.0625rem solid;
     font-weight: normal;
-}
-
-.label--filled {
-    background: var(--color-primary);
-    border: 0.0625rem solid var(--color-primary);
-    color: white;
 }

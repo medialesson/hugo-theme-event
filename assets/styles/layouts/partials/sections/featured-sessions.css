@@ -58,6 +58,11 @@
     gap: 0.75rem;
 }
 
+.featured-sessions-section__categories {
+    padding-top: 1rem;
+    line-height: normal;
+}
+
 .featured-sessions-section__session-description {
     flex-grow: 1;
 }

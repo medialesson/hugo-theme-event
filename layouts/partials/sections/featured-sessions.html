@@ -31,8 +31,8 @@
                                             )
                                         }}
                                         <figcaption class="featured-sessions-section__avatar-caption">
-                                            <strong>{{ .name }}</strong>
-                                            <div>{{ .slogan }}</div>
+                                            <strong>{{- .name -}}</strong>
+                                            <div>{{- .slogan -}}</div>
                                         </figcaption>
                                     </figure>
                                 {{- end }}
@@ -58,21 +58,19 @@
                         </div>
                         <div class="featured-sessions-section__session">
                             <h1 class="heading">
-                                {{ T "featured_sessions_section.heading" }}
+                                {{- T "featured_sessions_section.heading" -}}
                             </h1>
                             <h2 class="heading heading--2">
-                                {{ $session.sessionName }}
-                                <div class="featured-sessions-section__labels">
-                                    {{- range  $session.labels }}
-                                        {{- partial "elements/label.html" (dict "label" .) }}
-                                    {{- end }}
+                                {{- $session.sessionName -}}
+                                <div class="featured-sessions-section__categories">
+                                    {{- partial "session-categories.html" (dict "categories" $session.categories) }}
                                 </div>
                             </h2>
 
                             <p class="paragraph paragraph--highlighted featured-sessions-section__session-description">
-                                {{ substr $session.sessionDescription 0 200 }}...
+                                {{- substr $session.sessionDescription 0 200 -}}...
                                 <a href="{{ $session.sessionUrl }}" class="link link--white">
-                                    {{ T "featured_sessions_section.read_more" | lower }}
+                                    {{- T "featured_sessions_section.read_more" | lower -}}
                                 </a>
                             </p>
                             <div class="featured-sessions-section__carousel-buttons">
@@ -92,7 +90,7 @@
 
         {{- with $input.sessionsUrl }}
             <a href="{{ . }}" class="button button--outlined button--scaled">
-                {{ T "featured_sessions_section.action" }}
+                {{- T "featured_sessions_section.action" -}}
             </a>
         {{- end }}
     </section>

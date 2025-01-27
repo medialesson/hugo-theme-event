@@ -38,7 +38,7 @@
         "speakerIds" .speakers
         "track" $sessionTrack.name
         "isScheduled" $isScheduled
-        "labels" $sessionCategoryNames
+        "categories" $sessionCategoryNames
     }}
     {{ $path := (printf "%s %s" (.title | urlize) .id) }}
     {{ $page := dict

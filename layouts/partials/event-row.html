@@ -10,20 +10,20 @@
     <div class="event-row__left">
         {{- if $input.track }}
             <h1 class="event-row__track">
-                #{{- $input.track | upper }}
+                #{{- $input.track | upper -}}
             </h1>
         {{- end }}
         <h2 class="event-row__title">
-            {{- $input.title }}
+            {{- $input.title -}}
         </h2>
         <h3 class="event-row__speakers">
             {{- range $input.speakers }}
-                <span>{{- .name }}</span>
+                <span>{{- .name -}}</span>
             {{- end }}
         </h3>
         <h3 class="event-row__room">
             {{- T "sessions_page.room" }}:
-            {{ $input.room }}
+            {{- $input.room -}}
         </h3>
     </div>
     <div class="event-row__right">
@@ -56,10 +56,12 @@
             {{- end }}
         </ul>
 
-        <div class="event-row__labels">
-            {{- range $input.labels }}
-                {{- partial "elements/label.html" (dict "label" .) }}
-            {{- end }}
-        </div>
+        {{- partial "session-categories.html" (
+            dict
+            "categories" $input.categories
+            "listClasses" "event-row__categories"
+            "listItemClasses" "event-row__category"
+            )
+        -}}
     </div>
 </a>

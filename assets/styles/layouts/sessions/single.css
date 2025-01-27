@@ -61,6 +61,12 @@
     all: unset;
 }
 
+.single-session-section__session_category {
+    background: var(--color-primary);
+    border: 0.0625rem solid var(--color-primary);
+    color: white;
+}
+
 .single-session-speaker-list {
     all: unset;
     display: block;

@@ -1,0 +1,10 @@
+{{ $input := . }}
+
+
+<ul aria-label="{{ T "session_categories.label" }}" class="session-categories {{ $input.listClasses }}">
+    {{- range $input.categories }}
+        <li class="session-category {{ $input.listItemClasses }}" aria-label="{{- . -}}">
+            {{- . -}}
+        </li>
+    {{- end }}
+</ul>

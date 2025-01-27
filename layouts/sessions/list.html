@@ -94,7 +94,7 @@
                                 {{- end }}>
                                 {{- $transformedSpeakers := slice }}
                                 {{- range .Params.speakers }}
-                                    {{- $speakerAvatarResource := ($page.Resources.GetMatch "**") }}
+                                    {{- $speakerAvatarResource := ($page.Resources.GetMatch (printf "avatar-%s.*" .id)) }}
                                     {{- $transformedSpeakers = $transformedSpeakers | append (
                                         dict
                                         "name" .fullName
@@ -110,7 +110,7 @@
                                     "speakers" $transformedSpeakers
                                     "isServiceSession" .Params.isServiceSession
                                     "room" .Params.room.name
-                                    "labels" .Params.labels
+                                    "categories" .Params.categories
                                     )
                                 }}
                             </li>

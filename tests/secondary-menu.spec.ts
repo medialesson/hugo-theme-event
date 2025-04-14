@@ -12,8 +12,8 @@ test(`Should display the secondary menu`, async ({ page }) => {
     await expect(aboutUsMenuItem.getByText('Erfahren Sie wer wir sind uns was uns antreibt.')).toBeVisible();
 
     await expect(codeOfConductMenuItem).toBeVisible();
-    await expect(codeOfConductMenuItem.getByText('Verhaltens­kodex')).toBeVisible();
-    //                                                     👆 hidden soft hyphen (shy)
+    await expect(codeOfConductMenuItem.getByText('Verhaltens\u00ADkodex')).toBeVisible();
+    //                                                         👆 hidden soft hyphen (shy)
 
     await aboutUsMenuItem.click();
 

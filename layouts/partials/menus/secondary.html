@@ -11,7 +11,7 @@
             <a
                 class="menu-item__link"
                 href="{{- $item.URL }}"
-                aria-label="{{ $title }}"
+                aria-label="{{ $title | plainify }}"
                 aria-describedby="secondary-menu-description-{{ $index }}">
                 <h1 class="heading heading--3 heading--embedded">{{- $title | safeHTML }}</h1>
                 <div class="secondary-menu__description">

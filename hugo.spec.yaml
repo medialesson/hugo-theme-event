@@ -12,6 +12,9 @@ languages:
                   pageRef: /about
                   params:
                       description: Erfahren Sie wer wir sind uns was uns antreibt.
+                - identifier: code-of-conduct
+                  pageRef: /code-of-conduct
+                  name: Verhaltens&shy;kodex
 
 params:
     themes:

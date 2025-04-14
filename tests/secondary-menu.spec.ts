@@ -5,7 +5,7 @@ test(`Should display the secondary menu`, async ({ page }) => {
 
     const menu = page.getByRole('list', { name: 'Zusätzliches Menü' });
     const aboutUsMenuItem = menu.getByRole('link', { name: 'Über uns' });
-    const codeOfConductMenuItem = menu.getByRole('link', { name: 'Verhaltens­kodex' });
+    const codeOfConductMenuItem = menu.getByRole('link', { name: 'Verhaltens\u00ADkodex' });
 
     await expect(menu).toBeVisible();
     await expect(aboutUsMenuItem).toBeVisible();

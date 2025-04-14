@@ -24,7 +24,7 @@
                 {{- else }}
                     class="header-menu__link"
                 {{- end }}>
-                {{- or (T (printf "menu.%s" .Identifier)) .Name }}
+                {{- or (T (printf "menu.%s" .Identifier)) .Name | safeHTML }}
             </a>
         </li>
     {{- end }}

@@ -13,7 +13,7 @@
                     class="sidebar-menu__link"
                 {{- end }}
                 aria-label="{{- or (T (printf " menu.%s" .Identifier)) .Name }}">
-                {{- or (T (printf "menu.%s" .Identifier)) .Name }}
+                {{- or (T (printf "menu.%s" .Identifier)) .Name | safeHTML }}
             </a>
         </li>
     {{- end }}

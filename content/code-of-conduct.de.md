@@ -1,4 +1,4 @@
-# Verhaltenskodex
+# Verhaltens&shy;kodex
 
 ## Zielsetzung
 

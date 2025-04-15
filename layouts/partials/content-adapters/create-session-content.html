@@ -40,7 +40,7 @@
         "isScheduled" $isScheduled
         "categories" $sessionCategoryNames
     }}
-    {{ $path := (printf "%s %s" (.title | urlize) .id) }}
+    {{ $path := (printf "%s %s" .title .id) }}
     {{ $page := dict
         "content" $content
         "kind" "page"
@@ -60,7 +60,7 @@
                 {{ $resource := dict
                     "content" $content
                     "params" $params
-                    "path" (printf "%s/avatar %s.%s" $path $speaker.id .MediaType.SubType)
+                    "path" (printf "avatar %s.%s" $speaker.id .MediaType.SubType)
                 }}
                 {{ $resources = $resources | append $resource }}
             {{ else }}

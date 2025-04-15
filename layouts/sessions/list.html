@@ -6,6 +6,7 @@
     {{- range $index, $element := $sessionsGroupedByTrack }}
         {{- $sessionTrackIndices = $sessionTrackIndices | merge (dict $element.Key $index) }}
     {{- end }}
+    {{- $sectionResources := .Resources }}
 
     {{- range $index, $element := $sessionsGroupedByDay }}
         <input
@@ -94,7 +95,7 @@
                                 {{- end }}>
                                 {{- $transformedSpeakers := slice }}
                                 {{- range .Params.speakers }}
-                                    {{- $speakerAvatarResource := ($page.Resources.GetMatch (printf "avatar-%s.*" .id)) }}
+                                    {{- $speakerAvatarResource := ($sectionResources.GetMatch (printf "avatar-%s.*" .id)) }}
                                     {{- $transformedSpeakers = $transformedSpeakers | append (
                                         dict
                                         "name" .fullName

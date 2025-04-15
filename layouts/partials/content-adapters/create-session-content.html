@@ -12,6 +12,7 @@
 {{ end }}
 
 {{ range $input.sessionize.sessions }}
+    {{ $sessionId := .id }}
     {{ $startsAt := time.AsTime "0001-01-01T00:00:00-00:00" }}
     {{ $date := time.AsTime "0001-01-01T00:00:00-00:00" }}
     {{ if .startsAt }}
@@ -29,7 +30,7 @@
         {{ $sessionCategoryNames = $sessionCategoryNames | append .name }}
     {{ end }}
     {{ $params := dict
-        "sessionId" .id
+        "sessionId" $sessionId
         "date" $date
         "startsAt" $startsAt
         "room" $room
@@ -40,7 +41,7 @@
         "isScheduled" $isScheduled
         "categories" $sessionCategoryNames
     }}
-    {{ $path := (printf "%s %s" .title .id) }}
+    {{ $path := (printf "%s %s" .title $sessionId) }}
     {{ $page := dict
         "content" $content
         "kind" "page"
@@ -54,13 +55,13 @@
         {{/* Store profile pictures of speakers. */}}
         {{ $speaker := . }}
         {{ with $url := $speaker.profilePicture }}
-            {{ with resources.GetRemote $url  | images.Filter (images.Process "q90 webp") }}
+            {{ with resources.GetRemote $url | images.Filter (images.Process "q90 webp") }}
                 {{ $content := dict "mediaType" .MediaType.Type "value" .Content }}
                 {{ $params := dict "alt" $speaker.fullName }}
                 {{ $resource := dict
                     "content" $content
                     "params" $params
-                    "path" (printf "avatar %s.%s" $speaker.id .MediaType.SubType)
+                    "path" (printf "avatar %s %s.%s" $sessionId $speaker.id .MediaType.SubType)
                 }}
                 {{ $resources = $resources | append $resource }}
             {{ else }}

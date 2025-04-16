@@ -47,7 +47,6 @@
             {{- partial "cta/banner.html" }}
         {{ end }}
 
-
         <header class="section-container page-header" id="pageHeader">
             <div class="section section--short page-header__content" id="pageHeaderContent">
                 <nav id="mainNavigation" class="page-header__navigation" aria-labelledby="main-navigation-label">
@@ -75,6 +74,14 @@
                             }}
                         </div>
                     </div>
+
+                    {{- with .Site.Params.themes.event.callToAction.other.secondaryUrl }}
+                        {{- partial "elements/link.html" (
+                            dict
+                            "url" .
+                            "linkClass" "button--scaled"
+                            ) }}
+                    {{- end }}
 
                     {{- partial "cta/button.html" (
                         dict
@@ -106,13 +113,20 @@
                     )
                 }}
 
+                {{- with .Site.Params.themes.event.callToAction.other.secondaryUrl }}
+                    {{- partial "elements/link.html" (
+                        dict
+                        "url" .
+                        "linkClass" "button--scaled"
+                        ) }}
+                {{- end }}
+
                 {{- partial "menus/sidebar.html" (
                     dict
                     "menu" .Site.Menus.main
                     "context" .
                     )
                 }}
-
 
                 <div class="page-sidebar__social-links">
                     {{- partial "social-links.html" (
@@ -177,7 +191,6 @@
             {{- end }}
         {{- end }}
 
-
         <footer class="section-container">
             <section class="section section--short page-footer-section">
                 <div class="page-footer-section__start">
@@ -208,7 +221,6 @@
                 </div>
 
                 {{- partial "menus/footer.html" (dict "menu" site.Menus.footer) }}
-
 
                 <div class="page-footer-section__end">
                     {{- partial "elements/made-by-medialesson.html" (

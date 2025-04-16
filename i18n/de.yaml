@@ -4,6 +4,7 @@ countdown.minutes: Minuten
 countdown.seconds: Sekunden
 cta_banner.message: Sichern Sie sich jetzt Ihr Ticket!
 cta_button.get_ticket: Jetzt registrieren!
+cta_button.secondary: Sprecher:in werden
 cta_section.heading: Etwas spannendes entdeckt?
 cta_section.subheading: Registriere dich noch heute!
 cta_section.message: |

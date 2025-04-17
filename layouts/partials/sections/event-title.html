@@ -23,9 +23,15 @@
             {{ partial "countdown.html" (dict "targetDate" $input.startDate) }}
         {{- end }}
 
+
         <div class="event-title-section__footer-buttons">
             {{- with $input.ctaSecondaryUrl }}
-                <a href="{{ . }}" class="button button--outlined button--scaled" rel="noopener noreferrer" rel="external" target="_blank">
+                <a
+                    href="{{ . }}"
+                    class="button button--outlined button--scaled"
+                    rel="noopener noreferrer"
+                    rel="external"
+                    target="_blank">
                     {{ T "cta_button.secondary" }}
                 </a>
             {{- end }}

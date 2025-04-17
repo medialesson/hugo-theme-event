@@ -1,4 +1,5 @@
 .button {
+    all: unset;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +20,7 @@
 }
 
 .button:hover {
-    color: white;
+    color: #ffffff;
     background: var(--color-primary-darker);
     border: 0.0625rem solid var(--color-primary-darker);
 }

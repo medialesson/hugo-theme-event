@@ -75,14 +75,6 @@
                         </div>
                     </div>
 
-                    {{- with .Site.Params.themes.event.callToAction.other.secondaryUrl }}
-                        {{- partial "elements/link.html" (
-                            dict
-                            "url" .
-                            "linkClass" "button--scaled"
-                            ) }}
-                    {{- end }}
-
                     {{- partial "cta/button.html" (
                         dict
                         "eventbriteId" .Site.Params.themes.event.callToAction.eventbrite.eventId
@@ -112,14 +104,6 @@
                     "buttonClass" "button--scaled"
                     )
                 }}
-
-                {{- with .Site.Params.themes.event.callToAction.other.secondaryUrl }}
-                    {{- partial "elements/link.html" (
-                        dict
-                        "url" .
-                        "linkClass" "button--scaled"
-                        ) }}
-                {{- end }}
 
                 {{- partial "menus/sidebar.html" (
                     dict

@@ -32,8 +32,9 @@ params:
                 - Country
             callToAction:
                 enableBanner: true
-                other:
-                    secondaryUrl: https://example.com
+            secondaryCallToAction:
+                url: https://example.com
+                label: Become a Speaker!
             featuredSessions:
                 - '729576'
                 - '729579'

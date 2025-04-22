@@ -77,9 +77,12 @@ params:
                 other:
                     # 👇 Enter the URL of your ticket shop here.
                     url:
-                    # 👇 Optional: Enter a secondary link, e.g. for "Call for Speakers".
-                    secondaryUrl:
                 enableBanner: true
+            callToActionSecondary:
+                # 👇 Enter a secondary CTA link, e.g., for "Call for Speakers", "Join Newsletter", "Giveaway", etc.
+                url:
+                # 👇 Label text for the secondary CTA button.
+                label:
             socialLinks:
                 xUrl:
                 facebookUrl:

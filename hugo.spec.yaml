@@ -32,6 +32,8 @@ params:
                 - Country
             callToAction:
                 enableBanner: true
+                other:
+                    secondaryUrl: https://example.com
             featuredSessions:
                 - '729576'
                 - '729579'

@@ -29,6 +29,15 @@ you may need to obtain the user's consent before establishing such connections
     of the page. To change the text of the banner, overwrite the corresponding
     translations.
 
+## Secondary Call to Action (CTA)
+
+The Event theme includes an optional **secondary call to action (CTA)** to engage users in additional actions related to the event, such as submitting a talk, joining a newsletter, participating in a giveaway, or other actions.
+
+### Parameters
+
+-   `secondaryCallToAction.label`: The label for the secondary CTA button that typically appears in the event banner.
+-   `secondaryCallToAction.url`: The URL to which users are redirected when they click the secondary CTA button.
+
 ## Countdown
 
 The home page displays a countdown that counts down till the start of the event.

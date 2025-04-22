@@ -27,14 +27,16 @@
         <div class="event-title-section__footer-buttons">
             {{- partial "cta/button.html" (dict "eventbriteId" $input.eventbriteId "ctaUrl" $input.ctaUrl "buttonClass" "button--scaled") }}
 
-            {{- with $input.ctaSecondary.url }}
-                <a
-                    href="{{ . }}"
-                    class="button button--outlined button--scaled"
-                    rel="noopener noreferrer external"
-                    target="_blank">
-                    {{ $input.ctaSecondary.label }}
-                </a>
+            {{- with $input.ctaSecondary }}
+                {{- if .url }}
+                    <a
+                        href="{{ .url }}"
+                        class="button button--outlined button--scaled"
+                        rel="noopener noreferrer external"
+                        target="_blank">
+                        {{ .label }}
+                    </a>
+                {{- end }}
             {{- end }}
         </div>
     </div>

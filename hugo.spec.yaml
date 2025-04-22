@@ -34,7 +34,7 @@ params:
                 enableBanner: true
             secondaryCallToAction:
                 url: https://example.com
-                label: Become a Speaker!
+                label: Sprecher:in werden!
             featuredSessions:
                 - '729576'
                 - '729579'

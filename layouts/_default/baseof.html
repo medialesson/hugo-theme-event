@@ -1,6 +1,45 @@
 <!doctype html>
 <html lang="{{- .Site.Language.Lang -}}">
     <head>
+        {{ if .Site.Params.themes.event.redirectBasedOnBrowserLang }}
+        <script>
+            (function () {
+                try {
+                    const isVisited = localStorage.getItem('visited');
+                    if (isVisited) return;
+                    localStorage.setItem('visited', '1');
+
+                    const availableLangs = [
+                        {{- range $index, $lang := .Site.Languages -}}
+                    "{{ $lang.Lang }}"{{ if ne (add $index 1) (len $.Site.Languages) }}, {{ end }}
+                    {{- end -}}
+                ];
+
+                    const langMap = {
+                    {{- $total := len .Site.Home.AllTranslations -}}
+                    {{- range $index, $lang := .Site.Home.AllTranslations -}}
+                    "{{ $lang.Language.Lang }}": "{{ $lang.RelPermalink }}"{{ if ne (add $index 1) $total }},{{ end }}
+                    {{- end -}}
+                };
+
+                    const browserLang = navigator.languages?.[0] || navigator.language;
+                    const browserLangShort = browserLang.split('-')[0];
+                    const currentLang = "{{ .Site.Language.Lang }}";
+
+                    if (browserLangShort !== currentLang && availableLangs.includes(browserLangShort)) {
+                        const redirectUrl = langMap[browserLangShort];
+                        if (redirectUrl) {
+                            window.location.href = redirectUrl;
+                        }
+                    }
+                } catch (e) {
+                    console.warn('Language redirect failed', e);
+                }
+            })();
+        </script>
+        {{ end }}
+
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="{{ .Site.Params.themes.event.favicon | absURL }}" />

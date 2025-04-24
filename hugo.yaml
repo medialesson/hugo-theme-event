@@ -113,3 +113,4 @@ params:
                 shadow: '#a6afc366'
             # 👇 Name of the category in Sessionize that is used to group sessions.
             trackCategoryTitle: Track
+            redirectBasedOnBrowserLang: false

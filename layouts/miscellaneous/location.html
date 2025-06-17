@@ -5,7 +5,13 @@
     <div class="section-container">
         <section class="section">
             <h1 class="heading heading--1">
-                {{- T "location_page.heading" }}
+                {{- partial "menus/menu_label.html"
+                    (dict
+                    "menus" .Site.Menus.main
+                    "pageRef" "/location"
+                    "translationKey" "location_page.heading"
+                    )
+                }}
             </h1>
 
             {{ with $event.address }}

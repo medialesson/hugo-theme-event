@@ -181,20 +181,27 @@
         <footer class="section-container">
             <section class="section section--short page-footer-section">
                 <div class="page-footer-section__start">
-                    <!-- Label for assistive technologies only -->
-                    <label for="language-select" class="sr-only">{{ T "language_menu.label" }}</label>
-                    <select id="language-select" class="select" name="language" onchange="location = this.value;">
-                        {{ range $.Site.Home.AllTranslations }}
-                            <option
-                                value="{{ .RelPermalink }}"
-                                {{ if eq .Language $.Language }}
-                                    selected
-                                {{ end }}>
-                                {{ or .Language.LanguageName .Language.Lang | upper }}
-                            </option>
-                        {{ end }}
-                    </select>
-
+                    <!-- Show language selector only if multiple languages are configured -->
+                    {{ if gt (len .Site.Languages) 1 }}
+                        <!-- Label for assistive technologies only -->
+                        <label for="language-select" class="sr-only">{{ T "language_menu.label" }}</label>
+                        <select
+                            id="language-select"
+                            class="select"
+                            name="language"
+                            onchange="location = this.value;"
+                            data-testid="language-select">
+                            {{ range $.Site.Home.AllTranslations }}
+                                <option
+                                    value="{{ .RelPermalink }}"
+                                    {{ if eq .Language $.Language }}
+                                        selected
+                                    {{ end }}>
+                                    {{ or .Language.LanguageName .Language.Lang | upper }}
+                                </option>
+                            {{ end }}
+                        </select>
+                    {{ end }}
                     {{- partial "social-links.html" (
                         dict
                         "linkedinUrl" .Site.Params.themes.event.socialLinks.linkedinUrl

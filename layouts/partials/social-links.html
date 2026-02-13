@@ -16,7 +16,8 @@
             <a
                 href="{{- $input.linkedinUrl }}"
                 aria-label="LinkedIn"
-                rel="external"
+                target="_blank"
+                rel="noopener noreferrer external"
                 class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/linkedin.html" }}
             </a>
@@ -28,7 +29,8 @@
             <a
                 href="{{- $input.xUrl }}"
                 aria-label="X (Twitter)"
-                rel="external"
+                target="_blank"
+                rel="noopener noreferrer external"
                 class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/x.html" }}
             </a>
@@ -40,7 +42,8 @@
             <a
                 href="{{- $input.facebookUrl }}"
                 aria-label="Facebook"
-                rel="external"
+                target="_blank"
+                rel="noopener noreferrer external"
                 class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/facebook.html" }}
             </a>
@@ -53,7 +56,8 @@
                 href="{{- $input.companyUrl }}"
                 role="menuitem"
                 aria-label="Company"
-                rel="external"
+                target="_blank"
+                rel="noopener noreferrer external"
                 class="social-links__link {{ $input.linkClass }}">
                 {{- partial "graphics/social/company.html" }}
             </a>

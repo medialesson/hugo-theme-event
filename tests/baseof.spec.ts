@@ -17,3 +17,10 @@ test('Should use short event title as a link to home page in the header menu', a
 
     await expect(page.getByRole('link', { name: /Testcon/ })).toHaveCount(2);
 });
+
+test('should not render language selector with one language', async ({ page }) => {
+    await page.goto('/');
+
+    const languageSelector = page.locator('[data-testid="language-select"]');
+    await expect(languageSelector).toHaveCount(0);
+});

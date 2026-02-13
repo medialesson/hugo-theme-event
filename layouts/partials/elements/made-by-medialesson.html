@@ -1,7 +1,11 @@
 {{- $input := . }}
 
 
-<a class="made-by-medialesson {{ $input.linkClass }}" href="https://medialesson.de">
+<a
+    class="made-by-medialesson {{ $input.linkClass }}"
+    target="_blank"
+    rel="noopener noreferrer external"
+    href="https://medialesson.de">
     Made with
     <div class="made-by-medialesson__heart">
         {{- partial "graphics/medialesson-heart.html" }}

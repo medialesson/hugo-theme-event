@@ -59,6 +59,9 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {{- if not .Site.Params.themes.event.disableDiscoverability }}
+        <meta name="generator" content="hugo-theme-event" />
+        {{- end }}
         <link rel="shortcut icon" href="{{ .Site.Params.themes.event.favicon | absURL }}" />
 
         <title>

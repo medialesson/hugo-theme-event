@@ -1,3 +1,17 @@
+outputFormats:
+    ThemeInfo:
+        mediaType: application/json
+        baseName: theme-info
+        path: .well-known
+        isPlainText: true
+        notAlternative: true
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - ThemeInfo
+
 languages:
     en:
         languageName: English
@@ -122,3 +136,6 @@ params:
             # 👇 based on their browser preferences (requires JavaScript).
             # 👇 Set to false to disable (e.g., for demos, testing, or non-JS environments).
             redirectBasedOnBrowserLang: false
+            # 👇 Set to true to remove the generator meta tag and suppress the well-known theme-info.json content.
+            # 👇 No data is ever sent to external servers regardless of this setting.
+            disableDiscoverability: false

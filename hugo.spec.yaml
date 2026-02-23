@@ -4,6 +4,20 @@
 
 defaultContentLanguage: de
 
+outputFormats:
+    ThemeInfo:
+        mediaType: application/json
+        baseName: theme-info
+        path: .well-known
+        isPlainText: true
+        notAlternative: true
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - ThemeInfo
+
 languages:
     de:
         menus:

@@ -1,0 +1,5 @@
+{{- if not .Site.Params.themes.event.disableDiscoverability -}}
+{{ dict "name" "hugo-theme-event" | jsonify }}
+{{- else -}}
+{}
+{{- end -}}

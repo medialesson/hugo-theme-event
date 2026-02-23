@@ -135,3 +135,52 @@ additional features (e.g., filtering).
 
 -   `trackCategoryTitle`: Name of the category used for the session tracks
     (default: `Track`).
+
+## Theme discoverability
+
+The Event theme includes two privacy-first markers that make it possible to
+discover sites built with this theme through public search-engine queries:
+
+1. A `<meta name="generator" content="hugo-theme-event">` tag in every page's
+   `<head>`.
+2. A `/.well-known/theme-info.json` file at the site root containing
+   `{"name":"hugo-theme-event"}`.
+
+Neither of these markers sends any data to external servers or sets any cookies.
+Discovery is entirely passive and relies only on publicly visible site content.
+
+### Opting out
+
+Set `disableDiscoverability: true` in your theme parameters to remove the
+generator meta tag and suppress the theme name from `/.well-known/theme-info.json`.
+
+```yaml
+params:
+    themes:
+        event:
+            disableDiscoverability: true
+```
+
+> **Note**: To use the `/.well-known/theme-info.json` output you must also add
+> the `ThemeInfo` output format to your site configuration:
+>
+> ```yaml
+> outputFormats:
+>     ThemeInfo:
+>         mediaType: application/json
+>         baseName: theme-info
+>         path: .well-known
+>         isPlainText: true
+>         notAlternative: true
+>
+> outputs:
+>     home:
+>         - HTML
+>         - RSS
+>         - ThemeInfo
+> ```
+
+### Parameters
+
+-   `disableDiscoverability`: Set to `true` to opt out of all discoverability
+    markers (default: `false`).

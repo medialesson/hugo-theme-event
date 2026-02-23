@@ -32,6 +32,13 @@ The source code of this demo website is available on
 [GitHub](https://github.com/medialesson/hugo-theme-event-demo). You can check
 out its configuration or use it as a template to start your own project.
 
+## Showcase
+
+The following production sites are powered by this theme:
+
+-   [Global Azure Munich 2025](https://global25.azuredev.org/)
+-   [Azure Developer Community Day Munich 2024](https://muc24.azuredev.org/)
+
 ## Documentation
 
 ### Getting started

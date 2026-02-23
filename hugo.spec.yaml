@@ -32,6 +32,9 @@ params:
                 - Country
             callToAction:
                 enableBanner: true
+            callToActionSecondary:
+                url: https://example.com
+                label: Sprecher:in werden
             featuredSessions:
                 - '729576'
                 - '729579'

@@ -3,6 +3,48 @@
 All contributions to this repository should take the following guidelines into
 account.
 
+## Development Setup
+
+### Prerequisites
+
+1. [Hugo Extended](https://gohugo.io/installation/) (minimum version 0.126.0) is
+   installed on your machine.
+2. [Node.js](https://nodejs.org/) (LTS version recommended) is installed on your
+   machine.
+3. [Git](https://git-scm.com/) is installed on your machine.
+
+### Setup
+
+1. Fork the repository on GitHub and clone your fork locally.
+
+    ```shell
+    git clone https://github.com/<your-username>/hugo-theme-event.git
+    cd hugo-theme-event
+    ```
+
+2. Install npm dependencies (includes Prettier, ESLint, and Playwright).
+
+    ```shell
+    npm install
+    ```
+
+3. Install the Playwright browsers required for running the tests.
+
+    ```shell
+    npx playwright install --with-deps
+    ```
+
+### Running the Theme Locally
+
+To preview the theme in your browser, run Hugo with the test configuration:
+
+```shell
+hugo serve --config hugo.spec.yaml
+```
+
+Then open http://localhost:1313/ in your browser. The test configuration uses a
+mocked Sessionize API response, so no real Sessionize account is needed.
+
 ## Workflow
 
 -   Always start with an issue.

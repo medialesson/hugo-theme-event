@@ -6,12 +6,6 @@ outputFormats:
         isPlainText: true
         notAlternative: true
 
-outputs:
-    home:
-        - HTML
-        - RSS
-        - ThemeInfo
-
 languages:
     en:
         languageName: English

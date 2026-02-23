@@ -7,7 +7,6 @@
                 try {
                     const isVisited = localStorage.getItem('visited');
                     if (isVisited) return;
-                    localStorage.setItem('visited', '1');
 
                     const availableLangs = [
                         {{- range $index, $lang := .Site.Languages -}}
@@ -46,8 +45,11 @@
                     if (targetLang && targetLang.toLowerCase() !== currentLang) {
                         const redirectUrl = langMap[targetLang];
                         if (redirectUrl) {
+                            localStorage.setItem('visited', '1');
                             window.location.replace(redirectUrl);
                         }
+                    } else {
+                        localStorage.setItem('visited', '1');
                     }
                 } catch (e) {
                     console.warn('Language redirect failed', e);

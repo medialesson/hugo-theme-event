@@ -16,10 +16,17 @@
                 ];
 
                     const langMap = {
+                    {{- if .IsTranslated -}}
+                    {{- $total := len .AllTranslations -}}
+                    {{- range $index, $lang := .AllTranslations -}}
+                    "{{ $lang.Language.Lang }}": "{{ $lang.RelPermalink }}"{{ if ne (add $index 1) $total }},{{ end }}
+                    {{- end -}}
+                    {{- else -}}
                     {{- $total := len .Site.Home.AllTranslations -}}
                     {{- range $index, $lang := .Site.Home.AllTranslations -}}
                     "{{ $lang.Language.Lang }}": "{{ $lang.RelPermalink }}"{{ if ne (add $index 1) $total }},{{ end }}
                     {{- end -}}
+                    {{- end }}
                 };
 
                     const browserLang = navigator.languages?.[0] || navigator.language;

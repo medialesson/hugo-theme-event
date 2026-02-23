@@ -7,8 +7,8 @@ account.
 
 ### Prerequisites
 
-1. [Hugo Extended](https://gohugo.io/installation/) (minimum version 0.126.0) is
-   installed on your machine.
+1. [Hugo Extended](https://gohugo.io/installation/) (latest version) is installed
+   on your machine.
 2. [Node.js](https://nodejs.org/) (LTS version recommended) is installed on your
    machine.
 3. [Git](https://git-scm.com/) is installed on your machine.

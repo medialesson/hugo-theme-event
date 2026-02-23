@@ -29,12 +29,22 @@
                     {{- end }}
                 };
 
-                    const browserLang = navigator.languages?.[0] || navigator.language;
+                    const browserLang = (navigator.languages?.[0] || navigator.language || '').toLowerCase();
+                    if (!browserLang) return;
                     const browserLangShort = browserLang.split('-')[0];
-                    const currentLang = "{{ .Site.Language.Lang }}";
+                    const currentLang = "{{ .Site.Language.Lang }}".toLowerCase();
 
-                    if (browserLangShort !== currentLang && availableLangs.includes(browserLangShort)) {
-                        const redirectUrl = langMap[browserLangShort];
+                    // Normalize available langs for case-insensitive comparison while preserving originals for lookup
+                    const normalizedLangs = availableLangs.map(l => l.toLowerCase());
+
+                    // Try exact match first (e.g. pt-BR → pt-BR), then fall back to base language subtag (e.g. pt-BR → pt)
+                    const exactIdx = normalizedLangs.indexOf(browserLang);
+                    const shortIdx = exactIdx === -1 ? normalizedLangs.indexOf(browserLangShort) : -1;
+                    const matchIdx = exactIdx !== -1 ? exactIdx : shortIdx;
+                    const targetLang = matchIdx !== -1 ? availableLangs[matchIdx] : null;
+
+                    if (targetLang && targetLang.toLowerCase() !== currentLang) {
+                        const redirectUrl = langMap[targetLang];
                         if (redirectUrl) {
                             window.location.replace(redirectUrl);
                         }

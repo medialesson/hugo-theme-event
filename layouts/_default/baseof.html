@@ -36,7 +36,7 @@
                     if (browserLangShort !== currentLang && availableLangs.includes(browserLangShort)) {
                         const redirectUrl = langMap[browserLangShort];
                         if (redirectUrl) {
-                            window.location.href = redirectUrl;
+                            window.location.replace(redirectUrl);
                         }
                     }
                 } catch (e) {

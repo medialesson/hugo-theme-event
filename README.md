@@ -30,7 +30,8 @@ https://medialesson.github.io/hugo-theme-event-demo.
 
 The source code of this demo website is available on
 [GitHub](https://github.com/medialesson/hugo-theme-event-demo). You can check
-out its configuration or fork the repository to start your own project.
+out its configuration or use it as a template to start your own project (without
+inheriting the full commit history).
 
 ## Documentation
 
@@ -38,7 +39,9 @@ out its configuration or fork the repository to start your own project.
 
 The easiest way to get up and running is by using the
 [Hugo Event Theme Demo template](https://github.com/medialesson/hugo-theme-event-demo).
-This template is a pre-configured Hugo project that uses the Event theme.
+This template is a pre-configured Hugo project that uses the Event theme. Click
+the **Use this template** button on GitHub to create a new repository from it
+without inheriting the full commit history.
 
 To start a new project from scratch read the [getting started
 guide](docs/guides/getting-started.md).

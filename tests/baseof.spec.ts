@@ -24,3 +24,10 @@ test('should not render language selector with one language', async ({ page }) =
     const languageSelector = page.locator('[data-testid="language-select"]');
     await expect(languageSelector).toHaveCount(0);
 });
+
+test('Should render generator meta tag by default', async ({ page }) => {
+    await page.goto('/');
+
+    const generator = page.locator('meta[name="generator"][content="hugo-theme-event"]');
+    await expect(generator).toHaveCount(1);
+});

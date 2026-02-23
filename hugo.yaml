@@ -122,3 +122,7 @@ params:
             # 👇 based on their browser preferences (requires JavaScript).
             # 👇 Set to false to disable (e.g., for demos, testing, or non-JS environments).
             redirectBasedOnBrowserLang: false
+            # 👇 Controls whether a <meta name="generator"> tag is included in rendered HTML.
+            # 👇 This tag allows the theme to be discovered via search-engine queries without
+            # 👇 any telemetry, cookies, or remote beacons. Set to true to opt out.
+            disableGenerator: false

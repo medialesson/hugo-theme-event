@@ -36,7 +36,7 @@ out its configuration or use it as a template to start your own project.
 
 The following production sites are powered by this theme:
 
--   [Global Azure Munich 2024](https://global25.azuredev.org/)
+-   [Global Azure Munich 2025](https://global25.azuredev.org/)
 -   [Azure Developer Community Day Munich 2024](https://muc24.azuredev.org/)
 
 ## Documentation

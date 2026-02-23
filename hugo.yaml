@@ -113,3 +113,7 @@ params:
                 shadow: '#a6afc366'
             # 👇 Name of the category in Sessionize that is used to group sessions.
             trackCategoryTitle: Track
+            # 👇 Automatically redirects first-time visitors to the correct language version of the site
+            # 👇 based on their browser preferences (requires JavaScript).
+            # 👇 Set to false to disable (e.g., for demos, testing, or non-JS environments).
+            redirectBasedOnBrowserLang: false

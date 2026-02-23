@@ -1,6 +1,62 @@
 <!doctype html>
 <html lang="{{- .Site.Language.Lang -}}">
     <head>
+        {{ if .Site.Params.themes.event.redirectBasedOnBrowserLang }}
+        <script>
+            (function () {
+                try {
+                    const isVisited = localStorage.getItem('visited');
+                    if (isVisited) return;
+                    localStorage.setItem('visited', '1');
+
+                    const availableLangs = [
+                        {{- range $index, $lang := .Site.Languages -}}
+                    "{{ $lang.Lang }}"{{ if ne (add $index 1) (len $.Site.Languages) }}, {{ end }}
+                    {{- end -}}
+                ];
+
+                    const langMap = {
+                    {{- if .IsTranslated -}}
+                    {{- $total := len .AllTranslations -}}
+                    {{- range $index, $lang := .AllTranslations -}}
+                    "{{ $lang.Language.Lang }}": "{{ $lang.RelPermalink }}"{{ if ne (add $index 1) $total }},{{ end }}
+                    {{- end -}}
+                    {{- else -}}
+                    {{- $total := len .Site.Home.AllTranslations -}}
+                    {{- range $index, $lang := .Site.Home.AllTranslations -}}
+                    "{{ $lang.Language.Lang }}": "{{ $lang.RelPermalink }}"{{ if ne (add $index 1) $total }},{{ end }}
+                    {{- end -}}
+                    {{- end }}
+                };
+
+                    const browserLang = (navigator.languages?.[0] || navigator.language || '').toLowerCase();
+                    if (!browserLang) return;
+                    const browserLangShort = browserLang.split('-')[0];
+                    const currentLang = "{{ .Site.Language.Lang }}".toLowerCase();
+
+                    // Normalize available langs for case-insensitive comparison while preserving originals for lookup
+                    const normalizedLangs = availableLangs.map(l => l.toLowerCase());
+
+                    // Try exact match first (e.g. pt-BR → pt-BR), then fall back to base language subtag (e.g. pt-BR → pt)
+                    const exactIdx = normalizedLangs.indexOf(browserLang);
+                    const shortIdx = exactIdx === -1 ? normalizedLangs.indexOf(browserLangShort) : -1;
+                    const matchIdx = exactIdx !== -1 ? exactIdx : shortIdx;
+                    const targetLang = matchIdx !== -1 ? availableLangs[matchIdx] : null;
+
+                    if (targetLang && targetLang.toLowerCase() !== currentLang) {
+                        const redirectUrl = langMap[targetLang];
+                        if (redirectUrl) {
+                            window.location.replace(redirectUrl);
+                        }
+                    }
+                } catch (e) {
+                    console.warn('Language redirect failed', e);
+                }
+            })();
+        </script>
+        {{ end }}
+
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="{{ .Site.Params.themes.event.favicon | absURL }}" />

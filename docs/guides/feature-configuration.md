@@ -135,3 +135,31 @@ additional features (e.g., filtering).
 
 -   `trackCategoryTitle`: Name of the category used for the session tracks
     (default: `Track`).
+
+## Theme discoverability
+
+The Event theme includes a **privacy-preserving discoverability marker**: a
+`<meta name="generator" content="hugo-theme-event">` tag in every rendered
+page. This allows maintainers (and anyone else) to discover sites using this
+theme through simple search-engine queries — without any telemetry, cookies,
+tracking IDs, or background requests to remote servers.
+
+### Privacy implications
+
+-   The tag is a static, deterministic string embedded in publicly visible HTML.
+-   No data is ever sent to the theme maintainers or any third party as a result
+    of this tag.
+-   Discovery happens entirely through publicly indexed content; your visitors'
+    privacy is not affected.
+
+### Opting out
+
+If you prefer not to include the discoverability marker, set `disableGenerator`
+to `true` in your theme parameters:
+
+```yaml
+params:
+    themes:
+        event:
+            disableGenerator: true
+```

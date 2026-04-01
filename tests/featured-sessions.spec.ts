@@ -56,7 +56,12 @@ import { expect, test } from '@playwright/test';
         speakerName: 'Top Speaker 2',
     },
 ].forEach(({ title, speakerName }) => {
-    test(`Should display speaker profile image for featured session ${title} on home page`, async ({ page }) => {
+    test(`Should display speaker profile image for featured session ${title} on home page`, async ({ page }, testInfo) => {
+        test.skip(
+            testInfo.project.name.startsWith('Mobile'),
+            'Featured session speaker images are intentionally hidden on mobile layouts.',
+        );
+
         await page.goto('/');
         const featuredSessionsRegion = page.getByRole('region', { name: 'Featured Sessions' });
         const featuredSession = featuredSessionsRegion.getByRole('menuitem', { name: title });

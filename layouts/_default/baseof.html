@@ -68,6 +68,8 @@
 
         <meta name="description" content="{{ .Site.Params.themes.event.description | markdownify | plainify }}" />
 
+        {{ if not .Site.Params.themes.event.disableGenerator }}<meta name="generator" content="hugo-theme-event" />{{ end }}
+
         {{ if .IsTranslated }}
             {{ range .Translations }}
                 <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />

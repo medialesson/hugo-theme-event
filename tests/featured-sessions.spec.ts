@@ -45,3 +45,25 @@ import { expect, test } from '@playwright/test';
         await expect(featuredSessionsRegion.getByText(description)).not.toBeVisible();
     });
 });
+
+[
+    {
+        title: 'Building Scalable Microservices with Kubernetes',
+        speakerName: 'Lucas Test',
+    },
+    {
+        title: 'The Future of AI: Trends and Innovations',
+        speakerName: 'Top Speaker 2',
+    },
+].forEach(({ title, speakerName }) => {
+    test(`Should display speaker profile image for featured session ${title} on home page`, async ({ page }) => {
+        await page.goto('/');
+        const featuredSessionsRegion = page.getByRole('region', { name: 'Featured Sessions' });
+        const featuredSession = featuredSessionsRegion.getByRole('menuitem', { name: title });
+        const speakerImage = featuredSession.getByRole('img', { name: speakerName });
+
+        await expect(speakerImage).toBeVisible();
+        const src = await speakerImage.getAttribute('src');
+        expect(src).not.toContain('fallback');
+    });
+});

@@ -57,18 +57,18 @@ import { expect, test } from '@playwright/test';
     },
 ].forEach(({ title, speakerName }) => {
     test(`Should display speaker profile image for featured session ${title} on home page`, async ({ page }, testInfo) => {
-        test.skip(
-            testInfo.project.name.startsWith('Mobile'),
-            'Featured session speaker images are intentionally hidden on mobile layouts.',
-        );
-
+        const isMobileProject = testInfo.project.name.startsWith('Mobile');
         await page.goto('/');
         const featuredSessionsRegion = page.getByRole('region', { name: 'Featured Sessions' });
         const featuredSession = featuredSessionsRegion.getByRole('menuitem', { name: title });
-        const speakerImage = featuredSession.getByRole('img', { name: speakerName });
+        const speakerImage = featuredSession.getByRole('img', { name: speakerName, includeHidden: isMobileProject });
 
-        await expect(speakerImage).toBeVisible();
+        if (!isMobileProject) {
+            await expect(speakerImage).toBeVisible();
+        }
+
+        await expect(speakerImage).toHaveAttribute('src', /.+/);
         const src = await speakerImage.getAttribute('src');
-        expect(src).not.toContain('fallback');
+        expect(src ?? '').not.toContain('fallback');
     });
 });

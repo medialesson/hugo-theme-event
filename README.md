@@ -28,6 +28,10 @@ creates various contents and offers the following features.
 See the Event theme in action on
 https://medialesson.github.io/hugo-theme-event-demo.
 
+### Quickstart video
+
+[![Watch the quickstart video](https://img.youtube.com/vi/joKvJL5h1qI/maxresdefault.jpg)](https://youtu.be/joKvJL5h1qI)
+
 The source code of this demo website is available on
 [GitHub](https://github.com/medialesson/hugo-theme-event-demo). You can check
 out its configuration or use it as a template to start your own project.

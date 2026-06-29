@@ -1,0 +1,13 @@
+{{- $pageRef := .pageRef -}}
+{{- $translationKey := .translationKey -}}
+
+{{- range .menus }}
+  {{- if eq .PageRef $pageRef }}
+    {{ if ne (lower .Name) .Identifier }}
+        {{- or .Name (T $translationKey) }}
+    {{ else }}
+        {{- or (T $translationKey) .Name }}
+    {{ end }}
+    {{- break }}
+  {{- end }}
+{{- end }}

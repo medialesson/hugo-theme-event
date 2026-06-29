@@ -12,9 +12,11 @@ in one place.
 
 This theme offers a `main` menu, a `footer` menu and a `secondary` menu. You can
 create menu entries for contents created by this theme and your custom contents
-(e.g. an imprint). When the menus get rendered, this theme tries to translate
-each menu entry by its identifier (`menu.` + identifier). If no translation is
-available, the name of the menu entry will be used.
+(e.g. an imprint). When the menus get rendered, user defined name properties will
+take presedence over predefined translations. If the name is empty or not set by
+the user this theme tries to translate each menu entry by its identifier
+(`menu.` + identifier). If no translation is available, a default name based on
+the identifier of the menu entry will be used.
 
 **Note:** A maximum of four menu items can be displayed in the `secondary` menu.
 
@@ -28,6 +30,7 @@ languages:
         menus:
             main:
                 - identifier: sessions
+                  name: Program
                   pageRef: /sessions
                   weight: 10
                 - identifier: code_of_conduct
@@ -48,6 +51,7 @@ languages:
         menus:
             main:
                 - identifier: sessions
+                  name: Programm
                   pageRef: /sessions
                   weight: 10
                 - identifier: code_of_conduct

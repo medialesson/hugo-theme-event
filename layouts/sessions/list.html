@@ -33,7 +33,15 @@
 
     <header class="section-container">
         <div class="section">
-            <h1 class="heading heading--1">{{ T "sessions_page.heading" }}</h1>
+            <h1 class="heading heading--1">
+                {{- partial "menus/menu_label.html"
+                    (dict
+                    "menus" .Site.Menus.main
+                    "pageRef" "/sessions"
+                    "translationKey" "sessions_page.heading"
+                    )
+                }}
+            </h1>
             <div class="session-list-filters">
                 {{- if gt ($sessionsGroupedByDay | len) 1 }}
                     <article class="session-list-filter">

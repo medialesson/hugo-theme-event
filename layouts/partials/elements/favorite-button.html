@@ -1,0 +1,23 @@
+{{ $input := . }}
+
+
+<button
+    type="button"
+    class="favorite-button"
+    data-favorite-toggle
+    data-session-id="{{ $input.sessionId }}"
+    data-label-add="{{ T "sessions_page.add_to_favorites" }}"
+    data-label-remove="{{ T "sessions_page.remove_from_favorites" }}"
+    aria-pressed="false"
+    aria-label="{{ T "sessions_page.add_to_favorites" }}">
+    <svg
+        class="favorite-button__icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        aria-hidden="true">
+        <path
+            d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.6z" />
+    </svg>
+</button>

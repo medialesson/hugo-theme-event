@@ -1,0 +1,33 @@
+.favorite-button {
+    all: unset;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.favorite-button__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: var(--color-secondary-darker);
+    stroke-width: 1.5;
+    transition:
+        fill 0.2s ease,
+        stroke 0.2s ease;
+}
+
+.favorite-button[aria-pressed='true'] .favorite-button__icon {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+}
+
+.favorite-button:hover .favorite-button__icon {
+    stroke: var(--color-primary);
+}

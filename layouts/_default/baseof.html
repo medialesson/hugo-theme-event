@@ -221,6 +221,8 @@
             new ResizeObserver(checkWhichMenuToUse).observe(document.body);
         </script>
 
+        {{- partial "favorites-script.html" }}
+
         <main class="page-main">
             {{ block "main" . }}{{ end }}
         </main>

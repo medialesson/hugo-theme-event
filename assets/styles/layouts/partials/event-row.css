@@ -1,3 +1,8 @@
+.event-row-wrapper {
+    position: relative;
+    width: 100%;
+}
+
 .event-row {
     all: unset;
     display: flex;

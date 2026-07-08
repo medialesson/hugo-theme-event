@@ -1,67 +1,73 @@
 {{ $input := . }}
 
 
-<a
-    {{- if $input.isServiceSession }}
-        class="event-row event-row--service-session"
-    {{- else }}
-        class="event-row" href="{{- $input.link }}"
-    {{- end }}>
-    <div class="event-row__left">
-        {{- if $input.track }}
-            <h1 class="event-row__track">
-                #{{- $input.track | upper -}}
-            </h1>
-        {{- end }}
-        <h2 class="event-row__title">
-            {{- $input.title -}}
-        </h2>
-        <h3 class="event-row__speakers">
-            {{- range $input.speakers }}
-                <span>{{- .name -}}</span>
+<div class="event-row-wrapper">
+    <a
+        {{- if $input.isServiceSession }}
+            class="event-row event-row--service-session"
+        {{- else }}
+            class="event-row" href="{{- $input.link }}"
+        {{- end }}>
+        <div class="event-row__left">
+            {{- if $input.track }}
+                <h1 class="event-row__track">
+                    #{{- $input.track | upper -}}
+                </h1>
             {{- end }}
-        </h3>
-        <h3 class="event-row__room">
-            {{- T "sessions_page.room" }}:
-            {{ $input.room -}}
-        </h3>
-    </div>
-    <div class="event-row__right">
-        <ul class="event-row__avatars">
-            {{- range $input.speakers }}
-                {{- $speaker := . }}
-                {{- with $speaker.avatarResource }}
-                    {{- with images.Filter (images.Process "resize 128x") . }}
-                        <li>
-                            <img
-                                class="event-row__avatar-img"
-                                src="{{ .RelPermalink }}"
-                                alt="{{ $speaker.name }}"
-                                width="{{ .Width }}"
-                                height="{{ .Height }}" />
-                        </li>
-                    {{- end }}
-                {{- else }}
-                    {{- with resources.Get "images/avatar-image-fallback.webp" }}
-                        <li>
-                            <img
-                                class="event-row__avatar-img"
-                                src="{{ .RelPermalink }}"
-                                alt="{{ $speaker.name }}"
-                                width="{{ .Width }}"
-                                height="{{ .Height }}" />
-                        </li>
+            <h2 class="event-row__title">
+                {{- $input.title -}}
+            </h2>
+            <h3 class="event-row__speakers">
+                {{- range $input.speakers }}
+                    <span>{{- .name -}}</span>
+                {{- end }}
+            </h3>
+            <h3 class="event-row__room">
+                {{- T "sessions_page.room" }}:
+                {{ $input.room -}}
+            </h3>
+        </div>
+        <div class="event-row__right">
+            <ul class="event-row__avatars">
+                {{- range $input.speakers }}
+                    {{- $speaker := . }}
+                    {{- with $speaker.avatarResource }}
+                        {{- with images.Filter (images.Process "resize 128x") . }}
+                            <li>
+                                <img
+                                    class="event-row__avatar-img"
+                                    src="{{ .RelPermalink }}"
+                                    alt="{{ $speaker.name }}"
+                                    width="{{ .Width }}"
+                                    height="{{ .Height }}" />
+                            </li>
+                        {{- end }}
+                    {{- else }}
+                        {{- with resources.Get "images/avatar-image-fallback.webp" }}
+                            <li>
+                                <img
+                                    class="event-row__avatar-img"
+                                    src="{{ .RelPermalink }}"
+                                    alt="{{ $speaker.name }}"
+                                    width="{{ .Width }}"
+                                    height="{{ .Height }}" />
+                            </li>
+                        {{- end }}
                     {{- end }}
                 {{- end }}
-            {{- end }}
-        </ul>
+            </ul>
 
-        {{- partial "session-categories.html" (
-            dict
-            "categories" $input.categories
-            "listClasses" "event-row__categories"
-            "listItemClasses" "event-row__category"
-            )
-        -}}
-    </div>
-</a>
+            {{- partial "session-categories.html" (
+                dict
+                "categories" $input.categories
+                "listClasses" "event-row__categories"
+                "listItemClasses" "event-row__category"
+                )
+            -}}
+        </div>
+    </a>
+
+    {{- if not $input.isServiceSession }}
+        {{- partial "elements/favorite-button.html" (dict "sessionId" $input.sessionId) }}
+    {{- end }}
+</div>

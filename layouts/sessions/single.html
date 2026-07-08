@@ -3,6 +3,7 @@
         <section class="section single-session-section" aria-label="Session information">
             <div class="single-session-section__spacer"></div>
             <div class="single-session-section__session-information">
+                {{- partial "elements/favorite-button.html" (dict "sessionId" page.Params.sessionId) }}
                 <h1 class="single-session-section__heading">
                     <div class="single-session-section__metadata">
                         {{- if page.Params.isScheduled }}

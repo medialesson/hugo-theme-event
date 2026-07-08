@@ -74,6 +74,8 @@ test(`Should show only favorited sessions when "Nur Favoriten anzeigen" is check
 
     await page.locator('[data-session-row-id="729573"] [data-favorite-toggle]').click();
 
+    const favoritesOnlyCheckbox = page.locator('#filter-favorites-only');
+    await expect(favoritesOnlyCheckbox).toBeEnabled();
     await page.locator('label[for="filter-favorites-only"]').click();
 
     await expect(page.locator('[data-session-row-id="729573"]')).toBeVisible();
@@ -85,6 +87,7 @@ test(`Should show all sessions again when "Nur Favoriten anzeigen" is unchecked`
 
     await page.locator('[data-session-row-id="729573"] [data-favorite-toggle]').click();
 
+    await expect(page.locator('#filter-favorites-only')).toBeEnabled();
     const favoritesOnlyCheckbox = page.locator('label[for="filter-favorites-only"]');
     await favoritesOnlyCheckbox.click();
     await favoritesOnlyCheckbox.click();

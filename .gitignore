@@ -7,4 +7,5 @@ resources
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+.superpowers/
 

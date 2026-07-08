@@ -31,6 +31,14 @@
     {{- end }}
 
 
+    <input
+        name="filter-favorites"
+        type="checkbox"
+        class="session-filter-input"
+        value="favorites-only"
+        id="filter-favorites-only"
+        disabled />
+
     <header class="section-container">
         <div class="section">
             <h1 class="heading heading--1">{{ T "sessions_page.heading" }}</h1>
@@ -68,6 +76,20 @@
                         </menu>
                     </article>
                 {{- end }}
+
+
+                <article class="session-list-filter">
+                    <h2 class="session-list-filter__heading">
+                        {{- T "sessions_page.heading_favorites_filter" }}
+                    </h2>
+                    <menu class="session-list-filter__menu">
+                        <li role="presentation">
+                            <label class="session-list-filter__label" for="filter-favorites-only">
+                                {{- T "sessions_page.favorites_filter_label" -}}
+                            </label>
+                        </li>
+                    </menu>
+                </article>
             </div>
         </div>
     </header>
@@ -90,6 +112,7 @@
                             {{- $page := . }}
                             <li
                                 role="presentation"
+                                data-session-row-id="{{ .Params.sessionId }}"
                                 {{- if .Params.track }}
                                     data-track="{{ (index $sessionTrackIndices .Params.track) }}"
                                 {{- end }}>
@@ -105,6 +128,7 @@
                                 {{- end }}
                                 {{- partial "event-row.html" (
                                     dict
+                                    "sessionId" .Params.sessionId
                                     "track" .Params.track
                                     "title" .Title
                                     "link" .RelPermalink

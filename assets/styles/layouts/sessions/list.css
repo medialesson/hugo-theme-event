@@ -154,6 +154,10 @@
     color: white;
 }
 
+[value='favorites-only'].session-filter-input:checked ~ * [data-session-row-id]:not([data-favorite='true']) {
+    display: none;
+}
+
 .nothing-scheduled-section {
     display: flex;
     flex-direction: column;

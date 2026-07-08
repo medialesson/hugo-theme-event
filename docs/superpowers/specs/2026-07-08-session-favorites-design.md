@@ -9,20 +9,20 @@ browser/device.
 
 ## Goals
 
-- A user can favorite/unfavorite a session from the sessions list page and
-  from a session's single page.
-- A user can filter the sessions list to show only their favorited sessions.
-- Favorite state persists across page reloads and navigation, without any
-  server involvement.
-- Works within the theme's existing constraints: no JS framework, no build
-  pipeline, no new dependencies.
+-   A user can favorite/unfavorite a session from the sessions list page and
+    from a session's single page.
+-   A user can filter the sessions list to show only their favorited sessions.
+-   Favorite state persists across page reloads and navigation, without any
+    server involvement.
+-   Works within the theme's existing constraints: no JS framework, no build
+    pipeline, no new dependencies.
 
 ## Non-goals
 
-- Syncing favorites across devices or browsers.
-- Persisting favorites if the user clears browser storage or uses a different
-  browser/incognito session.
-- Any backend storage or account system.
+-   Syncing favorites across devices or browsers.
+-   Persisting favorites if the user clears browser storage or uses a different
+    browser/incognito session.
+-   Any backend storage or account system.
 
 ## Approach
 
@@ -56,19 +56,19 @@ show/hide behavior.
 An inline `<script>` partial included once (in `baseof.html`, after the
 existing scripts) providing:
 
-- `getFavoriteIds()` — reads and parses the `favoriteSessionIds` key from
-  `localStorage` (JSON array of session IDs). Returns `[]` on any error
-  (missing key, storage disabled, parse failure).
-- `isFavorite(id)` / `setFavorite(id, isFavorite)` — read/write helpers,
-  wrapped in `try/catch` so a `localStorage` failure (e.g., disabled storage,
-  private browsing quota) never throws — it just fails to persist silently.
-- `initFavoriteButtons()` — runs on `DOMContentLoaded`:
-  - Finds all `[data-favorite-toggle]` buttons (favorite star buttons).
-  - For each, reads `data-session-id`, sets initial pressed/visual state and
-    the row/card's `data-favorite` attribute from storage.
-  - Attaches a `click` listener that toggles storage, updates the clicked
-    button's visual state/`aria-pressed`, and updates the ancestor row's
-    `data-favorite` attribute (used by the CSS filter).
+-   `getFavoriteIds()` — reads and parses the `favoriteSessionIds` key from
+    `localStorage` (JSON array of session IDs). Returns `[]` on any error
+    (missing key, storage disabled, parse failure).
+-   `isFavorite(id)` / `setFavorite(id, isFavorite)` — read/write helpers,
+    wrapped in `try/catch` so a `localStorage` failure (e.g., disabled storage,
+    private browsing quota) never throws — it just fails to persist silently.
+-   `initFavoriteButtons()` — runs on `DOMContentLoaded`:
+    -   Finds all `[data-favorite-toggle]` buttons (favorite star buttons).
+    -   For each, reads `data-session-id`, sets initial pressed/visual state and
+        the row/card's `data-favorite` attribute from storage.
+    -   Attaches a `click` listener that toggles storage, updates the clicked
+        button's visual state/`aria-pressed`, and updates the ancestor row's
+        `data-favorite` attribute (used by the CSS filter).
 
 No polling, no cross-tab sync (out of scope) — state is only read on load and
 written on click.
@@ -96,10 +96,10 @@ favorites" (i18n) based on state, updated by the shared script.
 
 Used in two places, both as a **corner overlay** (confirmed via mockup):
 
-- `layouts/partials/event-row.html` — positioned absolutely in the top-right
-  corner of each session row/card in the sessions list.
-- `layouts/sessions/single.html` — positioned absolutely in the top-right
-  corner of the session hero/information card.
+-   `layouts/partials/event-row.html` — positioned absolutely in the top-right
+    corner of each session row/card in the sessions list.
+-   `layouts/sessions/single.html` — positioned absolutely in the top-right
+    corner of the session hero/information card.
 
 Both call sites wrap in a container with `position: relative` and pass their
 own `Params.sessionId`.
@@ -110,12 +110,7 @@ Added to `layouts/sessions/list.html` alongside the existing day/track filter
 `<input>` elements, following the identical existing pattern:
 
 ```html
-<input
-    name="filter-favorites"
-    type="checkbox"
-    class="session-filter-input"
-    value="favorites-only"
-    id="filter-favorites-only" />
+<input name="filter-favorites" type="checkbox" class="session-filter-input" value="favorites-only" id="filter-favorites-only" />
 ```
 
 Rendered as its own small filter group (label via i18n, e.g. "My schedule")
@@ -126,10 +121,7 @@ New CSS rule in `assets/styles/layouts/sessions/list.css`, mirroring the
 existing day/track sibling-selector rules:
 
 ```css
-[value='favorites-only'].session-filter-input:checked
-    ~ *
-    .session-day-section
-    [role='presentation']:not([data-favorite='true']) {
+[value='favorites-only'].session-filter-input:checked ~ * .session-day-section [role='presentation']:not([data-favorite='true']) {
     display: none;
 }
 ```
@@ -151,9 +143,9 @@ request per star and allows pure-CSS color toggling.
 
 Added to `i18n/en.yaml` and `i18n/de.yaml` under `sessions_page`:
 
-- `add_to_favorites` — "Add to favorites" / "Zu Favoriten hinzufügen"
-- `remove_from_favorites` — "Remove from favorites" / "Von Favoriten entfernen"
-- `heading_favorites_filter` — "My schedule" / "Mein Zeitplan"
+-   `add_to_favorites` — "Add to favorites" / "Zu Favoriten hinzufügen"
+-   `remove_from_favorites` — "Remove from favorites" / "Von Favoriten entfernen"
+-   `heading_favorites_filter` — "My schedule" / "Mein Zeitplan"
 
 ## Data flow
 
@@ -172,32 +164,32 @@ open tab will reflect updated state only on next reload/navigation).
 
 ## Error handling
 
-- `localStorage` reads/writes are wrapped in `try/catch`. If storage is
-  unavailable (disabled, private-mode quota errors, etc.), favoriting still
-  toggles the button's visual state for the current page view but silently
-  fails to persist — no thrown errors, no broken page.
-- If JavaScript is disabled entirely, star buttons render but are inert
-  (no click handler attached), and the "My schedule" filter checkbox simply
-  has no effect (nothing is ever marked `data-favorite="true"`). This is
-  consistent with existing theme behavior for JS-dependent enhancements
-  (e.g., `countdown.html`, which hides its whole widget without JS).
+-   `localStorage` reads/writes are wrapped in `try/catch`. If storage is
+    unavailable (disabled, private-mode quota errors, etc.), favoriting still
+    toggles the button's visual state for the current page view but silently
+    fails to persist — no thrown errors, no broken page.
+-   If JavaScript is disabled entirely, star buttons render but are inert
+    (no click handler attached), and the "My schedule" filter checkbox simply
+    has no effect (nothing is ever marked `data-favorite="true"`). This is
+    consistent with existing theme behavior for JS-dependent enhancements
+    (e.g., `countdown.html`, which hides its whole widget without JS).
 
 ## Testing
 
 New Playwright tests (`tests/session-favorites.spec.ts`):
 
-- Favoriting a session row on the list page updates the button's
-  `aria-pressed` state immediately.
-- Favorite state persists after reloading the sessions list page.
-- Checking "My schedule" shows only favorited sessions and hides the rest.
-- Favoriting a session on its single session page updates state, and
-  navigating back to the sessions list reflects the same favorite state on
-  the corresponding row.
-- Unfavoriting removes the session from the "My schedule" filtered view.
+-   Favoriting a session row on the list page updates the button's
+    `aria-pressed` state immediately.
+-   Favorite state persists after reloading the sessions list page.
+-   Checking "My schedule" shows only favorited sessions and hides the rest.
+-   Favoriting a session on its single session page updates state, and
+    navigating back to the sessions list reflects the same favorite state on
+    the corresponding row.
+-   Unfavoriting removes the session from the "My schedule" filtered view.
 
 ## Out of scope / future considerations
 
-- Cross-device or account-based sync.
-- A dedicated "My Schedule" page (explicitly deferred; the list-page filter
-  toggle was chosen instead).
-- Real-time sync across multiple open tabs.
+-   Cross-device or account-based sync.
+-   A dedicated "My Schedule" page (explicitly deferred; the list-page filter
+    toggle was chosen instead).
+-   Real-time sync across multiple open tabs.

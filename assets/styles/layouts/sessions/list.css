@@ -154,9 +154,7 @@
     color: white;
 }
 
-[value='favorites-only'].session-filter-input:checked
-    ~ *
-    [data-session-row-id]:not([data-favorite='true']) {
+[value='favorites-only'].session-filter-input:checked ~ * [data-session-row-id]:not([data-favorite='true']) {
     display: none;
 }
 

@@ -22,10 +22,7 @@
 
         function applyButtonState(button, favorited) {
             button.setAttribute('aria-pressed', favorited ? 'true' : 'false');
-            button.setAttribute(
-                'aria-label',
-                favorited ? button.dataset.labelRemove : button.dataset.labelAdd,
-            );
+            button.setAttribute('aria-label', favorited ? button.dataset.labelRemove : button.dataset.labelAdd);
 
             var row = button.closest('[data-session-row-id]');
             if (row) {

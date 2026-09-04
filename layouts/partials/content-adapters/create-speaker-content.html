@@ -21,7 +21,8 @@
         "lastName" .lastName
         "firstName" .firstName
     }}
-    {{ $path := (printf "%s %s" .fullName .id) }}
+    {{ $slugifiedFullName := partial "slugify.html" .fullName }}
+    {{ $path := (printf "%s %s" $slugifiedFullName .id) }}
     {{ $page := dict
         "content" $content
         "kind" "page"

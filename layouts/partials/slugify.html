@@ -3,7 +3,8 @@
     accented characters) into their ASCII equivalents, so that page paths and
     resource paths derived from the same value always stay in sync, no matter
     how Hugo's own URL sanitization handles non-ASCII characters.
-*/ -}}
+    */
+-}}
 {{- $value := . -}}
 {{- $replacements := slice
     (slice "ä" "ae") (slice "ö" "oe") (slice "ü" "ue")

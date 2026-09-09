@@ -2,25 +2,39 @@
     <section class="speaker-list">
         <div class="section">
             <h1 class="heading heading--1">{{ T "speakers_page.heading" }}</h1>
-            <menu class="speaker-list__menu">
-                {{ range .Pages.GroupByParam "lastName" }}
-                    {{ range .Pages.ByParam "firstName" }}
-                        <li class="speaker-list__item">
-                            {{- partial "speaker-card.html" (
-                                dict
-                                "profileUrl" .RelPermalink
-                                "avatarResource" (.Resources.GetMatch "avatar.*")
-                                "name" .Title
-                                "description" .Params.tagLine
-                                "linkedinUrl" .Params.linkedinUrl
-                                "xUrl" .Params.xUrl
-                                "companyUrl" .Params.company
-                                )
-                            }}
-                        </li>
+            {{ if .Pages }}
+                <menu class="speaker-list__menu">
+                    {{ range .Pages.GroupByParam "lastName" }}
+                        {{ range .Pages.ByParam "firstName" }}
+                            <li class="speaker-list__item">
+                                {{- partial "speaker-card.html" (
+                                    dict
+                                    "profileUrl" .RelPermalink
+                                    "avatarResource" (.Resources.GetMatch "avatar.*")
+                                    "name" .Title
+                                    "description" .Params.tagLine
+                                    "linkedinUrl" .Params.linkedinUrl
+                                    "xUrl" .Params.xUrl
+                                    "companyUrl" .Params.company
+                                    )
+                                }}
+                            </li>
+                        {{ end }}
                     {{ end }}
-                {{ end }}
-            </menu>
+                </menu>
+            {{ else }}
+                <div class="nothing-scheduled-section">
+                    <h2 class="heading heading--highlighted heading--centered nothing-scheduled-section__heading">
+                        {{ T "speakers_page.heading_no_speakers" }}
+                    </h2>
+                    <h3 class="heading heading--2 heading--centered nothing-scheduled-section__heading">
+                        {{ T "speakers_page.heading_come_back_soon" }}
+                    </h3>
+                    <div class="nothing-scheduled-section__placeholder">
+                        {{- partial "graphics/no-content.html" }}
+                    </div>
+                </div>
+            {{ end }}
         </div>
     </section>
 

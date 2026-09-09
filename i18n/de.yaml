@@ -10,6 +10,8 @@ cta_section.message: |
     Verpasse nicht die Chance, von führenden Expertinnen und Experten zu lernen
     und wertvolle Kontakte zu knüpfen!
 speakers_page.heading: Sprecher
+speakers_page.heading_no_speakers: Noch keine Sprecher angekündigt
+speakers_page.heading_come_back_soon: Schauen Sie bald wieder vorbei oder folgen Sie uns auf Social Media
 speakers_page.social_links: 'Soziale Medien-Links von {{ . }}'
 sessions_page.heading: Programm
 sessions_page.heading_day_filter: Datum
@@ -36,6 +38,8 @@ location_page.map_frame: Interaktive Karte, die den Standort der Veranstaltung z
 location_page.map_fullscreen: Größere Karte des Veranstaltungsortes anzeigen
 sponsors_page.heading_sponsors: Sponsoren
 sponsors_page.heading_partners: Partner
+sponsors_page.heading_no_sponsors: Noch keine Sponsoren angekündigt
+sponsors_page.heading_come_back_soon: Schauen Sie bald wieder vorbei oder folgen Sie uns auf Social Media
 about_page.heading: Über uns
 about_page.organizers_heading: 'Das Organisationsteam von {{ . }}'
 conference_tracks_section.heading: Conference Tracks

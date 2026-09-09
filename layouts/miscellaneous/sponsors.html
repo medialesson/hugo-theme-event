@@ -55,6 +55,19 @@
                     {{- end }}
                 </ul>
             {{ end }}
+            {{ if and (eq (len $validSponsors) 0) (eq (len $validPartners) 0) }}
+                <div class="nothing-scheduled-section">
+                    <h2 class="heading heading--highlighted heading--centered nothing-scheduled-section__heading">
+                        {{ T "sponsors_page.heading_no_sponsors" }}
+                    </h2>
+                    <h3 class="heading heading--2 heading--centered nothing-scheduled-section__heading">
+                        {{ T "sponsors_page.heading_come_back_soon" }}
+                    </h3>
+                    <div class="nothing-scheduled-section__placeholder">
+                        {{- partial "graphics/no-content.html" }}
+                    </div>
+                </div>
+            {{ end }}
         </div>
     </section>
 

@@ -1,8 +1,8 @@
 {{- /*
     Uses Hugo's URL normalization to transliterate diacritics into ASCII before
     page and resource paths are built, while preserving literal hyphens inside
-    each whitespace-delimited segment so callers keep the existing path
-    assembly and resulting URLs stay in sync.
+    each whitespace-delimited segment so the generated path stays URL-safe and
+    resulting page and resource URLs stay in sync.
     */
 -}}
 {{- $value := replaceRE "\\s+" " " (replaceRE "^\\s+|\\s+$" "" .) -}}
@@ -10,4 +10,4 @@
 {{- range split $value " " -}}
     {{- $parts = $parts | append (urlize .) -}}
 {{- end -}}
-{{- return delimit $parts " " -}}
+{{- return delimit $parts "-" -}}

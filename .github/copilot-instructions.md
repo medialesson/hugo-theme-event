@@ -22,7 +22,7 @@ This repository contains a **Hugo theme** that creates modern, responsive event 
 │   │   └── partials/    # Mirror of layouts/partials/ for per-partial styles
 │   └── test/            # Mock Sessionize API response (sessionize-view-all.json)
 ├── content/
-│   ├── _content.gotmpl  # Dynamic content generation from Sessionize data
+│   ├── _content.gotmpl  # Generates miscellaneous pages
 │   ├── sessions/        # Session content files
 │   └── speakers/        # Speaker content files
 ├── i18n/                # Translation files (de.yaml, en.yaml)

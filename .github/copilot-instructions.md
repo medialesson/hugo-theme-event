@@ -19,7 +19,7 @@ This repository contains a **Hugo theme** that creates modern, responsive event 
 │   ├── images/          # Theme images
 │   ├── logos/           # Logo assets
 │   ├── styles/          # CSS files (BEM, auto-merged by Hugo)
-│   │   └── partials/    # Mirror of layouts/partials/ for per-partial styles
+│   │   └── layouts/partials/ # Mirror of layouts/partials/ for per-partial styles
 │   └── test/            # Mock Sessionize API response (sessionize-view-all.json)
 ├── content/
 │   ├── _content.gotmpl  # Generates miscellaneous pages

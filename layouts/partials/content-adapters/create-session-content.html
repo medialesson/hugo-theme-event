@@ -41,7 +41,8 @@
         "isScheduled" $isScheduled
         "categories" $sessionCategoryNames
     }}
-    {{ $path := (printf "%s %s" .title $sessionId) }}
+    {{ $slugifiedTitle := partial "slugify.html" .title }}
+    {{ $path := (printf "%s %s" $slugifiedTitle $sessionId) }}
     {{ $page := dict
         "content" $content
         "kind" "page"

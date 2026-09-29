@@ -11,6 +11,8 @@ cta_section.message: |
     contacts!
 header_featured_speakers: Featured Speakers
 speakers_page.heading: Speakers
+speakers_page.heading_no_speakers: No speakers announced yet
+speakers_page.heading_come_back_soon: Come back soon or follow us on social media
 speakers_page.social_links: '{{ . }} social media links'
 sessions_page.heading: Schedule
 sessions_page.day: Day {{ . }}
@@ -37,6 +39,8 @@ location_page.map_frame: Interactive map showing the location of the event
 location_page.map_fullscreen: View larger map of the event location
 sponsors_page.heading_sponsors: Sponsors
 sponsors_page.heading_partners: Partners
+sponsors_page.heading_no_sponsors: No sponsors announced yet
+sponsors_page.heading_come_back_soon: Come back soon or follow us on social media
 about_page.heading: About Us
 about_page.organizers_heading: 'The organizing team of {{ . }}'
 conference_tracks_section.heading: Conference Tracks

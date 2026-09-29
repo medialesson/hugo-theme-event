@@ -6,14 +6,16 @@ import { expect, test } from '@playwright/test';
         description:
             'Explore the world of microservices and learn how to build scalable, resilient applications using Kubernetes. This session will cover the fundamentals of microservices architecture, containerization, a',
         labels: ['Workshop', 'Introductory and overview', 'French'],
+        sessionUrl: '/sessions/building-scalable-microservices-with-kubernetes-729576/',
     },
     {
-        title: 'The Future of AI: Trends and Innovations',
+        title: 'Über Čaj and AI',
         description:
             'Join us for an insightful session where we explore the latest trends and innovations in artificial intelligence. From cutting-edge research to practical applications, this session will cover a wide ra',
         labels: ['Workshop', 'Intermediate', 'Portuguese'],
+        sessionUrl: '/sessions/ueber-caj-and-ai-729579/',
     },
-].forEach(({ title, description, labels }) => {
+].forEach(({ title, description, labels, sessionUrl }) => {
     test(`Should display information about the featured session ${title} on home page`, async ({ page }) => {
         await page.goto('/');
         const featuredSessionsRegion = page.getByRole('region', { name: 'Featured Sessions' });
@@ -24,6 +26,9 @@ import { expect, test } from '@playwright/test';
         for (const label of labels) {
             await expect(featuredSession.getByRole('listitem', { name: label })).toBeVisible();
         }
+
+        await featuredSession.locator(`a[href="${sessionUrl}"]`).click();
+        await expect(page).toHaveURL(sessionUrl);
     });
 });
 
@@ -52,8 +57,8 @@ import { expect, test } from '@playwright/test';
         speakerName: 'Lucas Test',
     },
     {
-        title: 'The Future of AI: Trends and Innovations',
-        speakerName: 'Top Speaker 2',
+        title: 'Über Čaj and AI',
+        speakerName: 'Töp Špeaker 2',
     },
 ].forEach(({ title, speakerName }) => {
     test(`Should display speaker profile image for featured session ${title} on home page`, async ({ page }, testInfo) => {

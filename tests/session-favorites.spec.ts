@@ -1,4 +1,8 @@
 import { expect, test } from '@playwright/test';
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 
 test(`Should show a favorite button on each session row that is unfavorited by default`, async ({ page }) => {
     await page.goto('/sessions/');
@@ -94,3 +98,35 @@ test(`Should show all sessions again when "Nur Favoriten anzeigen" is unchecked`
 
     await expect(page.locator('[data-session-row-id="729572"]')).toBeVisible();
 });
+
+for (const configuration of ['false', 'missing']) {
+    test(`Should omit favorites when enableSessionFavorites is ${configuration}`, async ({ page }) => {
+        const directory = mkdtempSync(join(tmpdir(), 'session-favorites-'));
+        try {
+            const config = readFileSync('hugo.spec.yaml', 'utf8').replace(
+                'enableSessionFavorites: true',
+                configuration === 'false' ? 'enableSessionFavorites: false' : '',
+            );
+            const configPath = join(directory, 'hugo.yaml');
+            const destination = join(directory, 'public');
+            writeFileSync(configPath, config);
+            execFileSync('hugo', ['--config', configPath, '--destination', destination, '--panicOnWarning']);
+
+            for (const path of ['sessions', 'sessions/mastering-personal-branding-in-the-digital-age-729571']) {
+                const html = readFileSync(join(destination, path, 'index.html'), 'utf8');
+                expect(html).not.toContain('favoriteSessionIds');
+                await page.setContent(html);
+                await expect(page.locator('[data-favorite-toggle]')).toHaveCount(0);
+                await expect(page.locator('#filter-favorites-only')).toHaveCount(0);
+                await expect(page.locator('label[for="filter-favorites-only"]')).toHaveCount(0);
+                await expect(page.locator('.event-row__title, .single-session-section__heading').first()).toBeVisible();
+                if (path === 'sessions') {
+                    await expect(page.locator('label[for="filter-day-0"]')).toHaveCount(1);
+                    await expect(page.locator('label[for="filter-track-0"]')).toHaveCount(1);
+                }
+            }
+        } finally {
+            rmSync(directory, { recursive: true, force: true });
+        }
+    });
+}

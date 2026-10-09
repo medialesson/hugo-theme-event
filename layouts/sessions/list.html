@@ -30,14 +30,16 @@
             checked />
     {{- end }}
 
+    {{- if .Site.Params.themes.event.enableSessionFavorites }}
+        <input
+            name="filter-favorites"
+            type="checkbox"
+            class="session-filter-input"
+            value="favorites-only"
+            id="filter-favorites-only"
+            disabled />
+    {{- end }}
 
-    <input
-        name="filter-favorites"
-        type="checkbox"
-        class="session-filter-input"
-        value="favorites-only"
-        id="filter-favorites-only"
-        disabled />
 
     <header class="section-container">
         <div class="section">
@@ -77,19 +79,20 @@
                     </article>
                 {{- end }}
 
-
-                <article class="session-list-filter">
-                    <h2 class="session-list-filter__heading">
-                        {{- T "sessions_page.heading_favorites_filter" }}
-                    </h2>
-                    <menu class="session-list-filter__menu">
-                        <li role="presentation">
-                            <label class="session-list-filter__label" for="filter-favorites-only">
-                                {{- T "sessions_page.favorites_filter_label" -}}
-                            </label>
-                        </li>
-                    </menu>
-                </article>
+                {{- if .Site.Params.themes.event.enableSessionFavorites }}
+                    <article class="session-list-filter">
+                        <h2 class="session-list-filter__heading">
+                            {{- T "sessions_page.heading_favorites_filter" }}
+                        </h2>
+                        <menu class="session-list-filter__menu">
+                            <li role="presentation">
+                                <label class="session-list-filter__label" for="filter-favorites-only">
+                                    {{- T "sessions_page.favorites_filter_label" -}}
+                                </label>
+                            </li>
+                        </menu>
+                    </article>
+                {{- end }}
             </div>
         </div>
     </header>

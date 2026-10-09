@@ -1,0 +1,56 @@
+{{- /*
+    Transliterates German umlauts and other non-ASCII Latin characters into
+    ASCII while preserving the existing path shape, so page paths and resource
+    paths derived from the same value stay in sync even for decomposed
+    diacritics.
+    */
+-}}
+{{- $value := . -}}
+{{- $replacements := slice
+    (slice "à" "a") (slice "á" "a") (slice "â" "a") (slice "ã" "a") (slice "å" "a") (slice "ą" "a") (slice "ä" "ae")
+    (slice "À" "A") (slice "Á" "A") (slice "Â" "A") (slice "Ã" "A") (slice "Å" "A") (slice "Ą" "A") (slice "Ä" "Ae")
+    (slice "ç" "c") (slice "ć" "c") (slice "č" "c")
+    (slice "Ç" "C") (slice "Ć" "C") (slice "Č" "C")
+    (slice "è" "e") (slice "é" "e") (slice "ê" "e") (slice "ë" "e") (slice "ę" "e")
+    (slice "È" "E") (slice "É" "E") (slice "Ê" "E") (slice "Ë" "E") (slice "Ę" "E")
+    (slice "ğ" "g") (slice "Ğ" "G")
+    (slice "ì" "i") (slice "í" "i") (slice "î" "i") (slice "ï" "i")
+    (slice "Ì" "I") (slice "Í" "I") (slice "Î" "I") (slice "Ï" "I")
+    (slice "ñ" "n") (slice "Ñ" "N")
+    (slice "ò" "o") (slice "ó" "o") (slice "ô" "o") (slice "õ" "o") (slice "ö" "oe")
+    (slice "Ò" "O") (slice "Ó" "O") (slice "Ô" "O") (slice "Õ" "O") (slice "Ö" "Oe")
+    (slice "ş" "s") (slice "š" "s")
+    (slice "Ş" "S") (slice "Š" "S")
+    (slice "ù" "u") (slice "ú" "u") (slice "û" "u") (slice "ü" "ue")
+    (slice "Ù" "U") (slice "Ú" "U") (slice "Û" "U") (slice "Ü" "Ue")
+    (slice "ý" "y") (slice "ÿ" "y")
+    (slice "Ý" "Y") (slice "Ÿ" "Y")
+    (slice "ž" "z") (slice "Ž" "Z")
+    (slice "à" "a") (slice "á" "a") (slice "â" "a") (slice "ã" "a") (slice "å" "a") (slice "ą" "a")
+    (slice "À" "A") (slice "Á" "A") (slice "Â" "A") (slice "Ã" "A") (slice "Å" "A") (slice "Ą" "A")
+    (slice "ä" "ae") (slice "ö" "oe") (slice "ü" "ue")
+    (slice "Ä" "Ae") (slice "Ö" "Oe") (slice "Ü" "Ue")
+    (slice "æ" "ae") (slice "Æ" "Ae")
+    (slice "ç" "c") (slice "ć" "c") (slice "č" "c")
+    (slice "Ç" "C") (slice "Ć" "C") (slice "Č" "C")
+    (slice "è" "e") (slice "é" "e") (slice "ê" "e") (slice "ë" "e") (slice "ę" "e")
+    (slice "È" "E") (slice "É" "E") (slice "Ê" "E") (slice "Ë" "E") (slice "Ę" "E")
+    (slice "ğ" "g") (slice "Ğ" "G")
+    (slice "ì" "i") (slice "í" "i") (slice "î" "i") (slice "ï" "i") (slice "ı" "i")
+    (slice "Ì" "I") (slice "Í" "I") (slice "Î" "I") (slice "Ï" "I") (slice "İ" "I")
+    (slice "ł" "l") (slice "Ł" "L")
+    (slice "ñ" "n") (slice "Ñ" "N")
+    (slice "ò" "o") (slice "ó" "o") (slice "ô" "o") (slice "õ" "o") (slice "ø" "o")
+    (slice "Ò" "O") (slice "Ó" "O") (slice "Ô" "O") (slice "Õ" "O") (slice "Ø" "O")
+    (slice "œ" "oe") (slice "Œ" "Oe")
+    (slice "š" "s") (slice "ş" "s") (slice "Š" "S") (slice "Ş" "S")
+    (slice "ß" "ss") (slice "ẞ" "Ss")
+    (slice "ù" "u") (slice "ú" "u") (slice "û" "u")
+    (slice "Ù" "U") (slice "Ú" "U") (slice "Û" "U")
+    (slice "ý" "y") (slice "ÿ" "y") (slice "Ý" "Y")
+    (slice "ž" "z") (slice "Ž" "Z")
+-}}
+{{- range $replacements -}}
+    {{- $value = replace $value (index . 0) (index . 1) -}}
+{{- end -}}
+{{- return $value -}}

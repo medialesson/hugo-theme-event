@@ -7,9 +7,9 @@ import { expect, test } from '@playwright/test';
         profileUrl: '/speakers/top-speaker-1-00000000-0000-0000-0000-000000000004/',
     },
     {
-        fullName: 'Top Speaker 2',
+        fullName: 'Töp Špeaker 2',
         tagLine: 'Dynamic PR Specialist and Communications Expert',
-        profileUrl: '/speakers/top-speaker-2-00000000-0000-0000-0000-000000000008/',
+        profileUrl: '/speakers/toep-speaker-2-00000000-0000-0000-0000-000000000008/',
     },
     {
         fullName: 'Top Speaker 3',
@@ -34,5 +34,10 @@ import { expect, test } from '@playwright/test';
 
         await featuredSpeakerItem.getByRole('link', { name: fullName }).click();
         await expect(page).toHaveURL(profileUrl);
+
+        const speakerImage = page.getByRole('img', { name: fullName });
+        await expect(speakerImage).toHaveAttribute('src', /.+/);
+        const src = await speakerImage.getAttribute('src');
+        expect(src ?? '').not.toContain('fallback');
     });
 });

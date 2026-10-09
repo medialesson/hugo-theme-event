@@ -146,7 +146,7 @@
         },
         {
             "id": "729579",
-            "title": "The Future of AI: Trends and Innovations",
+            "title": "Über Čaj and AI",
             "description": "Join us for an insightful session where we explore the latest trends and innovations in artificial intelligence. From cutting-edge research to practical applications, this session will cover a wide range of topics that are shaping the future of AI. Whether you're a seasoned professional or just starting out, you'll gain valuable insights and knowledge to stay ahead in this rapidly evolving field.",
             "startsAt": "2025-01-31T13:00:00",
             "endsAt": "2025-01-31T14:00:00",
@@ -263,15 +263,15 @@
         },
         {
             "id": "00000000-0000-0000-0000-000000000008",
-            "firstName": "Top",
-            "lastName": "Speaker 2",
+            "firstName": "Töp",
+            "lastName": "Špeaker 2",
             "bio": "Top Speaker 2 is a visionary leader in the field of artificial intelligence and machine learning. With over 20 years of experience, they have spearheaded groundbreaking research and development projects that have significantly advanced the industry. Their work has been recognized globally, earning them numerous awards and accolades. Top Speaker 2 is a prolific author and a sought-after keynote speaker at major tech conferences. When not immersed in AI, they enjoy teaching, writing, and exploring the intersection of technology and society.",
             "tagLine": "Dynamic PR Specialist and Communications Expert",
             "profilePicture": "https://sessionize.com/image/e987-400o400o1-test8.jpg",
             "isTopSpeaker": true,
             "links": [],
             "sessions": [729579],
-            "fullName": "Top Speaker 2",
+            "fullName": "Töp Špeaker 2",
             "categoryItems": [],
             "questionAnswers": []
         },

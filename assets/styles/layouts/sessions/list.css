@@ -154,6 +154,28 @@
     color: white;
 }
 
+[value='favorites-only'].session-filter-input {
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+[value='favorites-only'].session-filter-input:focus-visible ~ * [for='filter-favorites-only'] {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+[value='favorites-only'].session-filter-input:checked ~ * [for='filter-favorites-only'] {
+    background-color: var(--color-primary-lighter);
+    color: white;
+}
+
 [value='favorites-only'].session-filter-input:checked ~ * [data-session-row-id]:not([data-favorite='true']) {
     display: none;
 }

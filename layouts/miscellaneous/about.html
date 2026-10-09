@@ -6,7 +6,15 @@
 
     <div class="section-container">
         <section class="section about">
-            <h1 class="heading heading--1">{{- T "about_page.heading" }}</h1>
+            <h1 class="heading heading--1">
+                {{- partial "menus/menu_label.html"
+                    (dict
+                    "menus" .Site.Menus.main
+                    "pageRef" "/about"
+                    "translationKey" "about_page.heading"
+                    )
+                }}
+            </h1>
             {{ with $event.aboutUs }}
                 <div class="markdown about__text">
                     {{ . | markdownify }}

@@ -8,6 +8,7 @@
 }
 
 .single-session-section__session-information {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;

@@ -1,0 +1,84 @@
+<script>
+    (function () {
+        var STORAGE_KEY = 'favoriteSessionIds';
+
+        function getFavoriteIds() {
+            try {
+                var raw = localStorage.getItem(STORAGE_KEY);
+                var parsed = raw ? JSON.parse(raw) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveFavoriteIds(ids) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+            } catch (e) {
+                // Storage unavailable (disabled, private-mode quota, etc.) — ignore.
+            }
+        }
+
+        function applyButtonState(button, favorited) {
+            button.setAttribute('aria-pressed', favorited ? 'true' : 'false');
+            button.setAttribute('aria-label', favorited ? button.dataset.labelRemove : button.dataset.labelAdd);
+
+            var row = button.closest('[data-session-row-id]');
+            if (row) {
+                row.setAttribute('data-favorite', favorited ? 'true' : 'false');
+            }
+        }
+
+        function initFavoriteButtons() {
+            var favoriteIds = getFavoriteIds();
+
+            document.querySelectorAll('[data-favorite-toggle]').forEach(function (button) {
+                var sessionId = button.dataset.sessionId;
+                applyButtonState(button, favoriteIds.indexOf(sessionId) !== -1);
+
+                button.addEventListener('click', function () {
+                    // Toggle from the button's own current visual state, not from a
+                    // fresh storage read, so favoriting still works for the current
+                    // page view even if localStorage is unavailable (see error
+                    // handling section of the design spec).
+                    var nowFavorited = button.getAttribute('aria-pressed') !== 'true';
+
+                    var currentIds = getFavoriteIds();
+                    var index = currentIds.indexOf(sessionId);
+                    if (nowFavorited && index === -1) {
+                        currentIds.push(sessionId);
+                    } else if (!nowFavorited && index !== -1) {
+                        currentIds.splice(index, 1);
+                    }
+
+                    saveFavoriteIds(currentIds);
+                    applyButtonState(button, nowFavorited);
+                });
+            });
+        }
+
+        function enableFavoritesFilter() {
+            var filterCheckbox = document.getElementById('filter-favorites-only');
+            if (filterCheckbox) {
+                filterCheckbox.disabled = false;
+            }
+        }
+
+        function init() {
+            initFavoriteButtons();
+            // The "My schedule" filter checkbox only has a meaningful effect once
+            // this script has run and started marking rows with `data-favorite`.
+            // It stays disabled (see layouts/sessions/list.html) until then, so
+            // that with JavaScript disabled the filter has no effect at all
+            // instead of hiding every session.
+            enableFavoritesFilter();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+</script>

@@ -221,6 +221,11 @@
             new ResizeObserver(checkWhichMenuToUse).observe(document.body);
         </script>
 
+        {{- if .Site.Params.themes.event.enableSessionFavorites }}
+            {{- partial "favorites-script.html" }}
+        {{- end }}
+
+
         <main class="page-main">
             {{ block "main" . }}{{ end }}
         </main>

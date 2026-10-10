@@ -14,6 +14,10 @@ speakers_page.social_links: 'Soziale Medien-Links von {{ . }}'
 sessions_page.heading: Programm
 sessions_page.heading_day_filter: Datum
 sessions_page.heading_track_filter: Track
+sessions_page.add_to_favorites: Zu Favoriten hinzufügen
+sessions_page.remove_from_favorites: Von Favoriten entfernen
+sessions_page.heading_favorites_filter: Mein Zeitplan
+sessions_page.favorites_filter_label: Nur Favoriten anzeigen
 sessions_page.day: Tag {{ . }}
 sessions_page.speaker: Sprecher
 sessions_page.room: Raum

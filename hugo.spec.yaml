@@ -20,6 +20,7 @@ params:
     themes:
         event:
             sessionizeId: test
+            enableSessionFavorites: true
             title: test conference
             shortTitle: testcon
             startDate: 2045-06-01
